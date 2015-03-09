@@ -11,12 +11,14 @@ import android.widget.LinearLayout;
 public class HomeActivity extends Activity {
 
 	ImageButton menu;
+	ImageButton forosh;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_home);
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu);
+		forosh=(ImageButton) findViewById(R.id.imgbtn_forosh_home);
 
 	}
 
@@ -38,7 +40,15 @@ public class HomeActivity extends Activity {
 
 		
 		
-		
+		forosh.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				
+				startActivity(new Intent(HomeActivity.this,
+						 ForoshActivity.class));
+			}
+		});
 		menu.setOnClickListener(new OnClickListener() {
 
 			@Override

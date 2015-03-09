@@ -24,6 +24,7 @@
         </activity>
         <activity android:name="com.Atieh.reportsmobile.SelectDomainActivity" />
         <activity android:name="com.Atieh.reportsmobile.HomeActivity" />
+        <activity android:name="com.Atieh.reportsmobile.ForoshActivity" />
    
     </application>
 
