@@ -1,0 +1,167 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/ImageButton01"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@drawable/ic_action_date" />
+
+        <EditText
+            android:id="@+id/EditText01"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:inputType="date" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:text="از تاریخ:  "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_todate_forosh"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/ic_action_date" />
+
+            <EditText
+                android:id="@+id/et_todate_forosh"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv_todate_forosh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="تا تاریخ:  "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_customer_forosh"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/down" />
+
+            <EditText
+                android:id="@+id/et__customer_forosh"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv__customer_forosh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="مشتری:   "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_bazaryab_forosh"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/down" />
+
+            <EditText
+                android:id="@+id/et__bazarya_forosh"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv__bazarya_forosh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="بازاریاب: "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_foroshande_forosh"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/down" />
+
+            <EditText
+                android:id="@+id/et__foroshande_forosh"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv__foroshande_forosh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="فروشنده:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+    </LinearLayout>

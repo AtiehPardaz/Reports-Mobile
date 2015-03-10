@@ -1,0 +1,115 @@
+package com.Atieh.reportsmobile;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+public class ForoshActivity extends FragmentActivity {
+
+	ImageButton menu;
+	ImageButton forosh;
+	LinearLayout linearmenu;
+	ViewPager pagerforosh;
+	Button customer;
+	Button faktor;
+	Button kala;
+
+	public void initview() {
+		menu = (ImageButton) findViewById(R.id.imgbtn_menu_forosh);
+		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_forosh);
+		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_forosh);
+		pagerforosh = (ViewPager) findViewById(R.id.pagerforosh);
+		customer = (Button) findViewById(R.id.tabbtn_customer_forosh);
+		faktor = (Button) findViewById(R.id.tabbtn_faktor_forosh);
+		kala = (Button) findViewById(R.id.tabbtn_kala_forosh);
+
+	}
+
+	public void showmenu(View v) {
+		if (linearmenu.getVisibility() == View.GONE) {
+			linearmenu.setVisibility(View.VISIBLE);
+
+		} else {
+			linearmenu.setVisibility(View.GONE);
+		}
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_forosh);
+		initview();
+		forosh.setVisibility(View.GONE);
+		final mypageadapter pageadapter = new mypageadapter(
+				getSupportFragmentManager());
+		pagerforosh.setAdapter(pageadapter);
+		pagerforosh.setCurrentItem(2);
+
+		pagerforosh.setOnPageChangeListener(new OnPageChangeListener() {
+
+			@Override
+			public void onPageSelected(int arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				if (pagerforosh.getCurrentItem() == 2) {
+					Toast.makeText(getApplicationContext(), "1", 1).show();
+				}
+
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		customer.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				pagerforosh.setCurrentItem(2);
+
+			}
+		});
+
+		faktor.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				pagerforosh.setCurrentItem(1);
+
+			}
+		});
+		kala.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				pagerforosh.setCurrentItem(0);
+
+			}
+		});
+
+		menu.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				showmenu(v);
+
+			}
+		});
+	}
+
+}
