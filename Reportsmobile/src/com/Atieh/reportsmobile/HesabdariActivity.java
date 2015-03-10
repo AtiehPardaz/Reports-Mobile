@@ -1,7 +1,8 @@
 package com.Atieh.reportsmobile;
 
-import pageradapter.mypageadapter;
+import pageradapter.pageradapterhesabdari;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,7 @@ public class HesabdariActivity extends FragmentActivity {
 	ImageButton underlinefgardesh;
 	 
 	ImageButton forosh;
+	ImageButton hesabdari;
 	LinearLayout linearmenu;
 	ViewPager pagehesabdari;
 	Button gardesh;
@@ -30,8 +32,9 @@ public class HesabdariActivity extends FragmentActivity {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_hesabdari);
 		underlinetarkibi = (ImageButton) findViewById(R.id.imgbtn_underline_tarkibi_hesabdari);
 		underlinefgardesh = (ImageButton) findViewById(R.id.imgbtn_underline_gardesh_hesabdari);
-		 linearmenu = (LinearLayout) findViewById(R.id.linearmenu_forosh);
-		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_forosh);
+		 linearmenu = (LinearLayout) findViewById(R.id.linearmenu_hesabdari);
+		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_hesabdari);
+		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_hesabdari);
 		pagehesabdari = (ViewPager) findViewById(R.id.pagerhesabdari);
 		gardesh = (Button) findViewById(R.id.tabbtn_gardesh_hesabdari);
 		tarkibi = (Button) findViewById(R.id.tabbtn_tarkibi_hesabdari);
@@ -52,15 +55,15 @@ public class HesabdariActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_forosh);
+		setContentView(R.layout.activity_hesabdari);
 		initview();
 		
 		
-		forosh.setVisibility(View.GONE);
-		final mypageadapter pageadapter = new mypageadapter(
+		hesabdari.setVisibility(View.GONE);
+		final pageradapterhesabdari pageadapter = new pageradapterhesabdari(
 				getSupportFragmentManager());
 		pagehesabdari.setAdapter(pageadapter);
-		pagehesabdari.setCurrentItem(2);
+		pagehesabdari.setCurrentItem(1);
 		underlinetarkibi.setVisibility(View.INVISIBLE);
 		
 
@@ -83,11 +86,11 @@ public class HesabdariActivity extends FragmentActivity {
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
-				if (pagehesabdari.getCurrentItem() == 2) {
+				if (pagehesabdari.getCurrentItem() == 1) {
 					underlinefgardesh.setVisibility(View.VISIBLE);
 					underlinetarkibi.setVisibility(View.INVISIBLE);
 					
-				} else if (pagehesabdari.getCurrentItem() == 1) {
+				} else if (pagehesabdari.getCurrentItem() == 0) {
 					underlinetarkibi.setVisibility(View.VISIBLE);
 					underlinefgardesh.setVisibility(View.INVISIBLE);
 					 
@@ -116,6 +119,16 @@ public class HesabdariActivity extends FragmentActivity {
 			public void onClick(View v) {
 				pagehesabdari.setCurrentItem(0);
 
+			}
+		});
+		
+		forosh.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HesabdariActivity.this,
+						ForoshActivity.class));
 			}
 		});
 		

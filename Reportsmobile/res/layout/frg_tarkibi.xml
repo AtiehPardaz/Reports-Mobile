@@ -1,8 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:gravity="center"
     android:orientation="vertical" >
-    
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_underline_tarkibi_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_action_date" />
+
+        <EditText
+            android:id="@+id/et_fromdatetarkibi_hesabdari"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:inputType="date" >
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:text="از تاریخ: "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_todatetarkibi_hesabdari"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_action_date" />
+
+            <EditText
+                android:id="@+id/et_todate_forosh"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv_todatetarkibi_hesabdari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="تا تاریخ: "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_shakhstarkibi_hesabdari"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="@drawable/down" />
+
+            <EditText
+                android:id="@+id/et_shakhstarkibi_hesabdari"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv__customer_forosh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="شخص:  "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_projecttarkibi_hesabdari"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="@drawable/down" />
+
+            <EditText
+                android:id="@+id/et__projecttarkibi_hesabdari"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv__projecttarkibi_hesabdari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="پروژه:   "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_hazinetarkibi_hesabdari"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="@drawable/down" />
+
+            <EditText
+                android:id="@+id/et_hazinetarkibi_hesabdari"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv_hazinetarkibi_hesabdari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="هزینه:    "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+         
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="right" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_arztarkibi_hesabdari"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="@drawable/down" />
+
+            <EditText
+                android:id="@+id/et_arztarkibi_hesabdari"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="date" />
+
+            <TextView
+                android:id="@+id/tv_arztarkibi_hesabdari"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:gravity="right"
+                android:text="ارز:       "
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+ 
+
+
+        <ImageButton
+            android:id="@+id/imgbtn_namayesh_tarkibi_hesabdari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btnnamayesh"
+            android:src="@drawable/btn_click" />
+
+    </LinearLayout>

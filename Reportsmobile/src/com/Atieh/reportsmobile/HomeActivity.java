@@ -12,6 +12,7 @@ public class HomeActivity extends Activity {
 
 	ImageButton menu;
 	ImageButton forosh;
+	ImageButton hesabdari;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
 
@@ -19,10 +20,11 @@ public class HomeActivity extends Activity {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_home);
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_home);
+		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_home);
 
 	}
 
-	public void showmenu(View v) {
+	public void showmenu() {
 		if (linearmenu.getVisibility() == View.GONE) {
 			linearmenu.setVisibility(View.VISIBLE);
 
@@ -38,7 +40,7 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		initview();
-		linearmenu.setVisibility(View.GONE);
+		linearmenu.setVisibility(View.VISIBLE);
 
 		forosh.setOnClickListener(new OnClickListener() {
 
@@ -50,20 +52,30 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
+		hesabdari.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this,
+						HesabdariActivity.class));
+				
+			}
+		});
 		
 		linearmenu.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				 
-				showmenu(v);
+				showmenu();
 			}
 		});
 		menu.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				showmenu(v);
+				showmenu();
 
 				// startActivity(new Intent(SelectDomainActivity.this,
 				// HomeActivity.class));
@@ -71,6 +83,13 @@ public class HomeActivity extends Activity {
 			}
 		});
 
+	}
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		
+		showmenu();
 	}
 
 }

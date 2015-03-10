@@ -2,6 +2,7 @@ package com.Atieh.reportsmobile;
 
 import pageradapter.mypageadapter;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -20,6 +21,8 @@ public class ForoshActivity extends FragmentActivity {
 	ImageButton underlinefaktor;
 	ImageButton underlineforokhte;
 	ImageButton forosh;
+	ImageButton hesabdari;
+
 	LinearLayout linearmenu;
 	ViewPager pagerforosh;
 	Button customer;
@@ -33,6 +36,7 @@ public class ForoshActivity extends FragmentActivity {
 		underlineforokhte = (ImageButton) findViewById(R.id.imgbtn_underline_forokhte_forosh);
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_forosh);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_forosh);
+		hesabdari= (ImageButton) findViewById(R.id.imgbtn_hesabdari_forosh);
 		pagerforosh = (ViewPager) findViewById(R.id.pagerforosh);
 		customer = (Button) findViewById(R.id.tabbtn_customer_forosh);
 		faktor = (Button) findViewById(R.id.tabbtn_faktor_forosh);
@@ -121,6 +125,16 @@ public class ForoshActivity extends FragmentActivity {
 			public void onClick(View v) {
 				pagerforosh.setCurrentItem(1);
 
+			}
+		});
+		
+		hesabdari.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(ForoshActivity.this,
+						HesabdariActivity.class));
 			}
 		});
 		kala.setOnClickListener(new OnClickListener() {
