@@ -76,7 +76,7 @@ public class KhazaneActivity extends FragmentActivity {
 				getSupportFragmentManager());
 		pagerkhazane.setAdapter(pageadapter);
 
-		pagerkhazane.setCurrentItem(2);
+		pagerkhazane.setCurrentItem(3);
 
 		underlinevaziatdaryafti.setVisibility(View.INVISIBLE);
 		underlinepardakhti.setVisibility(View.INVISIBLE);
