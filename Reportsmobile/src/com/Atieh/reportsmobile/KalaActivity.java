@@ -23,7 +23,10 @@ public class KalaActivity extends FragmentActivity {
 	ImageButton underlineforokhte;
 	ImageButton forosh;
 	ImageButton hesabdari;
-
+	ImageButton khazane;
+	ImageButton kala;
+	ImageButton domain;
+	
 	LinearLayout linearmenu;
 	ViewPager pagerkala;
 	Button mojodi;
@@ -38,6 +41,10 @@ public class KalaActivity extends FragmentActivity {
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_kala);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_kala);
 		hesabdari= (ImageButton) findViewById(R.id.imgbtn_hesabdari_kala);
+		kala= (ImageButton) findViewById(R.id.imgbtn_kala_kala);
+		domain= (ImageButton) findViewById(R.id.imgbtn_domain_kala);
+		khazane= (ImageButton) findViewById(R.id.imgbtn_khazane_kala);
+		
 		pagerkala = (ViewPager) findViewById(R.id.pagerkala);
 		mojodi = (Button) findViewById(R.id.tabbtn_mojodi_kala);
 		riali = (Button) findViewById(R.id.tabbtn_riali_kala);
@@ -62,7 +69,7 @@ public class KalaActivity extends FragmentActivity {
 		initview();
 		
 		
-		forosh.setVisibility(View.GONE);
+		kala.setVisibility(View.GONE);
 		final pageradapterkala pageadapter = new pageradapterkala(
 				getSupportFragmentManager());
 		pagerkala.setAdapter(pageadapter);
@@ -125,6 +132,42 @@ public class KalaActivity extends FragmentActivity {
 
 				startActivity(new Intent(KalaActivity.this,
 						HesabdariActivity.class));
+			}
+		});
+		kala.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(KalaActivity.this,
+						KalaActivity.class));
+			}
+		});
+		domain.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(KalaActivity.this,
+						SelectDomainActivity.class));
+			}
+		});
+		khazane.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(KalaActivity.this,
+						KhazaneActivity.class));
+			}
+		});
+		forosh.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(KalaActivity.this,
+						ForoshActivity.class));
 			}
 		});
 		riali.setOnClickListener(new OnClickListener() {

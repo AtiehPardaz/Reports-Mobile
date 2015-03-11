@@ -25,6 +25,8 @@ public class KhazaneActivity extends FragmentActivity {
 	ImageButton forosh;
 	ImageButton khazane;
 	ImageButton hesabdari;
+	ImageButton kala;
+	ImageButton domain;
 
 	LinearLayout linearmenu;
 	ViewPager pagerkhazane;
@@ -45,6 +47,9 @@ public class KhazaneActivity extends FragmentActivity {
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_khazane);
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_khazane);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_khazane);
+		kala = (ImageButton) findViewById(R.id.imgbtn_kala_khazane);
+		domain = (ImageButton) findViewById(R.id.imgbtn_domain_khazane);
+		
 		pagerkhazane = (ViewPager) findViewById(R.id.pagerkhazane);
 		
 		 daryafti = (Button) findViewById(R.id.tabbtn_asnaddaryafti_khazane);
@@ -192,7 +197,25 @@ public class KhazaneActivity extends FragmentActivity {
 						ForoshActivity.class));
 			}
 		});
+		kala.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(KhazaneActivity.this,
+						KalaActivity.class));
+			}
+		});
 		
+		domain.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(KhazaneActivity.this,
+						SelectDomainActivity.class));
+			}
+		});
 
 		menu.setOnClickListener(new OnClickListener() {
 
