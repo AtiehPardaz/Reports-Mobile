@@ -1,6 +1,7 @@
 package com.Atieh.reportsmobile;
 
 import pageradapter.mypageadapter;
+import pageradapter.pageradapterkala;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,30 +18,30 @@ import android.widget.Toast;
 public class KalaActivity extends FragmentActivity {
 
 	ImageButton menu;
-	ImageButton underlinecustomer;
-	ImageButton underlinefaktor;
+	ImageButton underlinemojodi;
+	ImageButton underlineroali;
 	ImageButton underlineforokhte;
 	ImageButton forosh;
 	ImageButton hesabdari;
 
 	LinearLayout linearmenu;
-	ViewPager pagerforosh;
-	Button customer;
-	Button faktor;
-	Button kala;
+	ViewPager pagerkala;
+	Button mojodi;
+	Button riali;
+	 
 
 	public void initview() {
-		menu = (ImageButton) findViewById(R.id.imgbtn_menu_forosh);
-		underlinecustomer = (ImageButton) findViewById(R.id.imgbtn_underline_customer_forosh);
-		underlinefaktor = (ImageButton) findViewById(R.id.imgbtn_underline_faktor_forosh);
-		underlineforokhte = (ImageButton) findViewById(R.id.imgbtn_underline_forokhte_forosh);
-		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_forosh);
-		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_forosh);
-		hesabdari= (ImageButton) findViewById(R.id.imgbtn_hesabdari_forosh);
-		pagerforosh = (ViewPager) findViewById(R.id.pagerforosh);
-		customer = (Button) findViewById(R.id.tabbtn_customer_forosh);
-		faktor = (Button) findViewById(R.id.tabbtn_faktor_forosh);
-		kala = (Button) findViewById(R.id.tabbtn_kala_forosh);
+		menu = (ImageButton) findViewById(R.id.imgbtn_menu_kala);
+		underlinemojodi = (ImageButton) findViewById(R.id.imgbtn_underline_mojodi_kala);
+		underlineroali = (ImageButton) findViewById(R.id.imgbtn_underline_riali_kala);
+		
+		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_kala);
+		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_kala);
+		hesabdari= (ImageButton) findViewById(R.id.imgbtn_hesabdari_kala);
+		pagerkala = (ViewPager) findViewById(R.id.pagerkala);
+		mojodi = (Button) findViewById(R.id.tabbtn_mojodi_kala);
+		riali = (Button) findViewById(R.id.tabbtn_riali_kala);
+		 
 
 	}
 
@@ -57,17 +58,17 @@ public class KalaActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_forosh);
+		setContentView(R.layout.activity_kala);
 		initview();
 		
 		
 		forosh.setVisibility(View.GONE);
-		final mypageadapter pageadapter = new mypageadapter(
+		final pageradapterkala pageadapter = new pageradapterkala(
 				getSupportFragmentManager());
-		pagerforosh.setAdapter(pageadapter);
-		pagerforosh.setCurrentItem(2);
-		underlinefaktor.setVisibility(View.INVISIBLE);
-		underlineforokhte.setVisibility(View.INVISIBLE);
+		pagerkala.setAdapter(pageadapter);
+		pagerkala.setCurrentItem(1);
+		underlineroali.setVisibility(View.INVISIBLE);
+		underlinemojodi.setVisibility(View.VISIBLE);
 
 		
 		linearmenu.setOnClickListener(new OnClickListener() {
@@ -78,7 +79,7 @@ public class KalaActivity extends FragmentActivity {
 				
 			}
 		});
-		pagerforosh.setOnPageChangeListener(new OnPageChangeListener() {
+		pagerkala.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
 			public void onPageSelected(int arg0) {
@@ -88,18 +89,14 @@ public class KalaActivity extends FragmentActivity {
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
-				if (pagerforosh.getCurrentItem() == 2) {
-					underlinecustomer.setVisibility(View.VISIBLE);
-					underlinefaktor.setVisibility(View.INVISIBLE);
-					underlineforokhte.setVisibility(View.INVISIBLE);
-				} else if (pagerforosh.getCurrentItem() == 1) {
-					underlinefaktor.setVisibility(View.VISIBLE);
-					underlinecustomer.setVisibility(View.INVISIBLE);
-					underlineforokhte.setVisibility(View.INVISIBLE);
-				} else if (pagerforosh.getCurrentItem() == 0) {
-					underlineforokhte.setVisibility(View.VISIBLE);
-					underlinefaktor.setVisibility(View.INVISIBLE);
-					underlinecustomer.setVisibility(View.INVISIBLE);
+				  if (pagerkala.getCurrentItem() == 1) {
+					underlineroali.setVisibility(View.INVISIBLE);
+					underlinemojodi.setVisibility(View.VISIBLE);
+					
+				} else if (pagerkala.getCurrentItem() == 0) {
+					
+					underlineroali.setVisibility(View.VISIBLE);
+					underlinemojodi.setVisibility(View.INVISIBLE);
 				}
 
 			}
@@ -110,20 +107,13 @@ public class KalaActivity extends FragmentActivity {
 
 			}
 		});
-		customer.setOnClickListener(new OnClickListener() {
+		
+
+		mojodi.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				pagerforosh.setCurrentItem(2);
-
-			}
-		});
-
-		faktor.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				pagerforosh.setCurrentItem(1);
+				pagerkala.setCurrentItem(1);
 
 			}
 		});
@@ -137,11 +127,11 @@ public class KalaActivity extends FragmentActivity {
 						HesabdariActivity.class));
 			}
 		});
-		kala.setOnClickListener(new OnClickListener() {
+		riali.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				pagerforosh.setCurrentItem(0);
+				pagerkala.setCurrentItem(0);
 
 			}
 		});

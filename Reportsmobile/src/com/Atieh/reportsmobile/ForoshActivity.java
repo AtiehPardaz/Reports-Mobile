@@ -23,6 +23,8 @@ public class ForoshActivity extends FragmentActivity {
 	ImageButton forosh;
 	ImageButton hesabdari;
 	ImageButton khazane;
+	ImageButton kalamenu;
+	ImageButton domain;
 
 	LinearLayout linearmenu;
 	ViewPager pagerforosh;
@@ -37,8 +39,11 @@ public class ForoshActivity extends FragmentActivity {
 		underlineforokhte = (ImageButton) findViewById(R.id.imgbtn_underline_forokhte_forosh);
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_forosh);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_forosh);
-		hesabdari= (ImageButton) findViewById(R.id.imgbtn_hesabdari_forosh);
-		khazane= (ImageButton) findViewById(R.id.imgbtn_khazane_forosh);
+		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_forosh);
+		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_forosh);
+		kalamenu = (ImageButton) findViewById(R.id.imgbtn_kala_forosh);
+		domain = (ImageButton) findViewById(R.id.imgbtn_domain_forosh);
+
 		pagerforosh = (ViewPager) findViewById(R.id.pagerforosh);
 		customer = (Button) findViewById(R.id.tabbtn_customer_forosh);
 		faktor = (Button) findViewById(R.id.tabbtn_faktor_forosh);
@@ -61,8 +66,7 @@ public class ForoshActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forosh);
 		initview();
-		
-		
+
 		forosh.setVisibility(View.GONE);
 		final mypageadapter pageadapter = new mypageadapter(
 				getSupportFragmentManager());
@@ -71,13 +75,12 @@ public class ForoshActivity extends FragmentActivity {
 		underlinefaktor.setVisibility(View.INVISIBLE);
 		underlineforokhte.setVisibility(View.INVISIBLE);
 
-		
 		linearmenu.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				showmenu(v);
-				
+
 			}
 		});
 		pagerforosh.setOnPageChangeListener(new OnPageChangeListener() {
@@ -129,7 +132,7 @@ public class ForoshActivity extends FragmentActivity {
 
 			}
 		});
-		
+
 		hesabdari.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -148,6 +151,24 @@ public class ForoshActivity extends FragmentActivity {
 						KhazaneActivity.class));
 			}
 		});
+		kalamenu.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(ForoshActivity.this,
+						KalaActivity.class));
+			}
+		});
+		domain.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(ForoshActivity.this,
+						SelectDomainActivity.class));
+			}
+		});
 		kala.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -162,7 +183,7 @@ public class ForoshActivity extends FragmentActivity {
 			@Override
 			public void onClick(View v) {
 				showmenu(v);
-//				Toast.makeText(getApplicationContext(), "", 1).show();
+				// Toast.makeText(getApplicationContext(), "", 1).show();
 
 			}
 		});

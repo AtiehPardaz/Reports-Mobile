@@ -14,6 +14,7 @@ public class HomeActivity extends Activity {
 	ImageButton forosh;
 	ImageButton hesabdari;
 	ImageButton khazane;
+	ImageButton kala;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
 
@@ -23,6 +24,7 @@ public class HomeActivity extends Activity {
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_home);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_home);
 		khazane= (ImageButton) findViewById(R.id.imgbtn_khazane_home);
+		kala= (ImageButton) findViewById(R.id.imgbtn_kala_home);
 
 	}
 
@@ -72,6 +74,16 @@ public class HomeActivity extends Activity {
 
 				startActivity(new Intent(HomeActivity.this,
 						KhazaneActivity.class));
+				
+			}
+		});
+		kala.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this,
+						KalaActivity.class));
 				
 			}
 		});
