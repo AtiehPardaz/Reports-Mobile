@@ -22,6 +22,7 @@ public class HesabdariActivity extends FragmentActivity {
 	 
 	ImageButton forosh;
 	ImageButton hesabdari;
+	ImageButton khazane;
 	LinearLayout linearmenu;
 	ViewPager pagehesabdari;
 	Button gardesh;
@@ -35,6 +36,8 @@ public class HesabdariActivity extends FragmentActivity {
 		 linearmenu = (LinearLayout) findViewById(R.id.linearmenu_hesabdari);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_hesabdari);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_hesabdari);
+		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_hesabdari);
+		
 		pagehesabdari = (ViewPager) findViewById(R.id.pagerhesabdari);
 		gardesh = (Button) findViewById(R.id.tabbtn_gardesh_hesabdari);
 		tarkibi = (Button) findViewById(R.id.tabbtn_tarkibi_hesabdari);
@@ -129,6 +132,15 @@ public class HesabdariActivity extends FragmentActivity {
 
 				startActivity(new Intent(HesabdariActivity.this,
 						ForoshActivity.class));
+			}
+		});
+		khazane.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HesabdariActivity.this,
+						KhazaneActivity.class));
 			}
 		});
 		

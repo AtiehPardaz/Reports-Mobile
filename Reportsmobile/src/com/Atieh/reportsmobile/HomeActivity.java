@@ -13,6 +13,7 @@ public class HomeActivity extends Activity {
 	ImageButton menu;
 	ImageButton forosh;
 	ImageButton hesabdari;
+	ImageButton khazane;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
 
@@ -21,6 +22,7 @@ public class HomeActivity extends Activity {
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_home);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_home);
+		khazane= (ImageButton) findViewById(R.id.imgbtn_khazane_home);
 
 	}
 
@@ -63,6 +65,16 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
+		khazane.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this,
+						KhazaneActivity.class));
+				
+			}
+		});
 		linearmenu.setOnClickListener(new OnClickListener() {
 			
 			@Override

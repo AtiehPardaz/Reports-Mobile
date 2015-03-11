@@ -27,8 +27,9 @@
         <activity android:name="com.Atieh.reportsmobile.HomeActivity" />
         <activity android:name="com.Atieh.reportsmobile.ForoshActivity" />
          <activity android:name="com.Atieh.reportsmobile.HesabdariActivity" />
-         <activity android:name="com.Atieh.reportsmobile.DatepickerActivity"
-             />
+         <activity android:name="com.Atieh.reportsmobile.DatepickerActivity" />
+         <activity android:name="com.Atieh.reportsmobile.KhazaneActivity" />
+          <activity android:name="com.Atieh.reportsmobile.KalaActivity" />
    
     </application>
 

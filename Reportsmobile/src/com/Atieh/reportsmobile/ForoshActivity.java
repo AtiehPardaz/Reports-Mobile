@@ -22,6 +22,7 @@ public class ForoshActivity extends FragmentActivity {
 	ImageButton underlineforokhte;
 	ImageButton forosh;
 	ImageButton hesabdari;
+	ImageButton khazane;
 
 	LinearLayout linearmenu;
 	ViewPager pagerforosh;
@@ -37,6 +38,7 @@ public class ForoshActivity extends FragmentActivity {
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_forosh);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_forosh);
 		hesabdari= (ImageButton) findViewById(R.id.imgbtn_hesabdari_forosh);
+		khazane= (ImageButton) findViewById(R.id.imgbtn_khazane_forosh);
 		pagerforosh = (ViewPager) findViewById(R.id.pagerforosh);
 		customer = (Button) findViewById(R.id.tabbtn_customer_forosh);
 		faktor = (Button) findViewById(R.id.tabbtn_faktor_forosh);
@@ -135,6 +137,15 @@ public class ForoshActivity extends FragmentActivity {
 
 				startActivity(new Intent(ForoshActivity.this,
 						HesabdariActivity.class));
+			}
+		});
+		khazane.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(ForoshActivity.this,
+						KhazaneActivity.class));
 			}
 		});
 		kala.setOnClickListener(new OnClickListener() {
