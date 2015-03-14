@@ -21,9 +21,10 @@
         <EditText
             android:id="@+id/et_fromdate_forosh"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" >
+          
+            android:textSize="14sp" >
 
             <requestFocus />
 
@@ -57,9 +58,10 @@
             <EditText
                 android:id="@+id/et_todate_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_todate_forosh"
@@ -89,9 +91,11 @@
             <EditText
                 android:id="@+id/et__customer_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="محمود مقدم"
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__customer_forosh"
@@ -121,9 +125,11 @@
             <EditText
                 android:id="@+id/et__bazarya_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="سیروس صداقت"
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__bazarya_forosh"
@@ -153,9 +159,11 @@
             <EditText
                 android:id="@+id/et__foroshande_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="فاطمه رضایی"
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__foroshande_forosh"

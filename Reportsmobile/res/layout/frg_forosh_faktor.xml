@@ -13,18 +13,19 @@
         android:gravity="right" >
 
         <ImageButton
-            android:id="@+id/imgbtn_underline_faktor_forosh"
+            android:id="@+id/imgbtn_fromdatefaktor_frosh"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:background="@drawable/ic_action_date" />
 
         <EditText
-            android:id="@+id/et_fromdate_forosh"
+            android:id="@+id/et_fromdate_faktor"
             android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" >
+          
+            android:textSize="14sp" >
 
             <requestFocus />
         </EditText>
@@ -58,9 +59,10 @@
             <EditText
                 android:id="@+id/et_todate_forosh"
                 android:layout_width="150dp"
-                 android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_todate_forosh"
@@ -91,9 +93,11 @@
             <EditText
                 android:id="@+id/et__customer_forosh"
                 android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="علی ایرانی"
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__customer_forosh"
@@ -124,9 +128,11 @@
             <EditText
                 android:id="@+id/et__bazarya_forosh"
                 android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="سیروس صداقت"
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__bazarya_forosh"
@@ -157,9 +163,11 @@
             <EditText
                 android:id="@+id/et__foroshande_forosh"
                 android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="محمود مقدم"
+              
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__foroshande_forosh"

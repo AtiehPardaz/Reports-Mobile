@@ -15,9 +15,9 @@ import android.widget.Toast;
 public class frg_customer_forosh extends Fragment {
 
 	ImageButton datefromcustomer;
-	EditText fromdate;
-int a=0;
-	
+	ImageButton btnshow;
+	EditText et_fromdate;
+	int a = 0;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedinstancState) {
@@ -25,16 +25,29 @@ int a=0;
 				false);
 		datefromcustomer = (ImageButton) view
 				.findViewById(R.id.imgbtn_fromdatecustomer_frosh_);
+		btnshow = (ImageButton) view
+				.findViewById(R.id.imgbtn_namayesh__customer_forosh);
+		et_fromdate = (EditText) view.findViewById(R.id.et_fromdate_forosh);
 
-		fromdate=(EditText) view.findViewById(R.id.et_fromdate_forosh);
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(getActivity(),
 						DatepickerActivity.class));
-				a=1;
+				a = 1;
 				// do something
 
+			}
+		});
+
+		btnshow.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent report=new Intent();
+				report.putExtra("gozaresh", "customer");
+				report.setClass(getActivity(), ShowreportsActivity.class);
+				startActivity(report);
 			}
 		});
 
@@ -45,14 +58,14 @@ int a=0;
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		
-		
-		if(a==1){
-			fromdate.setText(DatepickerActivity.myDay+"/"+DatepickerActivity.myMonth+"/"+DatepickerActivity.myYear);
+
+		if (a == 1) {
+			et_fromdate.setText(DatepickerActivity.myDay + "/"
+					+ DatepickerActivity.myMonth + "/"
+					+ DatepickerActivity.myYear);
 		}
-		
-		
-//		Toast.makeText(getActivity(), "1", 1).show();
+
+		// Toast.makeText(getActivity(), "1", 1).show();
 	}
 
 }

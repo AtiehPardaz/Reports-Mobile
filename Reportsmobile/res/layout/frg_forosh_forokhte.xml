@@ -21,9 +21,10 @@
         <EditText
             android:id="@+id/et_fromdate_forosh"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" >
+           
+            android:textSize="14sp" >
 
             <requestFocus />
         </EditText>
@@ -37,7 +38,7 @@
             android:text="از تاریخ:  "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 
@@ -56,9 +57,10 @@
             <EditText
                 android:id="@+id/et_todate_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+               
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_todate_forosh"
@@ -69,7 +71,7 @@
                 android:text="تا تاریخ:  "
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -88,9 +90,11 @@
             <EditText
                 android:id="@+id/et__customer_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="رضا محمودی"
+               
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__customer_forosh"
@@ -101,7 +105,7 @@
                 android:text="مشتری:   "
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -120,9 +124,11 @@
             <EditText
                 android:id="@+id/et__bazarya_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="سینا رضایی"
+               
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__bazarya_forosh"
@@ -133,7 +139,7 @@
                 android:text="بازاریاب: "
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -152,9 +158,11 @@
             <EditText
                 android:id="@+id/et__foroshande_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="تبریزی"
+               
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__foroshande_forosh"
@@ -165,7 +173,7 @@
                 android:text="فروشنده:"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
          
@@ -184,9 +192,11 @@
             <EditText
                 android:id="@+id/et__kala_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="کالا اول"
+               
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__kala_forosh"
@@ -197,7 +207,7 @@
                 android:text="کالا:         "
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
  
@@ -216,9 +226,10 @@
             <EditText
                 android:id="@+id/et__khadamat_forosh"
                 android:layout_width="150dp"
-                android:layout_height="wrap_content"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+               
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv__khadamat_forosh"
@@ -229,7 +240,7 @@
                 android:text="خدمات:   "
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 

@@ -21,9 +21,9 @@
         <EditText
             android:id="@+id/et_date_pardakhtebteda_khazane"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" >
+            android:textSize="14sp" >
 
             <requestFocus />
         </EditText>
@@ -55,9 +55,9 @@
         <EditText
             android:id="@+id/et_date_pardakhtenteha_khazane"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_todatedaryafti_khazane"
@@ -87,9 +87,9 @@
         <EditText
             android:id="@+id/et_date_sarresidebteda_khazane"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" >
+            android:textSize="14sp" >
 
             <requestFocus />
         </EditText>
@@ -121,9 +121,9 @@
         <EditText
             android:id="@+id/et_date_sarresidenteha_khazanee"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" >
+            android:textSize="14sp" >
 
             <requestFocus />
         </EditText>
@@ -156,8 +156,10 @@
         <EditText
             android:id="@+id/et__skhakhs_khazane"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:hint="محمد کاظمی"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv__foroshande_forosh"
@@ -165,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
-            android:text="شخص گیرنده:        "
+            android:text="شخص گیرنده:      "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="14sp" />

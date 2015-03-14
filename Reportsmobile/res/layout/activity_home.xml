@@ -106,6 +106,13 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/btndomain"
             android:src="@drawable/btn_click" />
+        <ImageButton
+            android:id="@+id/imgbtn_logout_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btnloguot"
+            android:src="@drawable/btn_click" />
     </LinearLayout>
 
 </LinearLayout>

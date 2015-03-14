@@ -10,7 +10,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:background="@drawable/actionbar"
             android:gravity="right" >
 
@@ -91,7 +91,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical" >
 
             <android.support.v4.view.ViewPager
@@ -158,6 +158,13 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/btndomain"
                 android:src="@drawable/btn_click" />
+             <ImageButton
+            android:id="@+id/imgbtn_logout_kala"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btnloguot"
+            android:src="@drawable/btn_click" />
         </LinearLayout>
     </LinearLayout>
 

@@ -1,0 +1,142 @@
+package com.Atieh.reportsmobile;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+public class HomeActivity extends Activity {
+
+	ImageButton menu;
+	ImageButton forosh;
+	ImageButton hesabdari;
+	ImageButton khazane;
+	ImageButton kala;
+	LinearLayout linearmenu;
+	boolean flgclickmenu;
+	private int backPressedToExitOnce =0;
+
+	public void initview() {
+		menu = (ImageButton) findViewById(R.id.imgbtn_menu_home);
+		linearmenu = (LinearLayout) findViewById(R.id.linearmenu);
+		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_home);
+		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_home);
+		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_home);
+		kala = (ImageButton) findViewById(R.id.imgbtn_kala_home);
+
+	}
+
+	public void showmenu() {
+		if (linearmenu.getVisibility() == View.GONE) {
+			linearmenu.setVisibility(View.VISIBLE);
+
+		} else {
+			linearmenu.setVisibility(View.GONE);
+		}
+	}
+
+	// =================================oncreate==============
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_home);
+		initview();
+		linearmenu.setVisibility(View.VISIBLE);
+
+		forosh.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this,
+						ForoshActivity.class));
+			}
+		});
+
+		hesabdari.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this,
+						HesabdariActivity.class));
+
+			}
+		});
+
+		khazane.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this,
+						KhazaneActivity.class));
+
+			}
+		});
+		kala.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this, KalaActivity.class));
+
+			}
+		});
+		linearmenu.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				showmenu();
+			}
+		});
+		menu.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				showmenu();
+
+				// startActivity(new Intent(SelectDomainActivity.this,
+				// HomeActivity.class));
+
+			}
+		});
+
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+			backPressedToExitOnce ++;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		backPressedToExitOnce ++;
+		Toast.makeText(getApplicationContext(), "again"+backPressedToExitOnce, 1).show();
+		if (backPressedToExitOnce == 2) {
+			
+			finish();
+		}
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+
+		showmenu();
+	}
+
+}

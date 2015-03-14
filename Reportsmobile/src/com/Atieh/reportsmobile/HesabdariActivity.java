@@ -178,5 +178,14 @@ public class HesabdariActivity extends FragmentActivity {
 			}
 		});
 	}
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		 
+		Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(intent);
+	}
 
 }

@@ -19,9 +19,9 @@ public class mypageadapter extends FragmentPagerAdapter {
 		this.frgmnts=new ArrayList<Fragment>();
 		
 		
-		
-		frgmnts.add(new  FrgfaktorForosh());
 		frgmnts.add(new  FrgKalaForosh());
+		frgmnts.add(new  FrgfaktorForosh());
+	
 		frgmnts.add(new frg_customer_forosh());
 		
 

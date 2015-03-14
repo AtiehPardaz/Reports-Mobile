@@ -22,9 +22,10 @@
         <EditText
             android:id="@+id/et_fromdate_hesabdari"
             android:layout_width="150dp"
-            android:layout_height="40dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
-            android:inputType="date" >
+            
+            android:textSize="14sp" >
 
             <requestFocus />
         </EditText>
@@ -58,9 +59,11 @@
             <EditText
                 android:id="@+id/et_shakhsgardesh_hesabdari"
                 android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="انبار اول"
+                
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_shakhsgardesh_hesabdari"
@@ -91,9 +94,11 @@
             <EditText
                 android:id="@+id/et_sathtafsil_hesabdari"
                 android:layout_width="150dp"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:inputType="date" />
+                android:hint="همه کالاها"
+                
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_sathtafsilgardesh_hesabdari"

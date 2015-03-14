@@ -10,7 +10,7 @@ public class FrgKalaForosh extends Fragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedinstancState) {
-		View view = inflater.inflate(R.layout.frg_forosh_faktor, container,
+		View view = inflater.inflate(R.layout.frg_forosh_forokhte, container,
 				false);
 		return view;
 	}
