@@ -72,9 +72,9 @@ public class ShowreportsActivity extends Activity {
 		
 		if (getIntent().getStringExtra("gozaresh").equals("faktoreforosh")) {
 			 
-		   
+	//		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+	   
 		webview.loadUrl("http://demo.atiehpardaz.com/reports/CustomerByInvoice.aspx");
-//		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		}else if(getIntent().getStringExtra("gozaresh").equals("customer")) {
 			webview.loadUrl("http://demo.atiehpardaz.com/reports/Report.aspx");
 		}
