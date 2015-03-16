@@ -27,27 +27,50 @@
                 android:gravity="center"
                 android:orientation="vertical" >
 
-                <EditText
-                    android:id="@+id/et_domain"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="دامنه"
-                    android:textSize="20sp"
-                    android:textStyle="bold" >
-
-                    <requestFocus />
-                </EditText>
-
-                <EditText
-                    android:id="@+id/et_salemali"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:hint="سال مالی"
-                    android:inputType="textPassword"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_height="wrap_content" >
+                    <ImageButton
+                android:id="@+id/imgbtn_selectdomain"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:background="@drawable/down" />
+
+                    <EditText
+                        android:id="@+id/et_domain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="دامنه"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageButton
+                        android:id="@+id/imgbtn_selectyearmali"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/down" />
+
+                    <EditText
+                        android:id="@+id/et_salemali"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:hint="سال مالی"
+                        android:inputType="textPassword"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/imgbtn_sabt"

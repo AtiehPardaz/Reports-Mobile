@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class KalaActivity extends FragmentActivity {
@@ -26,29 +27,31 @@ public class KalaActivity extends FragmentActivity {
 	ImageButton khazane;
 	ImageButton kala;
 	ImageButton domain;
-	
+	ImageButton logout;
 	LinearLayout linearmenu;
 	ViewPager pagerkala;
 	Button mojodi;
 	Button riali;
-	 
+
+	TextView title;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_kala);
 		underlinemojodi = (ImageButton) findViewById(R.id.imgbtn_underline_mojodi_kala);
 		underlineroali = (ImageButton) findViewById(R.id.imgbtn_underline_riali_kala);
-		
+
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_kala);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_kala);
-		hesabdari= (ImageButton) findViewById(R.id.imgbtn_hesabdari_kala);
-		kala= (ImageButton) findViewById(R.id.imgbtn_kala_kala);
-		domain= (ImageButton) findViewById(R.id.imgbtn_domain_kala);
-		khazane= (ImageButton) findViewById(R.id.imgbtn_khazane_kala);
-		
+		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_kala);
+		kala = (ImageButton) findViewById(R.id.imgbtn_kala_kala);
+		domain = (ImageButton) findViewById(R.id.imgbtn_domain_kala);
+		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_kala);
+		logout = (ImageButton) findViewById(R.id.imgbtn_logout_kala);
 		pagerkala = (ViewPager) findViewById(R.id.pagerkala);
 		mojodi = (Button) findViewById(R.id.tabbtn_mojodi_kala);
 		riali = (Button) findViewById(R.id.tabbtn_riali_kala);
-		 
+
+		title = (TextView) findViewById(R.id.title_kala);
 
 	}
 
@@ -67,8 +70,7 @@ public class KalaActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_kala);
 		initview();
-		
-		
+		title.setTypeface(MainActivity.titr);
 		kala.setVisibility(View.GONE);
 		final pageradapterkala pageadapter = new pageradapterkala(
 				getSupportFragmentManager());
@@ -77,13 +79,12 @@ public class KalaActivity extends FragmentActivity {
 		underlineroali.setVisibility(View.INVISIBLE);
 		underlinemojodi.setVisibility(View.VISIBLE);
 
-		
 		linearmenu.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				showmenu(v);
-				
+
 			}
 		});
 		pagerkala.setOnPageChangeListener(new OnPageChangeListener() {
@@ -96,12 +97,12 @@ public class KalaActivity extends FragmentActivity {
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
-				  if (pagerkala.getCurrentItem() == 1) {
+				if (pagerkala.getCurrentItem() == 1) {
 					underlineroali.setVisibility(View.INVISIBLE);
 					underlinemojodi.setVisibility(View.VISIBLE);
-					
+
 				} else if (pagerkala.getCurrentItem() == 0) {
-					
+
 					underlineroali.setVisibility(View.VISIBLE);
 					underlinemojodi.setVisibility(View.INVISIBLE);
 				}
@@ -114,7 +115,6 @@ public class KalaActivity extends FragmentActivity {
 
 			}
 		});
-		
 
 		mojodi.setOnClickListener(new OnClickListener() {
 
@@ -124,7 +124,7 @@ public class KalaActivity extends FragmentActivity {
 
 			}
 		});
-		
+
 		hesabdari.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -139,8 +139,7 @@ public class KalaActivity extends FragmentActivity {
 			@Override
 			public void onClick(View arg0) {
 
-				startActivity(new Intent(KalaActivity.this,
-						KalaActivity.class));
+				startActivity(new Intent(KalaActivity.this, KalaActivity.class));
 			}
 		});
 		domain.setOnClickListener(new OnClickListener() {
@@ -178,22 +177,34 @@ public class KalaActivity extends FragmentActivity {
 
 			}
 		});
-
+	logout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("EXIT", true);
+				startActivity(intent);
+				
+			}
+		});
 		menu.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				showmenu(v);
-//				Toast.makeText(getApplicationContext(), "", 1).show();
+				// Toast.makeText(getApplicationContext(), "", 1).show();
 
 			}
 		});
 	}
+
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
-		 
+
 		Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);

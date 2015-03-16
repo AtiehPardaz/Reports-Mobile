@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HesabdariActivity extends FragmentActivity {
@@ -25,11 +26,12 @@ public class HesabdariActivity extends FragmentActivity {
 	ImageButton khazane;
 	ImageButton kala;
 	ImageButton domain;
+	ImageButton logout;
 	LinearLayout linearmenu;
 	ViewPager pagehesabdari;
 	Button gardesh;
 	Button tarkibi;
-	
+	TextView title;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_hesabdari);
@@ -41,11 +43,12 @@ public class HesabdariActivity extends FragmentActivity {
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_hesabdari);
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_hesabdari);
 		domain = (ImageButton) findViewById(R.id.imgbtn_domain_hesabdari);
-		
+		logout = (ImageButton) findViewById(R.id.imgbtn_logout_hesabdari);
 		pagehesabdari = (ViewPager) findViewById(R.id.pagerhesabdari);
 		gardesh = (Button) findViewById(R.id.tabbtn_gardesh_hesabdari);
 		tarkibi = (Button) findViewById(R.id.tabbtn_tarkibi_hesabdari);
 		 
+		title = (TextView) findViewById(R.id.title_hesabdari);
 
 	}
 
@@ -65,7 +68,7 @@ public class HesabdariActivity extends FragmentActivity {
 		setContentView(R.layout.activity_hesabdari);
 		initview();
 		
-		
+		title.setTypeface(MainActivity.titr);
 		hesabdari.setVisibility(View.GONE);
 		final pageradapterhesabdari pageadapter = new pageradapterhesabdari(
 				getSupportFragmentManager());
@@ -175,6 +178,18 @@ public class HesabdariActivity extends FragmentActivity {
 				showmenu(v);
 //				Toast.makeText(getApplicationContext(), "", 1).show();
 
+			}
+		});
+	logout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("EXIT", true);
+				startActivity(intent);
+				
 			}
 		});
 	}

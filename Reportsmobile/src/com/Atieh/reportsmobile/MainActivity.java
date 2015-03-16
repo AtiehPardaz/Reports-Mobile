@@ -6,6 +6,7 @@ import retrofit.client.Response;
 import webservices.ServiceGenerator;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -22,7 +23,7 @@ public class MainActivity extends Activity {
 	Authentication authenticate;
 	EditText et_username,et_password;
 	AuthenticationInterface auth;
-
+public static Typeface titr;
 	public void initview() {
 		login = (ImageButton) findViewById(R.id.imgbtn_login);
 		et_username = (EditText) findViewById(R.id.et_username);
@@ -39,7 +40,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		initview();
-		
+		 titr = Typeface.createFromAsset(MainActivity.this.getAssets(), "titr.TTF");
 		 authenticate = new Authentication();
 		 
 		 auth  = ServiceGenerator.createService(AuthenticationInterface.class, MainActivity.baseURL);

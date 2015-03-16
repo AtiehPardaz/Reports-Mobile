@@ -19,6 +19,7 @@ public class HomeActivity extends Activity {
 	ImageButton hesabdari;
 	ImageButton khazane;
 	ImageButton kala;
+	ImageButton logout;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
 	private boolean _doubleBackToExitPressedOnce = false;
@@ -30,7 +31,7 @@ public class HomeActivity extends Activity {
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_home);
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_home);
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_home);
-
+		logout = (ImageButton) findViewById(R.id.imgbtn_logout_home);
 	}
 
 	public void showmenu() {
@@ -89,6 +90,18 @@ public class HomeActivity extends Activity {
 
 				startActivity(new Intent(HomeActivity.this, KalaActivity.class));
 
+			}
+		});
+logout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("EXIT", true);
+				startActivity(intent);
+				
 			}
 		});
 		linearmenu.setOnClickListener(new OnClickListener() {
@@ -166,7 +179,7 @@ public class HomeActivity extends Activity {
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
+		
 		super.onResume();
 
 		showmenu();
