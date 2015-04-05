@@ -63,7 +63,7 @@
     android:layout_width="100dp"
     android:layout_height="wrap_content"
     android:background="@color/blue_actionbar2color"
-    android:text="وضعیت مشتریان"
+    android:text="گزارش گردش تفصیلی"
     android:textSize="14sp" />
 
         </LinearLayout>

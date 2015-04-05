@@ -127,14 +127,14 @@
                 android:text="عدم نمایش کالاهای موجودی صفر" />
 
             <CheckBox
-                android:id="@+id/acheckBox2"
+                android:id="@+id/chk_tajmiey_mojodikala"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="نمایش بصورت تجمیعی            " />
 
         </LinearLayout>
 <ImageButton
-    android:id="@+id/imgbtn_namayesh_gardesh_hesabdari"
+    android:id="@+id/imgbtn_namayesh_mojodi_kalaanbar"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/btnnamayesh"

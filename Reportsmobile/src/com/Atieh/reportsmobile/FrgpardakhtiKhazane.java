@@ -16,6 +16,7 @@ public class FrgpardakhtiKhazane extends Fragment {
 
 	ImageButton datefromcustomer;
 	EditText fromdate;
+	ImageButton btnshow;
 int a=0;
 	
 
@@ -25,6 +26,8 @@ int a=0;
 				false);
 		datefromcustomer = (ImageButton) view
 				.findViewById(R.id.imgbtn_fromdatecustomer_frosh_);
+		btnshow = (ImageButton) view
+				.findViewById(R.id.imgbtn_namayesh_pardakhti_khazane);
 //
 //		fromdate=(EditText) view.findViewById(R.id.et_fromdate_forosh);
 //		datefromcustomer.setOnClickListener(new OnClickListener() {
@@ -37,6 +40,16 @@ int a=0;
 //
 //			}
 //		});
+		btnshow.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent report=new Intent();
+				report.putExtra("gozaresh", "pardakhtikhazane");
+				report.setClass(getActivity(), ShowreportsActivity.class);
+				startActivity(report);
+			}
+		});
 
 		return view;
 	}

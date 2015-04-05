@@ -92,7 +92,7 @@
         </LinearLayout>
 
 <ImageButton
-    android:id="@+id/imgbtn_namayesh__faktor_forosh"
+    android:id="@+id/imgbtn_namayesh_vaziatasnadpardakhti_khazane"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/btnnamayesh"

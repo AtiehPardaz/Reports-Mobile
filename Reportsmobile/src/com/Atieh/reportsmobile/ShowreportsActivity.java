@@ -18,7 +18,6 @@ public class ShowreportsActivity extends Activity {
 	private static final String TAG = "Main";
 	private ProgressDialog progressBar;
 
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +25,7 @@ public class ShowreportsActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 		setContentView(R.layout.activity_showreports);
+		
 
 		this.webview = (WebView) findViewById(R.id.wv_showresult);
 
@@ -33,6 +33,7 @@ public class ShowreportsActivity extends Activity {
 		settings.setJavaScriptEnabled(true);
 		webview.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 
+		webview.getSettings().setBuiltInZoomControls(true);
 		final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 
 		progressBar = ProgressDialog.show(ShowreportsActivity.this,
@@ -69,14 +70,47 @@ public class ShowreportsActivity extends Activity {
 				alertDialog.show();
 			}
 		});
-		
+		// forosh tabs
 		if (getIntent().getStringExtra("gozaresh").equals("faktoreforosh")) {
-			 
-	//		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-	   
-		webview.loadUrl("http://demo.atiehpardaz.com/reports/CustomerByInvoice.aspx");
-		}else if(getIntent().getStringExtra("gozaresh").equals("customer")) {
+
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/CustomerByInvoice.aspx");
+		} else if (getIntent().getStringExtra("gozaresh").equals("customer")) {
 			webview.loadUrl("http://demo.atiehpardaz.com/reports/Report.aspx");
+		} else if (getIntent().getStringExtra("gozaresh")
+				.equals("kalaforokhte")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/SaleInvoice/SaleInvoice.aspx");
+		}// hesabdari tabs
+		else if (getIntent().getStringExtra("gozaresh").equals(
+				"gardeshhesabdari")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/Accounting/AccountingTafsil.aspx");
+		} else if (getIntent().getStringExtra("gozaresh").equals(
+				"tarkibihesabdari")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/Accounting/AccountingTwoTafsil.aspx");
+		}// khazane tabs
+		else if (getIntent().getStringExtra("gozaresh").equals(
+				"daryaftikhazane")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/Document/GetDocument.aspx");
+		} else if (getIntent().getStringExtra("gozaresh").equals(
+				"pardakhtikhazane")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/Document/PayDocument.aspx");
+		} else if (getIntent().getStringExtra("gozaresh").equals(
+				"vaziatdaryafti")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/Document/GetDocumentStatus.aspx");
+		} else if (getIntent().getStringExtra("gozaresh").equals(
+				"vaziatpardakhti")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/Document/PayDocumentStatus.aspx");
+		}// kala va anbar tabs
+		else if (getIntent().getStringExtra("gozaresh").equals("rialianbar")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouseRials.aspx");
+		}else if (getIntent().getStringExtra("gozaresh").equals("rialianbartajmiiy")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouseRials.aspx");
+		}else if (getIntent().getStringExtra("gozaresh").equals("mojodikala")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouse.aspx");
+		} else if (getIntent().getStringExtra("gozaresh").equals("mojodikalatajmiiy")) {
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouseAgreagate.aspx");
 		}
+
 	}
 }

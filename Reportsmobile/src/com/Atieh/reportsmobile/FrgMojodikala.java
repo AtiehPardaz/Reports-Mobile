@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class FrgMojodikala extends Fragment {
-
+	ImageButton btnshow;
+	CheckBox chktajmiiy;
 	ImageButton datefromcustomer;
 	EditText fromdate;
 int a=0;
@@ -23,6 +25,11 @@ int a=0;
 			Bundle savedinstancState) {
 		View view = inflater.inflate(R.layout.frg_kala_mojodi, container,
 				false);
+		
+		btnshow = (ImageButton) view
+				.findViewById(R.id.imgbtn_namayesh_mojodi_kalaanbar);
+		chktajmiiy = (CheckBox) view
+				.findViewById(R.id.chk_tajmiey_mojodikala);
 //		datefromcustomer = (ImageButton) view
 //				.findViewById(R.id.imgbtn_fromdatecustomer_frosh_);
 //
@@ -37,6 +44,21 @@ int a=0;
 //
 //			}
 //		});
+
+		btnshow.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent report=new Intent();
+				if(chktajmiiy.isChecked()){
+					report.putExtra("gozaresh", "mojodikalatajmiiy");
+				}else{
+				report.putExtra("gozaresh", "mojodikala");
+				}
+				report.setClass(getActivity(), ShowreportsActivity.class);
+				startActivity(report);
+			}
+		});
 
 		return view;
 	}
