@@ -105,7 +105,7 @@ public class ShowreportsActivity extends Activity {
 		else if (getIntent().getStringExtra("gozaresh").equals("rialianbar")) {
 			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouseRials.aspx");
 		}else if (getIntent().getStringExtra("gozaresh").equals("rialianbartajmiiy")) {
-			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouseRials.aspx");
+			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouseAgreagateRials.aspx");
 		}else if (getIntent().getStringExtra("gozaresh").equals("mojodikala")) {
 			webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouse.aspx");
 		} else if (getIntent().getStringExtra("gozaresh").equals("mojodikalatajmiiy")) {
