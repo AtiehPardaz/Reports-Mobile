@@ -24,7 +24,7 @@
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                />
+                android:hint="فاطمه اکبری" />
 
             <TextView
                 android:id="@+id/tv__customer_forosh"
@@ -50,7 +50,8 @@
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                />
+                android:hint="0200369987454"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv__bazarya_forosh"
@@ -76,7 +77,8 @@
                 android:layout_width="150dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                />
+                android:hint="159658745362"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tv__foroshande_forosh"

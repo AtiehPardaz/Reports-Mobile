@@ -50,7 +50,7 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		initview();
-		linearmenu.setVisibility(View.VISIBLE);
+//		linearmenu.setVisibility(View.VISIBLE);
 
 		forosh.setOnClickListener(new OnClickListener() {
 

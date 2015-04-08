@@ -1,0 +1,171 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/backgroundsade" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/actionbar"
+            android:gravity="right" >
+
+            <TextView
+                android:id="@+id/title_kala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:text="گزارش موجودی کالا و انبار"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/blue_titleactionbar" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_menu_kala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/homebutton"
+                android:onClick="btnmenu"
+                android:src="@drawable/btn_clickmenu" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/blue_actionbar2color"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/tabbtn_riali_kala"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_actionbar2color"
+                android:text="ریالی انبار"
+                android:textSize="14sp" />
+
+            <View
+                android:id="@+id/View03"
+                android:layout_width="3dp"
+                android:layout_height="50dp"
+                android:layout_gravity="top"
+                android:layout_margin="5dp"
+                android:background="#88a6bd" />
+
+<Button
+                android:id="@+id/tabbtn_mojodi_kala"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:background="@color/blue_actionbar2color"
+                android:text="موجودی کالا"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_gravity="center"
+            android:background="@color/blue_actionbar2color"
+            android:gravity="center" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_underline_riali_kala"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/underline" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_underline_mojodi_kala"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/underline" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/pagerkala"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </android.support.v4.view.ViewPager>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearmenu_kala"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backmenutransparent"
+        android:gravity="right"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/menubackground"
+            android:gravity="right|center"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_forosh_kala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/btnforosh"
+                android:src="@drawable/btn_click" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_khazane_kala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnkhazane"
+                android:src="@drawable/btn_click" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_hesabdari_kala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnhesabdari"
+                android:src="@drawable/btn_click" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_kala_kala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btnkala"
+                android:src="@drawable/btn_click" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_domain_kala"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/btndomain"
+                android:src="@drawable/btn_click" />
+             <ImageButton
+            android:id="@+id/imgbtn_logout_kala"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/btnloguot"
+            android:src="@drawable/btn_click" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

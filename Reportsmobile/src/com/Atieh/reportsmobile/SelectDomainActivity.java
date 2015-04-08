@@ -1,10 +1,12 @@
 package com.Atieh.reportsmobile;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 
 public class SelectDomainActivity extends Activity {
@@ -28,6 +30,9 @@ public class SelectDomainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				final InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+			    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+			
 				startActivity(new Intent(SelectDomainActivity.this,
 						HomeActivity.class));
 

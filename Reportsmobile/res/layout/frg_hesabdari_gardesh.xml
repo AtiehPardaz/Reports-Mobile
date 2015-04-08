@@ -92,18 +92,19 @@
 
             <EditText
                 android:id="@+id/et_shakhsgardesh_hesabdari"
-                android:layout_width="100dp"
+                android:layout_width="150dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:hint="رضا محمودی"
                 android:textSize="14sp" />
 
              <ImageButton
-                android:id="@+id/imgbtn_selectshakhsgardesh_hesabdari"
-               android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:background="@drawable/down" />
+                 android:id="@+id/imgbtn_selectshakhsgardesh_hesabdari"
+                 android:layout_width="32dp"
+                 android:layout_height="32dp"
+                 android:layout_gravity="center"
+                 android:background="@drawable/down"
+                 android:visibility="gone" />
 
             <EditText
                 android:id="@+id/et_selectshakhsgardesh_hesabdari"
@@ -111,7 +112,8 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:hint="رضا محمودی"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_shakhsgardesh_hesabdari"
@@ -123,7 +125,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
                 android:textSize="14sp"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
         </LinearLayout>
 
