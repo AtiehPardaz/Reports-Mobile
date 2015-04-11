@@ -57,19 +57,19 @@ public class ShowreportsActivity extends Activity {
 					String description, String failingUrl) {
 				Log.e(TAG, "Error: " + description);
 //				webview.setVisibility(view.GONE);
-				webview.loadUrl("file:///android_asset/myerrorpage.html");
+//				webview.loadUrl("file:///android_asset/myerrorpage.html");
 //				Toast.makeText(getApplicationContext(),
 //						"Oh no! " + description, Toast.LENGTH_SHORT).show();
-//				alertDialog.setTitle("خطا");
-//				alertDialog.setMessage("خطا در برقراری ارتباط . تنظیمات اینترنت خود را چک کنید سپس دوباره تلاش تمایید");
-//				alertDialog.setButton("OK",
-//						new DialogInterface.OnClickListener() {
-//							public void onClick(DialogInterface dialog,
-//									int which) {
-//								return;
-//							}
-//						}); 
-//				alertDialog.show();
+				alertDialog.setTitle("خطا");
+				alertDialog.setMessage("خطا در برقراری ارتباط . تنظیمات اینترنت خود را چک کنید سپس دوباره تلاش تمایید");
+				alertDialog.setButton("OK",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								return;
+							}
+						}); 
+				alertDialog.show();
 			}
 		});
 		// forosh tabs
