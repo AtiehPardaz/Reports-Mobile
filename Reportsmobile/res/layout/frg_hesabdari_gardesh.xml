@@ -24,7 +24,6 @@
             android:layout_width="150dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            
             android:textSize="14sp" >
 
             <requestFocus />
@@ -36,141 +35,155 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
-            android:text="از تاریخ:         "
+            android:text="از تاریخ:            "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_todategardesh_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/ic_action_date" />
+
+        <EditText
+            android:id="@+id/et_todate_forosh"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_todategardesh_hesabdari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:text="تا تاریخ:            "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_selectshakhsgardesh_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/down"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="145dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@color/marker_color"
+            android:backgroundTint="@color/abc_primary_text_material_dark"
+            android:textColor="#FF0000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="right"
+            android:text="عنوان تفصیل:      "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:visibility="visible" />
 
     </LinearLayout>
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_shakhsgardesh_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/down" />
+
+        <EditText
+            android:id="@+id/et_shakhsgardesh_hesabdarii"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:hint="رضا محمودی"
+            android:textSize="14sp" />
+
+        
+
+        <TextView
+            android:id="@+id/tv_shakhsgardesh_hesabdari"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="right" >
-
-            <ImageButton
-                android:id="@+id/imgbtn_todategardesh_hesabdari"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:background="@drawable/ic_action_date" />
-
-            <EditText
-                android:id="@+id/et_todate_forosh"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_todategardesh_hesabdari"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:gravity="right"
-                android:text="تا تاریخ:        "
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="right" >
-
-            <ImageButton
-                android:id="@+id/imgbtn_shakhsgardesh_hesabdari"
-               android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:background="@drawable/down" />
-
-            <EditText
-                android:id="@+id/et_shakhsgardesh_hesabdari"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:hint="رضا محمودی"
-                android:textSize="14sp" />
-
-             <ImageButton
-                 android:id="@+id/imgbtn_selectshakhsgardesh_hesabdari"
-                 android:layout_width="32dp"
-                 android:layout_height="32dp"
-                 android:layout_gravity="center"
-                 android:background="@drawable/down"
-                 android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/et_selectshakhsgardesh_hesabdari"
-                android:layout_width="100dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:hint="رضا محمودی"
-                android:textSize="14sp"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/tv_shakhsgardesh_hesabdari"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:gravity="right"
-                android:text="شخص:           "
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
-                android:textSize="14sp"
-                android:visibility="visible" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="right" >
-
-            <ImageButton
-                android:id="@+id/imgbtn_sathtafsil_hesabdari"
-               android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:background="@drawable/down" />
-
-            <EditText
-                android:id="@+id/et_sathtafsil_hesabdari"
-                android:layout_width="150dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:hint="سطح اول"
-                
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv_sathtafsilgardesh_hesabdari"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:gravity="right"
-                android:text="سطح تفصیل: "
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
-                android:textSize="14sp" />
-
-        </LinearLayout>
-
-     
-
-<ImageButton
-    android:id="@+id/imgbtn_namayesh_gardesh_hesabdari"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/btnnamayesh"
-    android:src="@drawable/btn_click" />
-
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:text="عنوان تفصیل:     "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:visibility="visible" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_sathtafsil_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:background="@drawable/down" />
+
+        <EditText
+            android:id="@+id/et_sathtafsil_hesabdari"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:hint="سطح اول"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_sathtafsilgardesh_hesabdari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:text="سطح تفصیل:    "
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgbtn_namayesh_gardesh_hesabdari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btnnamayesh"
+        android:src="@drawable/btn_click" />
+
+</LinearLayout>

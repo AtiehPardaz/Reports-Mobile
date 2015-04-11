@@ -19,6 +19,7 @@ public class HomeActivity extends Activity {
 	ImageButton hesabdari;
 	ImageButton khazane;
 	ImageButton kala;
+	ImageButton domain;
 	ImageButton logout;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
@@ -31,6 +32,7 @@ public class HomeActivity extends Activity {
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_home);
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_home);
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_home);
+		domain = (ImageButton) findViewById(R.id.imgbtn_domain_home);
 		logout = (ImageButton) findViewById(R.id.imgbtn_logout_home);
 	}
 
@@ -50,7 +52,7 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		initview();
-//		linearmenu.setVisibility(View.VISIBLE);
+		// linearmenu.setVisibility(View.VISIBLE);
 
 		forosh.setOnClickListener(new OnClickListener() {
 
@@ -92,8 +94,17 @@ public class HomeActivity extends Activity {
 
 			}
 		});
-logout.setOnClickListener(new OnClickListener() {
-			
+		domain.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				startActivity(new Intent(HomeActivity.this,
+						SelectDomainActivity.class));
+			}
+		});
+		logout.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getApplicationContext(),
@@ -101,7 +112,7 @@ logout.setOnClickListener(new OnClickListener() {
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				intent.putExtra("EXIT", true);
 				startActivity(intent);
-				
+
 			}
 		});
 		linearmenu.setOnClickListener(new OnClickListener() {
@@ -164,7 +175,7 @@ logout.setOnClickListener(new OnClickListener() {
 
 			return;
 		}
-		
+
 		this._doubleBackToExitPressedOnce = true;
 		Toast.makeText(this, "برای خروج کلید بازگشت را دوباره فشار دهید",
 				Toast.LENGTH_SHORT).show();
@@ -179,7 +190,7 @@ logout.setOnClickListener(new OnClickListener() {
 
 	@Override
 	protected void onResume() {
-		
+
 		super.onResume();
 
 		showmenu();
