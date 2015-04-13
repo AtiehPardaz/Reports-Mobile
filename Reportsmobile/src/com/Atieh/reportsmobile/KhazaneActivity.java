@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class KhazaneActivity extends FragmentActivity {
@@ -27,6 +28,7 @@ public class KhazaneActivity extends FragmentActivity {
 	ImageButton hesabdari;
 	ImageButton kala;
 	ImageButton domain;
+	ImageButton logout;
 
 	LinearLayout linearmenu;
 	ViewPager pagerkhazane;
@@ -34,6 +36,7 @@ public class KhazaneActivity extends FragmentActivity {
 	Button vaziatdaryafti;
 	Button pardakhti;
 	Button vaziatpardakhti;
+	TextView title;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_khazane);
@@ -49,13 +52,16 @@ public class KhazaneActivity extends FragmentActivity {
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_khazane);
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_khazane);
 		domain = (ImageButton) findViewById(R.id.imgbtn_domain_khazane);
+		logout = (ImageButton) findViewById(R.id.imgbtn_logout_khazane);
 		
 		pagerkhazane = (ViewPager) findViewById(R.id.pagerkhazane);
-		
-		 daryafti = (Button) findViewById(R.id.tabbtn_asnaddaryafti_khazane);
-		 vaziatdaryafti = (Button) findViewById(R.id.tabbtn_vaziatasnaddaryafti_khazane);
-		 pardakhti = (Button) findViewById(R.id.tabbtn_asnadpardakhti_khazane);
-		 vaziatpardakhti = (Button) findViewById(R.id.tabbtn_vaziatasnadpardakhti_khazane);
+
+		daryafti = (Button) findViewById(R.id.tabbtn_asnaddaryafti_khazane);
+		vaziatdaryafti = (Button) findViewById(R.id.tabbtn_vaziatasnaddaryafti_khazane);
+		pardakhti = (Button) findViewById(R.id.tabbtn_asnadpardakhti_khazane);
+		vaziatpardakhti = (Button) findViewById(R.id.tabbtn_vaziatasnadpardakhti_khazane);
+
+		title = (TextView) findViewById(R.id.title_khazane);
 
 	}
 
@@ -74,7 +80,7 @@ public class KhazaneActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_khazane);
 		initview();
-
+		title.setTypeface(MainActivity.titr);
 		khazane.setVisibility(View.GONE);
 
 		final pageradapterkhazane pageadapter = new pageradapterkhazane(
@@ -206,7 +212,7 @@ public class KhazaneActivity extends FragmentActivity {
 						KalaActivity.class));
 			}
 		});
-		
+
 		domain.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -216,7 +222,18 @@ public class KhazaneActivity extends FragmentActivity {
 						SelectDomainActivity.class));
 			}
 		});
-
+	logout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("EXIT", true);
+				startActivity(intent);
+				
+			}
+		});
 		menu.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -227,12 +244,12 @@ public class KhazaneActivity extends FragmentActivity {
 			}
 		});
 	}
-	
+
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
-		 
+
 		Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);

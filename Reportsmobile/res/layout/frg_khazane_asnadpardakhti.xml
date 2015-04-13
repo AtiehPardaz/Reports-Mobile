@@ -174,7 +174,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imgbtn_namayesh_daryafti_khazane"
+        android:id="@+id/imgbtn_namayesh_pardakhti_khazane"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btnnamayesh"

@@ -204,7 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|center"
                 android:gravity="right"
-                android:text="کالا:         "
+                android:text="کالا:          "
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
                 android:textSize="14sp" />

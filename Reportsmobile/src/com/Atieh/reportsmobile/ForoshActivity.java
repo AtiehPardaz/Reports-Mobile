@@ -12,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ForoshActivity extends FragmentActivity {
@@ -25,7 +26,8 @@ public class ForoshActivity extends FragmentActivity {
 	ImageButton khazane;
 	ImageButton kalamenu;
 	ImageButton domain;
-
+	ImageButton logout;
+	TextView title;
 	LinearLayout linearmenu;
 	ViewPager pagerforosh;
 	Button customer;
@@ -43,12 +45,13 @@ public class ForoshActivity extends FragmentActivity {
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_forosh);
 		kalamenu = (ImageButton) findViewById(R.id.imgbtn_kala_forosh);
 		domain = (ImageButton) findViewById(R.id.imgbtn_domain_forosh);
-
+		logout = (ImageButton) findViewById(R.id.imgbtn_logout_forosh);
 		pagerforosh = (ViewPager) findViewById(R.id.pagerforosh);
 		customer = (Button) findViewById(R.id.tabbtn_customer_forosh);
 		faktor = (Button) findViewById(R.id.tabbtn_faktor_forosh);
 		kala = (Button) findViewById(R.id.tabbtn_kala_forosh);
-
+		
+		title = (TextView) findViewById(R.id.title_forosh);
 	}
 
 	public void showmenu(View v) {
@@ -74,7 +77,7 @@ public class ForoshActivity extends FragmentActivity {
 		pagerforosh.setCurrentItem(2);
 		underlinefaktor.setVisibility(View.INVISIBLE);
 		underlineforokhte.setVisibility(View.INVISIBLE);
-
+		title.setTypeface(MainActivity.titr);
 		linearmenu.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -187,13 +190,25 @@ public class ForoshActivity extends FragmentActivity {
 
 			}
 		});
+		logout.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				intent.putExtra("EXIT", true);
+				startActivity(intent);
+				
+			}
+		});
 	}// End onCreate
 
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
-		
+
 		Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);

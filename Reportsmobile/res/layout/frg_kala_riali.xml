@@ -121,17 +121,19 @@
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="قیمت تمام شده"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="gone" />
 
         <CheckBox
             android:id="@+id/acheckBox2"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:text="قیمت فروش    "
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="gone" />
 
         <CheckBox
-            android:id="@+id/acheckBox3"
+            android:id="@+id/chk_tajmiiy_rialianbar"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:text="نمایش بصورت تجمیعی"
@@ -140,7 +142,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imgbtn_namayesh_gardesh_hesabdari"
+        android:id="@+id/imgbtn_namayesh_riali_kalaanbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/btnnamayesh"
