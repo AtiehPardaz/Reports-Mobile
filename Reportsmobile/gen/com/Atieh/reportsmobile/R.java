@@ -1687,6 +1687,7 @@ containing a value of this type.
     public static final class id {
         public static final int ImageView01=0x7f0900a0;
         public static final int LinearLayout1=0x7f09009a;
+        public static final int RelativeLayout1=0x7f0900fe;
         public static final int TextView01=0x7f0900aa;
         public static final int TextView011=0x7f0900dd;
         public static final int TextView02=0x7f0900c6;
@@ -1709,7 +1710,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09002e;
         public static final int action_mode_bar_stub=0x7f09002d;
         public static final int action_mode_close_button=0x7f090020;
-        public static final int action_settings=0x7f0900fe;
+        public static final int action_settings=0x7f090109;
         public static final int activity_chooser_view_content=0x7f090021;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
@@ -1767,6 +1768,12 @@ containing a value of this type.
         public static final int icon=0x7f090026;
         public static final int ifRoom=0x7f090016;
         public static final int image=0x7f090023;
+        public static final int imageButton1=0x7f090101;
+        public static final int imageButton2=0x7f090102;
+        public static final int imageButton3=0x7f090104;
+        public static final int imageButton4=0x7f090105;
+        public static final int imageButton5=0x7f090107;
+        public static final int imageButton6=0x7f090108;
         public static final int imageView1=0x7f09004c;
         public static final int imgbtn_arztarkibi_hesabdari=0x7f0900fa;
         public static final int imgbtn_bazaryab_forosh=0x7f0900b1;
@@ -1909,6 +1916,10 @@ containing a value of this type.
         public static final int tabbtn_tarkibi_hesabdari=0x7f090062;
         public static final int tabbtn_vaziatasnaddaryafti_khazane=0x7f09008c;
         public static final int tabbtn_vaziatasnadpardakhti_khazane=0x7f090089;
+        public static final int tableLayout1=0x7f0900ff;
+        public static final int tableRow1=0x7f090100;
+        public static final int tableRow2=0x7f090103;
+        public static final int tableRow3=0x7f090106;
         public static final int title=0x7f090027;
         public static final int title_forosh=0x7f09004e;
         public static final int title_hesabdari=0x7f090060;
@@ -2010,7 +2021,8 @@ containing a value of this type.
         public static final int frg_khazane_vaziatdaryafti=0x7f030028;
         public static final int frg_khazane_vaziatpardakhti=0x7f030029;
         public static final int frg_tarkibi=0x7f03002a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03002b;
+        public static final int home=0x7f03002b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002c;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;

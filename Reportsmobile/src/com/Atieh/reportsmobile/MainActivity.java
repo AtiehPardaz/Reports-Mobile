@@ -1,5 +1,19 @@
 package com.Atieh.reportsmobile;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.conn.ConnectTimeoutException;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -8,6 +22,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -50,88 +67,45 @@ public class MainActivity extends Activity {
 
 		titr = Typeface.createFromAsset(MainActivity.this.getAssets(),
 				"titr.TTF");
-		authenticate = new Authentication();
-
-		auth = ServiceGenerator.createService(AuthenticationInterface.class,
-				MainActivity.baseURL);
 
 		login.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 
-				final InputMethodManager imm = (InputMethodManager) getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-			    imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
-			
+				final InputMethodManager imm = (InputMethodManager) getApplicationContext()
+						.getSystemService(Context.INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
+
 				if (et_username.getText().toString().matches("")
 						&& et_password.getText().toString().matches("")) {
 					Toast.makeText(MainActivity.this,
-							"نام کاربری و رمز عبور را وارد نمایید",
-							Toast.LENGTH_LONG).show();
+							"وجود کادر خالی غیر مجاز است", Toast.LENGTH_LONG)
+							.show();
 
 				} else if (et_password.getText().toString().matches("")) {
 					Toast.makeText(MainActivity.this,
-							"رمز عبور را وارد نمایید", Toast.LENGTH_LONG)
+							"وجود کادر خالی غیر مجاز است", Toast.LENGTH_LONG)
 							.show();
 				} else if (et_username.getText().toString().matches("")) {
 					Toast.makeText(MainActivity.this,
-							"نام کاربری راوارد نمایید", Toast.LENGTH_LONG)
+							"نوجود کادر خالی غیر مجاز است", Toast.LENGTH_LONG)
 							.show();
 				} else {
-					if (et_username.getText().toString().matches("amir")
-							&& et_password.getText().toString().matches("amir")) {
-						startActivity(new Intent(MainActivity.this,
-								SelectDomainActivity.class));
-					}else{
-						Toast.makeText(MainActivity.this,
-								"نام کاربری یا رمز ورود اشتباه است", Toast.LENGTH_LONG)
-								.show();
-					}
-					// for check user & pas
 
-					// < for login ========================
-					// loadinglayer.setVisibility(View.VISIBLE);
-					// auth.authenticate(et_username.getText().toString(),
-					// et_password
-					// .getText().toString(), new Callback<Authentication>() {
-					//
-					// @Override
-					// public void success(Authentication arg0, Response arg1) {
-					// authenticate = arg0;
-					// }
-					//
-					// @Override
-					// public void failure(RetrofitError arg0) {
-					//
-					// Toast.makeText(MainActivity.this, arg0.toString(), 1)
-					// .show();
-					//
-					// }
-					// });
-					//
-					// if (authenticate.getStatus() != null) {
-					//
-					//
-					// if (authenticate.getStatus().getCode() == 1) {
-					//
-					// Toast.makeText(MainActivity.this,
-					// authenticate.getStatus().getMessage(), 1)
-					// .show();
-					//
-					// startActivity(new Intent(MainActivity.this,
-					// SelectDomainActivity.class));
-					// }
-					//
-					// else {
-					// //
-					// Toast.makeText(MainActivity.this,authenticate.getStatus().getMessage(),
-					// // 1).show();
-					// }
-					//
-					// }
-					// >>===========end login
+					asyncTask as = new asyncTask(); // checking network
+					// status
+					as.execute("P");
+
 				}
+
+				// for check user & pas
+
+				// < for login ========================
+				// loadinglayer.setVisibility(View.VISIBLE);
+
 			}
+
 		});
 		et_password.setGravity(Gravity.RIGHT);
 		et_password.addTextChangedListener(new TextWatcher() {
@@ -170,6 +144,175 @@ public class MainActivity extends Activity {
 
 	public static void hideSoftKeyboard(Activity activity) {
 
+	}
+
+	public void autenticateUser() {
+
+		authnticationThread auth = new authnticationThread();
+		auth.execute("");
+	}
+
+	public int netStatus(String url) throws URISyntaxException,
+			ClientProtocolException, IOException {
+
+		int resCode = 0;
+		if (isNetworkAvailable()) {
+
+			try {
+
+				HttpGet httpRequest = null;
+				HttpParams httpParameters = new BasicHttpParams();
+				httpRequest = new HttpGet(new URI(url));
+				HttpConnectionParams
+						.setConnectionTimeout(httpParameters, 20000);
+				HttpConnectionParams.setSoTimeout(httpParameters, 20000);
+
+				HttpClient httpclient = new DefaultHttpClient(httpParameters);
+				HttpResponse response =  httpclient.execute(httpRequest);
+				resCode = response.getStatusLine().getStatusCode();
+
+			}
+
+			catch (ConnectTimeoutException e) {
+
+				Toast.makeText(MainActivity.this, "timeout error",
+						Toast.LENGTH_SHORT).show();
+				resCode = 10000;
+				
+			}
+
+		}
+
+		else {
+			resCode = 1000; // our code for no network connected or connecting
+		}
+
+		return resCode;
+	}
+
+	public String httpRequestMessage(int responseCode) {
+		String message = "";
+		switch (responseCode) {
+		case 200:
+			message = "";
+			break;
+		case 401:
+			message = "عدم دسترسی لازم جهت اتصال به سرور";
+			break;
+		case 400:
+			message = "خطا در برقرای ارتباط. لطفا مجددا تلاش نمایید";
+			break;
+
+		case 404:
+			message = "وب سایت پذیرنده در دسترس نمی باشد. لطفا در زمانی دیگر تلاش نمایید.";
+			break;
+
+		case 1000: // our code for no network connected or connecting
+			message = "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
+			break;
+
+		default:
+			message = "خطای ناشناخته شماره :" + Integer.toString(responseCode);
+		}
+
+		return message;
+	}
+
+	private boolean isNetworkAvailable() {
+
+		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo netInfo = cm.getActiveNetworkInfo();
+		if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	public class asyncTask extends AsyncTask<String, String, String> {
+
+		@Override
+		protected void onPreExecute() {
+
+			// progbar_progress.setVisibility(View.VISIBLE);
+			// linear1.setVisibility(View.VISIBLE);
+			loadinglayer.setVisibility(View.VISIBLE);
+		}
+
+		@Override
+		protected String doInBackground(String... arg0) {
+
+			try {
+				return httpRequestMessage(netStatus("http://atiehpardaz.com/default.aspx?lng=fa"));
+			} catch (URISyntaxException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				loadinglayer.setVisibility(View.INVISIBLE);
+
+				return "timeout error";
+			}
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+
+			if (result != "") {
+				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
+						.show();
+			} else {
+
+				autenticateUser();
+
+			}
+		}
+	}
+
+	public class authnticationThread extends AsyncTask<String, String, String> {
+
+		@Override
+		protected String doInBackground(String... arg0) {
+			
+			authenticate = new Authentication();
+
+			auth = ServiceGenerator.createService(
+					AuthenticationInterface.class, MainActivity.baseURL);
+
+			authenticate = auth.authenticate(et_username.getText().toString(),
+					et_password.getText().toString());
+
+			if (authenticate.getStatus() != null) {
+
+				if (authenticate.getStatus().getCode() == 1) {
+
+					startActivity(new Intent(MainActivity.this,
+							SelectDomainActivity.class));
+
+					return "";
+				}
+
+				else {
+
+					return authenticate.getStatus().getMessage();
+				}
+
+			} else {
+				return "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
+			}
+
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			
+			loadinglayer.setVisibility(View.INVISIBLE);
+
+			if (result != "") {
+				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
+						.show();
+			}
+
+		}
 	}
 
 }
