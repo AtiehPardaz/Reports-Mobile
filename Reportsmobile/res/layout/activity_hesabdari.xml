@@ -47,7 +47,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_actionbar2color"
-                android:text="گردش ترکیبی 2تا تفصیلی"
+                android:text="گردش ترکیبی دوتا تفصیلی"
                 android:textSize="14sp" />
 
             <View

@@ -10,21 +10,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="@color/white_color"
             android:gravity="right" >
 
             <ImageButton
                 android:id="@+id/imgbtn_customer_forosh"
-               android:layout_width="32dp"
+                android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:background="@drawable/down" />
 
             <EditText
                 android:id="@+id/et__customer_forosh"
-                android:layout_width="150dp"
+                android:layout_width="180dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:hint="بهزاد محمدپور"
+                android:hint="نام دریافت کننده   "
                 android:textSize="14sp" />
 
             <TextView
@@ -33,7 +34,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|center"
                 android:gravity="right"
-                android:text="نام دریافت کننده   "
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="#ffffff"
                 android:textSize="14sp" />
@@ -44,25 +44,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@color/white_color"
             android:gravity="right" >
 
             <EditText
                 android:id="@+id/et__bazarya_forosh"
-                android:layout_width="150dp"
+                android:layout_width="210dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:hint="036998745123"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv__bazarya_forosh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:gravity="right"
-                android:text="شماره حساب    "
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
+                android:hint="شماره حساب    "
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -71,25 +62,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/white_color"
             android:gravity="right" >
 
             <EditText
                 android:id="@+id/et__foroshande_forosh"
-                android:layout_width="150dp"
+                android:layout_width="210dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:hint="559987414241023"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv__foroshande_forosh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:gravity="right"
-                android:text="شماره چک        "
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
+                android:layout_marginTop="5dp"
+                android:hint="شماره چک        "
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -98,7 +82,7 @@
     android:id="@+id/imgbtn_namayesh_vaziatasnaddaryafti_khazane"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/btnnamayesh"
-    android:src="@drawable/btn_click" />
+    android:background="@color/blue_green"
+    android:src="@drawable/newnamayesh" />
 
     </LinearLayout>

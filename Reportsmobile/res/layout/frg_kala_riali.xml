@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:background="@color/marker_color"
         android:gravity="right" >
 
         <ImageButton
@@ -17,14 +18,15 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
         <EditText
             android:id="@+id/et_fromdate_hesabdari"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-           
+            android:hint="تاریخ:         "
             android:textSize="14sp" >
 
             <requestFocus />
@@ -36,7 +38,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
-            android:text="تاریخ:         "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="14sp" />
@@ -46,6 +47,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@color/marker_color"
         android:gravity="right" >
 
         <ImageButton
@@ -53,14 +56,15 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/down" />
 
         <EditText
             android:id="@+id/et_shakhsgardesh_hesabdari"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-           
+            android:hint="انبارها:        "
             android:textSize="14sp" />
 
         <TextView
@@ -69,7 +73,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
-            android:text="انبارها:        "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="14sp" />
@@ -79,6 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:background="@color/marker_color"
         android:gravity="right" >
 
         <ImageButton
@@ -86,15 +91,15 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/down" />
 
         <EditText
             android:id="@+id/et_sathtafsil_hesabdari"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="کالا 1"
-           
+            android:hint="کالاها:         "
             android:textSize="14sp" />
 
         <TextView
@@ -103,7 +108,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
-            android:text="کالاها:         "
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="14sp" />
@@ -136,6 +140,7 @@
             android:id="@+id/chk_tajmiiy_rialianbar"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
+            android:layout_marginBottom="10dp"
             android:text="نمایش بصورت تجمیعی"
             android:textSize="14sp" />
 
@@ -145,7 +150,7 @@
         android:id="@+id/imgbtn_namayesh_riali_kalaanbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btnnamayesh"
-        android:src="@drawable/btn_click" />
+        android:background="@color/blue_green"
+        android:src="@drawable/newnamayesh" />
 
 </LinearLayout>

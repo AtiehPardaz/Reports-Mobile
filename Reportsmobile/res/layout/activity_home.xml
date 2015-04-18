@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/actionbar"
-        android:gravity="right" >
+        android:gravity="right"
+        android:visibility="gone" >
 
         <ImageButton
             android:id="@+id/imgbtn_menu_home"
@@ -42,7 +43,8 @@
             android:id="@+id/imageView1"
             android:layout_width="300dp"
             android:layout_height="90dp"
-            android:src="@drawable/loadinglogo" />
+            android:src="@drawable/loadinglogo"
+            android:visibility="gone" />
 
         <View
             android:id="@+id/view1"
@@ -57,62 +59,82 @@
     android:id="@+id/linearmenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backmenutransparent"
-    android:gravity="right"
-    android:visibility="gone" >
+    android:gravity="center"
+    android:visibility="visible" >
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="55dp"
-        android:background="@drawable/menubackground"
-        android:gravity="right"
+        android:gravity="right|center"
         android:orientation="vertical" >
 
-        <ImageButton
-            android:id="@+id/imgbtn_forosh_home"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/btnforosh"
-            android:src="@drawable/btn_click" />
+            android:layout_margin="5dp" >
 
-        <ImageButton
-            android:id="@+id/imgbtn_khazane_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btnkhazane"
-            android:src="@drawable/btn_click" />
+            <ImageButton
+                android:id="@+id/imgbtn_forosh_home"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:background="@drawable/newforosh"
+                android:src="@drawable/btn_homeclick" />
 
-        <ImageButton
-            android:id="@+id/imgbtn_hesabdari_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btnhesabdari"
-            android:src="@drawable/btn_click" />
+            <ImageButton
+                android:id="@+id/imgbtn_khazane_home"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/newkhazane"
+                android:src="@drawable/btn_homeclick" />
 
-        <ImageButton
-            android:id="@+id/imgbtn_kala_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btnkala"
-            android:src="@drawable/btn_click" />
+        </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/imgbtn_domain_home"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/btndomain"
-            android:src="@drawable/btn_click" />
-        <ImageButton
-            android:id="@+id/imgbtn_logout_home"
-            android:layout_width="wrap_content"
+            android:layout_margin="5dp" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_hesabdari_home"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:background="@drawable/newhesabdari"
+                android:src="@drawable/btn_homeclick" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_kala_home"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/newanbar"
+                android:src="@drawable/btn_homeclick" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/btnloguot"
-            android:src="@drawable/btn_click" />
+            android:layout_margin="5dp" >
+
+            <ImageButton
+                android:id="@+id/imgbtn_domain_home"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:background="@drawable/newdomain"
+                android:src="@drawable/btn_homeclick" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_logout_home"
+                android:layout_width="150dp"
+                android:layout_height="140dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/newexit"
+                android:src="@drawable/btn_homeclick" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

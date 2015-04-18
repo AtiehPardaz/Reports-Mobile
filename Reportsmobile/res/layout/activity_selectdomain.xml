@@ -30,13 +30,17 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/white_color" >
+
                     <ImageButton
-                android:id="@+id/imgbtn_selectdomain"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:background="@drawable/down" />
+                        android:id="@+id/imgbtn_selectdomain"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/down" />
 
                     <EditText
                         android:id="@+id/et_domain"
@@ -52,13 +56,15 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_color" >
 
                     <ImageButton
                         android:id="@+id/imgbtn_selectyearmali"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
                         android:background="@drawable/down" />
 
                     <EditText
@@ -78,8 +84,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:background="@drawable/img_btn_sabt"
-                    android:src="@drawable/btn_click" />
+                    android:background="@color/blue_green"
+                    android:src="@drawable/newsabt" />
 
             </LinearLayout>
         </LinearLayout>

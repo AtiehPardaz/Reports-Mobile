@@ -36,14 +36,14 @@ public class HomeActivity extends Activity {
 		logout = (ImageButton) findViewById(R.id.imgbtn_logout_home);
 	}
 
-	public void showmenu() {
-		if (linearmenu.getVisibility() == View.GONE) {
-			linearmenu.setVisibility(View.VISIBLE);
-
-		} else {
-			linearmenu.setVisibility(View.GONE);
-		}
-	}
+//	public void showmenu() {
+//		if (linearmenu.getVisibility() == View.GONE) {
+//			linearmenu.setVisibility(View.VISIBLE);
+//
+//		} else {
+//			linearmenu.setVisibility(View.GONE);
+//		}
+//	}
 
 	// =================================oncreate==============
 	@Override
@@ -115,25 +115,25 @@ public class HomeActivity extends Activity {
 
 			}
 		});
-		linearmenu.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				showmenu();
-			}
-		});
-		menu.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				showmenu();
-
-				// startActivity(new Intent(SelectDomainActivity.this,
-				// HomeActivity.class));
-
-			}
-		});
+//		linearmenu.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//
+//				showmenu();
+//			}
+//		});
+//		menu.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				showmenu();
+//
+//				// startActivity(new Intent(SelectDomainActivity.this,
+//				// HomeActivity.class));
+//
+//			}
+//		});
 
 	}
 
@@ -188,12 +188,6 @@ public class HomeActivity extends Activity {
 		}, 2000);
 	}
 
-	@Override
-	protected void onResume() {
-
-		super.onResume();
-
-		showmenu();
-	}
+	
 
 }

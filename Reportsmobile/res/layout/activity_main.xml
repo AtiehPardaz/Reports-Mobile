@@ -52,8 +52,9 @@
                     android:id="@+id/imgbtn_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/img_btn_vorod"
-                    android:src="@drawable/btn_click" />
+                    android:layout_marginTop="10dp"
+                    android:background="@color/blue_green"
+                    android:src="@drawable/newvorod" />
 
             </LinearLayout>
         </LinearLayout>
@@ -63,7 +64,7 @@
         android:id="@+id/linearpb_doamin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/blackt"
+        android:background="#ab000000"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible" >
