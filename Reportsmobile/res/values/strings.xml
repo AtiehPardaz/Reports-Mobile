@@ -6,7 +6,7 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="tafsiltitle">
-        <item>شخص</item>
+        <item>عنوان تفصیل</item>
         <item>ارز</item>
         <item>مرکز هزینه</item>
         <item>مرکز پروژه</item>

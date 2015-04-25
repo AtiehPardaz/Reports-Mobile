@@ -82,7 +82,7 @@
                 <ImageButton
                     android:id="@+id/imgbtn_sabt"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:layout_marginTop="15dp"
                     android:background="@color/blue_green"
                     android:src="@drawable/newsabt" />

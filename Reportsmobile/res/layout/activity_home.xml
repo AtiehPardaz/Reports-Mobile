@@ -77,6 +77,7 @@
                 android:id="@+id/imgbtn_forosh_home"
                 android:layout_width="150dp"
                 android:layout_height="140dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/newforosh"
                 android:src="@drawable/btn_homeclick" />
 
@@ -99,6 +100,7 @@
                 android:id="@+id/imgbtn_hesabdari_home"
                 android:layout_width="150dp"
                 android:layout_height="140dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/newhesabdari"
                 android:src="@drawable/btn_homeclick" />
 
@@ -121,6 +123,7 @@
                 android:id="@+id/imgbtn_domain_home"
                 android:layout_width="150dp"
                 android:layout_height="140dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/newdomain"
                 android:src="@drawable/btn_homeclick" />
 

@@ -11,8 +11,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@drawable/actionbar"
+            android:layout_height="wrap_content"
+            android:background="#f05c20"
             android:gravity="right" >
 
             <TextView
@@ -23,7 +23,7 @@
                 android:layout_marginRight="10dp"
                 android:text="گزارش خزانه داری"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/blue_titleactionbar" />
+                android:textColor="@color/marker_color" />
 
             <ImageButton
                 android:id="@+id/imgbtn_menu_khazane"
@@ -171,6 +171,7 @@
         android:id="@+id/linearmenu_khazane"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="63dp"
         android:background="@drawable/backmenutransparent"
         android:gravity="right"
         android:visibility="gone" >
@@ -180,7 +181,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:layout_marginRight="2dp"
-            android:layout_marginTop="55dp"
             android:background="@drawable/menubackground"
             android:gravity="right|center"
             android:orientation="vertical" >
@@ -189,45 +189,44 @@
                 android:id="@+id/imgbtn_forosh_khazane"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/btnforosh"
+                android:background="@drawable/neworoshmenu"
                 android:src="@drawable/btn_click" />
 
             <ImageButton
                 android:id="@+id/imgbtn_khazane_khazane"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btnkhazane"
+                android:background="@drawable/newmenukhazane"
                 android:src="@drawable/btn_click" />
 
             <ImageButton
                 android:id="@+id/imgbtn_hesabdari_khazane"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btnhesabdari"
+                android:background="@drawable/newmenuhesabdari"
                 android:src="@drawable/btn_click" />
 
             <ImageButton
                 android:id="@+id/imgbtn_kala_khazane"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btnkala"
+                android:background="@drawable/newmenukala"
                 android:src="@drawable/btn_click" />
 
             <ImageButton
                 android:id="@+id/imgbtn_domain_khazane"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/btndomain"
+                android:background="@drawable/newmenudomain"
                 android:src="@drawable/btn_click" />
+
              <ImageButton
-            android:id="@+id/imgbtn_logout_khazane"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/btnloguot"
-            android:src="@drawable/btn_click" />
+                 android:id="@+id/imgbtn_logout_khazane"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:background="@drawable/newmenukhoroj"
+                 android:src="@drawable/btn_click" />
+
         </LinearLayout>
     </LinearLayout>
 

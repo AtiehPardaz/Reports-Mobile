@@ -205,8 +205,8 @@ public class ShowreportsActivity extends Activity {
 
 				//
 			} else {
-				Toast.makeText(ShowreportsActivity.this,
-						"عملیات با موفقیت در حال انجام است ،لطفا منتظر بمانید ....", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(ShowreportsActivity.this,
+//						"عملیات با موفقیت در حال انجام است ،لطفا منتظر بمانید ....", Toast.LENGTH_SHORT).show();
 				
 				// forosh tabs
 				if (getIntent().getStringExtra("gozaresh").equals(

@@ -35,4 +35,9 @@
      
     <item name="android:backgroundDimEnabled">false</item>
   </style>
+  
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/accent_material_dark</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

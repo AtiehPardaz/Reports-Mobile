@@ -198,7 +198,7 @@ public class DatepickerActivity extends Activity {
 			idx = 0;
 			return monthNames.get(idx);
 		} else if (idx < 0 || idx + 1 == monthNames.size())
-			return "";
+			return monthNames.get(idx + 1);
 		return monthNames.get(idx + 1);
 	}
 

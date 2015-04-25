@@ -93,9 +93,12 @@ public class MainActivity extends Activity {
 							.show();
 				} else {
 
-					asyncTask as = new asyncTask(); // checking network
-					// status
-					as.execute("P");
+//					asyncTask as = new asyncTask(); // checking network
+//					// status
+//					as.execute("P");
+					
+					startActivity(new Intent(MainActivity.this,
+							SelectDomainActivity.class));
 
 				}
 
@@ -177,6 +180,7 @@ public class MainActivity extends Activity {
 
 				Toast.makeText(MainActivity.this, "timeout error",
 						Toast.LENGTH_SHORT).show();
+				
 				resCode = 10000;
 				
 			}
