@@ -178,18 +178,18 @@ public class DatepickerActivity extends Activity {
 		weekDayNames.add("31");
 
 		// array for Month
-		monthNames.add("فروردین");
-		monthNames.add("اردیبهشت");
-		monthNames.add("خرداد");
-		monthNames.add("تیر");
-		monthNames.add("مرداد");
-		monthNames.add("شهریور");
-		monthNames.add("مهر");
-		monthNames.add("آبان");
-		monthNames.add("آذر");
-		monthNames.add("دی");
-		monthNames.add("بهمن");
-		monthNames.add("اسفند");
+		monthNames.add("1");
+		monthNames.add("2");
+		monthNames.add("3");
+		monthNames.add("4");
+		monthNames.add("5");
+		monthNames.add("6");
+		monthNames.add("7");
+		monthNames.add("8");
+		monthNames.add("9");
+		monthNames.add("10");
+		monthNames.add("11");
+		monthNames.add("12");
 	}
 
 	public String getNext_Month(String uid) {

@@ -1,15 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blackt" >
+    android:background="@drawable/blackt"
+    android:gravity="center"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/rel_cal"
         android:layout_width="350dp"
         android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerInParent="true"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20sp"
         android:gravity="center"
@@ -22,6 +23,17 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/TextView02"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="سال"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/top_image_year"
@@ -40,7 +52,6 @@
                 android:text="1392"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" >
-
             </TextView>
 
             <ImageView
@@ -59,6 +70,17 @@
             android:layout_marginRight="10dp"
             android:gravity="center"
             android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="ماه"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
             <ImageView
                 android:id="@+id/top_image_month"
@@ -80,7 +102,6 @@
                 android:text="10"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" >
-
             </TextView>
 
             <ImageView
@@ -100,6 +121,17 @@
             android:gravity="center"
             android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/TextView03"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="روز"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
             <ImageView
                 android:id="@+id/top_image_day"
                 android:layout_width="30dp"
@@ -118,7 +150,6 @@
                 android:text="10"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" >
-
             </TextView>
 
             <ImageView
@@ -134,19 +165,14 @@
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rel_cal"
-        android:layout_centerHorizontal="true" >
+        android:layout_height="wrap_content" >
     </ImageView>
 
     <ImageButton
         android:id="@+id/imgbtn_sabtdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rel_cal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:background="@color/blue_green"
         android:src="@drawable/newsabt" />
 
-</RelativeLayout>
+</LinearLayout>

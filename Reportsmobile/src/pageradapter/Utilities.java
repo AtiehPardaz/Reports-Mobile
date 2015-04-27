@@ -173,40 +173,40 @@ public class Utilities {
 
 			switch (month) {
 			case 1:
-				strMonth = "›—Ê—œÌ‰";
+				strMonth = "1";
 				break;
 			case 2:
-				strMonth = "«—œÌ»Â‘ ";
+				strMonth = "2";
 				break;
 			case 3:
-				strMonth = "Œ—œ«œ";
+				strMonth = "3";
 				break;
 			case 4:
-				strMonth = " Ì—";
+				strMonth = "4";
 				break;
 			case 5:
-				strMonth = "„—œ«œ";
+				strMonth = "5";
 				break;
 			case 6:
-				strMonth = "‘Â—ÌÊ—";
+				strMonth = "6";
 				break;
 			case 7:
-				strMonth = "„Â—";
+				strMonth = "7";
 				break;
 			case 8:
-				strMonth = "¬»«‰";
+				strMonth = "8";
 				break;
 			case 9:
-				strMonth = "¬–—";
+				strMonth = "9";
 				break;
 			case 10:
-				strMonth = "œÌ";
+				strMonth = "10";
 				break;
 			case 11:
-				strMonth = "»Â„‰";
+				strMonth = "11";
 				break;
 			case 12:
-				strMonth = "«”›‰œ";
+				strMonth = "12";
 				break;
 			}
 

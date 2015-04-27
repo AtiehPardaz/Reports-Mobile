@@ -36,6 +36,11 @@
             android:name="com.Atieh.reportsmobile.ForoshActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.Atieh.reportsmobile.ListViewAlphebeticalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar"  />
+        
+        <activity
             android:name="com.Atieh.reportsmobile.HesabdariActivity"
             android:screenOrientation="portrait" />
         <activity

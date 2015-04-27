@@ -11,5 +11,22 @@
         <item>مرکز هزینه</item>
         <item>مرکز پروژه</item>
     </string-array>
+    <string-array name="customer_array">
+        <item>رضایی محمد</item>
+        <item>راد سینا</item>
+        <item>محمدی سروش</item>
+       <item>عنوان تفصیل</item>
+        <item>ارز</item>
+        <item>مرکز هزینه</item>
+        <item>مرکز پروژه</item>
+        <item>عنوان تفصیل</item>
+        <item>ارز</item>
+        <item>مرکز هزینه</item>
+        <item>مرکز پروژه</item>
+        <item>عنوان تفصیل</item>
+        <item>ارز</item>
+        <item>مرکز هزینه</item>
+        <item>مرکز پروژه</item>
+    </string-array>
 
 </resources>
