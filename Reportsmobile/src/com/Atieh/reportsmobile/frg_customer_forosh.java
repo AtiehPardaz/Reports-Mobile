@@ -19,12 +19,13 @@ public class frg_customer_forosh extends Fragment {
 
 	ImageButton datefromcustomer;
 	ImageButton todateustomer;
-	ImageButton selcustomer;
+	ImageButton selcustomer, selbazar;
 	ImageButton btnshow;
 	EditText et_fromdate;
 	EditText et_todate;
-	EditText et_customer;
+	EditText et_customer, et_bazar;
 	int flgbackforResume = 0;
+	public static int sel = 0;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -47,9 +48,11 @@ public class frg_customer_forosh extends Fragment {
 				.findViewById(R.id.imgbtn_namayesh__customer_forosh);
 		et_fromdate = (EditText) view.findViewById(R.id.et_fromdate_forosh);
 		et_todate = (EditText) view.findViewById(R.id.et_todate_forosh);
-		et_customer=(EditText) view.findViewById(R.id.et__customer_forosh);
+		et_customer = (EditText) view.findViewById(R.id.et__customer_forosh);
+		et_bazar = (EditText) view.findViewById(R.id.et__bazarya_forosh);
 		selcustomer = (ImageButton) view
 				.findViewById(R.id.imgbtn_customer_forosh);
+		selbazar = (ImageButton) view.findViewById(R.id.imgbtn_bazaryab_forosh);
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -76,9 +79,20 @@ public class frg_customer_forosh extends Fragment {
 		selcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				sel = 1;
 				startActivity(new Intent(getActivity(),
 						ListViewAlphebeticalActivity.class));
 				flgbackforResume = 3;
+
+			}
+		});
+		selbazar.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				sel = 2;
+				startActivity(new Intent(getActivity(),
+						ListViewAlphebeticalActivity.class));
+				flgbackforResume = 4;
 
 			}
 		});
@@ -117,6 +131,8 @@ public class frg_customer_forosh extends Fragment {
 		} else if (flgbackforResume == 3) {
 			et_customer
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
+		} else if (flgbackforResume == 4) {
+			et_bazar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}
 
 		// Toast.makeText(getActivity(), "1", 1).show();

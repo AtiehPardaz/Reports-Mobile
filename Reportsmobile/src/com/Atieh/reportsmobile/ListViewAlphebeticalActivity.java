@@ -37,6 +37,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	String txtid;
 	String txttitle;
 	database db;
+	Cursor c;
 	ListAlphebeticaladapter as2;
 	public static String selvaluefromalphebeticlist;
 	Map<String, Integer> mapIndex;
@@ -51,8 +52,11 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		db.database();
 		db.open();
 		// گرفتن اطلاعات از دیتابیس xml
-
-		Cursor c = db.GetCustomers();
+		if (frg_customer_forosh.sel == 1) {
+			 c = db.GetCustomers();
+		} else if (frg_customer_forosh.sel == 2) {
+			  c = db.Getbazar();
+		}
 
 		arrayID = new String[c.getCount()];
 		arraytitle = new String[c.getCount()];

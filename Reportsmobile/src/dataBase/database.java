@@ -102,5 +102,12 @@ public class database extends SQLiteOpenHelper {
 		return cu ;
 
 	}
+	public Cursor Getbazar (){
+
+
+		Cursor cu= mydb.rawQuery("select * from testlongtable ORDER BY  title", null); 
+		return cu ;
+
+	}
 
 }
