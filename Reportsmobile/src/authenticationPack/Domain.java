@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Domain {
-	
+
 	private List<FinancialYear> FinancialYears = new ArrayList<FinancialYear>();
 	private String Id;
 	private List<Permission> Permissions = new ArrayList<Permission>();

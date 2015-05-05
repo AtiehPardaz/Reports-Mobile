@@ -1,33 +1,23 @@
-package customlistadapter;
+package com.Atieh.reportsmobile;
 
 import java.util.List;
 
-import com.Atieh.reportsmobile.R;
-import com.Atieh.reportsmobile.R.id;
-import com.Atieh.reportsmobile.R.layout;
-
-import dataBase.database;
-
 import android.app.Activity;
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.Toast;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView;
+
+import dataBase.database;
 
 public class ListAlphebeticaladapter extends BaseAdapter {
 	Context context;
 	private Activity activity;
 	String[] ids;
 	String[] titles;
-	
+
 	database db;
 	TextView id;
 
@@ -35,8 +25,8 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 
 	private static LayoutInflater inflater = null;
 
-	public ListAlphebeticaladapter(Activity a, String[] arrayid, String[] arraytitle,
-			 Context c) {
+	public ListAlphebeticaladapter(Activity a, String[] arrayid,
+			String[] arraytitle, Context c) {
 
 		activity = a;
 		context = c;
@@ -45,22 +35,18 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.ids = arrayid;
 		this.titles = arraytitle;
-		
+
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
 
 		View vi = inflater.inflate(R.layout.rowalphebetical, null);
 		id = (TextView) vi.findViewById(R.id.tv_id_alohebetic); // id
-		TextView title = (TextView) vi
-				.findViewById(R.id.tv_title_alphebetic); // title
-		
+		TextView title = (TextView) vi.findViewById(R.id.tv_title_alphebetic); // title
 
 		id.setText(ids[position]);
-//		id.setVisibility(View.VISIBLE);
+		// id.setVisibility(View.VISIBLE);
 		title.setText(titles[position]);
-		
-
 
 		return vi;
 	}
@@ -84,7 +70,5 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		return position;
 	}
-
-	
 
 }

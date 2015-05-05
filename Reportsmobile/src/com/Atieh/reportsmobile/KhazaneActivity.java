@@ -29,7 +29,7 @@ public class KhazaneActivity extends FragmentActivity {
 	ImageButton kala;
 	ImageButton domain;
 	ImageButton logout;
-
+	LinearLayout lmenu;
 	LinearLayout linearmenu;
 	ViewPager pagerkhazane;
 	Button daryafti;
@@ -46,7 +46,7 @@ public class KhazaneActivity extends FragmentActivity {
 		underlinevaziatpardakhti = (ImageButton) findViewById(R.id.imgbtn_underline_vaziatasnadpardakhti_khazane);
 
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_khazane);
-
+		lmenu = (LinearLayout) findViewById(R.id.submenu_khazane);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_khazane);
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_khazane);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_khazane);
@@ -97,6 +97,7 @@ public class KhazaneActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
+				
 				showmenu(v);
 
 			}
@@ -238,6 +239,7 @@ public class KhazaneActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
+				lmenu.startAnimation(ForoshActivity.animbounce);
 				showmenu(v);
 				// Toast.makeText(getApplicationContext(), "", 1).show();
 

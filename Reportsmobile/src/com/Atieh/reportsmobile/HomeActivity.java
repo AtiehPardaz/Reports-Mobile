@@ -1,11 +1,12 @@
 package com.Atieh.reportsmobile;
 
+import webservices.ServiceGenerator;
+import GetAllSellersPack.GetAllSeller;
+import GetAllSellersPack.GetAllSellerInterface;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -36,14 +37,14 @@ public class HomeActivity extends Activity {
 		logout = (ImageButton) findViewById(R.id.imgbtn_logout_home);
 	}
 
-//	public void showmenu() {
-//		if (linearmenu.getVisibility() == View.GONE) {
-//			linearmenu.setVisibility(View.VISIBLE);
-//
-//		} else {
-//			linearmenu.setVisibility(View.GONE);
-//		}
-//	}
+	// public void showmenu() {
+	// if (linearmenu.getVisibility() == View.GONE) {
+	// linearmenu.setVisibility(View.VISIBLE);
+	//
+	// } else {
+	// linearmenu.setVisibility(View.GONE);
+	// }
+	// }
 
 	// =================================oncreate==============
 	@Override
@@ -54,6 +55,10 @@ public class HomeActivity extends Activity {
 		initview();
 		// linearmenu.setVisibility(View.VISIBLE);
 
+		Toast.makeText(
+				getApplicationContext(),
+				MainActivity.authenticate.getResult().getDomains().get(0)
+						.getPermissions().get(0).getKey()+"", 1).show();
 		forosh.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -115,25 +120,48 @@ public class HomeActivity extends Activity {
 
 			}
 		});
-//		linearmenu.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//
-//				showmenu();
-//			}
-//		});
-//		menu.setOnClickListener(new OnClickListener() {
-//
-//			@Override
-//			public void onClick(View v) {
-//				showmenu();
-//
-//				// startActivity(new Intent(SelectDomainActivity.this,
-//				// HomeActivity.class));
-//
-//			}
-//		});
+		// linearmenu.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		//
+		// showmenu();
+		// }
+		// });
+		// menu.setOnClickListener(new OnClickListener() {
+		//
+		// @Override
+		// public void onClick(View v) {
+		// showmenu();
+		//
+		// // startActivity(new Intent(SelectDomainActivity.this,
+		// // HomeActivity.class));
+		//
+		// }
+		// });
+
+		// GetCustomers
+		// GetCustomersInterface CustomersAdapter = ServiceGenerator
+		// .createService(GetCustomersInterface.class, baseURL);
+		// GetCustomers customers = new GetCustomers();
+		// try {
+		// customers = CustomersAdapter.getCustomers(token);
+		// GetCustomers
+		// GetAllSellerInterface CustomersAdapter = ServiceGenerator
+		// .createService(GetAllSellerInterface.class, MainActivity.baseURL);
+		// GetAllSeller customers = new GetAllSeller();
+		//
+		// customers =
+		// CustomersAdapter.getAllSellers("ED5351A4-94DD-4A5F-BDD5-5259CD965385",
+		// "ED5351A4-94DD-4A5F-BDD5-5259CD965385", "12345");
+
+		// GetAllSellerInterface getSellers =
+		// ServiceGenerator.createService(GetAllSellerInterface.class,
+		// "http://webservice.atiehpardaz.com/reportService/ReportService.svc");
+
+		// GetAllSeller getsellers =
+		// getSellers.getAllSellers("ED5351A4-94DD-4A5F-BDD5-5259CD965385",
+		// "ED5351A4-94DD-4A5F-BDD5-5259CD965385", "12345");
 
 	}
 
@@ -187,7 +215,5 @@ public class HomeActivity extends Activity {
 			}
 		}, 2000);
 	}
-
-	
 
 }

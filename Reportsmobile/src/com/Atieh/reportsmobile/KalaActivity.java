@@ -29,6 +29,7 @@ public class KalaActivity extends FragmentActivity {
 	ImageButton domain;
 	ImageButton logout;
 	LinearLayout linearmenu;
+	LinearLayout lmenu;
 	ViewPager pagerkala;
 	Button mojodi;
 	Button riali;
@@ -41,6 +42,7 @@ public class KalaActivity extends FragmentActivity {
 		underlineroali = (ImageButton) findViewById(R.id.imgbtn_underline_riali_kala);
 
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_kala);
+		lmenu = (LinearLayout) findViewById(R.id.submenu_kala);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_kala);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_kala);
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_kala);
@@ -193,6 +195,7 @@ public class KalaActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
+				lmenu.startAnimation(ForoshActivity.animbounce);
 				showmenu(v);
 				// Toast.makeText(getApplicationContext(), "", 1).show();
 

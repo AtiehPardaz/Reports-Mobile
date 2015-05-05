@@ -80,8 +80,8 @@ public class frg_customer_forosh extends Fragment {
 			@Override
 			public void onClick(View v) {
 				sel = 1;
-				startActivity(new Intent(getActivity(),
-						ListViewAlphebeticalActivity.class));
+//				startActivity(new Intent(getActivity(),
+//						ListViewAlphebeticalActivity.class));
 				flgbackforResume = 3;
 
 			}
@@ -90,8 +90,8 @@ public class frg_customer_forosh extends Fragment {
 			@Override
 			public void onClick(View v) {
 				sel = 2;
-				startActivity(new Intent(getActivity(),
-						ListViewAlphebeticalActivity.class));
+//				startActivity(new Intent(getActivity(),
+//						ListViewAlphebeticalActivity.class));
 				flgbackforResume = 4;
 
 			}
@@ -104,6 +104,13 @@ public class frg_customer_forosh extends Fragment {
 				final InputMethodManager imm = (InputMethodManager) getActivity()
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
+				
+				int fromdate=Integer.parseInt(et_fromdate.getText().toString());
+				int todate=Integer.parseInt(et_todate.getText().toString());
+
+				if(checkdate(fromdate,todate)==1){
+					Toast.makeText(getActivity(), "tarikhe dovom kochaktarast", 1).show();
+				}
 
 				Intent report = new Intent();
 				report.putExtra("gozaresh", "customer");
@@ -115,18 +122,43 @@ public class frg_customer_forosh extends Fragment {
 		return view;
 	}
 
+	public int checkdate(int fromdate, int todate) {
+		int flgcheck = 0;
+		if (todate - fromdate > 0) {
+			flgcheck=0;
+			Toast.makeText(getActivity(), "halate dorost hamine", 1).show();
+		} else if (todate - fromdate < 0) {
+			flgcheck=1;
+			Toast.makeText(getActivity(), "tarikhe dovom kochaktarast", 1)
+					.show();
+		} else if (todate - fromdate == 0) {
+			flgcheck=2;
+			Toast.makeText(getActivity(), "tarikhe aval va dovom barabar", 1)
+					.show();
+		}
+		return flgcheck;
+	}
+
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 
+//		if (flgbackforResume == 1) {
+//			et_fromdate.setText(DatepickerActivity.myDay + "/"
+//					+ DatepickerActivity.myMonth + "/"
+//					+ DatepickerActivity.myYear);
+//		} else if (flgbackforResume == 2) {
+//			et_todate.setText(DatepickerActivity.myDay + "/"
+//					+ DatepickerActivity.myMonth + "/"
+//					+ DatepickerActivity.myYear);
+//		}
+		
+		
 		if (flgbackforResume == 1) {
-			et_fromdate.setText(DatepickerActivity.myDay + "/"
-					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+			et_fromdate.setText(DatepickerActivity.myDay + DatepickerActivity.myMonth + DatepickerActivity.myYear);
 		} else if (flgbackforResume == 2) {
-			et_todate.setText(DatepickerActivity.myDay + "/"
-					+ DatepickerActivity.myMonth + "/"
+			et_todate.setText(DatepickerActivity.myDay 	+ DatepickerActivity.myMonth 
 					+ DatepickerActivity.myYear);
 		} else if (flgbackforResume == 3) {
 			et_customer

@@ -28,6 +28,7 @@ public class HesabdariActivity extends FragmentActivity {
 	ImageButton domain;
 	ImageButton logout;
 	LinearLayout linearmenu;
+	LinearLayout lmenu;
 	ViewPager pagehesabdari;
 	Button gardesh;
 	Button tarkibi;
@@ -38,8 +39,10 @@ public class HesabdariActivity extends FragmentActivity {
 		underlinetarkibi = (ImageButton) findViewById(R.id.imgbtn_underline_tarkibi_hesabdari);
 		underlinefgardesh = (ImageButton) findViewById(R.id.imgbtn_underline_gardesh_hesabdari);
 		 linearmenu = (LinearLayout) findViewById(R.id.linearmenu_hesabdari);
+		 lmenu = (LinearLayout) findViewById(R.id.submenu_hesabdari);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_hesabdari);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_hesabdari);
+		
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_hesabdari);
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_hesabdari);
 		domain = (ImageButton) findViewById(R.id.imgbtn_domain_hesabdari);
@@ -175,6 +178,7 @@ public class HesabdariActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
+				lmenu.startAnimation(ForoshActivity.animbounce);
 				showmenu(v);
 //				Toast.makeText(getApplicationContext(), "", 1).show();
 

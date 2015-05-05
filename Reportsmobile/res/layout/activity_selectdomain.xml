@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:orientation="vertical" >
 
@@ -48,6 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
+                        android:enabled="false"
                         android:hint="دامنه"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -57,6 +59,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
                     android:background="@color/white_color" >
 
                     <ImageButton
@@ -72,21 +75,31 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:enabled="false"
                         android:gravity="right"
                         android:hint="سال مالی"
-                        android:inputType="textPassword"
                         android:textSize="20sp"
                         android:textStyle="bold" />
+
                 </LinearLayout>
 
                 <ImageButton
                     android:id="@+id/imgbtn_sabt"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="35dp"
                     android:background="@color/blue_green"
                     android:src="@drawable/newsabt" />
 
+                <ListView
+                    android:id="@+id/lv_customers"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:visibility="gone" >
+
+                </ListView>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

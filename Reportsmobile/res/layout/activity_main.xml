@@ -39,9 +39,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="نام کاربری"
-                        android:focusable="true"
-                        android:textStyle="bold" />
-
+                        android:textStyle="bold" >
+                    </EditText>
                 </LinearLayout>
 
                 <LinearLayout
@@ -55,15 +54,11 @@
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        
                         android:gravity="right"
                         android:hint="رمز عبور"
                         android:inputType="textPassword"
                         android:textStyle="bold" >
-
-                        <requestFocus />
                     </EditText>
-
                 </LinearLayout>
 
                 <ImageButton
@@ -73,7 +68,6 @@
                     android:layout_marginTop="10dp"
                     android:background="@color/blue_green"
                     android:src="@drawable/newvorod" />
-
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

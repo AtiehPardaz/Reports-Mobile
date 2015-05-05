@@ -1,73 +1,37 @@
 package authenticationPack;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Authentication {
 
-	private List<Domain> Domains = new ArrayList<Domain>();
-	private authenticationPack.Status Status;
-	private String Token;
-	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+private authenticationPack.Result Result;
+private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	/**
-	 * 
-	 * @return The Domains
-	 */
-	public List<Domain> getDomains() {
-		return Domains;
-	}
+/**
+* 
+* @return
+* The Result
+*/
+public authenticationPack.Result getResult() {
+return Result;
+}
 
-	/**
-	 * 
-	 * @param Domains
-	 *            The Domains
-	 */
-	public void setDomains(List<Domain> Domains) {
-		this.Domains = Domains;
-	}
+/**
+* 
+* @param Result
+* The Result
+*/
+public void setResult(authenticationPack.Result Result) {
+this.Result = Result;
+}
 
-	/**
-	 * 
-	 * @return The Status
-	 */
-	public authenticationPack.Status getStatus() {
-		return Status;
-	}
+public Map<String, Object> getAdditionalProperties() {
+return this.additionalProperties;
+}
 
-	/**
-	 * 
-	 * @param Status
-	 *            The Status
-	 */
-	public void setStatus(authenticationPack.Status Status) {
-		this.Status = Status;
-	}
+public void setAdditionalProperty(String name, Object value) {
+this.additionalProperties.put(name, value);
+}
 
-	/**
-	 * 
-	 * @return The Token
-	 */
-	public String getToken() {
-		return Token;
-	}
-
-	/**
-	 * 
-	 * @param Token
-	 *            The Token
-	 */
-	public void setToken(String Token) {
-		this.Token = Token;
-	}
-
-	public Map<String, Object> getAdditionalProperties() {
-		return this.additionalProperties;
-	}
-
-	public void setAdditionalProperty(String name, Object value) {
-		this.additionalProperties.put(name, value);
-	}
 }

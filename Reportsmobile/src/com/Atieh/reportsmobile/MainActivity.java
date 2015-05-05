@@ -3,6 +3,8 @@ package com.Atieh.reportsmobile;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -18,6 +20,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 import webservices.ServiceGenerator;
+import android.R.string;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +30,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
@@ -38,15 +42,26 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import authenticationPack.Authentication;
 import authenticationPack.AuthenticationInterface;
+import authenticationPack.Domain;
 
 public class MainActivity extends Activity {
 	LinearLayout loadinglayer;
 
-	public static final String baseURL = "http://webservice.atiehpardaz.com/reportService/ReportService.svc";
+//	public static final String baseURL = "http://webservice.atiehpardaz.com/reportService/ReportService.svc";
+	public static final String baseURL = "http://demo.atiehpardaz.com/ReportService/ReportService.svc";
 	ImageButton login;
-	Authentication authenticate;
+	public static Authentication authenticate;
+	public static List domainss;
+	static Domain dmn;
+	public static String[] msg;
+	
+	public static int msg2;
 	EditText et_username, et_password;
 	AuthenticationInterface auth;
+	int i = 0;
+	String mUser;
+	String mPass;
+
 	public static Typeface titr;
 
 	public void initview() {
@@ -57,12 +72,45 @@ public class MainActivity extends Activity {
 
 	}
 
+	public void attemplogin() {
+		et_password.setError(null);
+		et_username.setError(null);
+		mUser = et_username.getText().toString();
+		mPass = et_password.getText().toString();
+		boolean cancel = false;
+		View focusview = null;
+		if (TextUtils.isEmpty(mUser)) {
+			et_username.setError("لطفا نام کاربری را وارد نمایید");
+			focusview = et_username;
+			cancel = true;
+		}
+		if (TextUtils.isEmpty(mPass)) {
+			et_password.setError("لطفا رمز عبور را وارد نمایید");
+			focusview = et_password;
+			cancel = true;
+		}
+		if (cancel) {
+			focusview.requestFocus();
+		} else {
+
+			asyncTask as = new asyncTask(); // checking network
+			// status
+			as.execute("P");
+
+			// startActivity(new Intent(MainActivity.this,
+			// SelectDomainActivity.class));
+
+		}
+
+	}
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
 		initview();
+
 		loadinglayer.setVisibility(View.INVISIBLE);
 
 		titr = Typeface.createFromAsset(MainActivity.this.getAssets(),
@@ -77,35 +125,7 @@ public class MainActivity extends Activity {
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
 
-				if (et_username.getText().toString().matches("")
-						&& et_password.getText().toString().matches("")) {
-					Toast.makeText(MainActivity.this,
-							"وجود کادر خالی غیر مجاز است", Toast.LENGTH_LONG)
-							.show();
-
-				} else if (et_password.getText().toString().matches("")) {
-					Toast.makeText(MainActivity.this,
-							"وجود کادر خالی غیر مجاز است", Toast.LENGTH_LONG)
-							.show();
-				} else if (et_username.getText().toString().matches("")) {
-					Toast.makeText(MainActivity.this,
-							"نوجود کادر خالی غیر مجاز است", Toast.LENGTH_LONG)
-							.show();
-				} else {
-
-//					asyncTask as = new asyncTask(); // checking network
-//					// status
-//					as.execute("P");
-					
-					startActivity(new Intent(MainActivity.this,
-							SelectDomainActivity.class));
-
-				}
-
-				// for check user & pas
-
-				// < for login ========================
-				// loadinglayer.setVisibility(View.VISIBLE);
+				attemplogin();
 
 			}
 
@@ -153,6 +173,13 @@ public class MainActivity extends Activity {
 
 		authnticationThread auth = new authnticationThread();
 		auth.execute("");
+
+		//
+		// for (int i = 0; i < authenticate.getDomains().size(); i++) {
+		// // msg[i] ="aa";// authenticate.getDomains().get(i).getTitle();
+		// Toast.makeText(getApplicationContext(), i+"", 1).show();
+		//
+		// }
 	}
 
 	public int netStatus(String url) throws URISyntaxException,
@@ -171,7 +198,7 @@ public class MainActivity extends Activity {
 				HttpConnectionParams.setSoTimeout(httpParameters, 20000);
 
 				HttpClient httpclient = new DefaultHttpClient(httpParameters);
-				HttpResponse response =  httpclient.execute(httpRequest);
+				HttpResponse response = httpclient.execute(httpRequest);
 				resCode = response.getStatusLine().getStatusCode();
 
 			}
@@ -180,9 +207,9 @@ public class MainActivity extends Activity {
 
 				Toast.makeText(MainActivity.this, "timeout error",
 						Toast.LENGTH_SHORT).show();
-				
+
 				resCode = 10000;
-				
+
 			}
 
 		}
@@ -276,7 +303,7 @@ public class MainActivity extends Activity {
 
 		@Override
 		protected String doInBackground(String... arg0) {
-			
+
 			authenticate = new Authentication();
 
 			auth = ServiceGenerator.createService(
@@ -285,9 +312,40 @@ public class MainActivity extends Activity {
 			authenticate = auth.authenticate(et_username.getText().toString(),
 					et_password.getText().toString());
 
-			if (authenticate.getStatus() != null) {
+			// msg = authenticate.getDomains().get(0).getTitle();
+			// msg = authenticate.getDomains().get(0).getTitle();
+			msg2 = authenticate.getResult().getDomains().size();
+			// Toast.makeText(getApplicationContext(),
+			// authenticate.getDomains().get(i).getTitle(), 1).show();
+			// Toast.makeText(getApplicationContext(), msg2+"", 1).show();
 
-				if (authenticate.getStatus().getCode() == 1) {
+			// for (int i = 0; i < authenticate.getDomains().size(); i++) {
+			// myaray.add(authenticate.getDomains().get(i).getTitle());
+			// // Toast.makeText(getApplicationContext(),
+			// // authenticate.getDomains().get(i).getTitle(), 1).show();
+			//
+			// }
+			//
+
+			// ===========
+			// do {
+			//
+			// try {
+			//
+			// msg[i] = authenticate.getDomains().get(i).getTitle();
+			// i++;
+			//
+			// } catch (Exception e) {
+			//
+			// e.printStackTrace();
+			// }
+			//
+			// } while (i < authenticate.getDomains().size());
+			// myaray.toArray();
+
+			if (authenticate.getResult().getStatus() != null) {
+
+				if (authenticate.getResult().getStatus().getCode() == 1) {
 
 					startActivity(new Intent(MainActivity.this,
 							SelectDomainActivity.class));
@@ -297,7 +355,7 @@ public class MainActivity extends Activity {
 
 				else {
 
-					return authenticate.getStatus().getMessage();
+					return authenticate.getResult().getStatus().getMessage();
 				}
 
 			} else {
@@ -308,13 +366,41 @@ public class MainActivity extends Activity {
 
 		@Override
 		protected void onPostExecute(String result) {
-			
+
 			loadinglayer.setVisibility(View.INVISIBLE);
 
 			if (result != "") {
 				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
 						.show();
+
 			}
+			
+//			domaintitleArray = new ArrayList<>();
+//			yeartitleArray = new ArrayList<>();
+//			yearidArray = new ArrayList<>();
+//			domainidArray = new ArrayList<>();
+//			for (int i = 0; i < authenticate.getDomains().size(); i++) {
+//				domaintitleArray.add(authenticate.getDomains().get(i)
+//						.getTitle());
+//
+//				domainidArray.add(authenticate.getDomains().get(i).getId());
+//				for (int j = 0; j < authenticate.getDomains().get(i)
+//						.getFinancialYears().size(); j++) {
+//
+//					yeartitleArray.add(authenticate.getDomains().get(i)
+//							.getFinancialYears().get(j).getTitle());
+//					yearidArray.add(authenticate.getDomains().get(i)
+//							.getFinancialYears().get(j).getId());
+//				}
+//			
+//
+//			}
+//			
+//			Toast.makeText(
+//					getApplicationContext(),
+//					authenticate.getDomains().get(0).getFinancialYears()
+//							.get(0).getTitle()
+//							+ "", 1).show();
 
 		}
 	}

@@ -114,6 +114,7 @@
         android:visibility="gone" >
 
         <LinearLayout
+            android:id="@+id/submenu_hesabdari"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"

@@ -9,6 +9,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -29,10 +31,12 @@ public class ForoshActivity extends FragmentActivity {
 	ImageButton logout;
 	TextView title;
 	LinearLayout linearmenu;
+	LinearLayout lmneu;
 	ViewPager pagerforosh;
 	Button customer;
 	Button faktor;
 	Button kala;
+	public static Animation animbounce;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_forosh);
@@ -40,6 +44,7 @@ public class ForoshActivity extends FragmentActivity {
 		underlinefaktor = (ImageButton) findViewById(R.id.imgbtn_underline_faktor_forosh);
 		underlineforokhte = (ImageButton) findViewById(R.id.imgbtn_underline_forokhte_forosh);
 		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_forosh);
+		lmneu = (LinearLayout) findViewById(R.id.linearmneuF);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_forosh);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_forosh);
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_forosh);
@@ -50,11 +55,15 @@ public class ForoshActivity extends FragmentActivity {
 		customer = (Button) findViewById(R.id.tabbtn_customer_forosh);
 		faktor = (Button) findViewById(R.id.tabbtn_faktor_forosh);
 		kala = (Button) findViewById(R.id.tabbtn_kala_forosh);
-		
+
 		title = (TextView) findViewById(R.id.title_forosh);
+
+		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.bounce);
 	}
 
 	public void showmenu(View v) {
+
 		if (linearmenu.getVisibility() == View.GONE) {
 			linearmenu.setVisibility(View.VISIBLE);
 
@@ -185,13 +194,15 @@ public class ForoshActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
+				lmneu.startAnimation(animbounce);
 				showmenu(v);
+
 				// Toast.makeText(getApplicationContext(), "", 1).show();
 
 			}
 		});
 		logout.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getApplicationContext(),
@@ -199,7 +210,7 @@ public class ForoshActivity extends FragmentActivity {
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				intent.putExtra("EXIT", true);
 				startActivity(intent);
-				
+
 			}
 		});
 	}// End onCreate
@@ -210,7 +221,7 @@ public class ForoshActivity extends FragmentActivity {
 		super.onBackPressed();
 
 		Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-//		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		// intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(intent);
 	}
 
