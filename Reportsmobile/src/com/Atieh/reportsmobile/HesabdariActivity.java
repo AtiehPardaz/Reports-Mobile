@@ -54,6 +54,25 @@ public class HesabdariActivity extends FragmentActivity {
 		title = (TextView) findViewById(R.id.title_hesabdari);
 
 	}
+public void permissiontoreport() {
+		
+		forosh.setVisibility(View.GONE);
+		khazane.setVisibility(View.GONE);
+		hesabdari.setVisibility(View.GONE);
+		kala.setVisibility(View.GONE);
+		for (int k = 1; k <= 4; k++) {
+			if (HomeActivity.mypermission[k] == 1) {
+				forosh.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 2) {
+				khazane.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 3) {
+				hesabdari.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 4) {
+				kala.setVisibility(View.VISIBLE);
+			}
+		}
+
+	}
 
 	public void showmenu(View v) {
 		if (linearmenu.getVisibility() == View.GONE) {
@@ -70,6 +89,7 @@ public class HesabdariActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_hesabdari);
 		initview();
+		permissiontoreport();
 		
 		title.setTypeface(MainActivity.titr);
 		hesabdari.setVisibility(View.GONE);

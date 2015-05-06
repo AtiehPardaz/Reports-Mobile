@@ -25,6 +25,7 @@ public class HomeActivity extends Activity {
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
 	private boolean _doubleBackToExitPressedOnce = false;
+	public static int[] mypermission = new int[5];
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_home);
@@ -53,12 +54,27 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		initview();
+
+		forosh.setImageResource(R.drawable.backmenutransparent);
+		khazane.setImageResource(R.drawable.backmenutransparent);
+		hesabdari.setImageResource(R.drawable.backmenutransparent);
+		kala.setImageResource(R.drawable.backmenutransparent);
+		forosh.setEnabled(false);
+		khazane.setEnabled(false);
+		hesabdari.setEnabled(false);
+		kala.setEnabled(false);
 		// linearmenu.setVisibility(View.VISIBLE);
 
-		Toast.makeText(
-				getApplicationContext(),
-				MainActivity.authenticate.getResult().getDomains().get(0)
-						.getPermissions().get(0).getKey()+"", 1).show();
+		// Toast.makeText(
+		// getApplicationContext(),
+		// MainActivity.authenticate.getResult().getDomains().get(0)
+		// .getPermissions().get(0).getKey()
+		// + "", 1).show();
+
+	
+
+		// Toast.makeText(getApplicationContext(), mypermission[3], 1).show();
+
 		forosh.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -216,4 +232,69 @@ public class HomeActivity extends Activity {
 		}, 2000);
 	}
 
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		mypermission=new int[5];
+		for (int i = 0; i < MainActivity.authenticate.getResult().getDomains()
+				.size(); i++) {
+
+			// domainidArray.add(MainActivity.authenticate.getResult()
+			// .getDomains().get(i).getId());
+
+			for (int j = 0; j < MainActivity.authenticate.getResult()
+					.getDomains().get(i).getPermissions().size(); j++) {
+				if (MainActivity.authenticate.getResult().getDomains().get(i)
+						.getId()
+						.equals(SelectDomainActivity.finalreturneddomainid)) {
+
+					// MainActivity.authenticate.getResult().getDomains().get(i)
+					// .getPermissions().get(0).getKey();
+					// Toast.makeText(
+					// getApplicationContext(),
+					// MainActivity.authenticate.getResult().getDomains()
+					// .get(i).getPermissions().get(j).getKey()
+					// + "", 1).show();
+					for (int k = 1; k <= 4; k++) {
+						if (k == MainActivity.authenticate.getResult()
+								.getDomains().get(i).getPermissions().get(j)
+								.getKey()) {
+							mypermission[k] = k;
+							// Toast.makeText(getApplicationContext(),k+
+							// mypermission[k], 1).show();
+						}
+					}
+				}
+			}
+		}
+
+		for (int k = 1; k <= 4; k++) {
+
+			Toast.makeText(
+					getApplicationContext(),
+					"permisson oF the domain id=  "
+							+ SelectDomainActivity.finalreturneddomainid+" For report num of= "+k
+							+  "  IS = " + mypermission[k] + "", 1).show();
+			if (mypermission[k] == 1) {
+
+				forosh.setImageResource(R.drawable.btn_homeclick);
+				forosh.setEnabled(true);
+			} else if (mypermission[k] == 2) {
+
+				khazane.setImageResource(R.drawable.btn_homeclick);
+				khazane.setEnabled(true);
+			} else if (mypermission[k] == 3) {
+
+				hesabdari.setImageResource(R.drawable.btn_homeclick);
+				hesabdari.setEnabled(true);
+			} else if (mypermission[k] == 4) {
+
+				kala.setImageResource(R.drawable.btn_homeclick);
+				kala.setEnabled(true);
+			}
+
+		}
+	}
 }

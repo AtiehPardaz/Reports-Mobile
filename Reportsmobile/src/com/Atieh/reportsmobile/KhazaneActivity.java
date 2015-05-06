@@ -53,7 +53,7 @@ public class KhazaneActivity extends FragmentActivity {
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_khazane);
 		domain = (ImageButton) findViewById(R.id.imgbtn_domain_khazane);
 		logout = (ImageButton) findViewById(R.id.imgbtn_logout_khazane);
-		
+
 		pagerkhazane = (ViewPager) findViewById(R.id.pagerkhazane);
 
 		daryafti = (Button) findViewById(R.id.tabbtn_asnaddaryafti_khazane);
@@ -62,6 +62,26 @@ public class KhazaneActivity extends FragmentActivity {
 		vaziatpardakhti = (Button) findViewById(R.id.tabbtn_vaziatasnadpardakhti_khazane);
 
 		title = (TextView) findViewById(R.id.title_khazane);
+
+	}
+
+	public void permissiontoreport() {
+
+		forosh.setVisibility(View.GONE);
+		khazane.setVisibility(View.GONE);
+		hesabdari.setVisibility(View.GONE);
+		kala.setVisibility(View.GONE);
+		for (int k = 1; k <= 4; k++) {
+			if (HomeActivity.mypermission[k] == 1) {
+				forosh.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 2) {
+				khazane.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 3) {
+				hesabdari.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 4) {
+				kala.setVisibility(View.VISIBLE);
+			}
+		}
 
 	}
 
@@ -80,6 +100,8 @@ public class KhazaneActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_khazane);
 		initview();
+
+		permissiontoreport();
 		title.setTypeface(MainActivity.titr);
 		khazane.setVisibility(View.GONE);
 
@@ -97,7 +119,7 @@ public class KhazaneActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
-				
+
 				showmenu(v);
 
 			}
@@ -223,8 +245,8 @@ public class KhazaneActivity extends FragmentActivity {
 						SelectDomainActivity.class));
 			}
 		});
-	logout.setOnClickListener(new OnClickListener() {
-			
+		logout.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getApplicationContext(),
@@ -232,7 +254,7 @@ public class KhazaneActivity extends FragmentActivity {
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				intent.putExtra("EXIT", true);
 				startActivity(intent);
-				
+
 			}
 		});
 		menu.setOnClickListener(new OnClickListener() {

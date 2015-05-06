@@ -141,7 +141,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:layout_marginRight="2dp"
-            android:background="@drawable/menubackground"
             android:gravity="right|center"
             android:orientation="vertical" >
 

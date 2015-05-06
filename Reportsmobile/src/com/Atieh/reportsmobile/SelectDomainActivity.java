@@ -92,23 +92,29 @@ public class SelectDomainActivity extends Activity {
 		domainidArray = new ArrayList<>();
 
 		selyear.setOnClickListener(null);
+		try {
 
-		for (int i = 0; i < MainActivity.authenticate.getResult().getDomains()
-				.size(); i++) {
-			domaintitleArray.add(MainActivity.authenticate.getResult()
-					.getDomains().get(i).getTitle());
+			for (int i = 0; i < MainActivity.authenticate.getResult()
+					.getDomains().size(); i++) {
+				domaintitleArray.add(MainActivity.authenticate.getResult()
+						.getDomains().get(i).getTitle());
 
-			domainidArray.add(MainActivity.authenticate.getResult()
-					.getDomains().get(i).getId());
-			// for (int j = 0; j < MainActivity.authenticate.getDomains().get(i)
-			// .getFinancialYears().size(); j++) {
-			//
-			// yeartitleArray.add(MainActivity.authenticate.getDomains()
-			// .get(i).getFinancialYears().get(j).getTitle());
-			// yearidArray.add(MainActivity.authenticate.getDomains().get(i)
-			// .getFinancialYears().get(j).getId());
-			// }
+				domainidArray.add(MainActivity.authenticate.getResult()
+						.getDomains().get(i).getId());
+				// for (int j = 0; j <
+				// MainActivity.authenticate.getDomains().get(i)
+				// .getFinancialYears().size(); j++) {
+				//
+				// yeartitleArray.add(MainActivity.authenticate.getDomains()
+				// .get(i).getFinancialYears().get(j).getTitle());
+				// yearidArray.add(MainActivity.authenticate.getDomains().get(i)
+				// .getFinancialYears().get(j).getId());
+				// }
 
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		domaintitle = (String[]) domaintitleArray
 				.toArray(new String[domaintitleArray.size()]);
@@ -121,13 +127,13 @@ public class SelectDomainActivity extends Activity {
 				final InputMethodManager imm = (InputMethodManager) getApplicationContext()
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-				if(c==0){
+				if (c == 0) {
 					attemplogin();
-				}else if(c==1){
-					startActivity(new Intent(SelectDomainActivity.this,HomeActivity.class));
+				} else if (c == 1) {
+					startActivity(new Intent(SelectDomainActivity.this,
+							HomeActivity.class));
 				}
-				
-				
+
 			}
 		});
 
@@ -135,7 +141,7 @@ public class SelectDomainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				
+
 				et_domain.setText("");
 				if (yearidArray.size() > 0) {// in if baraye in ast ke har bar
 												// ke domain avaz shod list sal
@@ -161,7 +167,6 @@ public class SelectDomainActivity extends Activity {
 				intent.putExtra("arrayidfromjson", domainid);
 
 				startActivity(intent);
-				
 
 			}
 		});
@@ -204,7 +209,7 @@ public class SelectDomainActivity extends Activity {
 					.toArray(new String[yeartitleArray.size()]);
 			yearid = (String[]) yearidArray.toArray(new String[yearidArray
 					.size()]);
-//			attemplogin();
+			// attemplogin();
 		}
 
 		if (flgforresume == 2) {// flg 2 for et_salmali
@@ -214,15 +219,12 @@ public class SelectDomainActivity extends Activity {
 		}
 
 		if (flgforresume == 1) {
-			
-			
-			
+
 			selyear.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
-					
-					
+
 					if (flgforresume == 0) {
 						Toast.makeText(getApplicationContext(),
 								"ابتدا دامنه را وارد نمایید", 1).show();
@@ -234,7 +236,6 @@ public class SelectDomainActivity extends Activity {
 					intent.putExtra("arrayttitlefromjson", yeartitle);
 					intent.putExtra("arrayidfromjson", yearid);
 					startActivity(intent);
-					
 
 				}
 			});
@@ -297,15 +298,16 @@ public class SelectDomainActivity extends Activity {
 			cancel = true;
 		}
 		if (TextUtils.isEmpty(myear)) {
-			et_salmali.setError("لطفا ابتدا  دامنه  و سپس سال مالی را  انتخاب نمایید");
+			et_salmali
+					.setError("لطفا ابتدا  دامنه  و سپس سال مالی را  انتخاب نمایید");
 			focusview = et_salmali;
 			cancel = true;
 		}
 		if (cancel) {
-			c=0;
+			c = 0;
 			focusview.requestFocus();
 		} else {
-			c=1;
+			c = 1;
 		}
 
 	}

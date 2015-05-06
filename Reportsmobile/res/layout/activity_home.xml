@@ -87,7 +87,7 @@
                 android:layout_height="140dp"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/newkhazane"
-                android:src="@drawable/btn_homeclick" />
+                android:src="@drawable/backmenutransparent" />
 
         </LinearLayout>
 

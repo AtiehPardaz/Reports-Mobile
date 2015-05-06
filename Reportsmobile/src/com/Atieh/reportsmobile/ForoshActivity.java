@@ -62,6 +62,26 @@ public class ForoshActivity extends FragmentActivity {
 				R.anim.bounce);
 	}
 
+	public void permissiontoreport() {
+		
+		forosh.setVisibility(View.GONE);
+		khazane.setVisibility(View.GONE);
+		hesabdari.setVisibility(View.GONE);
+		kala.setVisibility(View.GONE);
+		for (int k = 1; k <= 4; k++) {
+			if (HomeActivity.mypermission[k] == 1) {
+				forosh.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 2) {
+				khazane.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 3) {
+				hesabdari.setVisibility(View.VISIBLE);
+			} else if (HomeActivity.mypermission[k] == 4) {
+				kala.setVisibility(View.VISIBLE);
+			}
+		}
+
+	}
+
 	public void showmenu(View v) {
 
 		if (linearmenu.getVisibility() == View.GONE) {
@@ -78,7 +98,8 @@ public class ForoshActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forosh);
 		initview();
-
+		
+		permissiontoreport();
 		forosh.setVisibility(View.GONE);
 		final mypageadapter pageadapter = new mypageadapter(
 				getSupportFragmentManager());
