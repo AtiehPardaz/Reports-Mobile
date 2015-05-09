@@ -79,7 +79,7 @@
                 android:layout_height="140dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/newforosh"
-                android:src="@drawable/btn_homeclick" />
+                android:src="@drawable/btn_click" />
 
             <ImageButton
                 android:id="@+id/imgbtn_khazane_home"

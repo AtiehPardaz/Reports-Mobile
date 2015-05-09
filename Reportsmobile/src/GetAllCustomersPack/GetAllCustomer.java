@@ -1,75 +1,38 @@
 package GetAllCustomersPack;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GetAllCustomer {
 
-private String Id;
-private String PersonCode;
-private String Title;
-private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	private List<GetAllCustomersPack.Result> Result = new ArrayList<GetAllCustomersPack.Result>();
+	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-/**
-* 
-* @return
-* The Id
-*/
-public String getId() {
-return Id;
-}
+	/**
+	 * 
+	 * @return The Result
+	 */
+	public List<GetAllCustomersPack.Result> getResult() {
+		return Result;
+	}
 
-/**
-* 
-* @param Id
-* The Id
-*/
-public void setId(String Id) {
-this.Id = Id;
-}
+	/**
+	 * 
+	 * @param Result
+	 *            The Result
+	 */
+	public void setResult(List<GetAllCustomersPack.Result> Result) {
+		this.Result = Result;
+	}
 
-/**
-* 
-* @return
-* The PersonCode
-*/
-public String getPersonCode() {
-return PersonCode;
-}
+	public Map<String, Object> getAdditionalProperties() {
+		return this.additionalProperties;
+	}
 
-/**
-* 
-* @param PersonCode
-* The PersonCode
-*/
-public void setPersonCode(String PersonCode) {
-this.PersonCode = PersonCode;
-}
-
-/**
-* 
-* @return
-* The Title
-*/
-public String getTitle() {
-return Title;
-}
-
-/**
-* 
-* @param Title
-* The Title
-*/
-public void setTitle(String Title) {
-this.Title = Title;
-}
-
-public Map<String, Object> getAdditionalProperties() {
-return this.additionalProperties;
-}
-
-public void setAdditionalProperty(String name, Object value) {
-this.additionalProperties.put(name, value);
-}
+	public void setAdditionalProperty(String name, Object value) {
+		this.additionalProperties.put(name, value);
+	}
 
 }

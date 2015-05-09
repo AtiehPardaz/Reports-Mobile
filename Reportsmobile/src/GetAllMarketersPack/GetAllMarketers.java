@@ -1,64 +1,30 @@
 package GetAllMarketersPack;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GetAllMarketers {
 
-	private String Id;
-	private String PersonCode;
-	private String Title;
+	private List<GetAllMarketersPack.Result> Result = new ArrayList<GetAllMarketersPack.Result>();
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	/**
 	 * 
-	 * @return The Id
+	 * @return The Result
 	 */
-	public String getId() {
-		return Id;
+	public List<GetAllMarketersPack.Result> getResult() {
+		return Result;
 	}
 
 	/**
 	 * 
-	 * @param Id
-	 *            The Id
+	 * @param Result
+	 *            The Result
 	 */
-	public void setId(String Id) {
-		this.Id = Id;
-	}
-
-	/**
-	 * 
-	 * @return The PersonCode
-	 */
-	public String getPersonCode() {
-		return PersonCode;
-	}
-
-	/**
-	 * 
-	 * @param PersonCode
-	 *            The PersonCode
-	 */
-	public void setPersonCode(String PersonCode) {
-		this.PersonCode = PersonCode;
-	}
-
-	/**
-	 * 
-	 * @return The Title
-	 */
-	public String getTitle() {
-		return Title;
-	}
-
-	/**
-	 * 
-	 * @param Title
-	 *            The Title
-	 */
-	public void setTitle(String Title) {
-		this.Title = Title;
+	public void setResult(List<GetAllMarketersPack.Result> Result) {
+		this.Result = Result;
 	}
 
 	public Map<String, Object> getAdditionalProperties() {

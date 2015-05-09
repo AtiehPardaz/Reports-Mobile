@@ -314,7 +314,7 @@ public class MainActivity extends Activity {
 
 			// msg = authenticate.getDomains().get(0).getTitle();
 			// msg = authenticate.getDomains().get(0).getTitle();
-			msg2 = authenticate.getResult().getDomains().size();
+//			msg2 = authenticate.getResult().getDomains().size();
 			// Toast.makeText(getApplicationContext(),
 			// authenticate.getDomains().get(i).getTitle(), 1).show();
 			// Toast.makeText(getApplicationContext(), msg2+"", 1).show();
@@ -355,7 +355,7 @@ public class MainActivity extends Activity {
 
 				else {
 
-					return authenticate.getResult().getStatus().getMessage();
+					return authenticate.getResult().getStatus().getMessageDetails();
 				}
 
 			} else {

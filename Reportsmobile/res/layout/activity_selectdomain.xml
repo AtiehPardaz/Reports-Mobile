@@ -43,13 +43,15 @@
                         android:layout_marginLeft="5dp"
                         android:background="@drawable/down" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_domain"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:enabled="false"
+                        android:gravity="center"
                         android:hint="دامنه"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -70,13 +72,13 @@
                         android:layout_marginLeft="5dp"
                         android:background="@drawable/down" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_salemali"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:enabled="false"
-                        android:gravity="right"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:gravity="center"
                         android:hint="سال مالی"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -90,16 +92,6 @@
                     android:layout_marginTop="35dp"
                     android:background="@color/blue_green"
                     android:src="@drawable/newsabt" />
-
-                <ListView
-                    android:id="@+id/lv_customers"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:focusable="false"
-                    android:visibility="gone" >
-
-                </ListView>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

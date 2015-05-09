@@ -2,11 +2,6 @@ package com.Atieh.reportsmobile;
 
 import java.util.ArrayList;
 
-import com.Atieh.reportsmobile.ShowreportsActivity.asyncTask;
-
-import webservices.ServiceGenerator;
-import GetAllSellersPack.GetAllSeller;
-import GetAllSellersPack.GetAllSellerInterface;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,12 +13,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
-import authenticationPack.Authentication;
 import authenticationPack.AuthenticationInterface;
 import authenticationPack.Domain;
 
@@ -33,20 +25,24 @@ public class SelectDomainActivity extends Activity {
 	String myear;
 	ImageButton sabt;
 	public static String domain, years;
-	String returnedID;
-	String returnedTitle;
+	public static String returnedDomainID;
+	public static String returnedYearID;
+
+	public static String returnedDomainTitle;
+	public static String returnedYearTitle;
+
 	int c;
 
 	public static String finalreturneddomainid;
 	public static String finalreturneyearid;
 
 	ImageButton seldomain, selyear;
-	public ListView list_costomer;
+
 	String[] domaintitle, domainid;
 	String[] yeartitle, yearid;
-	EditText et_username, et_password;
+
 	AuthenticationInterface auth;
-	EditText et_domain, et_salmali;
+	TextView et_domain, et_salmali;
 	int flgforresume = 0;
 	Domain dmn;
 	String[] msg = null;
@@ -58,12 +54,11 @@ public class SelectDomainActivity extends Activity {
 	AlertDialog alertDialog;
 
 	public void initview() {
-		list_costomer = (ListView) findViewById(R.id.lv_customers);
 		sabt = (ImageButton) findViewById(R.id.imgbtn_sabt);
 		seldomain = (ImageButton) findViewById(R.id.imgbtn_selectdomain);
 		selyear = (ImageButton) findViewById(R.id.imgbtn_selectyearmali);
-		et_salmali = (EditText) findViewById(R.id.et_salemali);
-		et_domain = (EditText) findViewById(R.id.et_domain);
+		et_salmali = (TextView) findViewById(R.id.et_salemali);
+		et_domain = (TextView) findViewById(R.id.et_domain);
 
 	}
 
@@ -73,18 +68,9 @@ public class SelectDomainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_selectdomain);
 		initview();
+
 		alertDialog = new AlertDialog.Builder(this).create();
 		flgforresume = 0;
-		// Toast.makeText(getApplicationContext(),
-		// MainActivity.msg+"+"+MainActivity.msg2 + "", 1).show();
-
-		// Toast.makeText(getApplicationContext(),
-		// MainActivity.authenticate.getDomains().get(0).getTitle(), 1)
-		// .show();
-
-		// ArrayAdapter<String> adapter = new ArrayAdapter(this,
-		// android.R.layout.simple_list_item_1, MainActivity.myaray);
-		// list_costomer.setAdapter(adapter);
 
 		domaintitleArray = new ArrayList<>();
 		yeartitleArray = new ArrayList<>();
@@ -127,11 +113,16 @@ public class SelectDomainActivity extends Activity {
 				final InputMethodManager imm = (InputMethodManager) getApplicationContext()
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+				attemplogin();
 				if (c == 0) {
-					attemplogin();
+
 				} else if (c == 1) {
-					startActivity(new Intent(SelectDomainActivity.this,
-							HomeActivity.class));
+					Intent domainintnent = new Intent();
+					domainintnent.putExtra("side", false);
+					domainintnent.setClass(SelectDomainActivity.this,
+							HomeActivity.class);
+					startActivity(domainintnent);
 				}
 
 			}
@@ -143,6 +134,7 @@ public class SelectDomainActivity extends Activity {
 			public void onClick(View v) {
 
 				et_domain.setText("");
+				et_salmali.setText("");
 				if (yearidArray.size() > 0) {// in if baraye in ast ke har bar
 												// ke domain avaz shod list sal
 												// mali az ebteda meghdardehi
@@ -176,13 +168,12 @@ public class SelectDomainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-
-		returnedTitle = ListViewAlphebeticalActivity.txttitle;
-		returnedID = ListViewAlphebeticalActivity.txtid;
-
 		if (flgforresume == 1) {// flg 1 for et_domain
-			et_domain.setText(returnedTitle);
-			finalreturneddomainid = returnedID;
+			returnedDomainTitle = ListViewAlphebeticalActivity.txttitle;
+			returnedDomainID = ListViewAlphebeticalActivity.txtid;
+
+			et_domain.setText(returnedDomainTitle);
+			finalreturneddomainid = returnedDomainID;
 
 			// in for baraye meghdardehi array marbot be sal mali ast
 			for (int i = 0; i < MainActivity.authenticate.getResult()
@@ -193,7 +184,7 @@ public class SelectDomainActivity extends Activity {
 				for (int j = 0; j < MainActivity.authenticate.getResult()
 						.getDomains().get(i).getFinancialYears().size(); j++) {
 					if (MainActivity.authenticate.getResult().getDomains()
-							.get(i).getId().equals(returnedID)) {
+							.get(i).getId().equals(returnedDomainID)) {
 						yeartitleArray.add(MainActivity.authenticate
 								.getResult().getDomains().get(i)
 								.getFinancialYears().get(j).getTitle());
@@ -213,8 +204,10 @@ public class SelectDomainActivity extends Activity {
 		}
 
 		if (flgforresume == 2) {// flg 2 for et_salmali
-			et_salmali.setText(returnedTitle);
-			finalreturneyearid = returnedID;
+			returnedYearTitle = ListViewAlphebeticalActivity.txttitle;
+			returnedYearID = ListViewAlphebeticalActivity.txtid;
+			et_salmali.setText(returnedYearTitle);
+			finalreturneyearid = returnedYearID;
 			attemplogin();
 		}
 

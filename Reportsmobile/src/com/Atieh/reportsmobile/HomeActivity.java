@@ -1,10 +1,19 @@
 package com.Atieh.reportsmobile;
 
+import java.util.ArrayList;
+
+import com.Atieh.reportsmobile.MainActivity.authnticationThread;
+
 import webservices.ServiceGenerator;
+import GetAllCustomersPack.GetAllCustomer;
+import GetAllCustomersPack.GetAllCustomerInterface;
+import GetAllMarketersPack.GetAllMarketers;
+import GetAllMarketersPack.GetAllMarketersInterface;
 import GetAllSellersPack.GetAllSeller;
 import GetAllSellersPack.GetAllSellerInterface;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -14,6 +23,10 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
+
+	GetAllSeller seler;
+	GetAllCustomer moshtari;
+	GetAllMarketers bazaryab;
 
 	ImageButton menu;
 	ImageButton forosh;
@@ -26,6 +39,20 @@ public class HomeActivity extends Activity {
 	boolean flgclickmenu;
 	private boolean _doubleBackToExitPressedOnce = false;
 	public static int[] mypermission = new int[5];
+
+	public static ArrayList<String> sellertitleArray;
+	public static ArrayList<String> sellerpersoncodeArray;
+	public static ArrayList<String> selleridArray;
+
+	public static ArrayList<String> moshtariidArray;
+	public static ArrayList<String> mostarititleArray;
+	public static ArrayList<String> mostaripersoncodeArray;
+
+	public static ArrayList<String> bazaryabidArray;
+	public static ArrayList<String> bazaryabtitleArray;
+	public static ArrayList<String> bazaryabpersoncodeArray;
+
+	public static String token;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_home);
@@ -54,6 +81,10 @@ public class HomeActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
 		initview();
+		token = MainActivity.authenticate.getResult().getToken();
+
+		sellerThread auth = new sellerThread();
+		auth.execute("");
 
 		forosh.setImageResource(R.drawable.backmenutransparent);
 		khazane.setImageResource(R.drawable.backmenutransparent);
@@ -70,8 +101,6 @@ public class HomeActivity extends Activity {
 		// MainActivity.authenticate.getResult().getDomains().get(0)
 		// .getPermissions().get(0).getKey()
 		// + "", 1).show();
-
-	
 
 		// Toast.makeText(getApplicationContext(), mypermission[3], 1).show();
 
@@ -204,6 +233,88 @@ public class HomeActivity extends Activity {
 	// }
 	// }
 
+	public class sellerThread extends AsyncTask<String, String, String> {
+
+		@Override
+		protected String doInBackground(String... arg0) {
+
+			// ==================== GetAllSeller
+			seler = new GetAllSeller();
+			GetAllSellerInterface sellers = ServiceGenerator.createService(
+					GetAllSellerInterface.class, MainActivity.baseURL);
+			seler = sellers.getAllSellers(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+			selleridArray = new ArrayList<>();
+			sellertitleArray = new ArrayList<>();
+			sellerpersoncodeArray = new ArrayList<>();
+			for (int i = 0; i < seler.getResult().size(); i++) {
+				sellertitleArray.add(seler.getResult().get(i).getTitle());
+				selleridArray.add((seler.getResult().get(i).getId()));
+				sellerpersoncodeArray.add((seler.getResult().get(i)
+						.getPersonCode()));
+			}
+			// ===========================GetAllCustomer
+			moshtari = new GetAllCustomer();
+			GetAllCustomerInterface customer = ServiceGenerator.createService(
+					GetAllCustomerInterface.class, MainActivity.baseURL);
+
+			moshtari = customer.getAllCustomer(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			moshtariidArray = new ArrayList<>();
+			mostarititleArray = new ArrayList<>();
+			mostaripersoncodeArray = new ArrayList<>();
+			for (int i = 0; i < moshtari.getResult().size(); i++) {
+				mostarititleArray.add(moshtari.getResult().get(i).getTitle());
+				moshtariidArray.add((moshtari.getResult().get(i).getId()));
+				mostaripersoncodeArray.add((moshtari.getResult().get(i)
+						.getPersonCode()));
+			}
+			// ========================GetAllMarketers
+			bazaryab = new GetAllMarketers();
+			GetAllMarketersInterface marketer = ServiceGenerator.createService(
+					GetAllMarketersInterface.class, MainActivity.baseURL);
+
+			bazaryab = marketer.getAllMarketers(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			bazaryabidArray = new ArrayList<>();
+			bazaryabtitleArray = new ArrayList<>();
+			bazaryabpersoncodeArray = new ArrayList<>();
+
+			for (int i = 0; i < bazaryab.getResult().size(); i++) {
+				bazaryabtitleArray.add(bazaryab.getResult().get(i).getTitle());
+				bazaryabidArray.add((bazaryab.getResult().get(i).getId()));
+				bazaryabpersoncodeArray.add((bazaryab.getResult().get(i)
+						.getPersonCode()));
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+
+			// for loading
+			super.onPreExecute();
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			// TODO Auto-generated method stub
+
+			// Toast.makeText(getApplicationContext(),
+			// seler.getResult().get(1).getTitle() + "", 1).show();
+
+			super.onPostExecute(result);
+		}
+
+	}
+
 	@Override
 	public void onBackPressed() {
 
@@ -232,12 +343,13 @@ public class HomeActivity extends Activity {
 		}, 2000);
 	}
 
-	
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		mypermission=new int[5];
+
+		// /================ for permission
+		mypermission = new int[5];
 		for (int i = 0; i < MainActivity.authenticate.getResult().getDomains()
 				.size(); i++) {
 
@@ -272,29 +384,33 @@ public class HomeActivity extends Activity {
 
 		for (int k = 1; k <= 4; k++) {
 
-			Toast.makeText(
-					getApplicationContext(),
-					"permisson oF the domain id=  "
-							+ SelectDomainActivity.finalreturneddomainid+" For report num of= "+k
-							+  "  IS = " + mypermission[k] + "", 1).show();
+			
+			//in toast baraye namayesh dastresi ha va chek anha ba khoroji ast
+//			Toast.makeText(
+//					getApplicationContext(),
+//					"permisson oF the domain id=  "
+//							+ SelectDomainActivity.finalreturneddomainid
+//							+ " For report num of= " + k + "  IS = "
+//							+ mypermission[k] + "", 1).show();
 			if (mypermission[k] == 1) {
 
-				forosh.setImageResource(R.drawable.btn_homeclick);
+				forosh.setImageResource(R.drawable.btn_click);
 				forosh.setEnabled(true);
 			} else if (mypermission[k] == 2) {
 
-				khazane.setImageResource(R.drawable.btn_homeclick);
+				khazane.setImageResource(R.drawable.btn_click);
 				khazane.setEnabled(true);
 			} else if (mypermission[k] == 3) {
 
-				hesabdari.setImageResource(R.drawable.btn_homeclick);
+				hesabdari.setImageResource(R.drawable.btn_click);
 				hesabdari.setEnabled(true);
 			} else if (mypermission[k] == 4) {
 
-				kala.setImageResource(R.drawable.btn_homeclick);
+				kala.setImageResource(R.drawable.btn_click);
 				kala.setEnabled(true);
 			}
 
 		}
 	}
+	// ===================================
 }

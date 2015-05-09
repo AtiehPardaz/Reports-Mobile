@@ -150,7 +150,7 @@ public class ShowreportsActivity extends Activity {
 			break;
 
 		default:
-			message = "خطای ناشناخته شماره :" + Integer.toString(responseCode);
+			message = "خطای ناشناخته شماره :" + Integer.toString(responseCode)+" مجددا تلاش نمایید ";
 		}
 
 		return message;
@@ -197,7 +197,7 @@ public class ShowreportsActivity extends Activity {
 				alertDialog.setIcon(R.drawable.ic_launcher);
 				alertDialog.setTitle("خطا");
 				alertDialog.setMessage(result);
-				alertDialog.setButton("باشه",
+				alertDialog.setButton("تایید",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int which) {

@@ -67,7 +67,7 @@ public class ForoshActivity extends FragmentActivity {
 		forosh.setVisibility(View.GONE);
 		khazane.setVisibility(View.GONE);
 		hesabdari.setVisibility(View.GONE);
-		kala.setVisibility(View.GONE);
+		kalamenu.setVisibility(View.GONE);
 		for (int k = 1; k <= 4; k++) {
 			if (HomeActivity.mypermission[k] == 1) {
 				forosh.setVisibility(View.VISIBLE);
@@ -76,7 +76,7 @@ public class ForoshActivity extends FragmentActivity {
 			} else if (HomeActivity.mypermission[k] == 3) {
 				hesabdari.setVisibility(View.VISIBLE);
 			} else if (HomeActivity.mypermission[k] == 4) {
-				kala.setVisibility(View.VISIBLE);
+				kalamenu.setVisibility(View.VISIBLE);
 			}
 		}
 
