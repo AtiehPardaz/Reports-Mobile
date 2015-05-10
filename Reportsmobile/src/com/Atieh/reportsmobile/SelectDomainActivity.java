@@ -15,7 +15,6 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import authenticationPack.AuthenticationInterface;
 import authenticationPack.Domain;
 
@@ -219,8 +218,7 @@ public class SelectDomainActivity extends Activity {
 				public void onClick(View v) {
 
 					if (flgforresume == 0) {
-						Toast.makeText(getApplicationContext(),
-								"ابتدا دامنه را وارد نمایید", 1).show();
+						showdialog("ابتدا دامنه را وارد نمایید");
 					}
 					flgforresume = 2;
 					Intent intent = new Intent();
@@ -238,17 +236,20 @@ public class SelectDomainActivity extends Activity {
 		}
 	}
 
-	public void showdialog(String messege) {
+	public void showdialog(String message) {
 		this._doubleBackToExitPressedOnce = true;
-		alertDialog.setIcon(R.drawable.ic_launcher);
-		alertDialog.setTitle("خطا");
-		alertDialog.setMessage(messege);
-		alertDialog.setButton("تایید", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				alertDialog.dismiss();
-				return;
-			}
-		});
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(message);
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle("خطا");
+		alertDialogBuilder.setPositiveButton("تایید", 
+			      new DialogInterface.OnClickListener() {
+					
+			         @Override
+			         public void onClick(DialogInterface arg0, int arg1) {						
+			         }
+			      });
+		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}
 

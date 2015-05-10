@@ -205,7 +205,9 @@ public class frg_customer_forosh extends Fragment {
 	{
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
 		alertDialogBuilder.setMessage(message);
-		alertDialogBuilder.setPositiveButton("OK", 
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle("خطا");
+		alertDialogBuilder.setPositiveButton("تایید", 
 			      new DialogInterface.OnClickListener() {
 					
 			         @Override
