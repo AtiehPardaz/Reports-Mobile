@@ -7,8 +7,12 @@ import GetAllCustomersPack.GetAllCustomer;
 import GetAllCustomersPack.GetAllCustomerInterface;
 import GetAllMarketersPack.GetAllMarketers;
 import GetAllMarketersPack.GetAllMarketersInterface;
+import GetAllProductPack.GetAllProduct;
+import GetAllProductPack.GetAllProductInterface;
 import GetAllSellersPack.GetAllSeller;
 import GetAllSellersPack.GetAllSellerInterface;
+import GetAllServicesPack.GetAllService;
+import GetAllServicesPack.GetAllServiceInterface;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -25,6 +29,8 @@ public class HomeActivity extends Activity {
 	GetAllSeller seler;
 	GetAllCustomer moshtari;
 	GetAllMarketers bazaryab;
+	GetAllProduct product;
+	GetAllService services;
 
 	ImageButton menu;
 	ImageButton forosh;
@@ -49,6 +55,14 @@ public class HomeActivity extends Activity {
 	public static ArrayList<String> bazaryabidArray;
 	public static ArrayList<String> bazaryabtitleArray;
 	public static ArrayList<String> bazaryabpersoncodeArray;
+
+	public static ArrayList<String> productidArray;
+	public static ArrayList<String> producttitleArray;
+	public static ArrayList<String> productcodeArray;
+
+	public static ArrayList<String> servicesidArray;
+	public static ArrayList<String> servicestitleArray;
+	public static ArrayList<String> servicescodeArray;
 
 	public static String token;
 
@@ -290,6 +304,46 @@ public class HomeActivity extends Activity {
 						.getPersonCode()));
 			}
 
+			// ==========================GetAllProduct
+
+			product = new GetAllProduct();
+			GetAllProductInterface mahsolat = ServiceGenerator.createService(
+					GetAllProductInterface.class, MainActivity.baseURL);
+
+			product = mahsolat.getAllProduct(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			productidArray = new ArrayList<>();
+			producttitleArray = new ArrayList<>();
+			productcodeArray = new ArrayList<>();
+
+			for (int i = 0; i < product.getResult().size(); i++) {
+				producttitleArray.add(product.getResult().get(i).getTitle());
+				productidArray.add((product.getResult().get(i).getId()));
+				productcodeArray.add((product.getResult().get(i).getCode()));
+			}
+
+			// ==========================GetAllService
+
+			services = new GetAllService();
+			GetAllServiceInterface khadamat = ServiceGenerator.createService(
+					GetAllServiceInterface.class, MainActivity.baseURL);
+
+			services = khadamat.getAllService(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			servicesidArray = new ArrayList<>();
+			servicestitleArray = new ArrayList<>();
+			servicescodeArray = new ArrayList<>();
+
+			for (int i = 0; i < services.getResult().size(); i++) {
+				servicestitleArray.add(services.getResult().get(i).getTitle());
+				servicesidArray.add((services.getResult().get(i).getId()));
+				servicescodeArray.add((services.getResult().get(i).getCode()));
+			}
+
 			return null;
 		}
 
@@ -382,14 +436,13 @@ public class HomeActivity extends Activity {
 
 		for (int k = 1; k <= 4; k++) {
 
-			
-			//in toast baraye namayesh dastresi ha va chek anha ba khoroji ast
-//			Toast.makeText(
-//					getApplicationContext(),
-//					"permisson oF the domain id=  "
-//							+ SelectDomainActivity.finalreturneddomainid
-//							+ " For report num of= " + k + "  IS = "
-//							+ mypermission[k] + "", 1).show();
+			// in toast baraye namayesh dastresi ha va chek anha ba khoroji ast
+			// Toast.makeText(
+			// getApplicationContext(),
+			// "permisson oF the domain id=  "
+			// + SelectDomainActivity.finalreturneddomainid
+			// + " For report num of= " + k + "  IS = "
+			// + mypermission[k] + "", 1).show();
 			if (mypermission[k] == 1) {
 
 				forosh.setImageResource(R.drawable.btn_click);

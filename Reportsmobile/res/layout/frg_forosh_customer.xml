@@ -27,7 +27,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="از تاریخ:  "
+            android:hint="از تاریخ"
             android:textSize="14sp" >
 
             <requestFocus />
@@ -64,10 +64,10 @@
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-          
             android:gravity="center"
-            android:hint="تا تاریخ:  "
+            android:hint="تا تاریخ"
             android:textSize="14sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -90,10 +90,10 @@
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-          
             android:gravity="center"
-            android:hint="مشتری:   "
+            android:hint="مشتری"
             android:textSize="14sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -116,10 +116,10 @@
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-          
             android:gravity="center"
-            android:hint="بازاریاب: "
+            android:hint="بازاریاب"
             android:textSize="14sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -143,7 +143,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="فروشنده:"
+            android:hint="فروشنده"
             android:textSize="14sp" />
 
     </LinearLayout>

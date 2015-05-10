@@ -13,23 +13,24 @@
         android:gravity="right" >
 
         <ImageButton
-            android:id="@+id/imgbtn_underline_faktor_forosh"
+            android:id="@+id/imgbtn_fromdate_forokhte_forosh"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
-        <EditText
-            android:id="@+id/et_fromdate_forosh"
+        <TextView
+            android:id="@+id/et_fromdate_forokhte_forosh"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="از تاریخ:  "
+            android:gravity="center"
+            android:hint="از تاریخ"
             android:textSize="14sp" >
 
             <requestFocus />
-        </EditText>
+        </TextView>
 
         <TextView
             android:id="@+id/TextView01"
@@ -51,19 +52,20 @@
             android:gravity="right" >
 
             <ImageButton
-                android:id="@+id/imgbtn_todatecustomer_forosh"
+                android:id="@+id/imgbtn_todate_forokhte_forosh"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/ic_action_date" />
 
-            <EditText
-                android:id="@+id/et_todate_forosh"
+            <TextView
+                android:id="@+id/et_todate_forokhte_forosh"
                 android:layout_width="180dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:hint="تا تاریخ:  "
+                android:gravity="center"
+                android:hint="تا تاریخ"
                 android:textSize="14sp" />
 
             <TextView
@@ -86,19 +88,20 @@
             android:gravity="right" >
 
             <ImageButton
-                android:id="@+id/imgbtn_customer_forosh"
+                android:id="@+id/imgbtn_customer_forokhte_forosh"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/down" />
 
-            <EditText
-                android:id="@+id/et__customer_forosh"
+            <TextView
+                android:id="@+id/et_customer_forokhte_forosh"
                 android:layout_width="180dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:hint="مشتری:   "
+                android:gravity="center"
+                android:hint="مشتری"
                 android:textSize="14sp" />
 
             <TextView
@@ -121,19 +124,20 @@
             android:gravity="right" >
 
             <ImageButton
-                android:id="@+id/imgbtn_bazaryab_forosh"
+                android:id="@+id/imgbtn_bazaryab_forokhte_forosh"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/down" />
 
-            <EditText
-                android:id="@+id/et__bazarya_forosh"
+            <TextView
+                android:id="@+id/et__bazarya_forokhte_forosh"
                 android:layout_width="180dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:hint="بازاریاب: "
+                android:gravity="center"
+                android:hint="بازاریاب"
                 android:textSize="14sp" />
 
             <TextView
@@ -156,19 +160,20 @@
             android:gravity="right" >
 
             <ImageButton
-                android:id="@+id/imgbtn_foroshande_forosh"
+                android:id="@+id/imgbtn_foroshande_forokhte_forosh"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/down" />
 
-            <EditText
-                android:id="@+id/et__foroshande_forosh"
+            <TextView
+                android:id="@+id/et__foroshande_forokhte_forosh"
                 android:layout_width="180dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:hint="فروشنده:"
+                android:gravity="center"
+                android:hint="فروشنده"
                 android:textSize="14sp" />
 
             <TextView
@@ -191,29 +196,20 @@
             android:gravity="right" >
 
             <ImageButton
-                android:id="@+id/imgbtn_kala_forosh"
+                android:id="@+id/imgbtn_kala_forokhte_forosh"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/down" />
 
-            <EditText
-                android:id="@+id/et__kala_forosh"
+            <TextView
+                android:id="@+id/et__kala_forokhte_forosh"
                 android:layout_width="180dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:hint="کالا:          "
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv__kala_forosh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:gravity="right"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
+                android:gravity="center"
+                android:hint="کالا"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -227,29 +223,20 @@
     android:gravity="right" >
 
             <ImageButton
-                android:id="@+id/imgbtn_khadamat_forosh"
+                android:id="@+id/imgbtn_khadamat_forokhte_forosh"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/down" />
 
-            <EditText
-                android:id="@+id/et__khadamat_forosh"
+            <TextView
+                android:id="@+id/et_khadamat_forokhte_forosh"
                 android:layout_width="180dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:hint="خدمات:   "
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tv__khadamat_forosh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right|center"
-                android:gravity="right"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="#ffffff"
+                android:gravity="center"
+                android:hint="خدمات"
                 android:textSize="14sp" />
 
         </LinearLayout>

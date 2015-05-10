@@ -7,7 +7,11 @@ import java.util.List;
 import pageradapter.Utilities;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -25,11 +29,14 @@ public class DatepickerActivity extends Activity {
 	TextView txt_date, txt_name_year, txt_name_month, txt_name_day;
 	String date, dateNow = "", getYear = "", getMonth, getDay;
 	public static String myYear = "", myMonth, myDay;
+	AlertDialog alertDialog;
+	private boolean _doubleBackToExitPressedOnce = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_datepicker);
+		alertDialog = new AlertDialog.Builder(this).create();
 
 		top_image_year = (ImageView) findViewById(R.id.top_image_year);
 		down_image_year = (ImageView) findViewById(R.id.down_image_year);
@@ -51,6 +58,8 @@ public class DatepickerActivity extends Activity {
 		txt_name_month.setText(util.getMonthStr(date2));
 
 		txt_name_day.setText(Integer.toString(util.getDay(date2)));
+
+		this.setFinishOnTouchOutside(false);
 		top_image_year.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -229,6 +238,46 @@ public class DatepickerActivity extends Activity {
 			return weekDayNames.get(idx);
 		}
 		return weekDayNames.get(idx - 1);
+	}
+
+	@Override
+	public void onBackPressed() {
+
+		// Log.i(TAG, "onBackPressed--");
+		if (_doubleBackToExitPressedOnce) {
+			super.onBackPressed();
+
+			Intent intent = new Intent(getApplicationContext(),
+					MainActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.putExtra("EXIT", true);
+			startActivity(intent);
+
+			return;
+		}
+
+		showdialog("لطفا تاریخ را انتخاب نمایید");
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+
+				_doubleBackToExitPressedOnce = false;
+			}
+		}, 2000);
+	}
+
+	public void showdialog(String messege) {
+		this._doubleBackToExitPressedOnce = true;
+		alertDialog.setIcon(R.drawable.ic_launcher);
+		alertDialog.setTitle("خطا");
+		alertDialog.setMessage(messege);
+		alertDialog.setButton("تایید", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int which) {
+				alertDialog.dismiss();
+				return;
+			}
+		});
+		alertDialog.show();
 	}
 
 }

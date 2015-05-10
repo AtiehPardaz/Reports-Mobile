@@ -81,7 +81,7 @@ public class ForoshActivity extends FragmentActivity {
 	}
 
 	public void showmenu(View v) {
-
+		
 		if (linearmenu.getVisibility() == View.GONE) {
 			linearmenu.setVisibility(View.VISIBLE);
 

@@ -1,28 +1,75 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="horizontal"
-android:paddingLeft="5dp"
-tools:context=".MainActivity"
-android:baselineAligned="false" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:baselineAligned="false"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    tools:context=".MainActivity" >
 
-<ListView
-android:id="@+id/list_fruits"
-android:layout_width="0dp"
-android:layout_height="wrap_content"
-android:layout_weight="1"
-android:paddingRight="5dp" >
-</ListView>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="لطفا یکی از گزینه های زیر را انتخاب نمایید"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="16sp" />
 
-<LinearLayout
-    android:id="@+id/side_index"
-    android:layout_width="50dp"
-    android:layout_height="fill_parent"
-    android:background="#83e2e2"
-    android:gravity="center_horizontal"
-    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/blue_titleactionbar"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-</LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <ListView
+            android:id="@+id/list_fruits"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="5dp" >
+        </ListView>
+
+        <LinearLayout
+            android:id="@+id/side_index"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:background="@color/blue_green"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="2dp"
+        android:background="@color/blue_titleactionbar"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgbtn_SelAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:background="@color/blue_green"
+        android:src="@drawable/newsabt" />
 
 </LinearLayout>

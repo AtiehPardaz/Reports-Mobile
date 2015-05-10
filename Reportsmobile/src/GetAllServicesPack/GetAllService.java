@@ -1,20 +1,20 @@
-package GetAllProductPack;
+package GetAllServicesPack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GetAllProduct {
+public class GetAllService {
 
-	private List<GetAllProductPack.Result> Result = new ArrayList<GetAllProductPack.Result>();
+	private List<GetAllServicesPack.Result> Result = new ArrayList<GetAllServicesPack.Result>();
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	/**
 	 * 
 	 * @return The Result
 	 */
-	public List<GetAllProductPack.Result> getResult() {
+	public List<GetAllServicesPack.Result> getResult() {
 		return Result;
 	}
 
@@ -23,7 +23,7 @@ public class GetAllProduct {
 	 * @param Result
 	 *            The Result
 	 */
-	public void setResult(List<GetAllProductPack.Result> Result) {
+	public void setResult(List<GetAllServicesPack.Result> Result) {
 		this.Result = Result;
 	}
 

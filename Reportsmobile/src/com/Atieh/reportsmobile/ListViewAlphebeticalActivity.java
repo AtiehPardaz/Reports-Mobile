@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,19 +34,20 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	String[] arraytitle;
 	String[] arrayRelation;
 	String[] arrayRole;
+	ImageButton selall;
 	public static String txtid;
 	public static String txttitle;
 	LinearLayout side_index;
 	database db;
 	Cursor c;
-	Boolean sidepicker=true;
+	Boolean sidepicker = true;
 	ListAlphebeticaladapter mArrayadapter;// برای مقداردهی لیست ما
 	public static String selvaluefromalphebeticlist;
 	Map<String, Integer> mapIndex;
 	ListView alphebetList;
 	AlertDialog alertDialog;
 	private boolean _doubleBackToExitPressedOnce = false;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -58,7 +60,8 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		this.setFinishOnTouchOutside(false);
 
 		side_index = (LinearLayout) findViewById(R.id.side_index);
-
+		selall = (ImageButton) findViewById(R.id.imgbtn_SelAll);
+		
 		// arraytitle va arrayID bayad meghdardehi shavand
 		// arraytitle =new String[SelectDomainActivity.domaintitleArray.size()];
 		// arrayID =new String[SelectDomainActivity.domaintitleArray.size()];;
@@ -66,14 +69,13 @@ public class ListViewAlphebeticalActivity extends Activity implements
 				"arrayttitlefromjson");
 		arrayID = getIntent().getExtras().getStringArray("arrayidfromjson");
 		sidepicker = getIntent().getExtras().getBoolean("side");
-		
-		
-		if(sidepicker==false){
+
+		if (sidepicker == false) {
 			side_index.setVisibility(View.GONE);
-			
-		}else{
+			selall.setVisibility(View.GONE);
+		} else {
 			side_index.setVisibility(View.VISIBLE);
-			
+			selall.setVisibility(View.VISIBLE);
 		}
 		// arraytitle=(String[])
 		// SelectDomainActivity.domaintitleArray.toArray(new String
@@ -198,8 +200,8 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	public void onClick(View view) {
 
 		TextView selectedIndex = (TextView) view;
-		Toast.makeText(getApplicationContext(), selectedIndex.getText(), Toast.LENGTH_LONG)
-				.show();
+		Toast.makeText(getApplicationContext(), selectedIndex.getText(),
+				Toast.LENGTH_LONG).show();
 
 		alphebetList.setSelection(mapIndex.get(selectedIndex.getText()));
 	}
@@ -229,6 +231,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 			}
 		}, 2000);
 	}
+
 	public void showdialog(String messege) {
 		this._doubleBackToExitPressedOnce = true;
 		alertDialog.setIcon(R.drawable.ic_launcher);
