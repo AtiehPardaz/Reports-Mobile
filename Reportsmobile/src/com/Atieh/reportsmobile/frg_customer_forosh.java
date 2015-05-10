@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -174,19 +172,19 @@ public class frg_customer_forosh extends Fragment {
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
 				if (et_fromdate.getText().equals("")) {
 					Toast.makeText(getActivity(),
-							"لطفا تاریخ ابتدا را وارد نمایید", 1).show();
+							"لطفا تاریخ ابتدا را وارد نمایید", Toast.LENGTH_LONG).show();
 				} else if (et_todate.getText().equals("")) {
 					Toast.makeText(getActivity(),
-							"لطفا تاریخ انتها را وارد نمایید", 1).show();
+							"لطفا تاریخ انتها را وارد نمایید", Toast.LENGTH_LONG).show();
 				} else if (et_customer.getText().equals("")) {
 					Toast.makeText(getActivity(), "لطفا مشتری  را وارد نمایید",
-							1).show();
+							Toast.LENGTH_LONG).show();
 				} else if (et_bazar.getText().equals("")) {
 					Toast.makeText(getActivity(),
-							"لطفا  بازاریاب  را وارد نمایید", 1).show();
+							"لطفا  بازاریاب  را وارد نمایید", Toast.LENGTH_LONG).show();
 				} else if (et_foroshande.getText().equals("")) {
 					Toast.makeText(getActivity(),
-							"لطفا  فروشنده را وارد نمایید", 1).show();
+							"لطفا  فروشنده را وارد نمایید", Toast.LENGTH_LONG).show();
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						Intent report = new Intent();
@@ -196,11 +194,11 @@ public class frg_customer_forosh extends Fragment {
 						startActivity(report);
 					} else if (checkdate(intfromdate, inttodate) == 1) {
 						Toast.makeText(getActivity(),
-								"تاریخ انتها کوچکتر از تاریخ ابتدا می باشد", 1)
+								"تاریخ انتها کوچکتر از تاریخ ابتدا می باشد", Toast.LENGTH_LONG)
 								.show();
 					} else if (checkdate(intfromdate, inttodate) == 2) {
 						Toast.makeText(getActivity(),
-								"تاریخ ابتدا و انتها برابر است", 1).show();
+								"تاریخ ابتدا و انتها برابر است", Toast.LENGTH_LONG).show();
 					}
 
 				}

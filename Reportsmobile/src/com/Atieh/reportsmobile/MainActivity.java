@@ -3,7 +3,6 @@ package com.Atieh.reportsmobile;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -16,11 +15,7 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 import webservices.ServiceGenerator;
-import android.R.string;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

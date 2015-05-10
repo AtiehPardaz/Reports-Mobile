@@ -2,8 +2,6 @@ package com.Atieh.reportsmobile;
 
 import java.util.ArrayList;
 
-import com.Atieh.reportsmobile.MainActivity.authnticationThread;
-
 import webservices.ServiceGenerator;
 import GetAllCustomersPack.GetAllCustomer;
 import GetAllCustomersPack.GetAllCustomerInterface;

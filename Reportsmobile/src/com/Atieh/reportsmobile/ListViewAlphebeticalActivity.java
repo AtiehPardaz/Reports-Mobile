@@ -15,13 +15,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
-import android.view.Gravity;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -201,7 +198,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	public void onClick(View view) {
 
 		TextView selectedIndex = (TextView) view;
-		Toast.makeText(getApplicationContext(), selectedIndex.getText(), 1)
+		Toast.makeText(getApplicationContext(), selectedIndex.getText(), Toast.LENGTH_LONG)
 				.show();
 
 		alphebetList.setSelection(mapIndex.get(selectedIndex.getText()));

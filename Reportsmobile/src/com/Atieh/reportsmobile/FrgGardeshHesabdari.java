@@ -11,12 +11,9 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class FrgGardeshHesabdari extends Fragment {
 	ImageButton btnshow;
@@ -55,10 +52,7 @@ public class FrgGardeshHesabdari extends Fragment {
 					public void onItemSelected(AdapterView<?> parent,
 							View view, int pos, long id) {
 
-						Object item = parent.getItemAtPosition(pos);
 						String text = spinertafsil.getSelectedItem().toString();
-						// Toast.makeText(getActivity(), text, 1).show();
-
 						switch (text) {
 						case "شخص":
 							selecttafsil.setText("شخص");
