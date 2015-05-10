@@ -42,7 +42,6 @@ import authenticationPack.Domain;
 public class MainActivity extends Activity {
 	LinearLayout loadinglayer;
 
-//	public static final String baseURL = "http://webservice.atiehpardaz.com/reportService/ReportService.svc";
 	public static final String baseURL = "http://demo.atiehpardaz.com/ReportService/ReportService.svc";
 	ImageButton login;
 	public static Authentication authenticate;

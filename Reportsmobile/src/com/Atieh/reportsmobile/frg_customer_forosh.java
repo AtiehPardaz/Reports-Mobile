@@ -1,7 +1,9 @@
 package com.Atieh.reportsmobile;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +14,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class frg_customer_forosh extends Fragment {
 
@@ -171,20 +172,15 @@ public class frg_customer_forosh extends Fragment {
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
 				if (et_fromdate.getText().equals("")) {
-					Toast.makeText(getActivity(),
-							"لطفا تاریخ ابتدا را وارد نمایید", Toast.LENGTH_LONG).show();
+					showMessage("لطفا تاریخ ابتدا را وارد نمایید");
 				} else if (et_todate.getText().equals("")) {
-					Toast.makeText(getActivity(),
-							"لطفا تاریخ انتها را وارد نمایید", Toast.LENGTH_LONG).show();
+					showMessage("لطفا تاریخ انتها را وارد نمایید");
 				} else if (et_customer.getText().equals("")) {
-					Toast.makeText(getActivity(), "لطفا مشتری  را وارد نمایید",
-							Toast.LENGTH_LONG).show();
+					showMessage("لطفا مشتری  را وارد نمایید");
 				} else if (et_bazar.getText().equals("")) {
-					Toast.makeText(getActivity(),
-							"لطفا  بازاریاب  را وارد نمایید", Toast.LENGTH_LONG).show();
+					showMessage("لطفا  بازاریاب  را وارد نمایید");
 				} else if (et_foroshande.getText().equals("")) {
-					Toast.makeText(getActivity(),
-							"لطفا  فروشنده را وارد نمایید", Toast.LENGTH_LONG).show();
+					showMessage("لطفا  فروشنده را وارد نمایید");
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						Intent report = new Intent();
@@ -193,12 +189,9 @@ public class frg_customer_forosh extends Fragment {
 								ShowreportsActivity.class);
 						startActivity(report);
 					} else if (checkdate(intfromdate, inttodate) == 1) {
-						Toast.makeText(getActivity(),
-								"تاریخ انتها کوچکتر از تاریخ ابتدا می باشد", Toast.LENGTH_LONG)
-								.show();
+						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
 					} else if (checkdate(intfromdate, inttodate) == 2) {
-						Toast.makeText(getActivity(),
-								"تاریخ ابتدا و انتها برابر است", Toast.LENGTH_LONG).show();
+						showMessage("تاریخ ابتدا و انتها برابر است");
 					}
 
 				}
@@ -206,6 +199,21 @@ public class frg_customer_forosh extends Fragment {
 		});
 
 		return view;
+	}
+	
+	private void showMessage(String message)
+	{
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+		alertDialogBuilder.setMessage(message);
+		alertDialogBuilder.setPositiveButton("OK", 
+			      new DialogInterface.OnClickListener() {
+					
+			         @Override
+			         public void onClick(DialogInterface arg0, int arg1) {						
+			         }
+			      });
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
 	}
 
 	public int checkdate(int fromdate, int todate) {
