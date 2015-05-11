@@ -43,6 +43,8 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	Boolean sidepicker = true;
 	ListAlphebeticaladapter mArrayadapter;// برای مقداردهی لیست ما
 	public static String selvaluefromalphebeticlist;
+	public static String selidfromalphebeticlist;
+
 	Map<String, Integer> mapIndex;
 	ListView alphebetList;
 	AlertDialog alertDialog;
@@ -61,7 +63,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 
 		side_index = (LinearLayout) findViewById(R.id.side_index);
 		selall = (ImageButton) findViewById(R.id.imgbtn_SelAll);
-		
+
 		// arraytitle va arrayID bayad meghdardehi shavand
 		// arraytitle =new String[SelectDomainActivity.domaintitleArray.size()];
 		// arrayID =new String[SelectDomainActivity.domaintitleArray.size()];;
@@ -131,6 +133,15 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		// String[] customer = getResources().getStringArray(
 		// R.array.customer_array);
 
+		selall.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				selvaluefromalphebeticlist = "همه";
+				finish();
+			}
+		});
+
 		// ایجاد یک ارایه
 		Arrays.asList(arraytitle);
 
@@ -160,6 +171,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 						.findViewById(R.id.tv_id_alohebetic);
 				txtid = tvid.getText().toString();
 				selvaluefromalphebeticlist = txttitle;
+				selidfromalphebeticlist = txtid;
 				// Toast.makeText(getApplicationContext(),
 				// txtid + "   " + txttitle, 1).show();
 				finish();

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class frg_customer_forosh extends Fragment {
 
@@ -28,6 +29,8 @@ public class frg_customer_forosh extends Fragment {
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_sellertitleArray, St_sellertidArray, St_sellerpersoncodeArray;
+	
+	String customerId, marketerId, sellerId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -200,20 +203,20 @@ public class frg_customer_forosh extends Fragment {
 
 		return view;
 	}
-	
-	private void showMessage(String message)
-	{
-		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+
+	private void showMessage(String message) {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				getActivity());
 		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
 		alertDialogBuilder.setTitle("خطا");
-		alertDialogBuilder.setPositiveButton("تایید", 
-			      new DialogInterface.OnClickListener() {
-					
-			         @Override
-			         public void onClick(DialogInterface arg0, int arg1) {						
-			         }
-			      });
+		alertDialogBuilder.setPositiveButton("تایید",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+					}
+				});
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}
@@ -257,11 +260,15 @@ public class frg_customer_forosh extends Fragment {
 		}
 
 		else if (flgbackforResume == 3) {
+			customerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_customer
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 4) {
+			marketerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_bazar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 5) {
+			sellerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+
 			et_foroshande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

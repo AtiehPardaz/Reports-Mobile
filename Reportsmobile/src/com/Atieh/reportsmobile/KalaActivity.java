@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -30,6 +32,7 @@ public class KalaActivity extends FragmentActivity {
 	ViewPager pagerkala;
 	Button mojodi;
 	Button riali;
+	public static Animation animbounce;
 
 	TextView title;
 
@@ -88,7 +91,8 @@ public void permissiontoreport() {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_kala);
 		initview();
-		
+		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.bounce);
 		permissiontoreport();
 		title.setTypeface(MainActivity.titr);
 		kala.setVisibility(View.GONE);
@@ -213,7 +217,7 @@ public void permissiontoreport() {
 
 			@Override
 			public void onClick(View v) {
-				lmenu.startAnimation(ForoshActivity.animbounce);
+				lmenu.startAnimation(animbounce);
 				showmenu(v);
 				// Toast.makeText(getApplicationContext(), "", 1).show();
 

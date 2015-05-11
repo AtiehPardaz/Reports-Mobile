@@ -16,7 +16,9 @@
         android:layout_marginTop="5dp"
         android:text="لطفا یکی از گزینه های زیر را انتخاب نمایید"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="16sp" />
+        android:textColor="@color/first_row_text_color"
+        android:textColorLink="@color/blue_actionbar2color"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

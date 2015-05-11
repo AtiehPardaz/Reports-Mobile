@@ -13,6 +13,8 @@ import GetAllSellersPack.GetAllSeller;
 import GetAllSellersPack.GetAllSellerInterface;
 import GetAllServicesPack.GetAllService;
 import GetAllServicesPack.GetAllServiceInterface;
+import GetAllWarehousesPack.GetAllWarehouses;
+import GetAllWarehousesPack.GetAllWarehousesInterface;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -31,7 +33,7 @@ public class HomeActivity extends Activity {
 	GetAllMarketers bazaryab;
 	GetAllProduct product;
 	GetAllService services;
-
+	GetAllWarehouses warehouse;
 	ImageButton menu;
 	ImageButton forosh;
 	ImageButton hesabdari;
@@ -63,6 +65,10 @@ public class HomeActivity extends Activity {
 	public static ArrayList<String> servicesidArray;
 	public static ArrayList<String> servicestitleArray;
 	public static ArrayList<String> servicescodeArray;
+
+	public static ArrayList<String> warehouseidArray;
+	public static ArrayList<String> warehousetitleArray;
+
 
 	public static String token;
 
@@ -342,6 +348,25 @@ public class HomeActivity extends Activity {
 				servicestitleArray.add(services.getResult().get(i).getTitle());
 				servicesidArray.add((services.getResult().get(i).getId()));
 				servicescodeArray.add((services.getResult().get(i).getCode()));
+			}
+			// ==========================GetAllWarehouses
+
+			warehouse = new GetAllWarehouses();
+			GetAllWarehousesInterface anbarha = ServiceGenerator.createService(
+					GetAllWarehousesInterface.class, MainActivity.baseURL);
+
+			warehouse = anbarha.getAllWarehouses(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			warehouseidArray = new ArrayList<>();
+			warehousetitleArray = new ArrayList<>();
+			
+			for (int i = 0; i < warehouse.getResult().size(); i++) {
+				warehousetitleArray
+						.add(warehouse.getResult().get(i).getTitle());
+				warehouseidArray.add((warehouse.getResult().get(i).getId()));
+			
 			}
 
 			return null;

@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -31,6 +33,7 @@ public class HesabdariActivity extends FragmentActivity {
 	Button gardesh;
 	Button tarkibi;
 	TextView title;
+	public static Animation animbounce;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_hesabdari);
@@ -88,7 +91,8 @@ public void permissiontoreport() {
 		setContentView(R.layout.activity_hesabdari);
 		initview();
 		permissiontoreport();
-		
+		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.bounce);
 		title.setTypeface(MainActivity.titr);
 		hesabdari.setVisibility(View.GONE);
 		final pageradapterhesabdari pageadapter = new pageradapterhesabdari(
@@ -196,7 +200,7 @@ public void permissiontoreport() {
 
 			@Override
 			public void onClick(View v) {
-				lmenu.startAnimation(ForoshActivity.animbounce);
+				lmenu.startAnimation(animbounce);
 				showmenu(v);
 //				Toast.makeText(getApplicationContext(), "", 1).show();
 

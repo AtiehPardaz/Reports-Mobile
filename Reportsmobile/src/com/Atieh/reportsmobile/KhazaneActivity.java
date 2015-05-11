@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -34,7 +36,7 @@ public class KhazaneActivity extends FragmentActivity {
 	Button pardakhti;
 	Button vaziatpardakhti;
 	TextView title;
-
+	public static Animation animbounce;
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_khazane);
 		underlinedaryafti = (ImageButton) findViewById(R.id.imgbtn_underline_asnaddaryafti_khazane);
@@ -97,6 +99,8 @@ public class KhazaneActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_khazane);
 		initview();
+		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
+				R.anim.bounce);
 
 		permissiontoreport();
 		title.setTypeface(MainActivity.titr);
@@ -258,7 +262,7 @@ public class KhazaneActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View v) {
-				lmenu.startAnimation(ForoshActivity.animbounce);
+				lmenu.startAnimation(animbounce);
 				showmenu(v);
 				// Toast.makeText(getApplicationContext(), "", 1).show();
 
