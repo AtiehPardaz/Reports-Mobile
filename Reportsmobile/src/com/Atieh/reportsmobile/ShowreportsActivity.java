@@ -31,7 +31,6 @@ public class ShowreportsActivity extends Activity {
 	private static final String TAG = "Main";
 	private ProgressDialog progressBar1;
 	private ProgressDialog progressBar;
-	AlertDialog alertDialog;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +47,6 @@ public class ShowreportsActivity extends Activity {
 		webview.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
 
 		webview.getSettings().setBuiltInZoomControls(true);
-		alertDialog = new AlertDialog.Builder(this).create();
-
 		progressBar1 = ProgressDialog.show(ShowreportsActivity.this,
 				".....گزارش در حال بارگزاری می باشد", "لطفا منتظر باشید...");
 
@@ -182,26 +179,12 @@ public class ShowreportsActivity extends Activity {
 		@Override
 		protected void onPostExecute(String result) {
 
-			
 			if (progressBar.isShowing()) {
 				progressBar.dismiss();
 			}
 			if (result != "") {
-				webview.loadUrl("file:///android_asset/myerrorpage.html");
-				alertDialog.setIcon(R.drawable.ic_launcher);
-				alertDialog.setTitle("خطا");
-				alertDialog.setMessage(result);
-				alertDialog.setButton("تایید",
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog,
-									int which) {
-								finish();
-								return;
-							}
-						});
-				alertDialog.show();
-
-				//
+				webview.loadUrl("file:///android_asset/myerrorpage.html");				
+				showdialog(result);
 			} else {
 //				Toast.makeText(ShowreportsActivity.this,
 //						"عملیات با موفقیت در حال انجام است ،لطفا منتظر بمانید ....", Toast.LENGTH_SHORT).show();
@@ -258,5 +241,20 @@ public class ShowreportsActivity extends Activity {
 		}
 	}
 
-	
+	public void showdialog(String message) {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(message);
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle("خطا");
+		alertDialogBuilder.setPositiveButton("تایید", 
+			      new DialogInterface.OnClickListener() {
+					
+			         @Override
+			         public void onClick(DialogInterface arg0, int arg1) {						
+			         }
+			      });
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+	}
+
 }

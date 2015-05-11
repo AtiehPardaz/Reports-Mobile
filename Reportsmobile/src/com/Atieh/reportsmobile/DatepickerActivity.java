@@ -266,17 +266,20 @@ public class DatepickerActivity extends Activity {
 		}, 2000);
 	}
 
-	public void showdialog(String messege) {
+	public void showdialog(String message) {
 		this._doubleBackToExitPressedOnce = true;
-		alertDialog.setIcon(R.drawable.ic_launcher);
-		alertDialog.setTitle("خطا");
-		alertDialog.setMessage(messege);
-		alertDialog.setButton("تایید", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				alertDialog.dismiss();
-				return;
-			}
-		});
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(message);
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle("خطا");
+		alertDialogBuilder.setPositiveButton("تایید", 
+			      new DialogInterface.OnClickListener() {
+					
+			         @Override
+			         public void onClick(DialogInterface arg0, int arg1) {						
+			         }
+			      });
+		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}
 

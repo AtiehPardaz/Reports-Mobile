@@ -2,7 +2,6 @@ package GetAllServicesPack;
 
 import retrofit.http.GET;
 import retrofit.http.Query;
-import GetAllSellersPack.GetAllSeller;
 
 public interface GetAllServiceInterface {
 	
