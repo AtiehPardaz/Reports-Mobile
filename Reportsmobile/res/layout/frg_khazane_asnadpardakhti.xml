@@ -21,16 +21,17 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_date_pardakhtebteda_khazane"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="تاریخ پرداخت ابتدا: "
+            android:gravity="center"
+            android:hint="تاریخ پرداخت ابتدا"
             android:textSize="14sp" >
 
             <requestFocus />
-        </EditText>
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -48,12 +49,13 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_date_pardakhtenteha_khazane"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="تاریخ پرداخت انتها:"
+            android:gravity="center"
+            android:hint="تاریخ پرداخت انتها"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -73,26 +75,17 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_date_sarresidebteda_khazane"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="تاریخ سررسید ابتدا: "
+            android:gravity="center"
+            android:hint="تاریخ سررسید ابتدا"
             android:textSize="14sp" >
 
             <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/TextView011"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -110,26 +103,17 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
-        <EditText
+        <TextView
             android:id="@+id/et_date_sarresidenteha_khazanee"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="تاریخ سررسید انتها: "
+            android:gravity="center"
+            android:hint="تاریخ سررسید انتها"
             android:textSize="14sp" >
 
             <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/TextView101"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -148,12 +132,13 @@
             android:background="#ffffff"
             android:src="@drawable/down" />
 
-        <EditText
+        <TextView
             android:id="@+id/et__skhakhs_khazane"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="شخص گیرنده:      "
+            android:gravity="center"
+            android:hint="شخص گیرنده"
             android:textSize="14sp" />
 
     </LinearLayout>

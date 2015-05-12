@@ -7,6 +7,8 @@ import GetAllCustomersPack.GetAllCustomer;
 import GetAllCustomersPack.GetAllCustomerInterface;
 import GetAllMarketersPack.GetAllMarketers;
 import GetAllMarketersPack.GetAllMarketersInterface;
+import GetAllPersonsPack.GetAllPerson;
+import GetAllPersonsPack.GetAllPersonsInterface;
 import GetAllProductPack.GetAllProduct;
 import GetAllProductPack.GetAllProductInterface;
 import GetAllSellersPack.GetAllSeller;
@@ -30,10 +32,14 @@ public class HomeActivity extends Activity {
 
 	GetAllSeller seler;
 	GetAllCustomer moshtari;
+	GetAllPerson shakhs;
 	GetAllMarketers bazaryab;
 	GetAllProduct product;
 	GetAllService services;
 	GetAllWarehouses warehouse;
+	
+	
+	
 	ImageButton menu;
 	ImageButton forosh;
 	ImageButton hesabdari;
@@ -54,6 +60,10 @@ public class HomeActivity extends Activity {
 	public static ArrayList<String> moshtariidArray;
 	public static ArrayList<String> mostarititleArray;
 	public static ArrayList<String> mostaripersoncodeArray;
+	
+	public static ArrayList<String> shakhsidArray;
+	public static ArrayList<String> shakhstitleArray;
+	public static ArrayList<String> shakhspersoncodeArray;
 
 	public static ArrayList<String> bazaryabidArray;
 	public static ArrayList<String> bazaryabtitleArray;
@@ -288,6 +298,25 @@ public class HomeActivity extends Activity {
 				mostarititleArray.add(moshtari.getResult().get(i).getTitle());
 				moshtariidArray.add((moshtari.getResult().get(i).getId()));
 				mostaripersoncodeArray.add((moshtari.getResult().get(i)
+						.getPersonCode()));
+			}
+			// ========================GetAllPersons
+			shakhs = new GetAllPerson();
+			GetAllPersonsInterface person = ServiceGenerator.createService(
+					GetAllPersonsInterface.class, MainActivity.baseURL);
+
+			shakhs = person.getAllPersons(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			shakhsidArray = new ArrayList<>();
+			shakhstitleArray = new ArrayList<>();
+			shakhspersoncodeArray = new ArrayList<>();
+			
+			for (int i = 0; i < shakhs.getResult().size(); i++) {
+				shakhstitleArray.add(shakhs.getResult().get(i).getTitle());
+				shakhsidArray.add((shakhs.getResult().get(i).getId()));
+				shakhspersoncodeArray.add((shakhs.getResult().get(i)
 						.getPersonCode()));
 			}
 			// ========================GetAllMarketers
