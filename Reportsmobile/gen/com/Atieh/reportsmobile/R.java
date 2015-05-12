@@ -1711,7 +1711,8 @@ containing a value of this type.
         public static final int newsabt=0x7f02006a;
         public static final int newvorod=0x7f02006b;
         public static final int presshome=0x7f02006c;
-        public static final int underline=0x7f02006d;
+        public static final int selall=0x7f02006d;
+        public static final int underline=0x7f02006e;
     }
     public static final class id {
         public static final int ImageView01=0x7f0900ab;
@@ -1824,9 +1825,9 @@ containing a value of this type.
         public static final int imgbtn_date_mojodi_kala=0x7f0900e7;
         public static final int imgbtn_date_pardakhtebteda_khazane=0x7f0900fa;
         public static final int imgbtn_date_pardakhtenteha_khazane=0x7f0900fc;
-        public static final int imgbtn_date_riali_kala=0x7f0900f1;
         public static final int imgbtn_date_sarresidebteda_khazane=0x7f0900ff;
         public static final int imgbtn_date_sarresidenteha_khazane=0x7f090102;
+        public static final int imgbtn_datee_riali_kala=0x7f0900f1;
         public static final int imgbtn_domain_forosh=0x7f090063;
         public static final int imgbtn_domain_hesabdari=0x7f090072;
         public static final int imgbtn_domain_home=0x7f09007c;

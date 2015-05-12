@@ -14,7 +14,7 @@
         android:gravity="right" >
 
         <ImageButton
-            android:id="@+id/imgbtn_date_riali_kala"
+            android:id="@+id/imgbtn_datee_riali_kala"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"

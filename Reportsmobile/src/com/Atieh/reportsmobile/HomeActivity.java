@@ -43,6 +43,7 @@ public class HomeActivity extends Activity {
 	ImageButton logout;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
+	int contofpermission=0;
 	private boolean _doubleBackToExitPressedOnce = false;
 	public static int[] mypermission = new int[5];
 
@@ -68,7 +69,6 @@ public class HomeActivity extends Activity {
 
 	public static ArrayList<String> warehouseidArray;
 	public static ArrayList<String> warehousetitleArray;
-
 
 	public static String token;
 
@@ -361,12 +361,12 @@ public class HomeActivity extends Activity {
 
 			warehouseidArray = new ArrayList<>();
 			warehousetitleArray = new ArrayList<>();
-			
+
 			for (int i = 0; i < warehouse.getResult().size(); i++) {
 				warehousetitleArray
 						.add(warehouse.getResult().get(i).getTitle());
 				warehouseidArray.add((warehouse.getResult().get(i).getId()));
-			
+
 			}
 
 			return null;
@@ -441,11 +441,13 @@ public class HomeActivity extends Activity {
 
 					// MainActivity.authenticate.getResult().getDomains().get(i)
 					// .getPermissions().get(0).getKey();
-					// Toast.makeText(
-					// getApplicationContext(),
-					// MainActivity.authenticate.getResult().getDomains()
-					// .get(i).getPermissions().get(j).getKey()
-					// + "", 1).show();
+					 Toast.makeText(
+					 getApplicationContext(),
+					 MainActivity.authenticate.getResult().getDomains()
+					 .get(i).getPermissions().get(j).getKey()
+					 + "", 1).show();
+					 contofpermission++;
+					 
 					for (int k = 1; k <= 4; k++) {
 						if (k == MainActivity.authenticate.getResult()
 								.getDomains().get(i).getPermissions().get(j)
@@ -458,35 +460,58 @@ public class HomeActivity extends Activity {
 				}
 			}
 		}
+		Toast.makeText(getApplicationContext(), mypermission.length + "", 1)
+				.show();
+		if (contofpermission == 1) {
+			for (int k = 1; k <= 4; k++) {
 
-		for (int k = 1; k <= 4; k++) {
-
-			// in toast baraye namayesh dastresi ha va chek anha ba khoroji ast
-			// Toast.makeText(
-			// getApplicationContext(),
-			// "permisson oF the domain id=  "
-			// + SelectDomainActivity.finalreturneddomainid
-			// + " For report num of= " + k + "  IS = "
-			// + mypermission[k] + "", 1).show();
-			if (mypermission[k] == 1) {
-
-				forosh.setImageResource(R.drawable.btn_click);
-				forosh.setEnabled(true);
-			} else if (mypermission[k] == 2) {
-
-				khazane.setImageResource(R.drawable.btn_click);
-				khazane.setEnabled(true);
-			} else if (mypermission[k] == 3) {
-
-				hesabdari.setImageResource(R.drawable.btn_click);
-				hesabdari.setEnabled(true);
-			} else if (mypermission[k] == 4) {
-
-				kala.setImageResource(R.drawable.btn_click);
-				kala.setEnabled(true);
+				if (mypermission[k] == 1) {
+					startActivity(new Intent(HomeActivity.this,
+							ForoshActivity.class));
+				} else if (mypermission[k] == 2) {
+					startActivity(new Intent(HomeActivity.this,
+							KhazaneActivity.class));
+				} else if (mypermission[k] == 3) {
+					startActivity(new Intent(HomeActivity.this,
+							HesabdariActivity.class));
+				} else if (mypermission[k] == 4) {
+					startActivity(new Intent(HomeActivity.this,
+							KalaActivity.class));
+				}
 			}
+		} else if (contofpermission > 1) {
+			for (int k = 1; k <= 4; k++) {
 
+				// in toast baraye namayesh dastresi ha va chek anha ba khoroji
+				// ast
+				// Toast.makeText(
+				// getApplicationContext(),
+				// "permisson oF the domain id=  "
+				// + SelectDomainActivity.finalreturneddomainid
+				// + " For report num of= " + k + "  IS = "
+				// + mypermission[k] + "", 1).show();
+				if (mypermission[k] == 1) {
+
+					forosh.setImageResource(R.drawable.btn_click);
+					forosh.setEnabled(true);
+				} else if (mypermission[k] == 2) {
+
+					khazane.setImageResource(R.drawable.btn_click);
+					khazane.setEnabled(true);
+				} else if (mypermission[k] == 3) {
+
+					hesabdari.setImageResource(R.drawable.btn_click);
+					hesabdari.setEnabled(true);
+				} else if (mypermission[k] == 4) {
+
+					kala.setImageResource(R.drawable.btn_click);
+					kala.setEnabled(true);
+				}
+
+			}
+		} else if (contofpermission == 0) {
+			Toast.makeText(getApplicationContext(), "بدون دسترسی", 1).show();
 		}
-	}
-	// ===================================
+	}// End onResume
+
 }

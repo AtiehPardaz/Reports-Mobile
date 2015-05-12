@@ -41,7 +41,7 @@ public class FrgRialiAnbar extends Fragment {
 
 		chktajmiiy = (CheckBox) view.findViewById(R.id.chk_tajmiiy_rialianbar);
 		// =====================ImageButton
-		date = (ImageButton) view.findViewById(R.id.imgbtn_date_riali_kala);
+		date = (ImageButton) view.findViewById(R.id.imgbtn_datee_riali_kala);
 		btnshow = (ImageButton) view
 				.findViewById(R.id.imgbtn_namayesh_riali_kalaanbar);
 		selanbar = (ImageButton) view
