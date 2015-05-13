@@ -111,7 +111,8 @@ public class FrgfaktorForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-				intent.putExtra("side", true);
+			intent.putExtra("side", true);intent.putExtra("search", true);
+
 				startActivity(intent);
 
 				flgbackforResume = 3;
@@ -136,7 +137,7 @@ public class FrgfaktorForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-				intent.putExtra("side", true);
+			intent.putExtra("side", true);intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 4;
@@ -162,7 +163,7 @@ public class FrgfaktorForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-				intent.putExtra("side", true);
+			intent.putExtra("side", true);intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;

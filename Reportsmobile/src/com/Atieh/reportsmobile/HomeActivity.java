@@ -470,11 +470,11 @@ public class HomeActivity extends Activity {
 
 					// MainActivity.authenticate.getResult().getDomains().get(i)
 					// .getPermissions().get(0).getKey();
-					 Toast.makeText(
-					 getApplicationContext(),
-					 MainActivity.authenticate.getResult().getDomains()
-					 .get(i).getPermissions().get(j).getKey()
-					 + "", 1).show();
+//					 Toast.makeText(
+//					 getApplicationContext(),
+//					 MainActivity.authenticate.getResult().getDomains()
+//					 .get(i).getPermissions().get(j).getKey()
+//					 + "", 1).show();
 					 contofpermission++;
 					 
 					for (int k = 1; k <= 4; k++) {
@@ -489,8 +489,8 @@ public class HomeActivity extends Activity {
 				}
 			}
 		}
-		Toast.makeText(getApplicationContext(), mypermission.length + "", 1)
-				.show();
+//		Toast.makeText(getApplicationContext(), mypermission.length + "", 1)
+//				.show();
 		if (contofpermission == 1) {
 			for (int k = 1; k <= 4; k++) {
 

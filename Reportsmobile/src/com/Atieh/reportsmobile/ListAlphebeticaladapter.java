@@ -1,6 +1,9 @@
 package com.Atieh.reportsmobile;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.Atieh.reportsmobile.R.integer;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import dataBase.database;
 
 public class ListAlphebeticaladapter extends BaseAdapter {
@@ -17,7 +19,8 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 	private Activity activity;
 	String[] ids;
 	String[] titles;
-
+	String[] rownum;
+	public ArrayList<ListTO> objects;
 	database db;
 	TextView id;
 
@@ -26,7 +29,7 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 	private static LayoutInflater inflater = null;
 
 	public ListAlphebeticaladapter(Activity a, String[] arrayid,
-			String[] arraytitle, Context c) {
+			String[] arraytitle, String[] rownumber, Context c) {
 
 		activity = a;
 		context = c;
@@ -35,18 +38,25 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.ids = arrayid;
 		this.titles = arraytitle;
+		this.rownum = rownumber;
 
 	}
 
 	public View getView(final int position, View convertView, ViewGroup parent) {
 
+		// View vi = inflater.inflate(android.R.layout.simple_list_item_1,
+		// null);
 		View vi = inflater.inflate(R.layout.rowalphebetical, null);
+
 		id = (TextView) vi.findViewById(R.id.tv_id_alohebetic); // id
 		TextView title = (TextView) vi.findViewById(R.id.tv_title_alphebetic); // title
+		TextView rownuber = (TextView) vi
+				.findViewById(R.id.tv_rownumber_alphebetical); // rownumber
 
 		id.setText(ids[position]);
 		// id.setVisibility(View.VISIBLE);
 		title.setText(titles[position]);
+		rownuber.setText(rownum[position]);
 
 		return vi;
 	}

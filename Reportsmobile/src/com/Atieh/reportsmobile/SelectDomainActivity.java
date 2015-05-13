@@ -119,6 +119,8 @@ public class SelectDomainActivity extends Activity {
 				} else if (c == 1) {
 					Intent domainintnent = new Intent();
 					domainintnent.putExtra("side", false);
+					domainintnent.putExtra("search", false);
+					
 					domainintnent.setClass(SelectDomainActivity.this,
 							HomeActivity.class);
 					startActivity(domainintnent);

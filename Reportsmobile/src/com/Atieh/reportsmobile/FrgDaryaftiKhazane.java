@@ -130,7 +130,7 @@ public class FrgDaryaftiKhazane extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_tidArray);
-				intent.putExtra("side", true);
+			intent.putExtra("side", true);intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;

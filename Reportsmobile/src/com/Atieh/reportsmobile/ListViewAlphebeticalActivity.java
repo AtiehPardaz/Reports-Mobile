@@ -15,10 +15,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -41,13 +45,20 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	database db;
 	Cursor c;
 	Boolean sidepicker = true;
+	Boolean searchable = true;
 	ListAlphebeticaladapter mArrayadapter;// برای مقداردهی لیست ما
 	public static String selvaluefromalphebeticlist;
 	public static String selidfromalphebeticlist;
-
+	ArrayAdapter<String> s;
 	Map<String, Integer> mapIndex;
 	ListView alphebetList;
 	AlertDialog alertDialog;
+	EditText et_search;
+	String[] rownumber;
+	String NewArraytitle[];
+	String NewArrayId[];
+	String NewArrayrownumber[];
+
 	private boolean _doubleBackToExitPressedOnce = false;
 
 	@Override
@@ -64,13 +75,28 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		side_index = (LinearLayout) findViewById(R.id.side_index);
 		selall = (ImageButton) findViewById(R.id.imgbtn_SelAll);
 
+		et_search = (EditText) findViewById(R.id.et_searchlist);
+
 		// arraytitle va arrayID bayad meghdardehi shavand
 		// arraytitle =new String[SelectDomainActivity.domaintitleArray.size()];
 		// arrayID =new String[SelectDomainActivity.domaintitleArray.size()];;
 		arraytitle = getIntent().getExtras().getStringArray(
 				"arrayttitlefromjson");
+
 		arrayID = getIntent().getExtras().getStringArray("arrayidfromjson");
+
 		sidepicker = getIntent().getExtras().getBoolean("side");
+		searchable = getIntent().getExtras().getBoolean("search");
+
+		// Toast.makeText(getApplicationContext(), arraytitle.length + "", 1)
+		// .show();
+
+		rownumber = new String[arraytitle.length];
+
+		for (int i = 0; i < arraytitle.length; i++) {
+
+			rownumber[i] = Integer.toString(i);
+		}
 
 		if (sidepicker == false) {
 			side_index.setVisibility(View.GONE);
@@ -78,6 +104,13 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		} else {
 			side_index.setVisibility(View.VISIBLE);
 			selall.setVisibility(View.VISIBLE);
+		}
+		if (searchable == false) {
+			et_search.setVisibility(View.GONE);
+			et_search.setVisibility(View.GONE);
+		} else {
+			et_search.setVisibility(View.VISIBLE);
+			et_search.setVisibility(View.VISIBLE);
 		}
 		// arraytitle=(String[])
 		// SelectDomainActivity.domaintitleArray.toArray(new String
@@ -132,6 +165,72 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		// گرفتن اطلاعات از فایل xml
 		// String[] customer = getResources().getStringArray(
 		// R.array.customer_array);
+		et_search.addTextChangedListener(new TextWatcher() {
+
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1,
+					int arg2, int arg3) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+				
+//				if (et_search.getText().equals(null)) {
+//					mArrayadapter = new ListAlphebeticaladapter(
+//							ListViewAlphebeticalActivity.this, arrayID,
+//							arraytitle, rownumber, getApplicationContext());
+//					alphebetList.setAdapter(mArrayadapter);
+//
+//				} else {
+					for (int i = 0; i < arraytitle.length; i++) {
+
+						if (arraytitle[i].contains((et_search.getText()
+								.toString()))) {
+							// if
+							// (arraytitle[i].equals((et_search.getText().toString())))
+							// {
+
+							
+							 alphebetList.setSelection(Integer
+							 .parseInt((rownumber[i])));
+
+							// Toast.makeText(getApplicationContext(),
+							// "rownum= "+i,
+							// 1).show();
+//							NewArraytitle = new String[arraytitle[i].length()];
+//							NewArrayId = new String[arraytitle[i].length()];
+//							NewArrayrownumber = new String[arraytitle[i]
+//									.length()];
+//
+//							NewArraytitle[i] = arraytitle[i];
+//							NewArrayId[i] = arrayID[i];
+//							NewArrayrownumber[i] = rownumber[i];
+//
+//							// alphebetList.findViewsWithText(null, text, flags)
+//
+//							mArrayadapter = new ListAlphebeticaladapter(
+//									ListViewAlphebeticalActivity.this,
+//									NewArrayId, NewArraytitle,
+//									NewArrayrownumber, getApplicationContext());
+//							alphebetList.setAdapter(mArrayadapter);
+
+						}
+
+					}
+//				}
+			}
+
+		});
 
 		selall.setOnClickListener(new OnClickListener() {
 
@@ -156,7 +255,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 
 		mArrayadapter = new ListAlphebeticaladapter(
 				ListViewAlphebeticalActivity.this, arrayID, arraytitle,
-				getApplicationContext());
+				rownumber, getApplicationContext());
 		alphebetList.setAdapter(mArrayadapter);
 
 		alphebetList.setOnItemClickListener(new OnItemClickListener() {
@@ -250,13 +349,13 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
 		alertDialogBuilder.setTitle("خطا");
-		alertDialogBuilder.setPositiveButton("تایید", 
-			      new DialogInterface.OnClickListener() {
-					
-			         @Override
-			         public void onClick(DialogInterface arg0, int arg1) {						
-			         }
-			      });
+		alertDialogBuilder.setPositiveButton("تایید",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+					}
+				});
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}

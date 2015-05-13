@@ -109,6 +109,7 @@ public class frg_customer_forosh extends Fragment {
 				intent.putExtra("arrayttitlefromjson", St_sellertitleArray);
 				intent.putExtra("arrayidfromjson", St_sellertidArray);
 				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 3;
@@ -134,6 +135,7 @@ public class frg_customer_forosh extends Fragment {
 				intent.putExtra("arrayttitlefromjson", St_sellertitleArray);
 				intent.putExtra("arrayidfromjson", St_sellertidArray);
 				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 4;
@@ -159,7 +161,8 @@ public class frg_customer_forosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_sellertitleArray);
 				intent.putExtra("arrayidfromjson", St_sellertidArray);
-				intent.putExtra("side", true);
+			 
+			intent.putExtra("side", true);intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;
