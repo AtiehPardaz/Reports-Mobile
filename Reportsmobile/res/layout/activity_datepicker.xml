@@ -20,7 +20,6 @@
             android:id="@+id/rel_left"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:gravity="center"
             android:orientation="vertical" >
 
@@ -39,7 +38,6 @@
                 android:id="@+id/top_image_year"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="5dp"
                 android:background="@drawable/arow_top_calender"
                 android:src="@drawable/btn_clickadd" >
 
@@ -53,14 +51,13 @@
                 android:layout_marginTop="20dp"
                 android:text="1392"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" >
+                android:textSize="25sp" >
             </TextView>
 
             <ImageView
                 android:id="@+id/down_image_year"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="5dp"
                 android:background="@drawable/arow_down_calender"
                 android:src="@drawable/btn_clickadd" >
 
@@ -71,7 +68,6 @@
             android:id="@+id/rel_center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:gravity="center"
             android:orientation="vertical" >
 
@@ -91,7 +87,6 @@
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
-                android:layout_margin="5dp"
                 android:background="@drawable/arow_top_calender"
                 android:src="@drawable/btn_clickadd" >
 
@@ -107,14 +102,13 @@
                 android:gravity="center"
                 android:text="10"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" >
+                android:textSize="25sp" >
             </TextView>
 
             <ImageView
                 android:id="@+id/down_image_month"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="5dp"
                 android:background="@drawable/arow_down_calender"
                 android:src="@drawable/btn_clickadd" >
 
@@ -125,7 +119,6 @@
             android:id="@+id/rel_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:gravity="center"
             android:orientation="vertical" >
 
@@ -144,7 +137,6 @@
                 android:id="@+id/top_image_day"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="5dp"
                 android:background="@drawable/arow_top_calender"
                 android:src="@drawable/btn_clickadd" >
 
@@ -159,14 +151,15 @@
                 android:layout_marginTop="20dp"
                 android:text="10"
                 android:textColor="#FFFFFF"
-                android:textSize="18sp" >
+                android:textSize="25sp"
+                android:typeface="sans" >
+
             </TextView>
 
             <ImageView
                 android:id="@+id/down_image_day"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:layout_margin="5dp"
                 android:background="@drawable/arow_down_calender"
                 android:src="@drawable/btn_clickadd" >
 

@@ -459,6 +459,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int disableChildrenWhenDisabled=0x7f010078;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int displayMonthNames=0x7f0100ae;
         /**  Options affecting how the action bar is displayed. 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -745,6 +753,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int maxButtonHeight=0x7f010091;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int maxYear=0x7f0100aa;
         /**  When set to true, all children with a weight will be considered having
              the minimum size of the largest child. If false, all children are
              measured normally. 
@@ -767,6 +783,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int middleBarArrowSize=0x7f01009e;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int minYear=0x7f0100a9;
         /**  Text to set as the content description for the navigation button
              located at the start of the toolbar. 
          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
@@ -937,6 +961,30 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int selectableItemBackgroundBorderless=0x7f010031;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedDay=0x7f0100ad;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedMonth=0x7f0100ac;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int selectedYear=0x7f0100ab;
         /**  How this item should display in the Action Bar, if present. 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -1360,6 +1408,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int windowFixedWidthMinor=0x7f010008;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int yearRange=0x7f0100af;
     }
     public static final class bool {
         public static final int abc_action_bar_embed_tabs=0x7f050000;
@@ -1724,7 +1780,7 @@ containing a value of this type.
         public static final int View012=0x7f090092;
         public static final int View02=0x7f090055;
         public static final int View03=0x7f090057;
-        public static final int acheckBox2=0x7f0900f8;
+        public static final int acheckBox2=0x7f0900f9;
         public static final int action_bar=0x7f090031;
         public static final int action_bar_activity_content=0x7f090003;
         public static final int action_bar_container=0x7f090030;
@@ -1738,14 +1794,14 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09002e;
         public static final int action_mode_bar_stub=0x7f09002d;
         public static final int action_mode_close_button=0x7f090020;
-        public static final int action_settings=0x7f09012e;
+        public static final int action_settings=0x7f09013b;
         public static final int activity_chooser_view_content=0x7f090021;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
-        public static final int checkBox2=0x7f0900ef;
+        public static final int checkBox2=0x7f0900f0;
         public static final int checkbox=0x7f090029;
-        public static final int chk_tajmiey_mojodikala=0x7f0900f0;
-        public static final int chk_tajmiiy_rialianbar=0x7f0900f9;
+        public static final int chk_tajmiey_mojodikala=0x7f0900f1;
+        public static final int chk_tajmiiy_rialianbar=0x7f0900fa;
         public static final int collapseActionView=0x7f090015;
         public static final int decor_content_parent=0x7f09002f;
         public static final int default_activity_button=0x7f090024;
@@ -1757,55 +1813,61 @@ containing a value of this type.
         public static final int dropdown=0x7f09001a;
         public static final int edit_query=0x7f090033;
         public static final int end=0x7f09001c;
-        public static final int et__bazarya_forokhte_forosh=0x7f0900d5;
-        public static final int et__bazarya_forosh=0x7f0900bb;
-        public static final int et__customer_forosh=0x7f0900b9;
-        public static final int et__foroshande_forokhte_forosh=0x7f0900d7;
-        public static final int et__foroshande_forosh=0x7f0900bd;
-        public static final int et__kala_forokhte_forosh=0x7f0900d9;
-        public static final int et__projecttarkibi_hesabdari=0x7f09011d;
-        public static final int et__sathprojecttarkibi_hesabdari=0x7f09011b;
-        public static final int et__skhakhs_khazane=0x7f09010f;
-        public static final int et_anbar_mojodi_kala=0x7f0900eb;
-        public static final int et_anbarha_riali_kala=0x7f0900f5;
-        public static final int et_arztarkibi_hesabdari=0x7f090127;
-        public static final int et_bazarya_faktor_forosh=0x7f0900c7;
-        public static final int et_customer_faktor_forosh=0x7f0900c4;
-        public static final int et_customer_forokhte_forosh=0x7f0900d3;
-        public static final int et_date_mojodi_kala=0x7f0900e9;
-        public static final int et_date_pardakhtebteda_khazane=0x7f090107;
-        public static final int et_date_pardakhtebtedaa_daryaftikhazane=0x7f0900fc;
-        public static final int et_date_pardakhtenteha_daryaftikhazane=0x7f0900fe;
-        public static final int et_date_pardakhtenteha_khazane=0x7f090109;
-        public static final int et_date_riali_kala=0x7f0900f3;
-        public static final int et_date_sarresidebteda_daryaftikhazane=0x7f090100;
-        public static final int et_date_sarresidebteda_khazane=0x7f09010b;
-        public static final int et_date_sarresidenteha_daryaftikhazanee=0x7f090102;
-        public static final int et_date_sarresidenteha_khazanee=0x7f09010d;
+        public static final int et__bazarya_forokhte_forosh=0x7f0900d6;
+        public static final int et__bazarya_forosh=0x7f0900bc;
+        public static final int et__customer_forosh=0x7f0900ba;
+        public static final int et__foroshande_forokhte_forosh=0x7f0900d8;
+        public static final int et__foroshande_forosh=0x7f0900be;
+        public static final int et__kala_forokhte_forosh=0x7f0900da;
+        public static final int et__projecttarkibi_hesabdari=0x7f09012a;
+        public static final int et__sathprojecttarkibi_hesabdari=0x7f090128;
+        public static final int et__skhakhs_khazane=0x7f090110;
+        public static final int et_anbar_mojodi_kala=0x7f0900ec;
+        public static final int et_anbarha_riali_kala=0x7f0900f6;
+        public static final int et_arztarkibi_hesabdari=0x7f090134;
+        public static final int et_bazarya_faktor_forosh=0x7f0900c8;
+        public static final int et_customer_faktor_forosh=0x7f0900c5;
+        public static final int et_customer_forokhte_forosh=0x7f0900d4;
+        public static final int et_daryaftkonande_vaziatpardakhtikhazane=0x7f09011a;
+        public static final int et_date_mojodi_kala=0x7f0900ea;
+        public static final int et_date_pardakhtebteda_khazane=0x7f090108;
+        public static final int et_date_pardakhtebtedaa_daryaftikhazane=0x7f0900fd;
+        public static final int et_date_pardakhtenteha_daryaftikhazane=0x7f0900ff;
+        public static final int et_date_pardakhtenteha_khazane=0x7f09010a;
+        public static final int et_date_riali_kala=0x7f0900f4;
+        public static final int et_date_sarresidebteda_daryaftikhazane=0x7f090101;
+        public static final int et_date_sarresidebteda_khazane=0x7f09010c;
+        public static final int et_date_sarresidenteha_daryaftikhazanee=0x7f090103;
+        public static final int et_date_sarresidenteha_khazanee=0x7f09010e;
         public static final int et_domain=0x7f0900af;
-        public static final int et_foroshande_faktor_forosh=0x7f0900ca;
-        public static final int et_fromdate_faktor=0x7f0900c0;
-        public static final int et_fromdate_forokhte_forosh=0x7f0900ce;
-        public static final int et_fromdate_forosh=0x7f0900b5;
-        public static final int et_fromdate_hesabdari=0x7f0900dd;
-        public static final int et_fromdatetarkibi_hesabdari=0x7f090113;
-        public static final int et_hazinetarkibi_hesabdari=0x7f090122;
-        public static final int et_kala_mojodi_kala=0x7f0900ee;
-        public static final int et_kala_riali_kala=0x7f0900f7;
-        public static final int et_khadamat_forokhte_forosh=0x7f0900db;
+        public static final int et_foroshande_faktor_forosh=0x7f0900cb;
+        public static final int et_fromdate_faktor=0x7f0900c1;
+        public static final int et_fromdate_forokhte_forosh=0x7f0900cf;
+        public static final int et_fromdate_forosh=0x7f0900b6;
+        public static final int et_fromdate_hesabdari=0x7f0900de;
+        public static final int et_fromdatetarkibi_hesabdari=0x7f090120;
+        public static final int et_hazinetarkibi_hesabdari=0x7f09012f;
+        public static final int et_kala_mojodi_kala=0x7f0900ef;
+        public static final int et_kala_riali_kala=0x7f0900f8;
+        public static final int et_khadamat_forokhte_forosh=0x7f0900dc;
+        public static final int et_pardakhtkonande_vaziatdaryaftikhazane=0x7f090113;
         public static final int et_password=0x7f0900a9;
         public static final int et_salemali=0x7f0900b1;
-        public static final int et_satharztarkibi_hesabdari=0x7f090125;
-        public static final int et_sathhazinetarkibi_hesabdari=0x7f090120;
-        public static final int et_sathshakhstarkibi_hesabdari=0x7f090117;
-        public static final int et_sathtafsil_hesabdari=0x7f0900e5;
+        public static final int et_satharztarkibi_hesabdari=0x7f090132;
+        public static final int et_sathhazinetarkibi_hesabdari=0x7f09012d;
+        public static final int et_sathshakhstarkibi_hesabdari=0x7f090124;
+        public static final int et_sathtafsil_hesabdari=0x7f0900e6;
         public static final int et_searchlist=0x7f0900a3;
-        public static final int et_shakhsgardesh_hesabdarii=0x7f0900e1;
-        public static final int et_shakhstarkibi_hesabdari=0x7f090119;
-        public static final int et_skhakhs_daryaftikhazane=0x7f090104;
-        public static final int et_todate_faktor_forosh=0x7f0900c2;
-        public static final int et_todate_forokhte_forosh=0x7f0900d0;
-        public static final int et_todate_forosh=0x7f0900b7;
+        public static final int et_shakhsgardesh_hesabdarii=0x7f0900e2;
+        public static final int et_shakhstarkibi_hesabdari=0x7f090126;
+        public static final int et_shomarecehck_vaziatpardakhtikhazane=0x7f09011e;
+        public static final int et_shomarecheck_vaziatdaryaftikhazane=0x7f090117;
+        public static final int et_shomarehesab_vaziatdaryaftikhazane=0x7f090115;
+        public static final int et_shomarehesab_vaziatpardakhtikhazane=0x7f09011c;
+        public static final int et_skhakhs_daryaftikhazane=0x7f090105;
+        public static final int et_todate_faktor_forosh=0x7f0900c3;
+        public static final int et_todate_forokhte_forosh=0x7f0900d1;
+        public static final int et_todate_forosh=0x7f0900b8;
         public static final int et_username=0x7f0900a8;
         public static final int expand_activities_button=0x7f090022;
         public static final int expanded_menu=0x7f090028;
@@ -1817,25 +1879,26 @@ containing a value of this type.
         public static final int image=0x7f090023;
         public static final int imageView1=0x7f090050;
         public static final int imgbtn_SelAll=0x7f0900a6;
-        public static final int imgbtn_anbar_mojodi_kala=0x7f0900ea;
-        public static final int imgbtn_anbarha_riali_kala=0x7f0900f4;
-        public static final int imgbtn_arztarkibi_hesabdari=0x7f090126;
-        public static final int imgbtn_bazaryab_faktor_forosh=0x7f0900c6;
-        public static final int imgbtn_bazaryab_forokhte_forosh=0x7f0900d4;
-        public static final int imgbtn_bazaryab_forosh=0x7f0900ba;
-        public static final int imgbtn_customer_faktor_forosh=0x7f0900c3;
-        public static final int imgbtn_customer_forokhte_forosh=0x7f0900d2;
-        public static final int imgbtn_customer_forosh=0x7f0900b8;
-        public static final int imgbtn_date_mojodi_kala=0x7f0900e8;
-        public static final int imgbtn_date_pardakhtebteda_daryaftikhazane=0x7f0900fb;
-        public static final int imgbtn_date_pardakhtebteda_khazane=0x7f090106;
-        public static final int imgbtn_date_pardakhtenteha_daryaftikhazane=0x7f0900fd;
-        public static final int imgbtn_date_pardakhtenteha_khazane=0x7f090108;
-        public static final int imgbtn_date_sarresidebteda_daryaftikhazane=0x7f0900ff;
-        public static final int imgbtn_date_sarresidebteda_khazane=0x7f09010a;
-        public static final int imgbtn_date_sarresidenteha_daryaftikhazane=0x7f090101;
-        public static final int imgbtn_date_sarresidenteha_khazane=0x7f09010c;
-        public static final int imgbtn_datee_riali_kala=0x7f0900f2;
+        public static final int imgbtn_anbar_mojodi_kala=0x7f0900eb;
+        public static final int imgbtn_anbarha_riali_kala=0x7f0900f5;
+        public static final int imgbtn_arztarkibi_hesabdari=0x7f090133;
+        public static final int imgbtn_bazaryab_faktor_forosh=0x7f0900c7;
+        public static final int imgbtn_bazaryab_forokhte_forosh=0x7f0900d5;
+        public static final int imgbtn_bazaryab_forosh=0x7f0900bb;
+        public static final int imgbtn_customer_faktor_forosh=0x7f0900c4;
+        public static final int imgbtn_customer_forokhte_forosh=0x7f0900d3;
+        public static final int imgbtn_customer_forosh=0x7f0900b9;
+        public static final int imgbtn_daryaftkonande_vaziatpardakhtikhazane=0x7f090119;
+        public static final int imgbtn_date_mojodi_kala=0x7f0900e9;
+        public static final int imgbtn_date_pardakhtebteda_daryaftikhazane=0x7f0900fc;
+        public static final int imgbtn_date_pardakhtebteda_khazane=0x7f090107;
+        public static final int imgbtn_date_pardakhtenteha_daryaftikhazane=0x7f0900fe;
+        public static final int imgbtn_date_pardakhtenteha_khazane=0x7f090109;
+        public static final int imgbtn_date_sarresidebteda_daryaftikhazane=0x7f090100;
+        public static final int imgbtn_date_sarresidebteda_khazane=0x7f09010b;
+        public static final int imgbtn_date_sarresidenteha_daryaftikhazane=0x7f090102;
+        public static final int imgbtn_date_sarresidenteha_khazane=0x7f09010d;
+        public static final int imgbtn_datee_riali_kala=0x7f0900f3;
         public static final int imgbtn_domain_forosh=0x7f090063;
         public static final int imgbtn_domain_hesabdari=0x7f090072;
         public static final int imgbtn_domain_home=0x7f09007c;
@@ -1846,27 +1909,27 @@ containing a value of this type.
         public static final int imgbtn_forosh_home=0x7f090078;
         public static final int imgbtn_forosh_kala=0x7f090087;
         public static final int imgbtn_forosh_khazane=0x7f09009c;
-        public static final int imgbtn_foroshande_faktor_forosh=0x7f0900c9;
-        public static final int imgbtn_foroshande_forokhte_forosh=0x7f0900d6;
-        public static final int imgbtn_foroshande_forosh=0x7f0900bc;
-        public static final int imgbtn_fromdate_faktor_frosh=0x7f0900bf;
-        public static final int imgbtn_fromdate_forokhte_forosh=0x7f0900cd;
-        public static final int imgbtn_fromdatecustomer_frosh_=0x7f0900b4;
-        public static final int imgbtn_hazinetarkibi_hesabdari=0x7f090121;
+        public static final int imgbtn_foroshande_faktor_forosh=0x7f0900ca;
+        public static final int imgbtn_foroshande_forokhte_forosh=0x7f0900d7;
+        public static final int imgbtn_foroshande_forosh=0x7f0900bd;
+        public static final int imgbtn_fromdate_faktor_frosh=0x7f0900c0;
+        public static final int imgbtn_fromdate_forokhte_forosh=0x7f0900ce;
+        public static final int imgbtn_fromdatecustomer_frosh_=0x7f0900b5;
+        public static final int imgbtn_hazinetarkibi_hesabdari=0x7f09012e;
         public static final int imgbtn_hesabdari_forosh=0x7f090061;
         public static final int imgbtn_hesabdari_hesabdari=0x7f090070;
         public static final int imgbtn_hesabdari_home=0x7f09007a;
         public static final int imgbtn_hesabdari_kala=0x7f090089;
         public static final int imgbtn_hesabdari_khazane=0x7f09009e;
-        public static final int imgbtn_kala_forokhte_forosh=0x7f0900d8;
+        public static final int imgbtn_kala_forokhte_forosh=0x7f0900d9;
         public static final int imgbtn_kala_forosh=0x7f090062;
         public static final int imgbtn_kala_hesabdari=0x7f090071;
         public static final int imgbtn_kala_home=0x7f09007b;
         public static final int imgbtn_kala_kala=0x7f09008a;
         public static final int imgbtn_kala_khazane=0x7f09009f;
-        public static final int imgbtn_kala_mojodi_kala=0x7f0900ed;
-        public static final int imgbtn_kala_riali_kala=0x7f0900f6;
-        public static final int imgbtn_khadamat_forokhte_forosh=0x7f0900da;
+        public static final int imgbtn_kala_mojodi_kala=0x7f0900ee;
+        public static final int imgbtn_kala_riali_kala=0x7f0900f7;
+        public static final int imgbtn_khadamat_forokhte_forosh=0x7f0900db;
         public static final int imgbtn_khazane_forosh=0x7f090060;
         public static final int imgbtn_khazane_hesabdari=0x7f09006f;
         public static final int imgbtn_khazane_home=0x7f090079;
@@ -1883,37 +1946,42 @@ containing a value of this type.
         public static final int imgbtn_menu_home=0x7f090074;
         public static final int imgbtn_menu_kala=0x7f09007f;
         public static final int imgbtn_menu_khazane=0x7f09008e;
-        public static final int imgbtn_namayesh__customer_forosh=0x7f0900be;
-        public static final int imgbtn_namayesh__faktor_forosh=0x7f0900cc;
-        public static final int imgbtn_namayesh__forokhte_forosh=0x7f0900dc;
-        public static final int imgbtn_namayesh_daryafti_khazane=0x7f090105;
-        public static final int imgbtn_namayesh_gardesh_hesabdari=0x7f0900e7;
-        public static final int imgbtn_namayesh_mojodi_kalaanbar=0x7f0900f1;
-        public static final int imgbtn_namayesh_pardakhti_khazane=0x7f090110;
-        public static final int imgbtn_namayesh_riali_kalaanbar=0x7f0900fa;
-        public static final int imgbtn_namayesh_tarkibi_hesabdari=0x7f090129;
-        public static final int imgbtn_namayesh_vaziatasnaddaryafti_khazane=0x7f090111;
-        public static final int imgbtn_namayesh_vaziatasnadpardakhti_khazane=0x7f090112;
-        public static final int imgbtn_projecttarkibi_hesabdari=0x7f09011c;
+        public static final int imgbtn_namayesh__customer_forosh=0x7f0900bf;
+        public static final int imgbtn_namayesh__faktor_forosh=0x7f0900cd;
+        public static final int imgbtn_namayesh__forokhte_forosh=0x7f0900dd;
+        public static final int imgbtn_namayesh_daryafti_khazane=0x7f090106;
+        public static final int imgbtn_namayesh_gardesh_hesabdari=0x7f0900e8;
+        public static final int imgbtn_namayesh_mojodi_kalaanbar=0x7f0900f2;
+        public static final int imgbtn_namayesh_pardakhti_khazane=0x7f090111;
+        public static final int imgbtn_namayesh_riali_kalaanbar=0x7f0900fb;
+        public static final int imgbtn_namayesh_tarkibi_hesabdari=0x7f090136;
+        public static final int imgbtn_namayesh_vaziatasnaddaryafti_khazane=0x7f090118;
+        public static final int imgbtn_namayesh_vaziatasnadpardakhti_khazane=0x7f09011f;
+        public static final int imgbtn_pardakhtkonande_vaziatdaryaftikhazane=0x7f090112;
+        public static final int imgbtn_projecttarkibi_hesabdari=0x7f090129;
         public static final int imgbtn_sabt=0x7f0900b2;
         public static final int imgbtn_sabtdate=0x7f090051;
-        public static final int imgbtn_satharztarkibi_hesabdari=0x7f090124;
-        public static final int imgbtn_sathhazinetarkibi_hesabdari=0x7f09011f;
-        public static final int imgbtn_sathprojecttarkibi_hesabdari=0x7f09011a;
-        public static final int imgbtn_sathshakhstarkibi_hesabdari=0x7f090116;
-        public static final int imgbtn_sathtafsil_hesabdari=0x7f0900e4;
+        public static final int imgbtn_satharztarkibi_hesabdari=0x7f090131;
+        public static final int imgbtn_sathhazinetarkibi_hesabdari=0x7f09012c;
+        public static final int imgbtn_sathprojecttarkibi_hesabdari=0x7f090127;
+        public static final int imgbtn_sathshakhstarkibi_hesabdari=0x7f090123;
+        public static final int imgbtn_sathtafsil_hesabdari=0x7f0900e5;
         public static final int imgbtn_selectdomain=0x7f0900ae;
-        public static final int imgbtn_selectshakhsgardesh_hesabdari=0x7f0900e2;
+        public static final int imgbtn_selectshakhsgardesh_hesabdari=0x7f0900e3;
         public static final int imgbtn_selectyearmali=0x7f0900b0;
-        public static final int imgbtn_shakhs_daryaftikhazane=0x7f090103;
-        public static final int imgbtn_shakhs_khazane=0x7f09010e;
-        public static final int imgbtn_shakhsgardesh_hesabdari=0x7f0900e0;
-        public static final int imgbtn_shakhstarkibi_hesabdari=0x7f090118;
-        public static final int imgbtn_todate_faktor_forosh=0x7f0900c1;
-        public static final int imgbtn_todate_forokhte_forosh=0x7f0900cf;
-        public static final int imgbtn_todatecustomer_forosh=0x7f0900b6;
-        public static final int imgbtn_todategardesh_hesabdari=0x7f0900de;
-        public static final int imgbtn_todatetarkibi_hesabdari=0x7f090114;
+        public static final int imgbtn_shakhs_daryaftikhazane=0x7f090104;
+        public static final int imgbtn_shakhs_khazane=0x7f09010f;
+        public static final int imgbtn_shakhsgardesh_hesabdari=0x7f0900e1;
+        public static final int imgbtn_shakhstarkibi_hesabdari=0x7f090125;
+        public static final int imgbtn_shomarecehck_vaziatpardakhtikhazane=0x7f09011d;
+        public static final int imgbtn_shomarecheck_vaziatdaryaftikhazane=0x7f090116;
+        public static final int imgbtn_shomarehesab_vaziatdaryaftikhazane=0x7f090114;
+        public static final int imgbtn_shomarehesab_vaziatpardakhtikhazane=0x7f09011b;
+        public static final int imgbtn_todate_faktor_forosh=0x7f0900c2;
+        public static final int imgbtn_todate_forokhte_forosh=0x7f0900d0;
+        public static final int imgbtn_todatecustomer_forosh=0x7f0900b7;
+        public static final int imgbtn_todategardesh_hesabdari=0x7f0900df;
+        public static final int imgbtn_todatetarkibi_hesabdari=0x7f090121;
         public static final int imgbtn_underline_asnaddaryafti_khazane=0x7f090098;
         public static final int imgbtn_underline_asnadpardakhti_khazane=0x7f090096;
         public static final int imgbtn_underline_customer_forosh=0x7f09005b;
@@ -1944,6 +2012,7 @@ containing a value of this type.
         public static final int pagerhesabdari=0x7f09006b;
         public static final int pagerkala=0x7f090084;
         public static final int pagerkhazane=0x7f090099;
+        public static final int persianDatePicker1=0x7f0900b4;
         public static final int progressBar1=0x7f0900ad;
         public static final int progress_circular=0x7f090007;
         public static final int progress_horizontal=0x7f090008;
@@ -1967,8 +2036,8 @@ containing a value of this type.
         public static final int showHome=0x7f090011;
         public static final int showTitle=0x7f090012;
         public static final int side_index=0x7f0900a5;
-        public static final int side_list_item=0x7f09012d;
-        public static final int spinner1=0x7f0900e3;
+        public static final int side_list_item=0x7f09013a;
+        public static final int spinner1=0x7f0900e4;
         public static final int split_action_bar=0x7f090004;
         public static final int submenu_hesabdari=0x7f09006d;
         public static final int submenu_kala=0x7f090086;
@@ -1995,20 +2064,20 @@ containing a value of this type.
         public static final int top_image_day=0x7f09004d;
         public static final int top_image_month=0x7f090048;
         public static final int top_image_year=0x7f090043;
-        public static final int tv__bazarya_forosh=0x7f0900c8;
-        public static final int tv__customer_forosh=0x7f0900c5;
-        public static final int tv__foroshande_forosh=0x7f0900cb;
-        public static final int tv__projecttarkibi_hesabdari=0x7f09011e;
-        public static final int tv_arztarkibi_hesabdari=0x7f090128;
-        public static final int tv_hazinetarkibi_hesabdari=0x7f090123;
-        public static final int tv_id_alohebetic=0x7f09012b;
-        public static final int tv_rownumber_alphebetical=0x7f09012c;
-        public static final int tv_sathtafsilgardesh_hesabdari=0x7f0900e6;
-        public static final int tv_shakhsgardesh_hesabdari=0x7f0900ec;
-        public static final int tv_title_alphebetic=0x7f09012a;
-        public static final int tv_todate_forosh=0x7f0900d1;
-        public static final int tv_todategardesh_hesabdari=0x7f0900df;
-        public static final int tv_todatetarkibi_hesabdari=0x7f090115;
+        public static final int tv__bazarya_forosh=0x7f0900c9;
+        public static final int tv__customer_forosh=0x7f0900c6;
+        public static final int tv__foroshande_forosh=0x7f0900cc;
+        public static final int tv__projecttarkibi_hesabdari=0x7f09012b;
+        public static final int tv_arztarkibi_hesabdari=0x7f090135;
+        public static final int tv_hazinetarkibi_hesabdari=0x7f090130;
+        public static final int tv_id_alohebetic=0x7f090138;
+        public static final int tv_rownumber_alphebetical=0x7f090139;
+        public static final int tv_sathtafsilgardesh_hesabdari=0x7f0900e7;
+        public static final int tv_shakhsgardesh_hesabdari=0x7f0900ed;
+        public static final int tv_title_alphebetic=0x7f090137;
+        public static final int tv_todate_forosh=0x7f0900d2;
+        public static final int tv_todategardesh_hesabdari=0x7f0900e0;
+        public static final int tv_todatetarkibi_hesabdari=0x7f090122;
         public static final int txt_name_day=0x7f09004e;
         public static final int txt_name_month=0x7f090049;
         public static final int txt_name_year=0x7f090044;
@@ -2078,20 +2147,21 @@ containing a value of this type.
         public static final int activity_main=0x7f03001e;
         public static final int activity_selectdomain=0x7f03001f;
         public static final int activity_showreports=0x7f030020;
-        public static final int frg_forosh_customer=0x7f030021;
-        public static final int frg_forosh_faktor=0x7f030022;
-        public static final int frg_forosh_forokhte=0x7f030023;
-        public static final int frg_hesabdari_gardesh=0x7f030024;
-        public static final int frg_kala_mojodi=0x7f030025;
-        public static final int frg_kala_riali=0x7f030026;
-        public static final int frg_khazane_asnaddaryafti=0x7f030027;
-        public static final int frg_khazane_asnadpardakhti=0x7f030028;
-        public static final int frg_khazane_vaziatdaryafti=0x7f030029;
-        public static final int frg_khazane_vaziatpardakhti=0x7f03002a;
-        public static final int frg_tarkibi=0x7f03002b;
-        public static final int rowalphebetical=0x7f03002c;
-        public static final int side_index_item=0x7f03002d;
-        public static final int support_simple_spinner_dropdown_item=0x7f03002e;
+        public static final int dattee=0x7f030021;
+        public static final int frg_forosh_customer=0x7f030022;
+        public static final int frg_forosh_faktor=0x7f030023;
+        public static final int frg_forosh_forokhte=0x7f030024;
+        public static final int frg_hesabdari_gardesh=0x7f030025;
+        public static final int frg_kala_mojodi=0x7f030026;
+        public static final int frg_kala_riali=0x7f030027;
+        public static final int frg_khazane_asnaddaryafti=0x7f030028;
+        public static final int frg_khazane_asnadpardakhti=0x7f030029;
+        public static final int frg_khazane_vaziatdaryafti=0x7f03002a;
+        public static final int frg_khazane_vaziatpardakhti=0x7f03002b;
+        public static final int frg_tarkibi=0x7f03002c;
+        public static final int rowalphebetical=0x7f03002d;
+        public static final int side_index_item=0x7f03002e;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002f;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
@@ -4067,6 +4137,130 @@ containing a value of this type.
           @attr name com.Atieh.reportsmobile:preserveIconSpacing
         */
         public static final int MenuView_preserveIconSpacing = 7;
+        /** Attributes that can be used with a PersianDatePicker.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #PersianDatePicker_displayMonthNames com.Atieh.reportsmobile:displayMonthNames}</code></td><td></td></tr>
+           <tr><td><code>{@link #PersianDatePicker_maxYear com.Atieh.reportsmobile:maxYear}</code></td><td></td></tr>
+           <tr><td><code>{@link #PersianDatePicker_minYear com.Atieh.reportsmobile:minYear}</code></td><td></td></tr>
+           <tr><td><code>{@link #PersianDatePicker_selectedDay com.Atieh.reportsmobile:selectedDay}</code></td><td></td></tr>
+           <tr><td><code>{@link #PersianDatePicker_selectedMonth com.Atieh.reportsmobile:selectedMonth}</code></td><td></td></tr>
+           <tr><td><code>{@link #PersianDatePicker_selectedYear com.Atieh.reportsmobile:selectedYear}</code></td><td></td></tr>
+           <tr><td><code>{@link #PersianDatePicker_yearRange com.Atieh.reportsmobile:yearRange}</code></td><td></td></tr>
+           </table>
+           @see #PersianDatePicker_displayMonthNames
+           @see #PersianDatePicker_maxYear
+           @see #PersianDatePicker_minYear
+           @see #PersianDatePicker_selectedDay
+           @see #PersianDatePicker_selectedMonth
+           @see #PersianDatePicker_selectedYear
+           @see #PersianDatePicker_yearRange
+         */
+        public static final int[] PersianDatePicker = {
+            0x7f0100a9, 0x7f0100aa, 0x7f0100ab, 0x7f0100ac,
+            0x7f0100ad, 0x7f0100ae, 0x7f0100af
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.Atieh.reportsmobile.R.attr#displayMonthNames}
+          attribute's value can be found in the {@link #PersianDatePicker} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atieh.reportsmobile:displayMonthNames
+        */
+        public static final int PersianDatePicker_displayMonthNames = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.Atieh.reportsmobile.R.attr#maxYear}
+          attribute's value can be found in the {@link #PersianDatePicker} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atieh.reportsmobile:maxYear
+        */
+        public static final int PersianDatePicker_maxYear = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.Atieh.reportsmobile.R.attr#minYear}
+          attribute's value can be found in the {@link #PersianDatePicker} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atieh.reportsmobile:minYear
+        */
+        public static final int PersianDatePicker_minYear = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.Atieh.reportsmobile.R.attr#selectedDay}
+          attribute's value can be found in the {@link #PersianDatePicker} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atieh.reportsmobile:selectedDay
+        */
+        public static final int PersianDatePicker_selectedDay = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.Atieh.reportsmobile.R.attr#selectedMonth}
+          attribute's value can be found in the {@link #PersianDatePicker} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atieh.reportsmobile:selectedMonth
+        */
+        public static final int PersianDatePicker_selectedMonth = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.Atieh.reportsmobile.R.attr#selectedYear}
+          attribute's value can be found in the {@link #PersianDatePicker} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atieh.reportsmobile:selectedYear
+        */
+        public static final int PersianDatePicker_selectedYear = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.Atieh.reportsmobile.R.attr#yearRange}
+          attribute's value can be found in the {@link #PersianDatePicker} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.Atieh.reportsmobile:yearRange
+        */
+        public static final int PersianDatePicker_yearRange = 6;
         /** Attributes that can be used with a PopupWindow.
            <p>Includes the following attributes:</p>
            <table>

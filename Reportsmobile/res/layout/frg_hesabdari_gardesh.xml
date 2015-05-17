@@ -118,7 +118,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:background="@color/marker_color"
-            android:backgroundTint="@color/abc_primary_text_material_dark"
+            android:backgroundTint="@color/bg_action_gray"
             android:textColor="#FF0000"
             android:textSize="12sp" />
     </LinearLayout>

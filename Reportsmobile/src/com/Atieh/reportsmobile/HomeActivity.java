@@ -3,6 +3,10 @@ package com.Atieh.reportsmobile;
 import java.util.ArrayList;
 
 import webservices.ServiceGenerator;
+import GetAllCostCentersPack.GetAllCostCenters;
+import GetAllCostCentersPack.GetAllCostCentersInterface;
+import GetAllCurrenciesPack.GetAllCurrencies;
+import GetAllCurrenciesPack.GetAllCurrenciesInterface;
 import GetAllCustomersPack.GetAllCustomer;
 import GetAllCustomersPack.GetAllCustomerInterface;
 import GetAllMarketersPack.GetAllMarketers;
@@ -11,6 +15,8 @@ import GetAllPersonsPack.GetAllPerson;
 import GetAllPersonsPack.GetAllPersonsInterface;
 import GetAllProductPack.GetAllProduct;
 import GetAllProductPack.GetAllProductInterface;
+import GetAllProjectsPack.GetAllProjects;
+import GetAllProjectsPack.GetAllProjectsInterface;
 import GetAllSellersPack.GetAllSeller;
 import GetAllSellersPack.GetAllSellerInterface;
 import GetAllServicesPack.GetAllService;
@@ -37,9 +43,10 @@ public class HomeActivity extends Activity {
 	GetAllProduct product;
 	GetAllService services;
 	GetAllWarehouses warehouse;
-	
-	
-	
+	GetAllCurrencies currencies;
+	GetAllProjects projects;
+	GetAllCostCenters costcenters;
+
 	ImageButton menu;
 	ImageButton forosh;
 	ImageButton hesabdari;
@@ -49,7 +56,7 @@ public class HomeActivity extends Activity {
 	ImageButton logout;
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
-	int contofpermission=0;
+	int contofpermission = 0;
 	private boolean _doubleBackToExitPressedOnce = false;
 	public static int[] mypermission = new int[5];
 
@@ -60,7 +67,7 @@ public class HomeActivity extends Activity {
 	public static ArrayList<String> moshtariidArray;
 	public static ArrayList<String> mostarititleArray;
 	public static ArrayList<String> mostaripersoncodeArray;
-	
+
 	public static ArrayList<String> shakhsidArray;
 	public static ArrayList<String> shakhstitleArray;
 	public static ArrayList<String> shakhspersoncodeArray;
@@ -79,6 +86,15 @@ public class HomeActivity extends Activity {
 
 	public static ArrayList<String> warehouseidArray;
 	public static ArrayList<String> warehousetitleArray;
+
+	public static ArrayList<String> currenciesidArray;
+	public static ArrayList<String> currenciestitleArray;
+
+	public static ArrayList<String> projectsidArray;
+	public static ArrayList<String> projectstitleArray;
+
+	public static ArrayList<String> costcentersidArray;
+	public static ArrayList<String> costcenterstitleArray;
 
 	public static String token;
 
@@ -266,7 +282,7 @@ public class HomeActivity extends Activity {
 		@Override
 		protected String doInBackground(String... arg0) {
 
-			// ==================== GetAllSeller
+			// 1==================== GetAllSeller
 			seler = new GetAllSeller();
 			GetAllSellerInterface sellers = ServiceGenerator.createService(
 					GetAllSellerInterface.class, MainActivity.baseURL);
@@ -282,7 +298,7 @@ public class HomeActivity extends Activity {
 				sellerpersoncodeArray.add((seler.getResult().get(i)
 						.getPersonCode()));
 			}
-			// ===========================GetAllCustomer
+			// 2===========================GetAllCustomer
 			moshtari = new GetAllCustomer();
 			GetAllCustomerInterface customer = ServiceGenerator.createService(
 					GetAllCustomerInterface.class, MainActivity.baseURL);
@@ -300,7 +316,7 @@ public class HomeActivity extends Activity {
 				mostaripersoncodeArray.add((moshtari.getResult().get(i)
 						.getPersonCode()));
 			}
-			// ========================GetAllPersons
+			// 3========================GetAllPersons
 			shakhs = new GetAllPerson();
 			GetAllPersonsInterface person = ServiceGenerator.createService(
 					GetAllPersonsInterface.class, MainActivity.baseURL);
@@ -312,14 +328,14 @@ public class HomeActivity extends Activity {
 			shakhsidArray = new ArrayList<>();
 			shakhstitleArray = new ArrayList<>();
 			shakhspersoncodeArray = new ArrayList<>();
-			
+
 			for (int i = 0; i < shakhs.getResult().size(); i++) {
 				shakhstitleArray.add(shakhs.getResult().get(i).getTitle());
 				shakhsidArray.add((shakhs.getResult().get(i).getId()));
 				shakhspersoncodeArray.add((shakhs.getResult().get(i)
 						.getPersonCode()));
 			}
-			// ========================GetAllMarketers
+			// 4========================GetAllMarketers
 			bazaryab = new GetAllMarketers();
 			GetAllMarketersInterface marketer = ServiceGenerator.createService(
 					GetAllMarketersInterface.class, MainActivity.baseURL);
@@ -339,7 +355,7 @@ public class HomeActivity extends Activity {
 						.getPersonCode()));
 			}
 
-			// ==========================GetAllProduct
+			// 5==========================GetAllProduct
 
 			product = new GetAllProduct();
 			GetAllProductInterface mahsolat = ServiceGenerator.createService(
@@ -359,7 +375,7 @@ public class HomeActivity extends Activity {
 				productcodeArray.add((product.getResult().get(i).getCode()));
 			}
 
-			// ==========================GetAllService
+			// 6==========================GetAllService
 
 			services = new GetAllService();
 			GetAllServiceInterface khadamat = ServiceGenerator.createService(
@@ -378,7 +394,7 @@ public class HomeActivity extends Activity {
 				servicesidArray.add((services.getResult().get(i).getId()));
 				servicescodeArray.add((services.getResult().get(i).getCode()));
 			}
-			// ==========================GetAllWarehouses
+			// 7==========================GetAllWarehouses
 
 			warehouse = new GetAllWarehouses();
 			GetAllWarehousesInterface anbarha = ServiceGenerator.createService(
@@ -397,7 +413,64 @@ public class HomeActivity extends Activity {
 				warehouseidArray.add((warehouse.getResult().get(i).getId()));
 
 			}
+			// 8=========================GetAllCurrencies
 
+			currencies = new GetAllCurrencies();
+			GetAllCurrenciesInterface pol = ServiceGenerator.createService(
+					GetAllCurrenciesInterface.class, MainActivity.baseURL);
+
+			currencies = pol.getAllCurrencies(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			currenciesidArray = new ArrayList<>();
+			currenciestitleArray = new ArrayList<>();
+
+			for (int i = 0; i < currencies.getResult().size(); i++) {
+				currenciestitleArray.add(currencies.getResult().get(i)
+						.getTitle());
+				currenciesidArray.add((currencies.getResult().get(i).getId()));
+
+			}
+
+			// 9==========================GetAllProjects
+
+			projects = new GetAllProjects();
+			GetAllProjectsInterface prj = ServiceGenerator.createService(
+					GetAllProjectsInterface.class, MainActivity.baseURL);
+
+			projects = prj.getAllProjects(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			projectsidArray = new ArrayList<>();
+			projectstitleArray = new ArrayList<>();
+
+			for (int i = 0; i < projects.getResult().size(); i++) {
+				projectstitleArray.add(projects.getResult().get(i).getTitle());
+				projectsidArray.add((projects.getResult().get(i).getId()));
+
+			}
+			// 10 ==========================GetAllCostCenters
+
+			costcenters = new GetAllCostCenters();
+			GetAllCostCentersInterface hazine = ServiceGenerator.createService(
+					GetAllCostCentersInterface.class, MainActivity.baseURL);
+
+			costcenters = hazine.getAllCostCenters(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
+
+			costcentersidArray = new ArrayList<>();
+			costcenterstitleArray = new ArrayList<>();
+
+			for (int i = 0; i < costcenters.getResult().size(); i++) {
+				costcenterstitleArray.add(costcenters.getResult().get(i)
+						.getTitle());
+				costcentersidArray
+						.add((costcenters.getResult().get(i).getId()));
+
+			}
 			return null;
 		}
 
@@ -470,13 +543,13 @@ public class HomeActivity extends Activity {
 
 					// MainActivity.authenticate.getResult().getDomains().get(i)
 					// .getPermissions().get(0).getKey();
-//					 Toast.makeText(
-//					 getApplicationContext(),
-//					 MainActivity.authenticate.getResult().getDomains()
-//					 .get(i).getPermissions().get(j).getKey()
-//					 + "", 1).show();
-					 contofpermission++;
-					 
+					// Toast.makeText(
+					// getApplicationContext(),
+					// MainActivity.authenticate.getResult().getDomains()
+					// .get(i).getPermissions().get(j).getKey()
+					// + "", 1).show();
+					contofpermission++;
+
 					for (int k = 1; k <= 4; k++) {
 						if (k == MainActivity.authenticate.getResult()
 								.getDomains().get(i).getPermissions().get(j)
@@ -489,8 +562,8 @@ public class HomeActivity extends Activity {
 				}
 			}
 		}
-//		Toast.makeText(getApplicationContext(), mypermission.length + "", 1)
-//				.show();
+		// Toast.makeText(getApplicationContext(), mypermission.length + "", 1)
+		// .show();
 		if (contofpermission == 1) {
 			for (int k = 1; k <= 4; k++) {
 

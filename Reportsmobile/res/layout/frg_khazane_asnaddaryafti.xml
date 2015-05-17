@@ -136,7 +136,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="شخص گیرنده"
+            android:hint="شخص پرداخت کننده"
             android:textSize="14sp" />
     </LinearLayout>
 
