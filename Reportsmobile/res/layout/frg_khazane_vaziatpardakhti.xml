@@ -48,16 +48,19 @@
             android:layout_gravity="center"
             android:background="#ffffff"
             android:gravity="right" >
+
 <ImageButton
-                android:id="@+id/imgbtn_shomarehesab_vaziatpardakhtikhazane"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/down" />
-            <TextView
+    android:id="@+id/imgbtn_shomarehesab_vaziatpardakhtikhazane"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_gravity="center"
+    android:layout_marginLeft="5dp"
+    android:background="@drawable/down"
+    android:visibility="gone" />
+
+            <EditText
                 android:id="@+id/et_shomarehesab_vaziatpardakhtikhazane"
-                android:layout_width="180dp"
+                android:layout_width="217dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -84,16 +87,19 @@
             android:layout_marginTop="5dp"
             android:background="#ffffff"
             android:gravity="right" >
+
 <ImageButton
-                android:id="@+id/imgbtn_shomarecehck_vaziatpardakhtikhazane"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/down" />
-            <TextView
+    android:id="@+id/imgbtn_shomarecehck_vaziatpardakhtikhazane"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_gravity="center"
+    android:layout_marginLeft="5dp"
+    android:background="@drawable/down"
+    android:visibility="gone" />
+
+            <EditText
                 android:id="@+id/et_shomarecehck_vaziatpardakhtikhazane"
-                android:layout_width="180dp"
+                android:layout_width="216dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:gravity="center"
