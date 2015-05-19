@@ -19,6 +19,7 @@ import webservices.ServiceGenerator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.drm.DrmManagerClient.OnErrorListener;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
 	public static List domainss;
 	static Domain dmn;
 	public static String[] msg;
-	
+
 	public static int msg2;
 	EditText et_username, et_password;
 	AuthenticationInterface auth;
@@ -273,7 +274,9 @@ public class MainActivity extends Activity {
 			} catch (URISyntaxException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				loadinglayer.setVisibility(View.INVISIBLE);
+
+				Toast.makeText(getApplicationContext(), "مجددا تلاش نمایید", 1)
+						.show();
 
 				return "timeout error";
 			}
@@ -308,7 +311,7 @@ public class MainActivity extends Activity {
 
 			// msg = authenticate.getDomains().get(0).getTitle();
 			// msg = authenticate.getDomains().get(0).getTitle();
-//			msg2 = authenticate.getResult().getDomains().size();
+			// msg2 = authenticate.getResult().getDomains().size();
 			// Toast.makeText(getApplicationContext(),
 			// authenticate.getDomains().get(i).getTitle(), 1).show();
 			// Toast.makeText(getApplicationContext(), msg2+"", 1).show();
@@ -349,7 +352,8 @@ public class MainActivity extends Activity {
 
 				else {
 
-					return authenticate.getResult().getStatus().getMessageDetails();
+					return authenticate.getResult().getStatus()
+							.getMessageDetails();
 				}
 
 			} else {
@@ -368,33 +372,33 @@ public class MainActivity extends Activity {
 						.show();
 
 			}
-			
-//			domaintitleArray = new ArrayList<>();
-//			yeartitleArray = new ArrayList<>();
-//			yearidArray = new ArrayList<>();
-//			domainidArray = new ArrayList<>();
-//			for (int i = 0; i < authenticate.getDomains().size(); i++) {
-//				domaintitleArray.add(authenticate.getDomains().get(i)
-//						.getTitle());
-//
-//				domainidArray.add(authenticate.getDomains().get(i).getId());
-//				for (int j = 0; j < authenticate.getDomains().get(i)
-//						.getFinancialYears().size(); j++) {
-//
-//					yeartitleArray.add(authenticate.getDomains().get(i)
-//							.getFinancialYears().get(j).getTitle());
-//					yearidArray.add(authenticate.getDomains().get(i)
-//							.getFinancialYears().get(j).getId());
-//				}
-//			
-//
-//			}
-//			
-//			Toast.makeText(
-//					getApplicationContext(),
-//					authenticate.getDomains().get(0).getFinancialYears()
-//							.get(0).getTitle()
-//							+ "", 1).show();
+
+			// domaintitleArray = new ArrayList<>();
+			// yeartitleArray = new ArrayList<>();
+			// yearidArray = new ArrayList<>();
+			// domainidArray = new ArrayList<>();
+			// for (int i = 0; i < authenticate.getDomains().size(); i++) {
+			// domaintitleArray.add(authenticate.getDomains().get(i)
+			// .getTitle());
+			//
+			// domainidArray.add(authenticate.getDomains().get(i).getId());
+			// for (int j = 0; j < authenticate.getDomains().get(i)
+			// .getFinancialYears().size(); j++) {
+			//
+			// yeartitleArray.add(authenticate.getDomains().get(i)
+			// .getFinancialYears().get(j).getTitle());
+			// yearidArray.add(authenticate.getDomains().get(i)
+			// .getFinancialYears().get(j).getId());
+			// }
+			//
+			//
+			// }
+			//
+			// Toast.makeText(
+			// getApplicationContext(),
+			// authenticate.getDomains().get(0).getFinancialYears()
+			// .get(0).getTitle()
+			// + "", 1).show();
 
 		}
 	}

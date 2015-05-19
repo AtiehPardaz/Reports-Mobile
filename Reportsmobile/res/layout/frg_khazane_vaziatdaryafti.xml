@@ -14,7 +14,7 @@
             android:gravity="right" >
 
             <ImageButton
-                android:id="@+id/imgbtn_pardakhtkonande_vaziatdaryaftikhazane"
+                android:id="@+id/imgbtn_pardakhtkonande_vaziatasnaddaryafti_khazane"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center"
@@ -38,19 +38,24 @@
             android:layout_marginTop="5dp"
             android:background="@color/white_color"
             android:gravity="right" >
+
 <ImageButton
-                android:id="@+id/imgbtn_shomarehesab_vaziatdaryaftikhazane"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:background="@drawable/down" />
-            <TextView
+    android:id="@+id/imgbtn_shomarehesab_vaziatdaryaftikhazane"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_gravity="center"
+    android:background="@drawable/down"
+    android:visibility="gone" />
+
+            <EditText
                 android:id="@+id/et_shomarehesab_vaziatdaryaftikhazane"
-                android:layout_width="180dp"
+                android:layout_width="212dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:hint="شماره حساب    "
+                android:inputType="number"
+              
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -63,26 +68,30 @@
             android:layout_marginTop="5dp"
             android:background="@color/white_color"
             android:gravity="right" >
+
 <ImageButton
-                android:id="@+id/imgbtn_shomarecheck_vaziatdaryaftikhazane"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="center"
-                android:background="@drawable/down" />
-            <TextView
+    android:id="@+id/imgbtn_shomarecheck_vaziatdaryaftikhazane"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_gravity="center"
+    android:background="@drawable/down"
+    android:visibility="gone" />
+
+            <EditText
                 android:id="@+id/et_shomarecheck_vaziatdaryaftikhazane"
-                android:layout_width="180dp"
+                android:layout_width="212dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:hint="شماره چک        "
+                android:inputType="number"
                 android:textSize="14sp" />
 
         </LinearLayout>
 
 <ImageButton
-    android:id="@+id/imgbtn_namayesh_vaziatasnaddaryafti_khazane"
+    android:id="@+id/imgbtn_namayesh_vaziatasnaddaryaftii_khazane"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/blue_green"

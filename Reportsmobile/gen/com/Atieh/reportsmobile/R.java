@@ -1955,9 +1955,9 @@ containing a value of this type.
         public static final int imgbtn_namayesh_pardakhti_khazane=0x7f090111;
         public static final int imgbtn_namayesh_riali_kalaanbar=0x7f0900fb;
         public static final int imgbtn_namayesh_tarkibi_hesabdari=0x7f090136;
-        public static final int imgbtn_namayesh_vaziatasnaddaryafti_khazane=0x7f090118;
+        public static final int imgbtn_namayesh_vaziatasnaddaryaftii_khazane=0x7f090118;
         public static final int imgbtn_namayesh_vaziatasnadpardakhti_khazane=0x7f09011f;
-        public static final int imgbtn_pardakhtkonande_vaziatdaryaftikhazane=0x7f090112;
+        public static final int imgbtn_pardakhtkonande_vaziatasnaddaryafti_khazane=0x7f090112;
         public static final int imgbtn_projecttarkibi_hesabdari=0x7f090129;
         public static final int imgbtn_sabt=0x7f0900b2;
         public static final int imgbtn_sabtdate=0x7f090051;
