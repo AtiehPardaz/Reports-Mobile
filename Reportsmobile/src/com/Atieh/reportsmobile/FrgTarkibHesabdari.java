@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 
 public class FrgTarkibHesabdari extends Fragment {
+	public Utils utils = Utils.getInstance();
 	ImageButton btnshow;
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {

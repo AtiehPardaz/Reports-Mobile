@@ -15,6 +15,7 @@ import android.widget.TextView;
 import dataBase.database;
 
 public class ListAlphebeticaladapter extends BaseAdapter {
+	public Utils utils = Utils.getInstance();
 	Context context;
 	private Activity activity;
 	String[] ids;

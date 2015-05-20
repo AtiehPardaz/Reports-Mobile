@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DatepickerActivity extends Activity {
+	public Utils utils = Utils.getInstance();
 	int i;
 	Date date2;
 	List<String> weekDayNames = new ArrayList<String>();

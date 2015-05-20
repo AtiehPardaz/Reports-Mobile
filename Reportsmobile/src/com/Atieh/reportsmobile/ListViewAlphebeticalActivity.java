@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 public class ListViewAlphebeticalActivity extends Activity implements
 		OnClickListener {
+	public Utils utils = Utils.getInstance();
 
 	TextView tv_title;
 	ListView lv_person;

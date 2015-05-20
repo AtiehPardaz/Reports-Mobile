@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class FrgDaryaftiKhazane extends Fragment {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton btnshow, pardakhtebteda, pardakhtenteha, sarresidebteda,
 			sarresidenteha, shakhs;
 

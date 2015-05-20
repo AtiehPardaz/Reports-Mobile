@@ -23,6 +23,8 @@ import GetAllServicesPack.GetAllService;
 import GetAllServicesPack.GetAllServiceInterface;
 import GetAllWarehousesPack.GetAllWarehouses;
 import GetAllWarehousesPack.GetAllWarehousesInterface;
+import GetDetailLevelNumberPack.GetDetailLevelNumber;
+import GetDetailLevelNumberPack.GetDetailLevelNumberInterface;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -46,6 +48,7 @@ public class HomeActivity extends Activity {
 	GetAllCurrencies currencies;
 	GetAllProjects projects;
 	GetAllCostCenters costcenters;
+	 public static GetDetailLevelNumber level;
 
 	ImageButton menu;
 	ImageButton forosh;
@@ -139,7 +142,8 @@ public class HomeActivity extends Activity {
 		hesabdari.setEnabled(false);
 		kala.setEnabled(false);
 		// linearmenu.setVisibility(View.VISIBLE);
-
+		
+//Toast.makeText(getApplicationContext(), MainActivity., 1).show();
 		// Toast.makeText(
 		// getApplicationContext(),
 		// MainActivity.authenticate.getResult().getDomains().get(0)
@@ -148,6 +152,9 @@ public class HomeActivity extends Activity {
 
 		// Toast.makeText(getApplicationContext(), mypermission[3], 1).show();
 
+		
+
+		
 		forosh.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -471,6 +478,15 @@ public class HomeActivity extends Activity {
 						.add((costcenters.getResult().get(i).getId()));
 
 			}
+			
+//			11 ==========================GetDetailLevelNumber
+			level=new GetDetailLevelNumber();
+			GetDetailLevelNumberInterface sath1 = ServiceGenerator.createService(
+					GetDetailLevelNumberInterface.class, MainActivity.baseURL);
+
+			level = sath1.getDetailLevelNumber(
+					SelectDomainActivity.returnedDomainID,
+					SelectDomainActivity.returnedYearID, token);
 			return null;
 		}
 
@@ -488,6 +504,8 @@ public class HomeActivity extends Activity {
 
 			// Toast.makeText(getApplicationContext(),
 			// seler.getResult().get(1).getTitle() + "", 1).show();
+			Toast.makeText(getApplicationContext(), level.getResult().getLevel()+"", 1).show();
+			
 
 			super.onPostExecute(result);
 		}

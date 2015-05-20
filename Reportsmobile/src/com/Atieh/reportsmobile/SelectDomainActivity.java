@@ -19,7 +19,7 @@ import authenticationPack.AuthenticationInterface;
 import authenticationPack.Domain;
 
 public class SelectDomainActivity extends Activity {
-
+	public Utils utils = Utils.getInstance();
 	String mdomain;
 	String myear;
 	ImageButton sabt;

@@ -27,6 +27,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class ShowreportsActivity extends Activity {
+	public Utils utils = Utils.getInstance();
 	private WebView webview;
 	private static final String TAG = "Main";
 	private ProgressDialog progressBar1;
@@ -64,14 +65,11 @@ public class ShowreportsActivity extends Activity {
 				}
 			}
 
-			
 		});
-		
 
 		asyncTask as = new asyncTask(); // checking network
-		
+
 		as.execute("P");
-		
 
 		if (progressBar.isShowing()) {
 			progressBar.dismiss();
@@ -141,7 +139,8 @@ public class ShowreportsActivity extends Activity {
 			break;
 
 		default:
-			message = "خطای ناشناخته شماره :" + Integer.toString(responseCode)+" مجددا تلاش نمایید ";
+			message = "خطای ناشناخته شماره :" + Integer.toString(responseCode)
+					+ " مجددا تلاش نمایید ";
 		}
 
 		return message;
@@ -164,7 +163,6 @@ public class ShowreportsActivity extends Activity {
 		@Override
 		protected void onPreExecute() {
 
-			
 			progressBar = ProgressDialog.show(ShowreportsActivity.this,
 					".گزارش در حال بارگزاری می باشد", " ،لطفا منتظر باشید...");
 
@@ -183,12 +181,13 @@ public class ShowreportsActivity extends Activity {
 				progressBar.dismiss();
 			}
 			if (result != "") {
-				webview.loadUrl("file:///android_asset/myerrorpage.html");				
+				webview.loadUrl("file:///android_asset/myerrorpage.html");
 				showdialog(result);
 			} else {
-//				Toast.makeText(ShowreportsActivity.this,
-//						"عملیات با موفقیت در حال انجام است ،لطفا منتظر بمانید ....", Toast.LENGTH_SHORT).show();
-				
+				// Toast.makeText(ShowreportsActivity.this,
+				// "عملیات با موفقیت در حال انجام است ،لطفا منتظر بمانید ....",
+				// Toast.LENGTH_SHORT).show();
+
 				// forosh tabs
 				if (getIntent().getStringExtra("gozaresh").equals(
 						"faktoreforosh")) {
@@ -246,13 +245,13 @@ public class ShowreportsActivity extends Activity {
 		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
 		alertDialogBuilder.setTitle("خطا");
-		alertDialogBuilder.setPositiveButton("تایید", 
-			      new DialogInterface.OnClickListener() {
-					
-			         @Override
-			         public void onClick(DialogInterface arg0, int arg1) {						
-			         }
-			      });
+		alertDialogBuilder.setPositiveButton("تایید",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+					}
+				});
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}

@@ -42,7 +42,7 @@ import authenticationPack.Domain;
 
 public class MainActivity extends Activity {
 	LinearLayout loadinglayer;
-
+	public Utils utils = Utils.getInstance();
 	public static final String baseURL = "http://demo.atiehpardaz.com/ReportService/ReportService.svc";
 	ImageButton login;
 	public static Authentication authenticate;
@@ -88,10 +88,10 @@ public class MainActivity extends Activity {
 			focusview.requestFocus();
 		} else {
 
-			asyncTask as = new asyncTask(); // checking network
+			// asyncTask as = new asyncTask(); // checking network
 			// status
-			as.execute("P");
-
+			// as.execute("P");
+			autenticateUser();
 			// startActivity(new Intent(MainActivity.this,
 			// SelectDomainActivity.class));
 
@@ -268,18 +268,20 @@ public class MainActivity extends Activity {
 
 		@Override
 		protected String doInBackground(String... arg0) {
+			return null;
 
-			try {
-				return httpRequestMessage(netStatus("http://atiehpardaz.com/default.aspx?lng=fa"));
-			} catch (URISyntaxException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-
-				Toast.makeText(getApplicationContext(), "مجددا تلاش نمایید", 1)
-						.show();
-
-				return "timeout error";
-			}
+			// try {
+			// return
+			// httpRequestMessage(netStatus("http://atiehpardaz.com/default.aspx?lng=fa"));
+			/*
+			 * } catch (URISyntaxException | IOException e) { // TODO
+			 * Auto-generated catch block e.printStackTrace();
+			 * 
+			 * Toast.makeText(getApplicationContext(), "مجددا تلاش نمایید", 1)
+			 * .show();
+			 * 
+			 * return "timeout error"; }
+			 */
 		}
 
 		@Override
@@ -289,8 +291,6 @@ public class MainActivity extends Activity {
 				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
 						.show();
 			} else {
-
-				autenticateUser();
 
 			}
 		}
@@ -308,37 +308,6 @@ public class MainActivity extends Activity {
 
 			authenticate = auth.authenticate(et_username.getText().toString(),
 					et_password.getText().toString());
-
-			// msg = authenticate.getDomains().get(0).getTitle();
-			// msg = authenticate.getDomains().get(0).getTitle();
-			// msg2 = authenticate.getResult().getDomains().size();
-			// Toast.makeText(getApplicationContext(),
-			// authenticate.getDomains().get(i).getTitle(), 1).show();
-			// Toast.makeText(getApplicationContext(), msg2+"", 1).show();
-
-			// for (int i = 0; i < authenticate.getDomains().size(); i++) {
-			// myaray.add(authenticate.getDomains().get(i).getTitle());
-			// // Toast.makeText(getApplicationContext(),
-			// // authenticate.getDomains().get(i).getTitle(), 1).show();
-			//
-			// }
-			//
-
-			// ===========
-			// do {
-			//
-			// try {
-			//
-			// msg[i] = authenticate.getDomains().get(i).getTitle();
-			// i++;
-			//
-			// } catch (Exception e) {
-			//
-			// e.printStackTrace();
-			// }
-			//
-			// } while (i < authenticate.getDomains().size());
-			// myaray.toArray();
 
 			if (authenticate.getResult().getStatus() != null) {
 
@@ -363,6 +332,14 @@ public class MainActivity extends Activity {
 		}
 
 		@Override
+		protected void onPreExecute() {
+
+			// progbar_progress.setVisibility(View.VISIBLE);
+			// linear1.setVisibility(View.VISIBLE);
+			loadinglayer.setVisibility(View.VISIBLE);
+		}
+
+		@Override
 		protected void onPostExecute(String result) {
 
 			loadinglayer.setVisibility(View.INVISIBLE);
@@ -373,32 +350,7 @@ public class MainActivity extends Activity {
 
 			}
 
-			// domaintitleArray = new ArrayList<>();
-			// yeartitleArray = new ArrayList<>();
-			// yearidArray = new ArrayList<>();
-			// domainidArray = new ArrayList<>();
-			// for (int i = 0; i < authenticate.getDomains().size(); i++) {
-			// domaintitleArray.add(authenticate.getDomains().get(i)
-			// .getTitle());
-			//
-			// domainidArray.add(authenticate.getDomains().get(i).getId());
-			// for (int j = 0; j < authenticate.getDomains().get(i)
-			// .getFinancialYears().size(); j++) {
-			//
-			// yeartitleArray.add(authenticate.getDomains().get(i)
-			// .getFinancialYears().get(j).getTitle());
-			// yearidArray.add(authenticate.getDomains().get(i)
-			// .getFinancialYears().get(j).getId());
-			// }
-			//
-			//
-			// }
-			//
-			// Toast.makeText(
-			// getApplicationContext(),
-			// authenticate.getDomains().get(0).getFinancialYears()
-			// .get(0).getTitle()
-			// + "", 1).show();
+			
 
 		}
 	}

@@ -17,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class frg_customer_forosh extends Fragment {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton datefromcustomer;
 	ImageButton todateustomer;
 	ImageButton selcustomer, selbazar, selForoshande;
@@ -64,6 +64,13 @@ public class frg_customer_forosh extends Fragment {
 		selbazar = (ImageButton) view.findViewById(R.id.imgbtn_bazaryab_forosh);
 		selForoshande = (ImageButton) view
 				.findViewById(R.id.imgbtn_foroshande_forosh);
+		
+		
+		utils.prepareTextView(et_bazar);
+		utils.prepareTextView(et_customer);
+		utils.prepareTextView(et_fromdate);
+		utils.prepareTextView(et_todate);
+		utils.prepareTextView(et_foroshande);
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

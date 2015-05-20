@@ -49,7 +49,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_actionbar2color"
-                android:text="کالاهای فروخته شده"
+                android:text="کالاوخدمات فروخته شده"
                 android:textSize="14sp" />
 
             <View

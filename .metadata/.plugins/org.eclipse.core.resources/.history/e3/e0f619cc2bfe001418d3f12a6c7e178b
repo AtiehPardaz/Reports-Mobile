@@ -1,0 +1,168 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@color/marker_color"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_underline_gardesh_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ic_action_date" />
+
+        <TextView android:text="TextView"
+            android:id="@+id/et_fromdate_hesabdari"
+            android:layout_width="180dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:hint="از تاریخ:            "
+            android:textSize="14sp" >
+
+            <requestFocus />
+        </TextView>
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:background="@color/marker_color"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_todategardesh_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ic_action_date" />
+
+        <TextView android:text="TextView"
+            android:id="@+id/et_todate_forosh"
+            android:layout_width="180dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:hint="تا تاریخ:            "
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_todategardesh_hesabdari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@color/marker_color" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_shakhsgardesh_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down" />
+
+        <EditText
+            android:id="@+id/et_shakhsgardesh_hesabdarii"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="رضا محمودی"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/imgbtn_selectshakhsgardesh_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@color/marker_color"
+            android:backgroundTint="@color/bg_action_gray"
+            android:textColor="#FF0000"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:background="@color/marker_color"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_sathtafsil_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down" />
+
+        <EditText
+            android:id="@+id/et_sathtafsil_hesabdari"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:hint="سطح تفصیل:    "
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_sathtafsilgardesh_hesabdari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgbtn_namayesh_gardesh_hesabdari"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/blue_green"
+        android:src="@drawable/newnamayesh" />
+
+</LinearLayout>

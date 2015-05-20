@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ForoshActivity extends FragmentActivity {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton menu;
 	ImageButton underlinecustomer;
 	ImageButton underlinefaktor;
@@ -58,6 +58,7 @@ public class ForoshActivity extends FragmentActivity {
 
 		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
 				R.anim.bounce);
+		
 	}
 
 	public void permissiontoreport() {
@@ -96,6 +97,10 @@ public class ForoshActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forosh);
 		initview();
+		
+	utils.setkodakfont(customer);
+	utils.setkodakfont(faktor);
+	utils.setkodakfont(kala);
 		
 		permissiontoreport();
 		forosh.setVisibility(View.GONE);

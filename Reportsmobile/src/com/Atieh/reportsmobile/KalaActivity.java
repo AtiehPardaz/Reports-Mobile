@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class KalaActivity extends FragmentActivity {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton menu;
 	ImageButton underlinemojodi;
 	ImageButton underlineroali;

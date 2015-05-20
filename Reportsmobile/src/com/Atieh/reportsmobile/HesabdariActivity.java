@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class HesabdariActivity extends FragmentActivity {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton menu;
 	ImageButton underlinetarkibi;
 	ImageButton underlinefgardesh;

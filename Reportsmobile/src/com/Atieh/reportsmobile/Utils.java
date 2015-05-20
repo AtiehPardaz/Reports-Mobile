@@ -43,13 +43,20 @@ public class Utils {
     public void prepareTextView(TextView textView) {
         if (typeface == null) {
             typeface = Typeface.createFromAsset(textView.getContext()
-                    .getAssets(), "fonts/NotoNaskhArabic-Regular.ttf");
+                    .getAssets(), "fonts/diplomat.ttf");
         }
         textView.setTypeface(typeface);
         textView.setLineSpacing(0f, 0.8f);
     }
 
    
-
+    public void setkodakfont(TextView textView) {
+        if (typeface == null) {
+            typeface = Typeface.createFromAsset(textView.getContext()
+                    .getAssets(), "fonts/kodak.ttf");
+        }
+        textView.setTypeface(typeface);
+        textView.setLineSpacing(0f, 0.8f);
+    }
    
 }

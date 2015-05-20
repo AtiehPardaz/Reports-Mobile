@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class FrgKalaForosh extends Fragment {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton datefromcustomer, todateustomer;
 
 	ImageButton selcustomer, selbazar, selForoshande, selKala, selKhadamat;
@@ -71,11 +72,11 @@ public class FrgKalaForosh extends Fragment {
 				.findViewById(R.id.et_todate_forokhte_forosh);
 		et_customer = (TextView) view
 				.findViewById(R.id.et_customer_forokhte_forosh);
-		et_bazar = (TextView) view.findViewById(R.id.et__bazarya_forokhte_forosh);
+		et_bazar = (TextView) view
+				.findViewById(R.id.et__bazarya_forokhte_forosh);
 		et_foroshande = (TextView) view
 				.findViewById(R.id.et__foroshande_forokhte_forosh);
-		et_kala = (TextView) view
-				.findViewById(R.id.et__kala_forokhte_forosh);
+		et_kala = (TextView) view.findViewById(R.id.et__kala_forokhte_forosh);
 		et_khadamat = (TextView) view
 				.findViewById(R.id.et_khadamat_forokhte_forosh);
 
@@ -123,7 +124,8 @@ public class FrgKalaForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 3;
@@ -148,7 +150,8 @@ public class FrgKalaForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 4;
@@ -174,7 +177,8 @@ public class FrgKalaForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;
@@ -185,7 +189,9 @@ public class FrgKalaForosh extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// sel = 4;
-
+				et_kala.setBackgroundColor(Color.WHITE);
+				et_khadamat.setText("");
+				et_khadamat.setBackgroundColor(Color.CYAN);
 				St_titleArray = (String[]) HomeActivity.producttitleArray
 						.toArray(new String[HomeActivity.producttitleArray
 								.size()]);
@@ -200,7 +206,8 @@ public class FrgKalaForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 6;
@@ -211,7 +218,9 @@ public class FrgKalaForosh extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// sel = 4;
-
+				et_khadamat.setBackgroundColor(Color.WHITE);
+				et_kala.setText("");
+				et_kala.setBackgroundColor(Color.CYAN);
 				St_titleArray = (String[]) HomeActivity.servicestitleArray
 						.toArray(new String[HomeActivity.servicestitleArray
 								.size()]);
@@ -226,7 +235,8 @@ public class FrgKalaForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 7;
@@ -251,11 +261,13 @@ public class FrgKalaForosh extends Fragment {
 					showMessage("لطفا  بازاریاب  را وارد نمایید");
 				} else if (et_foroshande.getText().equals("")) {
 					showMessage("لطفا  فروشنده را وارد نمایید");
-				} else if (et_kala.getText().equals("")) {
+				} else if (et_kala.getText().equals("")
+						&& et_khadamat.getText().equals("")) {
 					showMessage("لطفا  کالا را وارد نمایید");
-				}else if (et_khadamat.getText().equals("")) {
+				} else if (et_khadamat.getText().equals("")
+						&& et_kala.getText().equals("")) {
 					showMessage("لطفا  خدمات را وارد نمایید");
-				}else {
+				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						Intent report = new Intent();
 						report.putExtra("gozaresh", "customer");
@@ -338,14 +350,12 @@ public class FrgKalaForosh extends Fragment {
 		} else if (flgbackforResume == 5) {
 			et_foroshande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
-		}
-		else if (flgbackforResume == 6) {
-			et_kala
-					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
-		}else if (flgbackforResume == 7) {
+		} else if (flgbackforResume == 6) {
+			et_kala.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
+		} else if (flgbackforResume == 7) {
 			et_khadamat
-			.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
-}
+					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
+		}
 		// Toast.makeText(getActivity(), "1", 1).show();
 	}
 

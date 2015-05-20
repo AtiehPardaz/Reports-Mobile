@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class KhazaneActivity extends FragmentActivity {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton menu;
 	ImageButton underlinedaryafti;
 	ImageButton underlinevaziatdaryafti;

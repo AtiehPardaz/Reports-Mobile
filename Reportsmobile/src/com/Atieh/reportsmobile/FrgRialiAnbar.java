@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class FrgRialiAnbar extends Fragment {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton date, selKala, selanbar, btnshow;
 	TextView et_date, et_kala, et_anbar;
 	CheckBox chktajmiiy;

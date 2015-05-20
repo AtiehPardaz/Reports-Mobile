@@ -16,7 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class FrgfaktorForosh extends Fragment {
-
+	public Utils utils = Utils.getInstance();
 	ImageButton datefromcustomer;
 	ImageButton todateustomer;
 	ImageButton selcustomer, selbazar, selForoshande;
