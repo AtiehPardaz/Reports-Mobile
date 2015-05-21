@@ -1,6 +1,10 @@
 package com.Atieh.reportsmobile;
 
 import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 import webservices.ServiceGenerator;
 import android.app.Activity;
 import android.content.Context;
@@ -8,12 +12,10 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -37,7 +39,6 @@ public class MainActivity extends Activity {
 
 	public static int msg2;
 	EditText et_username, et_password;
-	AuthenticationInterface auth;
 	int i = 0;
 	String mUser;
 	String mPass;
@@ -144,8 +145,57 @@ public class MainActivity extends Activity {
 
 	public void autenticateUser() {
 
-		authnticationThread auth = new authnticationThread();
-		auth.execute("");
+//		authnticationThread auth = new authnticationThread();
+//		auth.execute("");
+		
+		loadinglayer.setVisibility(View.VISIBLE);
+		authenticate = new Authentication();
+
+		AuthenticationInterface auth = ServiceGenerator.createService(
+				AuthenticationInterface.class, MainActivity.baseURL);
+
+		auth.authenticate(et_username.getText().toString(),
+				et_password.getText().toString(), new Callback<Authentication>(){
+
+			@Override
+			public void success(Authentication authenticate, Response response) {
+				// TODO Auto-generated method stub
+				
+				loadinglayer.setVisibility(View.INVISIBLE);
+				if (authenticate.getResult().getStatus() != null) {
+
+					if (authenticate.getResult().getStatus().getCode() == 1) {
+
+						startActivity(new Intent(MainActivity.this,
+								SelectDomainActivity.class));
+					}
+
+					else {
+
+						//TODO
+						//Our server code results must be processed here
+						
+						//return authenticate.getResult().getStatus()
+							//	.getMessageDetails();
+					}
+
+				} else {
+					//TODO
+					//return "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
+				}
+
+			}
+
+			@Override
+			public void failure(RetrofitError retrofitError) {
+				// TODO Auto-generated method stub
+				
+				loadinglayer.setVisibility(View.INVISIBLE);
+				
+			}
+
+		});
+
 	}
 		
 	public String httpRequestMessage(int responseCode) {
@@ -187,56 +237,4 @@ public class MainActivity extends Activity {
 		}
 
 	}
-
-	public class authnticationThread extends AsyncTask<String, String, String> {
-
-		@Override
-		protected void onPreExecute() {
-			loadinglayer.setVisibility(View.VISIBLE);
-		}
-
-		@Override
-		protected String doInBackground(String... arg0) {
-
-			authenticate = new Authentication();
-
-			auth = ServiceGenerator.createService(
-					AuthenticationInterface.class, MainActivity.baseURL);
-
-			authenticate = auth.authenticate(et_username.getText().toString(),
-					et_password.getText().toString());
-
-			if (authenticate.getResult().getStatus() != null) {
-
-				if (authenticate.getResult().getStatus().getCode() == 1) {
-
-					startActivity(new Intent(MainActivity.this,
-							SelectDomainActivity.class));
-
-					return "";
-				}
-
-				else {
-
-					return authenticate.getResult().getStatus()
-							.getMessageDetails();
-				}
-
-			} else {
-				return "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
-			}
-
-		}
-
-		@Override
-		protected void onPostExecute(String result) {
-
-			loadinglayer.setVisibility(View.INVISIBLE);
-
-//			if (result != "") {
-				Log.d("Result","Result: "+result);
-//			}
-		}
-	}
-
 }

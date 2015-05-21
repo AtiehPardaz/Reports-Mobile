@@ -15,7 +15,6 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import authenticationPack.AuthenticationInterface;
 import authenticationPack.Domain;
 
 public class SelectDomainActivity extends Activity {
@@ -40,7 +39,6 @@ public class SelectDomainActivity extends Activity {
 	String[] domaintitle, domainid;
 	String[] yeartitle, yearid;
 
-	AuthenticationInterface auth;
 	TextView et_domain, et_salmali;
 	int flgforresume = 0;
 	Domain dmn;
@@ -86,16 +84,6 @@ public class SelectDomainActivity extends Activity {
 
 				domainidArray.add(MainActivity.authenticate.getResult()
 						.getDomains().get(i).getId());
-				// for (int j = 0; j <
-				// MainActivity.authenticate.getDomains().get(i)
-				// .getFinancialYears().size(); j++) {
-				//
-				// yeartitleArray.add(MainActivity.authenticate.getDomains()
-				// .get(i).getFinancialYears().get(j).getTitle());
-				// yearidArray.add(MainActivity.authenticate.getDomains().get(i)
-				// .getFinancialYears().get(j).getId());
-				// }
-
 			}
 
 		} catch (Exception e) {

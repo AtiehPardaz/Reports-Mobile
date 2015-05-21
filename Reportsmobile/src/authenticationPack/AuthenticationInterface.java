@@ -1,11 +1,13 @@
 package authenticationPack;
 
+import retrofit.Callback;
+import retrofit.client.Response;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
 public interface AuthenticationInterface {
 
 		@GET("/AuthenticateUser")
-		public  Authentication authenticate(@Query("userName") String userName , @Query("password") String password); 
+		void authenticate(@Query("userName") String userName , @Query("password") String password, Callback<Authentication> callback); 
 		
 	}
