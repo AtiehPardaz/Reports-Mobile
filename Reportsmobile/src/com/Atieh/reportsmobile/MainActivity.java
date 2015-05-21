@@ -1,25 +1,10 @@
 package com.Atieh.reportsmobile;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.conn.ConnectTimeoutException;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-
 import webservices.ServiceGenerator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.drm.DrmManagerClient.OnErrorListener;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -28,6 +13,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,7 +21,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import authenticationPack.Authentication;
 import authenticationPack.AuthenticationInterface;
 import authenticationPack.Domain;
@@ -87,14 +72,7 @@ public class MainActivity extends Activity {
 		if (cancel) {
 			focusview.requestFocus();
 		} else {
-
-			// asyncTask as = new asyncTask(); // checking network
-			// status
-			// as.execute("P");
 			autenticateUser();
-			// startActivity(new Intent(MainActivity.this,
-			// SelectDomainActivity.class));
-
 		}
 
 	}
@@ -168,54 +146,8 @@ public class MainActivity extends Activity {
 
 		authnticationThread auth = new authnticationThread();
 		auth.execute("");
-
-		//
-		// for (int i = 0; i < authenticate.getDomains().size(); i++) {
-		// // msg[i] ="aa";// authenticate.getDomains().get(i).getTitle();
-		// Toast.makeText(getApplicationContext(), i+"", 1).show();
-		//
-		// }
 	}
-
-	public int netStatus(String url) throws URISyntaxException,
-			ClientProtocolException, IOException {
-
-		int resCode = 0;
-		if (isNetworkAvailable()) {
-
-			try {
-
-				HttpGet httpRequest = null;
-				HttpParams httpParameters = new BasicHttpParams();
-				httpRequest = new HttpGet(new URI(url));
-				HttpConnectionParams
-						.setConnectionTimeout(httpParameters, 20000);
-				HttpConnectionParams.setSoTimeout(httpParameters, 20000);
-
-				HttpClient httpclient = new DefaultHttpClient(httpParameters);
-				HttpResponse response = httpclient.execute(httpRequest);
-				resCode = response.getStatusLine().getStatusCode();
-
-			}
-
-			catch (ConnectTimeoutException e) {
-
-				Toast.makeText(MainActivity.this, "timeout error",
-						Toast.LENGTH_SHORT).show();
-
-				resCode = 10000;
-
-			}
-
-		}
-
-		else {
-			resCode = 1000; // our code for no network connected or connecting
-		}
-
-		return resCode;
-	}
-
+		
 	public String httpRequestMessage(int responseCode) {
 		String message = "";
 		switch (responseCode) {
@@ -256,47 +188,12 @@ public class MainActivity extends Activity {
 
 	}
 
-	public class asyncTask extends AsyncTask<String, String, String> {
+	public class authnticationThread extends AsyncTask<String, String, String> {
 
 		@Override
 		protected void onPreExecute() {
-
-			// progbar_progress.setVisibility(View.VISIBLE);
-			// linear1.setVisibility(View.VISIBLE);
 			loadinglayer.setVisibility(View.VISIBLE);
 		}
-
-		@Override
-		protected String doInBackground(String... arg0) {
-			return null;
-
-			// try {
-			// return
-			// httpRequestMessage(netStatus("http://atiehpardaz.com/default.aspx?lng=fa"));
-			/*
-			 * } catch (URISyntaxException | IOException e) { // TODO
-			 * Auto-generated catch block e.printStackTrace();
-			 * 
-			 * Toast.makeText(getApplicationContext(), "مجددا تلاش نمایید", 1)
-			 * .show();
-			 * 
-			 * return "timeout error"; }
-			 */
-		}
-
-		@Override
-		protected void onPostExecute(String result) {
-
-			if (result != "") {
-				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
-						.show();
-			} else {
-
-			}
-		}
-	}
-
-	public class authnticationThread extends AsyncTask<String, String, String> {
 
 		@Override
 		protected String doInBackground(String... arg0) {
@@ -332,26 +229,13 @@ public class MainActivity extends Activity {
 		}
 
 		@Override
-		protected void onPreExecute() {
-
-			// progbar_progress.setVisibility(View.VISIBLE);
-			// linear1.setVisibility(View.VISIBLE);
-			loadinglayer.setVisibility(View.VISIBLE);
-		}
-
-		@Override
 		protected void onPostExecute(String result) {
 
 			loadinglayer.setVisibility(View.INVISIBLE);
 
-			if (result != "") {
-				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
-						.show();
-
-			}
-
-			
-
+//			if (result != "") {
+				Log.d("Result","Result: "+result);
+//			}
 		}
 	}
 
