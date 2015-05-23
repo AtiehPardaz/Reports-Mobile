@@ -182,12 +182,13 @@ public class MainActivity extends Activity {
 				et_password.getText().toString(), new Callback<Authentication>(){
 
 			@Override
-			public void success(Authentication authenticate, Response response) {
+			public void success(Authentication auth, Response response) {
 				
 				String title = "";
 				String body = "";
 				boolean showAlert = false;
-
+				
+				authenticate = auth;
 				loadinglayer.setVisibility(View.INVISIBLE);
 				if (authenticate.getResult().getStatus() != null) {
 
