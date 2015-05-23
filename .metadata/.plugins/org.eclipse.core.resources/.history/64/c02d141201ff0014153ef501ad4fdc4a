@@ -66,8 +66,8 @@ public class frg_customer_forosh extends Fragment {
 				.findViewById(R.id.imgbtn_foroshande_forosh);
 		
 		
-		utils.setkodakfont(et_bazar);
-		utils.setyekanfont(et_customer);
+		utils.prepareTextView(et_bazar);
+		utils.prepareTextView(et_customer);
 		utils.prepareTextView(et_fromdate);
 		utils.prepareTextView(et_todate);
 		utils.prepareTextView(et_foroshande);

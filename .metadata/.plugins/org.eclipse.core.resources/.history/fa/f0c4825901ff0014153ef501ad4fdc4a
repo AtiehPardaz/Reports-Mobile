@@ -59,12 +59,4 @@ public class Utils {
         textView.setLineSpacing(0f, 0.8f);
     }
    
-    public void setyekanfont(TextView textView) {
-        if (typeface == null) {
-            typeface = Typeface.createFromAsset(textView.getContext()
-                    .getAssets(), "fonts/yekan.ttf");
-        }
-        textView.setTypeface(typeface);
-        textView.setLineSpacing(0f, 0.8f);
-    }
 }

@@ -67,7 +67,7 @@ public class frg_customer_forosh extends Fragment {
 		
 		
 		utils.setkodakfont(et_bazar);
-		utils.setyekanfont(et_customer);
+		utils.prepareTextView(et_customer);
 		utils.prepareTextView(et_fromdate);
 		utils.prepareTextView(et_todate);
 		utils.prepareTextView(et_foroshande);
