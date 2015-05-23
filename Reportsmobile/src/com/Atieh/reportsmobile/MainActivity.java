@@ -1,29 +1,20 @@
 package com.Atieh.reportsmobile;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.conn.ConnectTimeoutException;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
+import org.apache.http.HttpStatus;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 import webservices.ServiceGenerator;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.drm.DrmManagerClient.OnErrorListener;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -35,7 +26,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import authenticationPack.Authentication;
 import authenticationPack.AuthenticationInterface;
 import authenticationPack.Domain;
@@ -52,7 +42,6 @@ public class MainActivity extends Activity {
 
 	public static int msg2;
 	EditText et_username, et_password;
-	AuthenticationInterface auth;
 	int i = 0;
 	String mUser;
 	String mPass;
@@ -87,14 +76,18 @@ public class MainActivity extends Activity {
 		if (cancel) {
 			focusview.requestFocus();
 		} else {
-
-			// asyncTask as = new asyncTask(); // checking network
-			// status
-			// as.execute("P");
-			autenticateUser();
-			// startActivity(new Intent(MainActivity.this,
-			// SelectDomainActivity.class));
-
+//			if(isNetworkAvailable())
+//			{
+				autenticateUser();
+//			}
+//			else
+//			{
+//				String message = "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
+//				AlertDialog.Builder builder =
+//				        new AlertDialog.Builder(MainActivity.this).setTitle("title").setMessage(message);
+//			    builder.setPositiveButton(R.string.ok, null);
+//				builder.show();
+//			}
 		}
 
 	}
@@ -164,86 +157,6 @@ public class MainActivity extends Activity {
 
 	}
 
-	public void autenticateUser() {
-
-		authnticationThread auth = new authnticationThread();
-		auth.execute("");
-
-		//
-		// for (int i = 0; i < authenticate.getDomains().size(); i++) {
-		// // msg[i] ="aa";// authenticate.getDomains().get(i).getTitle();
-		// Toast.makeText(getApplicationContext(), i+"", 1).show();
-		//
-		// }
-	}
-
-	public int netStatus(String url) throws URISyntaxException,
-			ClientProtocolException, IOException {
-
-		int resCode = 0;
-		if (isNetworkAvailable()) {
-
-			try {
-
-				HttpGet httpRequest = null;
-				HttpParams httpParameters = new BasicHttpParams();
-				httpRequest = new HttpGet(new URI(url));
-				HttpConnectionParams
-						.setConnectionTimeout(httpParameters, 20000);
-				HttpConnectionParams.setSoTimeout(httpParameters, 20000);
-
-				HttpClient httpclient = new DefaultHttpClient(httpParameters);
-				HttpResponse response = httpclient.execute(httpRequest);
-				resCode = response.getStatusLine().getStatusCode();
-
-			}
-
-			catch (ConnectTimeoutException e) {
-
-				Toast.makeText(MainActivity.this, "timeout error",
-						Toast.LENGTH_SHORT).show();
-
-				resCode = 10000;
-
-			}
-
-		}
-
-		else {
-			resCode = 1000; // our code for no network connected or connecting
-		}
-
-		return resCode;
-	}
-
-	public String httpRequestMessage(int responseCode) {
-		String message = "";
-		switch (responseCode) {
-		case 200:
-			message = "";
-			break;
-		case 401:
-			message = "عدم دسترسی لازم جهت اتصال به سرور";
-			break;
-		case 400:
-			message = "خطا در برقرای ارتباط. لطفا مجددا تلاش نمایید";
-			break;
-
-		case 404:
-			message = "وب سایت پذیرنده در دسترس نمی باشد. لطفا در زمانی دیگر تلاش نمایید.";
-			break;
-
-		case 1000: // our code for no network connected or connecting
-			message = "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
-			break;
-
-		default:
-			message = "خطای ناشناخته شماره :" + Integer.toString(responseCode);
-		}
-
-		return message;
-	}
-
 	private boolean isNetworkAvailable() {
 
 		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -255,104 +168,138 @@ public class MainActivity extends Activity {
 		}
 
 	}
+	
+	
+	public void autenticateUser() {
+		
+		loadinglayer.setVisibility(View.VISIBLE);
+		authenticate = new Authentication();
 
-	public class asyncTask extends AsyncTask<String, String, String> {
+		AuthenticationInterface auth = ServiceGenerator.createService(
+				AuthenticationInterface.class, MainActivity.baseURL);
 
-		@Override
-		protected void onPreExecute() {
+		auth.authenticate(et_username.getText().toString(),
+				et_password.getText().toString(), new Callback<Authentication>(){
 
-			// progbar_progress.setVisibility(View.VISIBLE);
-			// linear1.setVisibility(View.VISIBLE);
-			loadinglayer.setVisibility(View.VISIBLE);
-		}
+			@Override
+			public void success(Authentication authenticate, Response response) {
+				
+				String title = "";
+				String body = "";
+				boolean showAlert = false;
 
-		@Override
-		protected String doInBackground(String... arg0) {
-			return null;
+				loadinglayer.setVisibility(View.INVISIBLE);
+				if (authenticate.getResult().getStatus() != null) {
 
-			// try {
-			// return
-			// httpRequestMessage(netStatus("http://atiehpardaz.com/default.aspx?lng=fa"));
-			/*
-			 * } catch (URISyntaxException | IOException e) { // TODO
-			 * Auto-generated catch block e.printStackTrace();
-			 * 
-			 * Toast.makeText(getApplicationContext(), "مجددا تلاش نمایید", 1)
-			 * .show();
-			 * 
-			 * return "timeout error"; }
-			 */
-		}
+					if (authenticate.getResult().getStatus().getCode() == 1) {
 
-		@Override
-		protected void onPostExecute(String result) {
+						showAlert = false;
+						startActivity(new Intent(MainActivity.this,
+								SelectDomainActivity.class));
+					}
 
-			if (result != "") {
-				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
-						.show();
-			} else {
+					else {
 
+						//TODO
+						//Our server code results must be processed here
+						
+						body = authenticate.getResult().getStatus()
+								.getMessageDetails();
+						showAlert = true;
+					}
+
+				} else {
+					//TODO
+					body = "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
+					showAlert = true;
+				}
+				
+				if(showAlert == true)
+				{
+					AlertDialog.Builder builder =
+					        new AlertDialog.Builder(MainActivity.this).setTitle(title).setMessage(body);
+				    builder.setPositiveButton(R.string.ok, null);
+					builder.show();
+				}
 			}
-		}
-	}
 
-	public class authnticationThread extends AsyncTask<String, String, String> {
-
-		@Override
-		protected String doInBackground(String... arg0) {
-
-			authenticate = new Authentication();
-
-			auth = ServiceGenerator.createService(
-					AuthenticationInterface.class, MainActivity.baseURL);
-
-			authenticate = auth.authenticate(et_username.getText().toString(),
-					et_password.getText().toString());
-
-			if (authenticate.getResult().getStatus() != null) {
-
-				if (authenticate.getResult().getStatus().getCode() == 1) {
-
-					startActivity(new Intent(MainActivity.this,
-							SelectDomainActivity.class));
-
-					return "";
+			@Override
+			public void failure(RetrofitError retrofitError) {
+				
+				String title = getString(R.string.LoginErrorTitle);
+				String body = getString(R.string.LoginErrorMessageGeneric);
+				
+				loadinglayer.setVisibility(View.INVISIBLE);	
+				Response response = retrofitError.getResponse();
+				int statusCode = response.getStatus();
+								
+				//An IOException occurred while communicating to the server, e.g. Timeout, No connection, etc...
+				if (retrofitError.getKind().equals(RetrofitError.Kind.NETWORK))
+				{
+					switch (statusCode) {
+					
+					case HttpStatus.SC_BAD_REQUEST:	//400: Bad Request
+						body = getString(R.string.HttpStatusMessageBadRequest);
+						break;
+					case HttpStatus.SC_UNAUTHORIZED:	//401
+						body = getString(R.string.HttpStatusMessageUnauthorized);
+						break;
+					case HttpStatus.SC_FORBIDDEN:	//403
+						body = getString(R.string.HttpStatusMessageForbidden);
+						break;
+					case HttpStatus.SC_NOT_FOUND:	//404
+						body = getString(R.string.HttpStatusMessageNotFound);
+						break;
+					case HttpStatus.SC_PROXY_AUTHENTICATION_REQUIRED:	//407
+						body = getString(R.string.HttpStatusMessageProxyAuthenticationRequired);
+						break;
+					case HttpStatus.SC_REQUEST_TIMEOUT:	//408
+						body = getString(R.string.HttpStatusMessageRequestTimeout);
+						break;
+					case HttpStatus.SC_INTERNAL_SERVER_ERROR:	//500
+						body = getString(R.string.HttpStatusMessageInternalServerError);
+						break;
+					case HttpStatus.SC_NOT_IMPLEMENTED:	//501
+						body = getString(R.string.HttpStatusMessageNotImplemented);
+						break;
+					case HttpStatus.SC_BAD_GATEWAY:	//502
+						body = getString(R.string.HttpStatusMessageBadGateway);
+						break;
+					case HttpStatus.SC_SERVICE_UNAVAILABLE:	//503: Server Unavailable
+						body = getString(R.string.HttpStatusMessageServiceUnavailable);
+						break;
+					case HttpStatus.SC_GATEWAY_TIMEOUT:	//504
+						body = getString(R.string.HttpStatusMessageGatewayTimeout);
+						break;						  
+					default:
+						break;
+					}
 				}
 
-				else {
-
-					return authenticate.getResult().getStatus()
-							.getMessageDetails();
+				//A non-200 HTTP status code was received from the server
+				if (retrofitError.getKind().equals(RetrofitError.Kind.HTTP))
+				{
+					body = response.getReason();
 				}
-
-			} else {
-				return "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
+								
+				//An exception was thrown while (de)serializing a body
+				if (retrofitError.getKind().equals(RetrofitError.Kind.CONVERSION))
+				{
+					body = response.getReason();
+				}
+				
+				//An internal error occurred while attempting to execute a request
+				if (retrofitError.getKind().equals(RetrofitError.Kind.UNEXPECTED))
+				{
+					body = response.getReason();
+				}
+				
+				AlertDialog.Builder builder =
+				        new AlertDialog.Builder(MainActivity.this).setTitle(title).setMessage(body);
+			    builder.setPositiveButton(R.string.ok, null);
+				builder.show();
 			}
-
-		}
-
-		@Override
-		protected void onPreExecute() {
-
-			// progbar_progress.setVisibility(View.VISIBLE);
-			// linear1.setVisibility(View.VISIBLE);
-			loadinglayer.setVisibility(View.VISIBLE);
-		}
-
-		@Override
-		protected void onPostExecute(String result) {
-
-			loadinglayer.setVisibility(View.INVISIBLE);
-
-			if (result != "") {
-				Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT)
-						.show();
-
-			}
-
-			
-
-		}
+		});
 	}
 
 }

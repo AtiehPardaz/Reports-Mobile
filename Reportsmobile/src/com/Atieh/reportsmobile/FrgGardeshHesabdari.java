@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class FrgGardeshHesabdari extends Fragment {
 	public Utils utils = Utils.getInstance();

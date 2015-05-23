@@ -2166,6 +2166,19 @@ containing a value of this type.
         public static final int main=0x7f0d0000;
     }
     public static final class string {
+        public static final int HttpStatusMessageBadGateway=0x7f0a001e;
+        public static final int HttpStatusMessageBadRequest=0x7f0a0016;
+        public static final int HttpStatusMessageForbidden=0x7f0a0018;
+        public static final int HttpStatusMessageGatewayTimeout=0x7f0a0020;
+        public static final int HttpStatusMessageInternalServerError=0x7f0a001c;
+        public static final int HttpStatusMessageNotFound=0x7f0a0019;
+        public static final int HttpStatusMessageNotImplemented=0x7f0a001d;
+        public static final int HttpStatusMessageProxyAuthenticationRequired=0x7f0a001a;
+        public static final int HttpStatusMessageRequestTimeout=0x7f0a001b;
+        public static final int HttpStatusMessageServiceUnavailable=0x7f0a001f;
+        public static final int HttpStatusMessageUnauthorized=0x7f0a0017;
+        public static final int LoginErrorMessageGeneric=0x7f0a0015;
+        public static final int LoginErrorTitle=0x7f0a0014;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -2225,6 +2238,7 @@ containing a value of this type.
         public static final int action_settings=0x7f0a0012;
         public static final int app_name=0x7f0a0010;
         public static final int hello_world=0x7f0a0011;
+        public static final int ok=0x7f0a0013;
     }
     public static final class style {
         /** 
