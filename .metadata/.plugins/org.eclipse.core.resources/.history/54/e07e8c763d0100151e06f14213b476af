@@ -76,26 +76,25 @@ public class SelectDomainActivity extends Activity {
 		domainidArray = new ArrayList<>();
 
 		selyear.setOnClickListener(null);
-		
-//		try {
 
-			for (int i = 0; i < 2; i++) {
+		try {
+
+			for (int i = 0; i < MainActivity.authenticate.getResult()
+					.getDomains().size(); i++) {
 				domaintitleArray.add(MainActivity.authenticate.getResult()
 						.getDomains().get(i).getTitle());
 
 				domainidArray.add(MainActivity.authenticate.getResult()
 						.getDomains().get(i).getId());
 			}
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
 
-//		Toast.makeText(
-//				getApplicationContext(),
-//				MainActivity.authenticate.getResult()
-//				.getDomains().size()+"", 1).show();
-		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Toast.makeText(getApplicationContext(), MainActivity.authenticate.getResult()
+				.getDomains().get(0).getTitle().toString() + "", 1)
+				.show();
 		domaintitle = (String[]) domaintitleArray
 				.toArray(new String[domaintitleArray.size()]);
 		domainid = (String[]) domainidArray.toArray(new String[domainidArray

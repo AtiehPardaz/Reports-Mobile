@@ -199,9 +199,9 @@ public class MainActivity extends Activity {
 						startActivity(new Intent(MainActivity.this,
 								SelectDomainActivity.class));
 //						Toast.makeText(
-//						getApplicationContext(),
-//						authenticate.getResult()
-//						.getDomains().size()+"", 1).show();
+//								getApplicationContext(),
+//								authenticate.getResult()
+//								.getDomains().size(), 1).show();
 					}
 
 					else {

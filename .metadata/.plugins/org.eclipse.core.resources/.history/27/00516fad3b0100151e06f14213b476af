@@ -67,19 +67,10 @@ public class FrgGardeshHesabdari extends Fragment {
 		et_todate = (TextView) view
 				.findViewById(R.id.et_todate_gardesh_hesabdari);
 
-		ArrayAdapter<String> arraytafsiltitle = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item) ;
-
-//		ArrayAdapter<CharSequence> arraytafsiltitle = ArrayAdapter.createFromResource(
-//				getActivity(), R.array.tafsiltitle,
-//				android.R.layout.simple_spinner_item);
-		
+		ArrayAdapter<CharSequence> arraytafsiltitle = ArrayAdapter.createFromResource(
+				getActivity(), R.array.tafsiltitle,
+				android.R.layout.simple_spinner_item);
 		arraytafsiltitle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
-		
 		spinertafsil.setAdapter(arraytafsiltitle);
 		
 		

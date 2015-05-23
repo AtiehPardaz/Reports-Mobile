@@ -198,10 +198,10 @@ public class MainActivity extends Activity {
 						showAlert = false;
 						startActivity(new Intent(MainActivity.this,
 								SelectDomainActivity.class));
-//						Toast.makeText(
-//						getApplicationContext(),
-//						authenticate.getResult()
-//						.getDomains().size()+"", 1).show();
+						Toast.makeText(
+						getApplicationContext(),
+						MainActivity.authenticate.getResult()
+						.getDomains().get(0).getTitle(), 1).show();
 					}
 
 					else {
