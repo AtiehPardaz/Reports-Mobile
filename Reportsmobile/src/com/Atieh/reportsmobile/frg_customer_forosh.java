@@ -28,8 +28,8 @@ public class frg_customer_forosh extends Fragment {
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_sellertitleArray, St_sellertidArray, St_sellerpersoncodeArray;
-	
-	String customerId, marketerId, sellerId;
+
+	public static String customerId, marketerId, sellerId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -63,8 +63,7 @@ public class frg_customer_forosh extends Fragment {
 		selbazar = (ImageButton) view.findViewById(R.id.imgbtn_bazaryab_forosh);
 		selForoshande = (ImageButton) view
 				.findViewById(R.id.imgbtn_foroshande_forosh);
-		
-		
+
 		utils.setkodakfont(et_bazar);
 		utils.setyekanfont(et_customer);
 		utils.prepareTextView(et_fromdate);
@@ -167,8 +166,9 @@ public class frg_customer_forosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_sellertitleArray);
 				intent.putExtra("arrayidfromjson", St_sellertidArray);
-			 
-			intent.putExtra("side", true);intent.putExtra("search", true);
+
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;
@@ -195,10 +195,23 @@ public class frg_customer_forosh extends Fragment {
 					showMessage("لطفا  فروشنده را وارد نمایید");
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
+
+						String ReportsUrl;
+						ReportsUrl ="Report.aspx?"+"saleStaffIds=" + sellerId.toString()
+								+ "&customerPersonIds=" + customerId.toString()
+								+ "&marketerPersonIds=" + marketerId.toString()
+								+ "&FromDate=" + et_fromdate.getText()
+								+ "&ToDate=" + et_todate.getText();
+
 						Intent report = new Intent();
-						report.putExtra("gozaresh", "customer");
+						report.putExtra("gozaresh", ReportsUrl);
+
+						
+						report.putExtra("sellerId", sellerId);
+
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
+
 						startActivity(report);
 					} else if (checkdate(intfromdate, inttodate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
@@ -256,16 +269,16 @@ public class frg_customer_forosh extends Fragment {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_fromdate.setText(DatepickerActivity.myDay + "/"
+			et_fromdate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 
 		} else if (flgbackforResume == 2) {
 			inttodate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_todate.setText(DatepickerActivity.myDay + "/"
+			et_todate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		}
 
 		else if (flgbackforResume == 3) {
@@ -276,6 +289,7 @@ public class frg_customer_forosh extends Fragment {
 			marketerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_bazar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 5) {
+			
 			sellerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 
 			et_foroshande

@@ -74,15 +74,15 @@ public class FrgGardeshHesabdari extends Fragment {
 //				android.R.layout.simple_spinner_item);
 		
 		arraytafsiltitle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		arraytafsiltitle.add("hint");
 		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("1");
+		arraytafsiltitle.add("2");
+		arraytafsiltitle.add("3");
+		arraytafsiltitle.add("4");
 		
 		spinertafsil.setAdapter(arraytafsiltitle);
 		
-		
+		spinertafsil.setSelection(-1);
 		spinertafsil
 		.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			public void onItemSelected(AdapterView<?> parent,

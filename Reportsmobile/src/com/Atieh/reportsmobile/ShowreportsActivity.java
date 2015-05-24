@@ -184,11 +184,17 @@ public class ShowreportsActivity extends Activity {
 				webview.loadUrl("file:///android_asset/myerrorpage.html");
 				showdialog(result);
 			} else {
+				
 				// Toast.makeText(ShowreportsActivity.this,
 				// "عملیات با موفقیت در حال انجام است ،لطفا منتظر بمانید ....",
 				// Toast.LENGTH_SHORT).show();
 
 				// forosh tabs
+				
+				webview.loadUrl("http://demo.atiehpardaz.com/reports/"+getIntent().getStringExtra("gozaresh"));
+				
+				
+				/**
 				if (getIntent().getStringExtra("gozaresh").equals(
 						"faktoreforosh")) {
 
@@ -197,7 +203,7 @@ public class ShowreportsActivity extends Activity {
 					webview.loadUrl("http://demo.atiehpardaz.com/reports/CustomerByInvoice.aspx");
 				} else if (getIntent().getStringExtra("gozaresh").equals(
 						"customer")) {
-					webview.loadUrl("http://demo.atiehpardaz.com/reports/Report.aspx");
+					webview.loadUrl("http://demo.atiehpardaz.com/reports/Report.aspx"+"?customerPersonIds="+frg_customer_forosh.customerId);
 				} else if (getIntent().getStringExtra("gozaresh").equals(
 						"kalaforokhte")) {
 					webview.loadUrl("http://demo.atiehpardaz.com/reports/SaleInvoice/SaleInvoice.aspx");
@@ -235,7 +241,7 @@ public class ShowreportsActivity extends Activity {
 						"mojodikalatajmiiy")) {
 					webview.loadUrl("http://demo.atiehpardaz.com/reports/WareHouse/WareHouseAgreagate.aspx");
 				}
-
+*/
 			}
 		}
 	}

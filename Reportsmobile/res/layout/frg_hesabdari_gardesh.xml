@@ -102,6 +102,7 @@
             android:background="@color/marker_color"
             android:backgroundTint="@color/bg_action_gray"
             android:textColor="#FF0000"
+            
             android:textSize="12sp" />
     </LinearLayout>
 

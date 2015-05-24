@@ -28,6 +28,7 @@ public class FrgfaktorForosh extends Fragment {
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
+	public static String customerId, marketerId, sellerId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -190,8 +191,17 @@ public class FrgfaktorForosh extends Fragment {
 					showMessage("لطفا  فروشنده را وارد نمایید");
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
+						String ReportsUrl;
+						ReportsUrl ="CustomerByInvoice.aspx?"+"saleStaffIds=" + sellerId.toString()
+														+ "&customerPersonIds=" + customerId.toString()
+														+ "&marketerPersonIds=" + marketerId.toString()
+														+ "&FromDate=" + et_fromdate.getText()
+														+ "&ToDate=" + et_todate.getText();
+						
+						
 						Intent report = new Intent();
-						report.putExtra("gozaresh", "customer");
+						report.putExtra("gozaresh", ReportsUrl);
+						
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
@@ -251,24 +261,27 @@ public class FrgfaktorForosh extends Fragment {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_fromdate.setText(DatepickerActivity.myDay + "/"
+			et_fromdate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 
 		} else if (flgbackforResume == 2) {
 			inttodate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_todate.setText(DatepickerActivity.myDay + "/"
+			et_todate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		}
 
 		else if (flgbackforResume == 3) {
+			customerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_customer
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 4) {
+			marketerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_bazar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 5) {
+			sellerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_foroshande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

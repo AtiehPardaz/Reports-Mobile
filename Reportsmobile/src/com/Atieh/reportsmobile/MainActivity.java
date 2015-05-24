@@ -184,12 +184,14 @@ public class MainActivity extends Activity {
 				.getText().toString(), new Callback<Authentication>() {
 
 			@Override
-			public void success(Authentication authenticate, Response response) {
 
+			public void success(Authentication auth, Response response) {
+				
 				String title = "";
 				String body = "";
 				boolean showAlert = false;
-
+				
+				authenticate = auth;
 				loadinglayer.setVisibility(View.INVISIBLE);
 				if (authenticate.getResult().getStatus() != null) {
 
@@ -198,10 +200,7 @@ public class MainActivity extends Activity {
 						showAlert = false;
 						startActivity(new Intent(MainActivity.this,
 								SelectDomainActivity.class));
-//						Toast.makeText(
-//						getApplicationContext(),
-//						authenticate.getResult()
-//						.getDomains().size()+"", 1).show();
+
 					}
 
 					else {

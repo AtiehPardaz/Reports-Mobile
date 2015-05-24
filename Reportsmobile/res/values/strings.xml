@@ -4,22 +4,22 @@
     <string name="app_name">Reportsmobile</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="ok">OK</string>
+    <string name="ok">تایید</string>
     
-    <string name="LoginErrorTitle">Enter Error Title Here</string>
+    <string name="LoginErrorTitle">خطا</string>
     <string name="LoginErrorMessageGeneric">Generic Message</string>
-    <string name="HttpStatusMessageBadRequest">Bad Request (400)</string>
-    <string name="HttpStatusMessageUnauthorized">Unauthorized (401)</string>
-    <string name="HttpStatusMessageForbidden">Forbidden (403)</string>
-    <string name="HttpStatusMessageNotFound">Not Found (404)</string>
-    <string name="HttpStatusMessageProxyAuthenticationRequired">Proxy (407)</string>
-    <string name="HttpStatusMessageRequestTimeout">Request Timeout (408)</string>
+    <string name="HttpStatusMessageBadRequest">400   آدرس در خواستی به سرور معتبر نمی باشد</string>
+    <string name="HttpStatusMessageUnauthorized">401 دسترسی غیر مجاز،  آدرس در خواست شده نیاز به ارائه نام کاربری و کلمه عبور میباشد</string>
+    <string name="HttpStatusMessageForbidden">403 اجازه دسترسی به محتوای در خواست وجود ندارد. </string>
+    <string name="HttpStatusMessageNotFound">هم‌اكنون آدرس مورد نظر یافت نمی‌شود  404 </string>
+    <string name="HttpStatusMessageProxyAuthenticationRequired">407 نیاز به مجوز پروکسی </string>
+    <string name="HttpStatusMessageRequestTimeout">زمان سرور برای انتظار درخواست كاربر تمام شده است  408 </string>
     
-    <string name="HttpStatusMessageInternalServerError">500</string>
+    <string name="HttpStatusMessageInternalServerError">500 سرور با یك خطای داخلی روبه‌رو شده است</string>
     <string name="HttpStatusMessageNotImplemented">501</string>
-    <string name="HttpStatusMessageBadGateway">502</string>
-    <string name="HttpStatusMessageServiceUnavailable">503</string>
-    <string name="HttpStatusMessageGatewayTimeout">504</string>
+    <string name="HttpStatusMessageBadGateway">502 سرور با یك درخواست نا‌معتبر از سرور بالا‌دستی مواجه شده است</string>
+    <string name="HttpStatusMessageServiceUnavailable">503 سرویس درخواستی شما موجود نیست</string>
+    <string name="HttpStatusMessageGatewayTimeout">504 پاسخ مناسبی از  سرور  دریافت نشد</string>
     
     <string-array name="tafsiltitle">
         <item>عنوان تفصیل</item>
