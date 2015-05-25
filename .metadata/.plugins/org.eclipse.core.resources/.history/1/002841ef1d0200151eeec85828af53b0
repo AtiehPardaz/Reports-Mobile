@@ -46,7 +46,7 @@ public class Utils {
                     .getAssets(), "fonts/diplomat.ttf");
         }
         textView.setTypeface(typeface);
-//        textView.setLineSpacing(0f, 0.8f);
+        textView.setLineSpacing(0f, 0.8f);
     }
 
    
@@ -56,7 +56,7 @@ public class Utils {
                     .getAssets(), "fonts/kodak.ttf");
         }
         textView.setTypeface(typeface);
-//        textView.setLineSpacing(0f, 0.8f);
+        textView.setLineSpacing(0f, 0.8f);
     }
    
     public void setyekanfont(TextView textView) {
@@ -65,6 +65,6 @@ public class Utils {
                     .getAssets(), "fonts/yekan.ttf");
         }
         textView.setTypeface(typeface);
-//        textView.setLineSpacing(0f, 0.8f);
+        textView.setLineSpacing(0f, 0.8f);
     }
 }

@@ -14,8 +14,9 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class FrgfaktorForosh extends Fragment {
+public class frg_customer_forosh extends Fragment {
 	public Utils utils = Utils.getInstance();
 	ImageButton datefromcustomer;
 	ImageButton todateustomer;
@@ -27,7 +28,8 @@ public class FrgfaktorForosh extends Fragment {
 	int flgbackforResume = 0;
 	int intfromdate, inttodate;
 	public static int sel = 0;
-	String[] St_titleArray, St_idArray, St_personcodeArray;
+	String[] St_sellertitleArray, St_sellertidArray, St_sellerpersoncodeArray;
+
 	public static String customerId, marketerId, sellerId;
 
 	@Override
@@ -40,55 +42,48 @@ public class FrgfaktorForosh extends Fragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedinstancState) {
-		View view = inflater.inflate(R.layout.frg_forosh_faktor, container,
+		View view = inflater.inflate(R.layout.frg_forosh_customer, container,
 				false);
 		// hideSoftKeyboard(getActivity());
-
-		// =====================ImageButton
 		datefromcustomer = (ImageButton) view
-				.findViewById(R.id.imgbtn_fromdate_faktor_frosh);
+				.findViewById(R.id.imgbtn_fromdatecustomer_frosh_);
 		todateustomer = (ImageButton) view
-				.findViewById(R.id.imgbtn_todate_faktor_forosh);
+				.findViewById(R.id.imgbtn_todatecustomer_forosh);
 		btnshow = (ImageButton) view
-				.findViewById(R.id.imgbtn_namayesh__faktor_forosh);
-		selcustomer = (ImageButton) view
-				.findViewById(R.id.imgbtn_customer_faktor_forosh);
-		selbazar = (ImageButton) view
-				.findViewById(R.id.imgbtn_bazaryab_faktor_forosh);
-		selForoshande = (ImageButton) view
-				.findViewById(R.id.imgbtn_foroshande_faktor_forosh);
+				.findViewById(R.id.imgbtn_namayesh__customer_forosh);
 
-		// =================textview
-
-		et_fromdate = (TextView) view.findViewById(R.id.et_fromdate_faktor);
-		et_todate = (TextView) view.findViewById(R.id.et_todate_faktor_forosh);
-		et_customer = (TextView) view
-				.findViewById(R.id.et_customer_faktor_forosh);
-		et_bazar = (TextView) view.findViewById(R.id.et_bazarya_faktor_forosh);
+		et_fromdate = (TextView) view.findViewById(R.id.et_fromdate_forosh);
+		et_todate = (TextView) view.findViewById(R.id.et_todate_forosh);
+		et_customer = (TextView) view.findViewById(R.id.et__customer_forosh);
+		et_bazar = (TextView) view.findViewById(R.id.et__bazarya_forosh);
 		et_foroshande = (TextView) view
-				.findViewById(R.id.et_foroshande_faktor_forosh);
+				.findViewById(R.id.et__foroshande_forosh);
 
-//		============================init font
+		selcustomer = (ImageButton) view
+				.findViewById(R.id.imgbtn_customer_forosh);
+		selbazar = (ImageButton) view.findViewById(R.id.imgbtn_bazaryab_forosh);
+		selForoshande = (ImageButton) view
+				.findViewById(R.id.imgbtn_foroshande_forosh);
+
 		utils.setkodakfont(et_bazar);
 		utils.setyekanfont(et_customer);
-		utils.setyekanfont(et_fromdate);
-		utils.setyekanfont(et_todate);
-		utils.setyekanfont(et_foroshande);
-				
-		 datefromcustomer.setOnClickListener(new OnClickListener() {
-		 @Override
-		 public void onClick(View v) {
-		 startActivity(new Intent(getActivity(),
-		 DatepickerActivity.class));
-		 flgbackforResume = 1;
-		 // do something
-		
-		 // final InputMethodManager imm = (InputMethodManager)
-		 // getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-		 // imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
-		
-		 }
-		 });
+		utils.prepareTextView(et_fromdate);
+		utils.prepareTextView(et_todate);
+		utils.prepareTextView(et_foroshande);
+		datefromcustomer.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(),
+						DatepickerActivity.class));
+				flgbackforResume = 1;
+				// do something
+
+				// final InputMethodManager imm = (InputMethodManager)
+				// getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+				// imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+
+			}
+		});
 		todateustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -105,22 +100,22 @@ public class FrgfaktorForosh extends Fragment {
 				// startActivity(new Intent(getActivity(),
 				// ListViewAlphebeticalActivity.class));
 
-				St_titleArray = (String[]) HomeActivity.mostarititleArray
+				St_sellertitleArray = (String[]) HomeActivity.mostarititleArray
 						.toArray(new String[HomeActivity.mostarititleArray
 								.size()]);
-				St_idArray = (String[]) HomeActivity.moshtariidArray
+				St_sellertidArray = (String[]) HomeActivity.moshtariidArray
 						.toArray(new String[HomeActivity.moshtariidArray.size()]);
-				St_personcodeArray = (String[]) HomeActivity.mostaripersoncodeArray
+				St_sellerpersoncodeArray = (String[]) HomeActivity.mostaripersoncodeArray
 						.toArray(new String[HomeActivity.mostaripersoncodeArray
 								.size()]);
 
 				Intent intent = new Intent();
 				intent.setClass(getActivity(),
 						ListViewAlphebeticalActivity.class);
-				intent.putExtra("arrayttitlefromjson", St_titleArray);
-				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
-
+				intent.putExtra("arrayttitlefromjson", St_sellertitleArray);
+				intent.putExtra("arrayidfromjson", St_sellertidArray);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 3;
@@ -131,21 +126,22 @@ public class FrgfaktorForosh extends Fragment {
 			@Override
 			public void onClick(View v) {
 				sel = 2;
-				St_titleArray = (String[]) HomeActivity.bazaryabtitleArray
+				St_sellertitleArray = (String[]) HomeActivity.bazaryabtitleArray
 						.toArray(new String[HomeActivity.bazaryabtitleArray
 								.size()]);
-				St_idArray = (String[]) HomeActivity.bazaryabidArray
+				St_sellertidArray = (String[]) HomeActivity.bazaryabidArray
 						.toArray(new String[HomeActivity.bazaryabidArray.size()]);
-				St_personcodeArray = (String[]) HomeActivity.bazaryabpersoncodeArray
+				St_sellerpersoncodeArray = (String[]) HomeActivity.bazaryabpersoncodeArray
 						.toArray(new String[HomeActivity.bazaryabpersoncodeArray
 								.size()]);
 
 				Intent intent = new Intent();
 				intent.setClass(getActivity(),
 						ListViewAlphebeticalActivity.class);
-				intent.putExtra("arrayttitlefromjson", St_titleArray);
-				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("arrayttitlefromjson", St_sellertitleArray);
+				intent.putExtra("arrayidfromjson", St_sellertidArray);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 4;
@@ -157,21 +153,23 @@ public class FrgfaktorForosh extends Fragment {
 			public void onClick(View v) {
 				// sel = 4;
 
-				St_titleArray = (String[]) HomeActivity.sellertitleArray
+				St_sellertitleArray = (String[]) HomeActivity.sellertitleArray
 						.toArray(new String[HomeActivity.sellertitleArray
 								.size()]);
-				St_idArray = (String[]) HomeActivity.selleridArray
+				St_sellertidArray = (String[]) HomeActivity.selleridArray
 						.toArray(new String[HomeActivity.selleridArray.size()]);
-				St_personcodeArray = (String[]) HomeActivity.sellerpersoncodeArray
+				St_sellerpersoncodeArray = (String[]) HomeActivity.sellerpersoncodeArray
 						.toArray(new String[HomeActivity.sellerpersoncodeArray
 								.size()]);
 
 				Intent intent = new Intent();
 				intent.setClass(getActivity(),
 						ListViewAlphebeticalActivity.class);
-				intent.putExtra("arrayttitlefromjson", St_titleArray);
-				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("arrayttitlefromjson", St_sellertitleArray);
+				intent.putExtra("arrayidfromjson", St_sellertidArray);
+
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;
@@ -198,19 +196,23 @@ public class FrgfaktorForosh extends Fragment {
 					showMessage("لطفا  فروشنده را وارد نمایید");
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
+
 						String ReportsUrl;
-						ReportsUrl ="CustomerByInvoice.aspx?"+"saleStaffIds=" + sellerId.toString()
-														+ "&customerPersonIds=" + customerId.toString()
-														+ "&marketerPersonIds=" + marketerId.toString()
-														+ "&FromDate=" + et_fromdate.getText()
-														+ "&ToDate=" + et_todate.getText();
-						
-						
+						ReportsUrl ="Report.aspx?"+"saleStaffIds=" + sellerId.toString()
+								+ "&customerPersonIds=" + customerId.toString()
+								+ "&marketerPersonIds=" + marketerId.toString()
+								+ "&FromDate=" + et_fromdate.getText()
+								+ "&ToDate=" + et_todate.getText();
+
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
+
 						
+						report.putExtra("sellerId", sellerId);
+
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
+
 						startActivity(report);
 					} else if (checkdate(intfromdate, inttodate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
@@ -246,8 +248,10 @@ public class FrgfaktorForosh extends Fragment {
 		int flgcheck = 0;
 		if (todate - fromdate > 0) {
 			flgcheck = 0;
+			Toast.makeText(getActivity(), todate - fromdate+"", 1).show();
 			// "halate dorost hamine
 		} else if (todate - fromdate < 0) {
+			
 			flgcheck = 1;
 			// "tarikhe dovom kochaktarast"
 
@@ -288,7 +292,9 @@ public class FrgfaktorForosh extends Fragment {
 			marketerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_bazar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 5) {
+			
 			sellerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+
 			et_foroshande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

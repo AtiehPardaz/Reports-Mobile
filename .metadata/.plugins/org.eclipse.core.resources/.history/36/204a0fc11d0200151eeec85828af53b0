@@ -68,13 +68,6 @@ public class FrgfaktorForosh extends Fragment {
 		et_foroshande = (TextView) view
 				.findViewById(R.id.et_foroshande_faktor_forosh);
 
-//		============================init font
-		utils.setkodakfont(et_bazar);
-		utils.setyekanfont(et_customer);
-		utils.setyekanfont(et_fromdate);
-		utils.setyekanfont(et_todate);
-		utils.setyekanfont(et_foroshande);
-				
 		 datefromcustomer.setOnClickListener(new OnClickListener() {
 		 @Override
 		 public void onClick(View v) {

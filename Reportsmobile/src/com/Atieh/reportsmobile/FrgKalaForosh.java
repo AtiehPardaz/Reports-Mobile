@@ -31,6 +31,8 @@ public class FrgKalaForosh extends Fragment {
 	public static int sel = 0;
 
 	String[] St_titleArray, St_idArray, St_personcodeArray;
+	public static String customerId, marketerId, sellerId, productId,
+			servicesId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -79,6 +81,14 @@ public class FrgKalaForosh extends Fragment {
 		et_kala = (TextView) view.findViewById(R.id.et__kala_forokhte_forosh);
 		et_khadamat = (TextView) view
 				.findViewById(R.id.et_khadamat_forokhte_forosh);
+		// ============================init font
+		utils.setkodakfont(et_bazar);
+		utils.setyekanfont(et_customer);
+		utils.setyekanfont(et_fromdate);
+		utils.setyekanfont(et_todate);
+		utils.setyekanfont(et_foroshande);
+		utils.setyekanfont(et_kala);
+		utils.setyekanfont(et_khadamat);
 
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
@@ -270,7 +280,15 @@ public class FrgKalaForosh extends Fragment {
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						Intent report = new Intent();
-						report.putExtra("gozaresh", "customer");
+
+						String ReportsUrl;
+						ReportsUrl = "SaleInvoice/SaleInvoice.aspx?" + "saleStaffIds="
+								+ sellerId.toString() + "&customerPersonIds="
+								+ customerId.toString() + "&marketerPersonIds="
+								+ marketerId.toString() + "&FromDate="
+								+ et_fromdate.getText() + "&ToDate="
+								+ et_todate.getText();
+						report.putExtra("gozaresh", ReportsUrl);
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
@@ -330,29 +348,34 @@ public class FrgKalaForosh extends Fragment {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_fromdate.setText(DatepickerActivity.myDay + "/"
+			et_fromdate.setText(DatepickerActivity.myYear+ "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 
 		} else if (flgbackforResume == 2) {
 			inttodate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_todate.setText(DatepickerActivity.myDay + "/"
+			et_todate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		}
 
 		else if (flgbackforResume == 3) {
+			customerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_customer
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 4) {
+			marketerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_bazar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 5) {
+			sellerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_foroshande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 6) {
+			productId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_kala.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 7) {
+			servicesId= ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_khadamat
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

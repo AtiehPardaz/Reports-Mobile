@@ -33,8 +33,6 @@ public class ShowreportsActivity extends Activity {
 	private ProgressDialog progressBar1;
 	private ProgressDialog progressBar;
 
-	
-	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,7 +49,7 @@ public class ShowreportsActivity extends Activity {
 
 		webview.getSettings().setBuiltInZoomControls(true);
 		progressBar1 = ProgressDialog.show(ShowreportsActivity.this,
-				"گزارش در حال بارگزاری می باشد...", "لطفا منتظر باشید...");
+				".....گزارش در حال بارگزاری می باشد", "لطفا منتظر باشید...");
 
 		webview.setWebViewClient(new WebViewClient() {
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
