@@ -1,7 +1,6 @@
 package authenticationPack;
 
 import retrofit.Callback;
-import retrofit.client.Response;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
