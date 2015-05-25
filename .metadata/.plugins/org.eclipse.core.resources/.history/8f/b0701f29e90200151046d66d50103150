@@ -69,7 +69,7 @@ public class ShowreportsActivity extends Activity {
 				}
 //				اگه تعداد سطرای جدول کمتر از سه تا باشه یعنی داده ای دریافت نکرده
 				webview.loadUrl("javascript:(function() { "
-						+ "if(document.getElementById('ctl00_ContentPlaceHolder1_MainStiMobileViewerReportPanel').getElementsByClassName('stiMobileViewerShadow')[0].getElementsByTagName('TABLE')[0].getElementsByTagName('TBODY')[0].getElementsByTagName('TR').length <= 3){ document.write(' داده های ورودی نا معتبر است و یا چیزی برای نمایش وجود ندارد.');} "
+						+ "if(document.getElementById('ctl00_ContentPlaceHolder1_MainStiMobileViewerReportPanel').getElementsByClassName('stiMobileViewerShadow')[0].getElementsByTagName('TABLE')[0].getElementsByTagName('TBODY')[0].getElementsByTagName('TR').length <= 3){ document.write('داده های ورودی نا معتبر است.');} "
 
 						+ "})()");
 			}

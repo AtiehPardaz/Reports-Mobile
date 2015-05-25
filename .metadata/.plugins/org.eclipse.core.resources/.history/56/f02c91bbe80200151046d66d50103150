@@ -187,9 +187,9 @@ public class FrgRialiAnbar extends Fragment {
 		if (flgbackforResume == 1) {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_date.setText(DatepickerActivity.myYear + "/"
+			et_date.setText(DatepickerActivity.myDay + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myDay);
+					+ DatepickerActivity.myYear);
 		} else if (flgbackforResume == 3) {
 			productId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_kala.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);

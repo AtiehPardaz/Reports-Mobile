@@ -15,7 +15,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class FrgRialiAnbar extends Fragment {
 	public Utils utils = Utils.getInstance();
@@ -26,7 +25,6 @@ public class FrgRialiAnbar extends Fragment {
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
-	public static String warehouseId, productId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -87,8 +85,7 @@ public class FrgRialiAnbar extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-				intent.putExtra("side", true);
-				intent.putExtra("search", true);
+			intent.putExtra("side", true);intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 3;
@@ -112,8 +109,7 @@ public class FrgRialiAnbar extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-				intent.putExtra("side", true);
-				intent.putExtra("search", true);
+			intent.putExtra("side", true);intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 2;
@@ -137,23 +133,12 @@ public class FrgRialiAnbar extends Fragment {
 				} else {
 
 					Intent report = new Intent();
-					String ReportsUrl = null;
 					if (chktajmiiy.isChecked()) {
-						ReportsUrl = "WareHouse/WareHouseAgreagateRials.aspx?"
-								+ "productIds=" + productId.toString()
-								+ "&warehouseIds=" + warehouseId.toString()
-								+ "&FromDate=" + et_date.getText() + "&ToDate="
-								+ et_date.getText();
-
+						report.putExtra("gozaresh", "rialianbartajmiiy");
 					} else {
-						ReportsUrl = "WareHouse/WareHouseRials.aspx?"
-								+ "productIds=" + productId.toString()
-								+ "&warehouseIds=" + warehouseId.toString()
-								+ "&FromDate=" + et_date.getText() + "&ToDate="
-								+ et_date.getText();
+						report.putExtra("gozaresh", "rialianbar");
 					}
 
-					report.putExtra("gozaresh", ReportsUrl);
 					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);
 				}
@@ -187,14 +172,12 @@ public class FrgRialiAnbar extends Fragment {
 		if (flgbackforResume == 1) {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_date.setText(DatepickerActivity.myYear + "/"
+			et_date.setText(DatepickerActivity.myDay + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myDay);
+					+ DatepickerActivity.myYear);
 		} else if (flgbackforResume == 3) {
-			productId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_kala.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 2) {
-			warehouseId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_anbar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}
 
