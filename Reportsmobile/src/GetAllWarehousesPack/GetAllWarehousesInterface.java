@@ -1,14 +1,14 @@
 package GetAllWarehousesPack;
 
+import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Query;
-import GetAllSellersPack.GetAllSeller;
 
 public interface GetAllWarehousesInterface {
 	
 	@GET("/GetAllWarehouses")
-	public GetAllWarehouses getAllWarehouses(@Query("domainId") String domainID,
+	void getAllWarehouses(@Query("domainId") String domainID,
 			@Query("finantialYeasrId") String finantialYeasrId,
-			@Query("token") String token);
+			@Query("token") String token, Callback<GetAllWarehouses> callback);
 
 }
