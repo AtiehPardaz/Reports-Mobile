@@ -1,12 +1,13 @@
 package GetAllMarketersPack;
 
+import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
 public interface GetAllMarketersInterface {
 
 	@GET("/GetAllMarketers")
-	public GetAllMarketers getAllMarketers(@Query("domainId") String domainID,
+	void getAllMarketers(@Query("domainId") String domainID,
 			@Query("finantialYeasrId") String finantialYeasrId,
-			@Query("token") String token);
+			@Query("token") String token, Callback<GetAllMarketers> callback);
 }

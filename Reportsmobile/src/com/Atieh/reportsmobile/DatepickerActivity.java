@@ -121,6 +121,9 @@ public class DatepickerActivity extends Activity {
 
 				getDay = txt_name_day.getText().toString();
 				txt_name_day.setText(getNext_Day(getDay));
+//				if(Integer.parseInt(txt_name_day.getText()<10)){
+					
+//				}
 
 			}
 		});
@@ -187,15 +190,15 @@ public class DatepickerActivity extends Activity {
 		weekDayNames.add("31");
 
 		// array for Month
-		monthNames.add("1");
-		monthNames.add("2");
-		monthNames.add("3");
-		monthNames.add("4");
-		monthNames.add("5");
-		monthNames.add("6");
-		monthNames.add("7");
-		monthNames.add("8");
-		monthNames.add("9");
+		monthNames.add("01");
+		monthNames.add("02");
+		monthNames.add("03");
+		monthNames.add("04");
+		monthNames.add("05");
+		monthNames.add("06");
+		monthNames.add("07");
+		monthNames.add("08");
+		monthNames.add("09");
 		monthNames.add("10");
 		monthNames.add("11");
 		monthNames.add("12");
@@ -207,7 +210,9 @@ public class DatepickerActivity extends Activity {
 			idx = 0;
 			return monthNames.get(idx);
 		} else if (idx < 0 || idx + 1 == monthNames.size())
-			return monthNames.get(idx + 1);
+//			return"";
+		return monthNames.get(idx + 1);
+
 		return monthNames.get(idx + 1);
 	}
 
@@ -227,7 +232,7 @@ public class DatepickerActivity extends Activity {
 			idx = 0;
 			return weekDayNames.get(idx);
 		} else if (idx < 0 || idx + 1 == weekDayNames.size())
-			return "";
+			return weekDayNames.get(idx + 1);
 		return weekDayNames.get(idx + 1);
 	}
 

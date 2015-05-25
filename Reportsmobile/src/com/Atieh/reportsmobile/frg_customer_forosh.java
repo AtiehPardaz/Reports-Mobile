@@ -213,7 +213,7 @@ public class frg_customer_forosh extends Fragment {
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 
-//						startActivity(report);
+						startActivity(report);
 					} else if (checkdate(intfromdate, inttodate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
 					} else if (checkdate(intfromdate, inttodate) == 2) {
@@ -248,7 +248,7 @@ public class frg_customer_forosh extends Fragment {
 		int flgcheck = 0;
 		if (todate - fromdate > 0) {
 			flgcheck = 0;
-			Toast.makeText(getActivity(), todate - fromdate+"f"+fromdate+"t"+todate, 1).show();
+//			Toast.makeText(getActivity(), todate - fromdate+"f"+fromdate+"t"+todate, 1).show();
 			// "halate dorost hamine
 		} else if (todate - fromdate < 0) {
 			

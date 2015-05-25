@@ -127,7 +127,7 @@
          android:orientation="vertical" >
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/chk_mojodisefr_mojodikala"
                 android:layout_width="217dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"

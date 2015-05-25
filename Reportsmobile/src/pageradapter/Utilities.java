@@ -173,31 +173,31 @@ public class Utilities {
 
 			switch (month) {
 			case 1:
-				strMonth = "1";
+				strMonth = "01";
 				break;
 			case 2:
-				strMonth = "2";
+				strMonth = "02";
 				break;
 			case 3:
-				strMonth = "3";
+				strMonth = "03";
 				break;
 			case 4:
-				strMonth = "4";
+				strMonth = "04";
 				break;
 			case 5:
-				strMonth = "5";
+				strMonth = "05";
 				break;
 			case 6:
-				strMonth = "6";
+				strMonth = "06";
 				break;
 			case 7:
-				strMonth = "7";
+				strMonth = "07";
 				break;
 			case 8:
-				strMonth = "8";
+				strMonth = "08";
 				break;
 			case 9:
-				strMonth = "9";
+				strMonth = "09";
 				break;
 			case 10:
 				strMonth = "10";
@@ -213,25 +213,25 @@ public class Utilities {
 			switch (WeekDay) {
 
 			case 0:
-				strWeekDay = "Ìò‘‰»Â";
+				strWeekDay = "√≠Àú√î√§√à√•";
 				break;
 			case 1:
-				strWeekDay = "œÊ‘‰»Â";
+				strWeekDay = "√è√¶√î√§√à√•";
 				break;
 			case 2:
-				strWeekDay = "”Â ‘‰»Â";
+				strWeekDay = "√ì√• √î√§√à√•";
 				break;
 			case 3:
-				strWeekDay = "çÂ«—‘‰»Â";
+				strWeekDay = "ÔøΩ√•√á√ë√î√§√à√•";
 				break;
 			case 4:
-				strWeekDay = "Å‰Ã ‘‰»Â";
+				strWeekDay = "ÔøΩ√§√å √î√§√à√•";
 				break;
 			case 5:
-				strWeekDay = "Ã„⁄Â";
+				strWeekDay = "√å√£√ö√•";
 				break;
 			case 6:
-				strWeekDay = "‘‰»Â";
+				strWeekDay = "√î√§√à√•";
 				break;
 			}
 

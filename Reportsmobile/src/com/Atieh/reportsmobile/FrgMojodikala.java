@@ -15,16 +15,18 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FrgMojodikala extends Fragment {
 	public Utils utils = Utils.getInstance();
 	ImageButton date, selKala, selanbar, btnshow;
 	TextView et_date, et_kala, et_anbar;
-	CheckBox chktajmiiy;
+	CheckBox chktajmiiy, chk_mojodisefr;
 	int flgbackforResume = 0;
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
+	public static String warehouseId, productId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class FrgMojodikala extends Fragment {
 		// hideSoftKeyboard(getActivity());
 
 		chktajmiiy = (CheckBox) view.findViewById(R.id.chk_tajmiey_mojodikala);
+		chk_mojodisefr = (CheckBox) view
+				.findViewById(R.id.chk_mojodisefr_mojodikala);
 		// =====================ImageButton
 		date = (ImageButton) view.findViewById(R.id.imgbtn_date_mojodi_kala);
 		btnshow = (ImageButton) view
@@ -86,7 +90,8 @@ public class FrgMojodikala extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 3;
@@ -110,7 +115,8 @@ public class FrgMojodikala extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 2;
@@ -133,11 +139,46 @@ public class FrgMojodikala extends Fragment {
 					showMessage("لطفا  انبار را وارد نمایید");
 				} else {
 					Intent report = new Intent();
-					if(chktajmiiy.isChecked()){
-						report.putExtra("gozaresh", "mojodikalatajmiiy");
-					}else{
-					report.putExtra("gozaresh", "mojodikala");
+
+					String ReportsUrl = null;
+
+					if (chktajmiiy.isChecked() == true
+							&& chk_mojodisefr.isChecked() == true) {
+						ReportsUrl = "WareHouse/WareHouseAgreagate.aspx?"
+								+ "productIds=" + productId.toString()
+								+ "&warehouseIds=" + warehouseId.toString()
+								+ "&FromDate=" + et_date.getText() + "&ToDate="
+								+ et_date.getText() + "&filterZeroItem=TRUE";
+
+						Toast.makeText(
+								getActivity(),
+								"احتمال وجود جدول با مقادیر صفر و نمایش پیغام خطا ی داده نامعتبر وجود دارد",
+								1).show();
+
+					} else if (chktajmiiy.isChecked() == false
+							&& chk_mojodisefr.isChecked() == false) {
+						ReportsUrl = "WareHouse/WareHouse.aspx?"
+								+ "productIds=" + productId.toString()
+								+ "&warehouseIds=" + warehouseId.toString()
+								+ "&FromDate=" + et_date.getText() + "&ToDate="
+								+ et_date.getText();
+					} else if (chktajmiiy.isChecked() == false
+							&& chk_mojodisefr.isChecked() == true) {
+						ReportsUrl = "WareHouse/WareHouse.aspx?"
+								+ "productIds=" + productId.toString()
+								+ "&warehouseIds=" + warehouseId.toString()
+								+ "&FromDate=" + et_date.getText() + "&ToDate="
+								+ et_date.getText() + "&filterZeroItem=TRUE";
+					} else if (chktajmiiy.isChecked() == true
+							&& chk_mojodisefr.isChecked() == false) {
+						// else {
+						ReportsUrl = "WareHouse/WareHouseAgreagate.aspx?"
+								+ "productIds=" + productId.toString()
+								+ "&warehouseIds=" + warehouseId.toString()
+								+ "&FromDate=" + et_date.getText() + "&ToDate="
+								+ et_date.getText() + "&filterZeroItem=FALSE";
 					}
+					report.putExtra("gozaresh", ReportsUrl);
 					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);
 				}
@@ -171,12 +212,14 @@ public class FrgMojodikala extends Fragment {
 		if (flgbackforResume == 1) {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_date.setText(DatepickerActivity.myDay + "/"
+			et_date.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		} else if (flgbackforResume == 3) {
+			productId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_kala.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 2) {
+			warehouseId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_anbar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}
 
