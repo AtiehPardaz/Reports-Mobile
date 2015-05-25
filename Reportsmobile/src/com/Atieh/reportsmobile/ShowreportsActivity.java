@@ -15,7 +15,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class ShowreportsActivity extends Activity {
-	public Utils utils = Utils.getInstance();
 	private WebView webview;
 	private static final String TAG = "Main";
 	private ProgressDialog progressBar;

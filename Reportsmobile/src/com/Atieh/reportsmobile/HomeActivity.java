@@ -141,19 +141,6 @@ public class HomeActivity extends Activity {
 		khazane.setEnabled(false);
 		hesabdari.setEnabled(false);
 		kala.setEnabled(false);
-		// linearmenu.setVisibility(View.VISIBLE);
-		
-//Toast.makeText(getApplicationContext(), MainActivity., 1).show();
-		// Toast.makeText(
-		// getApplicationContext(),
-		// MainActivity.authenticate.getResult().getDomains().get(0)
-		// .getPermissions().get(0).getKey()
-		// + "", 1).show();
-
-		// Toast.makeText(getApplicationContext(), mypermission[3], 1).show();
-
-		
-
 		
 		forosh.setOnClickListener(new OnClickListener() {
 
@@ -180,32 +167,27 @@ public class HomeActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-
 				startActivity(new Intent(HomeActivity.this,
 						KhazaneActivity.class));
-
 			}
 		});
 		kala.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-
 				startActivity(new Intent(HomeActivity.this, KalaActivity.class));
-
 			}
 		});
 		domain.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-
 				startActivity(new Intent(HomeActivity.this,
 						SelectDomainActivity.class));
 			}
 		});
+		
 		logout.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getApplicationContext(),
@@ -213,79 +195,11 @@ public class HomeActivity extends Activity {
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				intent.putExtra("EXIT", true);
 				startActivity(intent);
-
 			}
 		});
-		// linearmenu.setOnClickListener(new OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		//
-		// showmenu();
-		// }
-		// });
-		// menu.setOnClickListener(new OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		// showmenu();
-		//
-		// // startActivity(new Intent(SelectDomainActivity.this,
-		// // HomeActivity.class));
-		//
-		// }
-		// });
-
-		// GetCustomers
-		// GetCustomersInterface CustomersAdapter = ServiceGenerator
-		// .createService(GetCustomersInterface.class, baseURL);
-		// GetCustomers customers = new GetCustomers();
-		// try {
-		// customers = CustomersAdapter.getCustomers(token);
-		// GetCustomers
-		// GetAllSellerInterface CustomersAdapter = ServiceGenerator
-		// .createService(GetAllSellerInterface.class, MainActivity.baseURL);
-		// GetAllSeller customers = new GetAllSeller();
-		//
-		// customers =
-		// CustomersAdapter.getAllSellers("ED5351A4-94DD-4A5F-BDD5-5259CD965385",
-		// "ED5351A4-94DD-4A5F-BDD5-5259CD965385", "12345");
-
-		// GetAllSellerInterface getSellers =
-		// ServiceGenerator.createService(GetAllSellerInterface.class,
-		// "http://webservice.atiehpardaz.com/reportService/ReportService.svc");
-
-		// GetAllSeller getsellers =
-		// getSellers.getAllSellers("ED5351A4-94DD-4A5F-BDD5-5259CD965385",
-		// "ED5351A4-94DD-4A5F-BDD5-5259CD965385", "12345");
-
 	}
 
-	// @Override
-	// public boolean onKeyDown(int keyCode, KeyEvent event) {
-	// if ((keyCode == KeyEvent.KEYCODE_BACK)) {
-	// backPressedToExitOnce ++;
-	// }
-	// return super.onKeyDown(keyCode, event);
-	// }
-	//
-	// @Override
-	// public void onBackPressed() {
-	// // TODO Auto-generated method stub
-	// super.onBackPressed();
-	// backPressedToExitOnce ++;
-	// Toast.makeText(getApplicationContext(), "1"+backPressedToExitOnce,
-	// 1).show();
-	// if (backPressedToExitOnce == 3) {
-	//
-	// finish();
-	// }else {
-	// Toast.makeText(getApplicationContext(), "again", 1).show();
-	// }
-	// }
-
 	public class sellerThread extends AsyncTask<String, String, String> {
-
 		@Override
 		protected String doInBackground(String... arg0) {
 
@@ -492,30 +406,19 @@ public class HomeActivity extends Activity {
 
 		@Override
 		protected void onPreExecute() {
-			// TODO Auto-generated method stub
-
 			// for loading
 			super.onPreExecute();
 		}
 
 		@Override
 		protected void onPostExecute(String result) {
-			// TODO Auto-generated method stub
-
-			// Toast.makeText(getApplicationContext(),
-			// seler.getResult().get(1).getTitle() + "", 1).show();
-			Toast.makeText(getApplicationContext(), level.getResult().getLevel()+"", 1).show();
-			
-
+			Toast.makeText(getApplicationContext(), level.getResult().getLevel()+"", Toast.LENGTH_LONG).show();
 			super.onPostExecute(result);
 		}
-
 	}
 
 	@Override
 	public void onBackPressed() {
-
-		// Log.i(TAG, "onBackPressed--");
 		if (_doubleBackToExitPressedOnce) {
 			super.onBackPressed();
 
@@ -524,7 +427,6 @@ public class HomeActivity extends Activity {
 			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			intent.putExtra("EXIT", true);
 			startActivity(intent);
-
 			return;
 		}
 
@@ -550,38 +452,24 @@ public class HomeActivity extends Activity {
 		for (int i = 0; i < MainActivity.authenticate.getResult().getDomains()
 				.size(); i++) {
 
-			// domainidArray.add(MainActivity.authenticate.getResult()
-			// .getDomains().get(i).getId());
-
 			for (int j = 0; j < MainActivity.authenticate.getResult()
 					.getDomains().get(i).getPermissions().size(); j++) {
 				if (MainActivity.authenticate.getResult().getDomains().get(i)
 						.getId()
 						.equals(SelectDomainActivity.finalreturneddomainid)) {
-
-					// MainActivity.authenticate.getResult().getDomains().get(i)
-					// .getPermissions().get(0).getKey();
-					// Toast.makeText(
-					// getApplicationContext(),
-					// MainActivity.authenticate.getResult().getDomains()
-					// .get(i).getPermissions().get(j).getKey()
-					// + "", 1).show();
+					
 					contofpermission++;
-
 					for (int k = 1; k <= 4; k++) {
 						if (k == MainActivity.authenticate.getResult()
 								.getDomains().get(i).getPermissions().get(j)
 								.getKey()) {
 							mypermission[k] = k;
-							// Toast.makeText(getApplicationContext(),k+
-							// mypermission[k], 1).show();
 						}
 					}
 				}
 			}
 		}
-		// Toast.makeText(getApplicationContext(), mypermission.length + "", 1)
-		// .show();
+
 		if (contofpermission == 1) {
 			for (int k = 1; k <= 4; k++) {
 
@@ -627,10 +515,9 @@ public class HomeActivity extends Activity {
 					kala.setImageResource(R.drawable.btn_click);
 					kala.setEnabled(true);
 				}
-
 			}
 		} else if (contofpermission == 0) {
-			Toast.makeText(getApplicationContext(), "بدون دسترسی", 1).show();
+			Toast.makeText(getApplicationContext(), "بدون دسترسی", Toast.LENGTH_LONG).show();
 		}
 	}// End onResume
 

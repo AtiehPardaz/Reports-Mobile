@@ -7,6 +7,7 @@ import org.apache.http.HttpStatus;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
+import webservices.NetworkUtils;
 import webservices.ServiceGenerator;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -45,6 +46,7 @@ public class MainActivity extends Activity {
 	int i = 0;
 	String mUser;
 	String mPass;
+	NetworkUtils netutil = new NetworkUtils(this);
 
 	public static Typeface titr;
 
@@ -76,7 +78,7 @@ public class MainActivity extends Activity {
 		if (cancel) {
 			focusview.requestFocus();
 		} else {
-			// if(isNetworkAvailable())
+//			 if(netutil.isNetworkAvailable())
 			// {
 			autenticateUser();
 			// }
@@ -100,14 +102,11 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		initview();
-
 		loadinglayer.setVisibility(View.INVISIBLE);
-
 		titr = Typeface.createFromAsset(MainActivity.this.getAssets(),
 				"titr.TTF");
 
 		login.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View arg0) {
 
@@ -116,10 +115,9 @@ public class MainActivity extends Activity {
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
 
 				attemplogin();
-
 			}
-
 		});
+		
 		et_password.setGravity(Gravity.RIGHT);
 		et_password.addTextChangedListener(new TextWatcher() {
 
@@ -131,43 +129,26 @@ public class MainActivity extends Activity {
 				} else {
 					et_password.setGravity(Gravity.LEFT);
 				}
-
 			}
 
 			@Override
 			public void afterTextChanged(Editable s) {
 				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
-
 			}
-
 		});
 
 		if (getIntent().getBooleanExtra("EXIT", false)) {
 			finish();
 		}
-
 	}
 
 	public static void hideSoftKeyboard(Activity activity) {
-
-	}
-
-	private boolean isNetworkAvailable() {
-
-		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-		NetworkInfo netInfo = cm.getActiveNetworkInfo();
-		if (netInfo != null && netInfo.isConnectedOrConnecting()) {
-			return true;
-		} else {
-			return false;
-		}
 
 	}
 
@@ -175,17 +156,13 @@ public class MainActivity extends Activity {
 
 		loadinglayer.setVisibility(View.VISIBLE);
 		authenticate = new Authentication();
-
 		AuthenticationInterface auth = ServiceGenerator.createService(
 				AuthenticationInterface.class, MainActivity.baseURL);
-
 		auth.authenticate(et_username.getText().toString(), et_password
 				.getText().toString(), new Callback<Authentication>() {
 
 			@Override
-
 			public void success(Authentication auth, Response response) {
-				
 				String title = "";
 				String body = "";
 				boolean showAlert = false;
@@ -195,23 +172,15 @@ public class MainActivity extends Activity {
 				if (authenticate.getResult().getStatus() != null) {
 
 					if (authenticate.getResult().getStatus().getCode() == 1) {
-
 						showAlert = false;
 						startActivity(new Intent(MainActivity.this,
 								SelectDomainActivity.class));
-
 					}
-
 					else {
-
-						// TODO
-						// Our server code results must be processed here
-
 						body = authenticate.getResult().getStatus()
 								.getMessageDetails();
 						showAlert = true;
 					}
-
 				} else {
 					// TODO
 					body = "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
@@ -219,10 +188,7 @@ public class MainActivity extends Activity {
 				}
 
 				if (showAlert == true) {
-					AlertDialog.Builder builder = new AlertDialog.Builder(
-							MainActivity.this).setTitle(title).setMessage(body);
-					builder.setPositiveButton(R.string.ok, null);
-					builder.show();
+					showDialog(title,body);
 				}
 			}
 
@@ -230,79 +196,18 @@ public class MainActivity extends Activity {
 			public void failure(RetrofitError retrofitError) {
 
 				String title = getString(R.string.LoginErrorTitle);
-				String body = getString(R.string.LoginErrorMessageGeneric);
-
 				loadinglayer.setVisibility(View.INVISIBLE);
-				Response response = retrofitError.getResponse();
-				int statusCode = response.getStatus();
-
-				// An IOException occurred while communicating to the server,
-				// e.g. Timeout, No connection, etc...
-				if (retrofitError.getKind().equals(RetrofitError.Kind.NETWORK)) {
-					switch (statusCode) {
-
-					case HttpStatus.SC_BAD_REQUEST: // 400: Bad Request
-						body = getString(R.string.HttpStatusMessageBadRequest);
-						break;
-					case HttpStatus.SC_UNAUTHORIZED: // 401
-						body = getString(R.string.HttpStatusMessageUnauthorized);
-						break;
-					case HttpStatus.SC_FORBIDDEN: // 403
-						body = getString(R.string.HttpStatusMessageForbidden);
-						break;
-					case HttpStatus.SC_NOT_FOUND: // 404
-						body = getString(R.string.HttpStatusMessageNotFound);
-						break;
-					case HttpStatus.SC_PROXY_AUTHENTICATION_REQUIRED: // 407
-						body = getString(R.string.HttpStatusMessageProxyAuthenticationRequired);
-						break;
-					case HttpStatus.SC_REQUEST_TIMEOUT: // 408
-						body = getString(R.string.HttpStatusMessageRequestTimeout);
-						break;
-					case HttpStatus.SC_INTERNAL_SERVER_ERROR: // 500
-						body = getString(R.string.HttpStatusMessageInternalServerError);
-						break;
-					case HttpStatus.SC_NOT_IMPLEMENTED: // 501
-						body = getString(R.string.HttpStatusMessageNotImplemented);
-						break;
-					case HttpStatus.SC_BAD_GATEWAY: // 502
-						body = getString(R.string.HttpStatusMessageBadGateway);
-						break;
-					case HttpStatus.SC_SERVICE_UNAVAILABLE: // 503: Server
-															// Unavailable
-						body = getString(R.string.HttpStatusMessageServiceUnavailable);
-						break;
-					case HttpStatus.SC_GATEWAY_TIMEOUT: // 504
-						body = getString(R.string.HttpStatusMessageGatewayTimeout);
-						break;
-					default:
-						break;
-					}
-				}
-
-				// A non-200 HTTP status code was received from the server
-				if (retrofitError.getKind().equals(RetrofitError.Kind.HTTP)) {
-					body = response.getReason();
-				}
-
-				// An exception was thrown while (de)serializing a body
-				if (retrofitError.getKind().equals(
-						RetrofitError.Kind.CONVERSION)) {
-					body = response.getReason();
-				}
-
-				// An internal error occurred while attempting to execute a
-				// request
-				if (retrofitError.getKind().equals(
-						RetrofitError.Kind.UNEXPECTED)) {
-					body = response.getReason();
-				}
-
-				AlertDialog.Builder builder = new AlertDialog.Builder(
-						MainActivity.this).setTitle(title).setMessage(body);
-				builder.setPositiveButton(R.string.ok, null);
-				builder.show();
+				String body = netutil.handleRetrofitError(retrofitError);
+				showDialog(title, body);
 			}
-		});
+		});		
+	}
+		
+	public void showDialog(String title, String message)
+	{
+		AlertDialog.Builder builder = new AlertDialog.Builder(
+				MainActivity.this).setTitle(title).setMessage(message);
+		builder.setPositiveButton(R.string.ok, null);
+		builder.show();		
 	}
 }
