@@ -30,7 +30,7 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
 
-	String customerId, marketerId, sellerId;
+	String CheckNumber, AccountNumberId, PersonNameId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -53,10 +53,11 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 
 		et_pardakhtkonande = (TextView) view
 				.findViewById(R.id.et_pardakhtkonande_vaziatdaryaftikhazane);
-		et_shomarehesab = (EditText) view.findViewById(R.id.et_shomarehesab_vaziatdaryaftikhazane);
+		et_shomarehesab = (EditText) view
+				.findViewById(R.id.et_shomarehesab_vaziatdaryaftikhazane);
 		et_shomarecheck = (EditText) view
 				.findViewById(R.id.et_shomarecheck_vaziatdaryaftikhazane);
-		//=============init font
+		// =============init font
 		utils.setyekanfont(et_pardakhtkonande);
 		utils.setyekanfont(et_shomarehesab);
 		utils.setyekanfont(et_shomarecheck);
@@ -69,7 +70,6 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 								.size()]);
 				St_idArray = (String[]) HomeActivity.shakhsidArray
 						.toArray(new String[HomeActivity.shakhsidArray.size()]);
-				
 
 				Intent intent = new Intent();
 				intent.setClass(getActivity(),
@@ -97,11 +97,14 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 					showMessage("لطفا شماره چک را وارد نمایید");
 				} else if (et_shomarehesab.getText().toString().matches("")) {
 					showMessage("لطفا شماره حساب را وارد نمایید");
-				}else{
+				} else {
 					Intent report = new Intent();
-					report.putExtra("gozaresh", "vaziatdaryafti");
-					report.setClass(getActivity(),
-							ShowreportsActivity.class);
+					String ReportsUrl;
+					ReportsUrl = "Document/GetDocumentStatus.aspx?"
+							+ "CheckNumber=" + et_shomarecheck.getText()
+							+ "&AccountNumber=" + et_shomarehesab.getText();
+					report.putExtra("gozaresh", ReportsUrl);
+					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);
 				}
 			}
@@ -127,15 +130,13 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 		alertDialog.show();
 	}
 
-	 
-
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 
 		if (flgbackforResume == 1) {
-
+			PersonNameId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_pardakhtkonande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}
