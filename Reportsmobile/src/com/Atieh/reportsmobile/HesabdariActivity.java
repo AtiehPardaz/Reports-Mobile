@@ -93,7 +93,7 @@ public void permissiontoreport() {
 		permissiontoreport();
 		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
 				R.anim.bounce);
-		title.setTypeface(MainActivity.titr);
+		
 		hesabdari.setVisibility(View.GONE);
 		final pageradapterhesabdari pageadapter = new pageradapterhesabdari(
 				getSupportFragmentManager());
@@ -101,6 +101,9 @@ public void permissiontoreport() {
 		pagehesabdari.setCurrentItem(1);
 		underlinetarkibi.setVisibility(View.INVISIBLE);
 		
+		title.setTypeface(MainActivity.titr);
+		utils.setyekanfont(gardesh);
+		utils.setyekanfont(tarkibi);
 
 		
 		linearmenu.setOnClickListener(new OnClickListener() {

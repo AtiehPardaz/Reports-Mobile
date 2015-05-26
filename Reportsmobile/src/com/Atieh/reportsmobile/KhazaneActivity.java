@@ -116,6 +116,12 @@ public class KhazaneActivity extends FragmentActivity {
 		underlinepardakhti.setVisibility(View.INVISIBLE);
 		underlinevaziatpardakhti.setVisibility(View.INVISIBLE);
 
+		
+		utils.setyekanfont(daryafti);
+		utils.setyekanfont(vaziatdaryafti);
+		utils.setyekanfont(pardakhti);
+		utils.setyekanfont(vaziatpardakhti);
+
 		linearmenu.setOnClickListener(new OnClickListener() {
 
 			@Override

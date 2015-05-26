@@ -65,7 +65,12 @@ public class FrgpardakhtiKhazane extends Fragment {
 		et_sarresidenteha = (TextView) view
 				.findViewById(R.id.et_date_sarresidenteha_khazanee);
 		et_shakhs = (TextView) view.findViewById(R.id.et__skhakhs_khazane);
-
+		//=============init font
+				utils.setyekanfont(et_pardakhtebteda);
+				utils.setyekanfont(et_pardakhtenteha);
+				utils.setyekanfont(et_sarresidebteda);
+				utils.setyekanfont(et_sarresidenteha);
+				utils.setyekanfont(et_shakhs);
 		pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

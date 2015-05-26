@@ -103,6 +103,10 @@ public void permissiontoreport() {
 		underlineroali.setVisibility(View.INVISIBLE);
 		underlinemojodi.setVisibility(View.VISIBLE);
 
+		
+		utils.setyekanfont(mojodi);
+		utils.setyekanfont(riali);
+		
 		linearmenu.setOnClickListener(new OnClickListener() {
 
 			@Override

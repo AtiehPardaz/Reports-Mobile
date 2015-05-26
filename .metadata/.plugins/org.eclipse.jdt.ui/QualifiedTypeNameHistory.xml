@@ -11,5 +11,6 @@
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.MainActivity"/>
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.FrgTarkibHesabdari"/>
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.frg_customer_forosh"/>
+<fullyQualifiedTypeName name="java.util.TreeMap"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>

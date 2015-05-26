@@ -102,6 +102,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		initview();
+		utils.setyekanfont(et_password);
+		utils.setyekanfont(et_username);
+
+
 		loadinglayer.setVisibility(View.INVISIBLE);
 		titr = Typeface.createFromAsset(MainActivity.this.getAssets(),
 				"titr.TTF");

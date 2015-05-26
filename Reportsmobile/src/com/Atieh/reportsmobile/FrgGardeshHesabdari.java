@@ -66,7 +66,10 @@ public class FrgGardeshHesabdari extends Fragment {
 				.findViewById(R.id.et_fromdate_gardesh_hesabdari);
 		et_todate = (TextView) view
 				.findViewById(R.id.et_todate_gardesh_hesabdari);
-
+		//=============init font
+				utils.setyekanfont(et_fromdate);
+				utils.setyekanfont(et_todate);
+ 
 		ArrayAdapter<String> arraytafsiltitle = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item) ;
 
 //		ArrayAdapter<CharSequence> arraytafsiltitle = ArrayAdapter.createFromResource(

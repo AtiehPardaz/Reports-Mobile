@@ -27,7 +27,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="تاریخ:"
+            android:hint="تاریخ"
             android:textSize="14sp" >
 
             <requestFocus />
@@ -67,7 +67,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="انبارها:"
+                android:hint="انبارها"
                 android:textSize="14sp" />
 
             <TextView
@@ -104,7 +104,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="کالاها:"
+                android:hint="کالاها"
                 android:textSize="14sp" />
 
             <TextView

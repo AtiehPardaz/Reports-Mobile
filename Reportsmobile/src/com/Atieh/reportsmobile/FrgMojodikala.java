@@ -56,7 +56,13 @@ public class FrgMojodikala extends Fragment {
 		et_date = (TextView) view.findViewById(R.id.et_date_mojodi_kala);
 		et_kala = (TextView) view.findViewById(R.id.et_kala_mojodi_kala);
 		et_anbar = (TextView) view.findViewById(R.id.et_anbar_mojodi_kala);
-
+		// ============================init font
+		utils.setyekanfont(et_date);
+		utils.setyekanfont(et_kala);
+		utils.setyekanfont(et_anbar);
+		utils.setyekanfont(chk_mojodisefr);
+		utils.setyekanfont(chktajmiiy);
+		
 		date.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

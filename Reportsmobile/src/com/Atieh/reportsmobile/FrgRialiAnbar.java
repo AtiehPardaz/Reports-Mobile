@@ -54,6 +54,12 @@ public class FrgRialiAnbar extends Fragment {
 		et_kala = (TextView) view.findViewById(R.id.et_kala_riali_kala);
 		et_anbar = (TextView) view.findViewById(R.id.et_anbarha_riali_kala);
 
+		// ============================init font
+				utils.setyekanfont(et_date);
+				utils.setyekanfont(et_kala);
+				utils.setyekanfont(et_anbar);
+				utils.setyekanfont(chktajmiiy);
+				 
 		date.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

@@ -56,6 +56,10 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 		et_shomarehesab = (EditText) view.findViewById(R.id.et_shomarehesab_vaziatdaryaftikhazane);
 		et_shomarecheck = (EditText) view
 				.findViewById(R.id.et_shomarecheck_vaziatdaryaftikhazane);
+		//=============init font
+		utils.setyekanfont(et_pardakhtkonande);
+		utils.setyekanfont(et_shomarehesab);
+		utils.setyekanfont(et_shomarecheck);
 
 		selpardakhtkonande.setOnClickListener(new OnClickListener() {
 			@Override

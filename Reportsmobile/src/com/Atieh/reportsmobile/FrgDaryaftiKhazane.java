@@ -56,7 +56,7 @@ public class FrgDaryaftiKhazane extends Fragment {
 				.findViewById(R.id.imgbtn_shakhs_daryaftikhazane);
 		btnshow = (ImageButton) view
 				.findViewById(R.id.imgbtn_namayesh_daryafti_khazane);
-		// ============================
+		// ============================TextView
 		et_pardakhtebteda = (TextView) view
 				.findViewById(R.id.et_date_pardakhtebtedaa_daryaftikhazane);
 		et_pardakhtenteha = (TextView) view
@@ -67,7 +67,13 @@ public class FrgDaryaftiKhazane extends Fragment {
 				.findViewById(R.id.et_date_sarresidenteha_daryaftikhazanee);
 		et_shakhs = (TextView) view
 				.findViewById(R.id.et_skhakhs_daryaftikhazane);
-
+//=============init font
+		utils.setyekanfont(et_pardakhtebteda);
+		utils.setyekanfont(et_pardakhtenteha);
+		utils.setyekanfont(et_sarresidebteda);
+		utils.setyekanfont(et_sarresidenteha);
+		utils.setyekanfont(et_sarresidenteha);
+		
 		pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

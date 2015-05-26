@@ -66,6 +66,8 @@ public class SelectDomainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_selectdomain);
 		initview();
+		utils.setyekanfont(et_domain);
+		utils.setyekanfont(et_salmali);
 
 		alertDialog = new AlertDialog.Builder(this).create();
 		flgforresume = 0;
@@ -92,8 +94,6 @@ public class SelectDomainActivity extends Activity {
 			e.printStackTrace();
 		}
 
-		
-		
 		domaintitle = (String[]) domaintitleArray
 				.toArray(new String[domaintitleArray.size()]);
 		domainid = (String[]) domainidArray.toArray(new String[domainidArray
