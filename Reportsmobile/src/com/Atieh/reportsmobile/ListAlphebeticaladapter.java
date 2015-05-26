@@ -53,7 +53,7 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 		TextView title = (TextView) vi.findViewById(R.id.tv_title_alphebetic); // title
 		TextView rownuber = (TextView) vi
 				.findViewById(R.id.tv_rownumber_alphebetical); // rownumber
-
+		utils.setkodakfont(title);
 		id.setText(ids[position]);
 		// id.setVisibility(View.VISIBLE);
 		title.setText(titles[position]);

@@ -29,7 +29,7 @@ public class FrgDaryaftiKhazane extends Fragment {
 	public static int sel = 0;
 	String[] St_titleArray, St_tidArray, St_personcodeArray;
 
-	String customerId, marketerId, sellerId;
+	public static String RecieptManIds;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -67,13 +67,13 @@ public class FrgDaryaftiKhazane extends Fragment {
 				.findViewById(R.id.et_date_sarresidenteha_daryaftikhazanee);
 		et_shakhs = (TextView) view
 				.findViewById(R.id.et_skhakhs_daryaftikhazane);
-//=============init font
+		// =============init font
 		utils.setyekanfont(et_pardakhtebteda);
 		utils.setyekanfont(et_pardakhtenteha);
 		utils.setyekanfont(et_sarresidebteda);
 		utils.setyekanfont(et_sarresidenteha);
 		utils.setyekanfont(et_sarresidenteha);
-		
+
 		pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -136,7 +136,8 @@ public class FrgDaryaftiKhazane extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_tidArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;
@@ -191,7 +192,15 @@ public class FrgDaryaftiKhazane extends Fragment {
 
 					if (flgpardakht == true && flgsarresid == true) {
 						Intent report = new Intent();
-						report.putExtra("gozaresh", "daryaftikhazane");
+
+						String ReportsUrl;
+						ReportsUrl = "Document/GetDocument.aspx?" + "firstUsanceDate="
+								+ et_sarresidebteda.getText() + "&lastUsanceDate="
+								+ et_sarresidenteha.getText()+ "&firstDocumentDate="
+								+ et_pardakhtebteda.getText()+ "&lastDocumentDate="
+								+ et_pardakhtenteha.getText()+ "&RecieptManIds="
+								+RecieptManIds.toString();
+						report.putExtra("gozaresh", ReportsUrl);
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
@@ -247,39 +256,38 @@ public class FrgDaryaftiKhazane extends Fragment {
 			intfromdatepardakht = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_pardakhtebteda.setText(DatepickerActivity.myDay + "/"
+			et_pardakhtebteda.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 
 		} else if (flgbackforResume == 2) {
 			inttodatepardakht = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_pardakhtenteha.setText(DatepickerActivity.myDay + "/"
+			et_pardakhtenteha.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		}
 
 		else if (flgbackforResume == 3) {
 			intfromdatesarresid = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_sarresidebteda.setText(DatepickerActivity.myDay + "/"
+			et_sarresidebteda.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		} else if (flgbackforResume == 4) {
 			inttodatesarresid = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_sarresidenteha.setText(DatepickerActivity.myDay + "/"
+			et_sarresidenteha.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		} else if (flgbackforResume == 5) {
-
+			RecieptManIds = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_shakhs
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}
 
-		// Toast.makeText(getActivity(), "1", 1).show();
 	}
 
 	public static void hideSoftKeyboard(Activity activity) {

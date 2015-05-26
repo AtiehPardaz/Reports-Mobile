@@ -55,6 +55,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	ListView alphebetList;
 	AlertDialog alertDialog;
 	EditText et_search;
+	TextView titlelistview;
 	String[] rownumber;
 	String NewArraytitle[];
 	String NewArrayId[];
@@ -75,9 +76,11 @@ public class ListViewAlphebeticalActivity extends Activity implements
 
 		side_index = (LinearLayout) findViewById(R.id.side_index);
 		selall = (ImageButton) findViewById(R.id.imgbtn_SelAll);
-
+		titlelistview = (TextView) findViewById(R.id.et_titlelistviewalphebetic);
 		et_search = (EditText) findViewById(R.id.et_searchlist);
-
+		
+		utils.setkodakfont(et_search);
+		utils.setkodakfont(titlelistview);
 		// arraytitle va arrayID bayad meghdardehi shavand
 		// arraytitle =new String[SelectDomainActivity.domaintitleArray.size()];
 		// arrayID =new String[SelectDomainActivity.domaintitleArray.size()];;
@@ -185,50 +188,48 @@ public class ListViewAlphebeticalActivity extends Activity implements
 			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
 					int arg3) {
 				// TODO Auto-generated method stub
-				
-//				if (et_search.getText().equals(null)) {
-//					mArrayadapter = new ListAlphebeticaladapter(
-//							ListViewAlphebeticalActivity.this, arrayID,
-//							arraytitle, rownumber, getApplicationContext());
-//					alphebetList.setAdapter(mArrayadapter);
-//
-//				} else {
-					for (int i = 0; i < arraytitle.length; i++) {
 
-						if (arraytitle[i].contains((et_search.getText()
-								.toString()))) {
-							// if
-							// (arraytitle[i].equals((et_search.getText().toString())))
-							// {
+				// if (et_search.getText().equals(null)) {
+				// mArrayadapter = new ListAlphebeticaladapter(
+				// ListViewAlphebeticalActivity.this, arrayID,
+				// arraytitle, rownumber, getApplicationContext());
+				// alphebetList.setAdapter(mArrayadapter);
+				//
+				// } else {
+				for (int i = 0; i < arraytitle.length; i++) {
 
-							
-							 alphebetList.setSelection(Integer
-							 .parseInt((rownumber[i])));
+					if (arraytitle[i].contains((et_search.getText().toString()))) {
+						// if
+						// (arraytitle[i].equals((et_search.getText().toString())))
+						// {
 
-							// Toast.makeText(getApplicationContext(),
-							// "rownum= "+i,
-							// 1).show();
-//							NewArraytitle = new String[arraytitle[i].length()];
-//							NewArrayId = new String[arraytitle[i].length()];
-//							NewArrayrownumber = new String[arraytitle[i]
-//									.length()];
-//
-//							NewArraytitle[i] = arraytitle[i];
-//							NewArrayId[i] = arrayID[i];
-//							NewArrayrownumber[i] = rownumber[i];
-//
-//							// alphebetList.findViewsWithText(null, text, flags)
-//
-//							mArrayadapter = new ListAlphebeticaladapter(
-//									ListViewAlphebeticalActivity.this,
-//									NewArrayId, NewArraytitle,
-//									NewArrayrownumber, getApplicationContext());
-//							alphebetList.setAdapter(mArrayadapter);
+						alphebetList.setSelection(Integer
+								.parseInt((rownumber[i])));
 
-						}
+						// Toast.makeText(getApplicationContext(),
+						// "rownum= "+i,
+						// 1).show();
+						// NewArraytitle = new String[arraytitle[i].length()];
+						// NewArrayId = new String[arraytitle[i].length()];
+						// NewArrayrownumber = new String[arraytitle[i]
+						// .length()];
+						//
+						// NewArraytitle[i] = arraytitle[i];
+						// NewArrayId[i] = arrayID[i];
+						// NewArrayrownumber[i] = rownumber[i];
+						//
+						// // alphebetList.findViewsWithText(null, text, flags)
+						//
+						// mArrayadapter = new ListAlphebeticaladapter(
+						// ListViewAlphebeticalActivity.this,
+						// NewArrayId, NewArraytitle,
+						// NewArrayrownumber, getApplicationContext());
+						// alphebetList.setAdapter(mArrayadapter);
 
 					}
-//				}
+
+				}
+				// }
 			}
 
 		});
@@ -238,7 +239,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 			@Override
 			public void onClick(View arg0) {
 				selvaluefromalphebeticlist = "همه";
-				selidfromalphebeticlist="%20";
+				selidfromalphebeticlist = "%20";
 				finish();
 			}
 		});
@@ -272,9 +273,9 @@ public class ListViewAlphebeticalActivity extends Activity implements
 						.findViewById(R.id.tv_id_alohebetic);
 				txtid = tvid.getText().toString();
 				selvaluefromalphebeticlist = txttitle;
-				
+
 				selidfromalphebeticlist = txtid;
-				
+
 				// Toast.makeText(getApplicationContext(),
 				// txtid + "   " + txttitle, 1).show();
 				finish();
@@ -308,6 +309,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 			textView.setText(index);
 			textView.setTextSize(20);
 			textView.setOnClickListener(this);
+			utils.setyekanfont(textView);
 			indexLayout.addView(textView);
 		}
 	}

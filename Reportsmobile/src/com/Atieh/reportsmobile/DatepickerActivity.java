@@ -1,11 +1,13 @@
 package com.Atieh.reportsmobile;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import pageradapter.Utilities;
 
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DatepickerActivity extends Activity {
 	public Utils utils = Utils.getInstance();
@@ -57,9 +60,13 @@ public class DatepickerActivity extends Activity {
 		date2 = new Date();
 		txt_name_year.setText(Integer.toString(util.getYear(date2)));
 		txt_name_month.setText(util.getMonthStr(date2));
+		int a = util.getDay(date2);
 
-		txt_name_day.setText(Integer.toString(util.getDay(date2)));
-
+		if (a < 10) {
+			txt_name_day.setText("0" + a);
+		} else {
+			txt_name_day.setText(Integer.toString(util.getDay(date2)));
+		}
 		this.setFinishOnTouchOutside(false);
 		top_image_year.setOnClickListener(new View.OnClickListener() {
 
@@ -120,10 +127,16 @@ public class DatepickerActivity extends Activity {
 				// TODO Auto-generated method stub
 
 				getDay = txt_name_day.getText().toString();
-				txt_name_day.setText(getNext_Day(getDay));
-//				if(Integer.parseInt(txt_name_day.getText()<10)){
-					
-//				}
+				getMonth = txt_name_month.getText().toString();
+				if (Integer.parseInt(getMonth) < 7) {
+					txt_name_day.setText(getNext_Day(getDay));
+				} else {
+					txt_name_day.setText(getNext_Daynimedovom(getDay));
+				}
+				// if(Integer.parseInt((String) txt_name_day.getText())<10){
+				// if(txt_name_day.length()<2){
+				// txt_name_day.setText("0"+txt_name_day.getText());
+				// }
 
 			}
 		});
@@ -135,6 +148,14 @@ public class DatepickerActivity extends Activity {
 				// TODO Auto-generated method stub
 
 				getDay = txt_name_day.getText().toString();
+				getMonth = txt_name_month.getText().toString();
+
+				if (Integer.parseInt(getMonth) < 7) {
+					txt_name_day.setText(getPrevious_Day(getDay));
+				} else {
+					txt_name_day.setText(getPrevious_Daynimedovom(getDay));
+				}
+
 				txt_name_day.setText(getPrevious_Day(getDay));
 
 			}
@@ -157,15 +178,15 @@ public class DatepickerActivity extends Activity {
 	}
 
 	private void init_Cal() {
-		weekDayNames.add("1");
-		weekDayNames.add("2");
-		weekDayNames.add("3");
-		weekDayNames.add("4");
-		weekDayNames.add("5");
-		weekDayNames.add("6");
-		weekDayNames.add("7");
-		weekDayNames.add("8");
-		weekDayNames.add("9");
+		weekDayNames.add("01");
+		weekDayNames.add("02");
+		weekDayNames.add("03");
+		weekDayNames.add("04");
+		weekDayNames.add("05");
+		weekDayNames.add("06");
+		weekDayNames.add("07");
+		weekDayNames.add("08");
+		weekDayNames.add("09");
 		weekDayNames.add("10");
 		weekDayNames.add("11");
 		weekDayNames.add("12");
@@ -210,8 +231,8 @@ public class DatepickerActivity extends Activity {
 			idx = 0;
 			return monthNames.get(idx);
 		} else if (idx < 0 || idx + 1 == monthNames.size())
-//			return"";
-		return monthNames.get(idx + 1);
+			// return"";
+			return monthNames.get(idx + 1);
 
 		return monthNames.get(idx + 1);
 	}
@@ -232,6 +253,18 @@ public class DatepickerActivity extends Activity {
 			idx = 0;
 			return weekDayNames.get(idx);
 		} else if (idx < 0 || idx + 1 == weekDayNames.size())
+			// return "";
+			return weekDayNames.get(idx + 1);
+		return weekDayNames.get(idx + 1);
+	}
+
+	public String getNext_Daynimedovom(String uid) {
+		int idx = weekDayNames.indexOf(uid);
+		if (idx >= 29) {
+			idx = 0;
+			return weekDayNames.get(idx);
+		} else if (idx < 0 || idx + 1 == weekDayNames.size())
+			// return "";
 			return weekDayNames.get(idx + 1);
 		return weekDayNames.get(idx + 1);
 	}
@@ -244,6 +277,19 @@ public class DatepickerActivity extends Activity {
 			return weekDayNames.get(idx);
 		}
 		return weekDayNames.get(idx - 1);
+	}
+
+	public String getPrevious_Daynimedovom(String uid) {
+		int idx = weekDayNames.indexOf(uid);
+
+		if (idx <= 1) {
+			idx = 29;
+			return weekDayNames.get(idx);
+
+		}
+
+		return weekDayNames.get(idx - 1);
+
 	}
 
 	@Override
@@ -278,13 +324,13 @@ public class DatepickerActivity extends Activity {
 		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
 		alertDialogBuilder.setTitle("خطا");
-		alertDialogBuilder.setPositiveButton("تایید", 
-			      new DialogInterface.OnClickListener() {
-					
-			         @Override
-			         public void onClick(DialogInterface arg0, int arg1) {						
-			         }
-			      });
+		alertDialogBuilder.setPositiveButton("تایید",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+					}
+				});
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
 	}

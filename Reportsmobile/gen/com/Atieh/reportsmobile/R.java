@@ -1437,19 +1437,19 @@ containing a value of this type.
         public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f050003;
     }
     public static final class color {
-        public static final int abc_background_cache_hint_selector_material_dark=0x7f06003f;
-        public static final int abc_background_cache_hint_selector_material_light=0x7f060040;
+        public static final int abc_background_cache_hint_selector_material_dark=0x7f060040;
+        public static final int abc_background_cache_hint_selector_material_light=0x7f060041;
         public static final int abc_input_method_navigation_guard=0x7f060003;
-        public static final int abc_primary_text_disable_only_material_dark=0x7f060041;
-        public static final int abc_primary_text_disable_only_material_light=0x7f060042;
-        public static final int abc_primary_text_material_dark=0x7f060043;
-        public static final int abc_primary_text_material_light=0x7f060044;
-        public static final int abc_search_url_text=0x7f060045;
+        public static final int abc_primary_text_disable_only_material_dark=0x7f060042;
+        public static final int abc_primary_text_disable_only_material_light=0x7f060043;
+        public static final int abc_primary_text_material_dark=0x7f060044;
+        public static final int abc_primary_text_material_light=0x7f060045;
+        public static final int abc_search_url_text=0x7f060046;
         public static final int abc_search_url_text_normal=0x7f060000;
         public static final int abc_search_url_text_pressed=0x7f060002;
         public static final int abc_search_url_text_selected=0x7f060001;
-        public static final int abc_secondary_text_material_dark=0x7f060046;
-        public static final int abc_secondary_text_material_light=0x7f060047;
+        public static final int abc_secondary_text_material_dark=0x7f060047;
+        public static final int abc_secondary_text_material_light=0x7f060048;
         public static final int accent_material_dark=0x7f06000f;
         public static final int accent_material_light=0x7f06000e;
         /**  solely used on QiblaCompassView 
@@ -1463,6 +1463,7 @@ containing a value of this type.
         public static final int bg_action_green=0x7f060037;
         public static final int blue_actionbar2color=0x7f06003b;
         public static final int blue_green=0x7f06003d;
+        public static final int blue_hard=0x7f06003f;
         public static final int blue_titleactionbar=0x7f06003c;
         public static final int blue_titlecolor=0x7f06003a;
         public static final int blue_yavash=0x7f06003e;
@@ -1866,6 +1867,7 @@ containing a value of this type.
         public static final int et_shomarehesab_vaziatdaryaftikhazane=0x7f090116;
         public static final int et_shomarehesab_vaziatpardakhtikhazane=0x7f09011d;
         public static final int et_skhakhs_daryaftikhazane=0x7f090106;
+        public static final int et_titlelistviewalphebetic=0x7f0900a2;
         public static final int et_todate_faktor_forosh=0x7f0900c2;
         public static final int et_todate_forokhte_forosh=0x7f0900d0;
         public static final int et_todate_forosh=0x7f0900b7;
@@ -2057,7 +2059,6 @@ containing a value of this type.
         public static final int tabbtn_tarkibi_hesabdari=0x7f090067;
         public static final int tabbtn_vaziatasnaddaryafti_khazane=0x7f090093;
         public static final int tabbtn_vaziatasnadpardakhti_khazane=0x7f090090;
-        public static final int textView1=0x7f0900a2;
         public static final int title=0x7f090027;
         public static final int title_forosh=0x7f090052;
         public static final int title_hesabdari=0x7f090065;
