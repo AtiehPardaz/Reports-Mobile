@@ -30,7 +30,7 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
 
-	String customerId, marketerId, sellerId;
+	String CheckNumber, AccountNumberId, PersonNameId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -97,8 +97,11 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 				} else if (et_shomarehesab.getText().toString().matches("")) {
 					showMessage("لطفا شماره حساب را وارد نمایید");
 				}else{
-					Intent report = new Intent();
-					report.putExtra("gozaresh", "vaziatpardakhti");
+					Intent report = new Intent();String ReportsUrl;
+					ReportsUrl = "Document/PayDocumentStatus.aspx?"
+							+ "CheckNumber=" + et_shomarecheck.getText()
+							+ "&AccountNumber=" + et_shomarehesab.getText();
+					report.putExtra("gozaresh", ReportsUrl);
 					report.setClass(getActivity(),
 							ShowreportsActivity.class);
 					startActivity(report);
