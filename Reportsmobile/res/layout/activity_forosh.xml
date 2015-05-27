@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                android:text="گزارش فروش"
+                android:text="@string/gozarehforosh"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/marker_color"
                 android:textColorLink="@color/marker_color" />
@@ -49,7 +49,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_actionbar2color"
-                android:text="کالاوخدمات فروخته شده"
+                android:text="@string/kalavakhadamat"
                 android:textSize="14sp" />
 
             <View
@@ -65,7 +65,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_actionbar2color"
-                android:text="عملکرد مشتریان به تفکیک فاکتور"
+                android:text="@string/Amalkardmoshtarian"
                 android:textSize="14sp" />
 
             <View
@@ -81,8 +81,9 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_actionbar2color"
-                android:text="وضعیت مشتریان"
+                android:text="@string/VaziatMoshtarian"
                 android:textSize="14sp" />
+
         </LinearLayout>
 
         <LinearLayout

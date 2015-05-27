@@ -52,7 +52,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:gravity="center"
-                        android:hint="دامنه"
+                        android:hint="@string/domain"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -79,7 +79,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:gravity="center"
-                        android:hint="سال مالی"
+                        android:hint="@string/salmali"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 

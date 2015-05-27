@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                android:text="گزارش حسابداری"
+                android:text="@string/GozarehhHesabdari"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/marker_color" />
 
@@ -47,7 +47,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_actionbar2color"
-                android:text="گردش ترکیبی دوتا تفصیلی"
+                android:text="@string/Gozarehdotahtafsili"
                 android:textSize="14sp" />
 
             <View
@@ -63,7 +63,7 @@
     android:layout_width="100dp"
     android:layout_height="wrap_content"
     android:background="@color/blue_actionbar2color"
-    android:text="گزارش گردش تفصیلی"
+    android:text="@string/Gozarehhtafsili"
     android:textSize="14sp" />
 
         </LinearLayout>

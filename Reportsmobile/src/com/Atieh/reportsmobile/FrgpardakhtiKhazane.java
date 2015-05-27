@@ -1,5 +1,6 @@
 package com.Atieh.reportsmobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -71,6 +72,49 @@ public class FrgpardakhtiKhazane extends Fragment {
 		utils.setyekanfont(et_sarresidebteda);
 		utils.setyekanfont(et_sarresidenteha);
 		utils.setyekanfont(et_shakhs);
+		
+		// ====================callOnClick
+		et_pardakhtebteda.setOnClickListener(new OnClickListener() {
+					@SuppressLint("NewApi")
+					@Override
+					public void onClick(View arg0) {
+						pardakhtebteda.callOnClick();
+					}
+				});
+		et_pardakhtenteha.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				pardakhtenteha.callOnClick();
+			}
+		});
+
+		et_sarresidebteda.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				sarresidebteda.callOnClick();
+			}
+		});
+		et_sarresidenteha.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				sarresidenteha.callOnClick();
+			}
+		});
+
+		et_shakhs.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				shakhs.callOnClick();
+			}
+		});
+
+		
+		
+		
 		pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

@@ -28,7 +28,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="از تاریخ"
+            android:hint="@string/fromdate"
             android:textSize="14sp" >
 
             <requestFocus />
@@ -58,7 +58,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="تا تاریخ"
+                android:hint="@string/todate"
                 android:textSize="14sp" />
 
         </LinearLayout>
@@ -85,7 +85,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="مشتری"
+                android:hint="@string/moshtari"
                 android:textSize="14sp" />
 
             <TextView
@@ -122,7 +122,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="بازاریاب"
+                android:hint="@string/bazaryab"
                 android:textSize="14sp" />
 
             <TextView
@@ -159,7 +159,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="فروشنده"
+                android:hint="@string/foroshande"
                 android:textSize="14sp" />
 
             <TextView

@@ -1,5 +1,6 @@
 package com.Atieh.reportsmobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -60,6 +61,14 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 				utils.setyekanfont(et_pardakhtkonande);
 				utils.setyekanfont(et_shomarehesab);
 				utils.setyekanfont(et_shomarecheck);
+				// ================callOnClick
+				et_pardakhtkonande.setOnClickListener(new OnClickListener() {
+					@SuppressLint("NewApi")
+					@Override
+					public void onClick(View arg0) {
+						selpardakhtkonande.callOnClick();
+					}
+				});
 		selpardakhtkonande.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

@@ -1,5 +1,6 @@
 package com.Atieh.reportsmobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -68,27 +69,67 @@ public class FrgfaktorForosh extends Fragment {
 		et_foroshande = (TextView) view
 				.findViewById(R.id.et_foroshande_faktor_forosh);
 
-//		============================init font
+		// ============================init font
 		utils.setkodakfont(et_bazar);
 		utils.setyekanfont(et_customer);
 		utils.setyekanfont(et_fromdate);
 		utils.setyekanfont(et_todate);
 		utils.setyekanfont(et_foroshande);
-				
-		 datefromcustomer.setOnClickListener(new OnClickListener() {
-		 @Override
-		 public void onClick(View v) {
-		 startActivity(new Intent(getActivity(),
-		 DatepickerActivity.class));
-		 flgbackforResume = 1;
-		 // do something
+//================= callOnClick
+		et_fromdate.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				datefromcustomer.callOnClick();
+			}
+		});
+		et_todate.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				todateustomer.callOnClick();
+			}
+		});
 		
-		 // final InputMethodManager imm = (InputMethodManager)
-		 // getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-		 // imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+		et_bazar.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selbazar.callOnClick();
+			}
+		});
+		et_customer.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selcustomer.callOnClick();
+			}
+		});
 		
-		 }
-		 });
+		et_foroshande.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selForoshande.callOnClick();
+			}
+		});
+		 
+		
+//============================= imgbtn
+		datefromcustomer.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(getActivity(),
+						DatepickerActivity.class));
+				flgbackforResume = 1;
+				// do something
+
+				// final InputMethodManager imm = (InputMethodManager)
+				// getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+				// imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+
+			}
+		});
 		todateustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -119,7 +160,8 @@ public class FrgfaktorForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 
 				startActivity(intent);
 
@@ -145,7 +187,8 @@ public class FrgfaktorForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 4;
@@ -171,7 +214,8 @@ public class FrgfaktorForosh extends Fragment {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", St_titleArray);
 				intent.putExtra("arrayidfromjson", St_idArray);
-			intent.putExtra("side", true);intent.putExtra("search", true);
+				intent.putExtra("side", true);
+				intent.putExtra("search", true);
 				startActivity(intent);
 
 				flgbackforResume = 5;
@@ -199,16 +243,16 @@ public class FrgfaktorForosh extends Fragment {
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						String ReportsUrl;
-						ReportsUrl ="CustomerByInvoice.aspx?"+"saleStaffIds=" + sellerId.toString()
-														+ "&customerPersonIds=" + customerId.toString()
-														+ "&marketerPersonIds=" + marketerId.toString()
-														+ "&FromDate=" + et_fromdate.getText()
-														+ "&ToDate=" + et_todate.getText();
-						
-						
+						ReportsUrl = "CustomerByInvoice.aspx?"
+								+ "saleStaffIds=" + sellerId.toString()
+								+ "&customerPersonIds=" + customerId.toString()
+								+ "&marketerPersonIds=" + marketerId.toString()
+								+ "&FromDate=" + et_fromdate.getText()
+								+ "&ToDate=" + et_todate.getText();
+
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
-						
+
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);

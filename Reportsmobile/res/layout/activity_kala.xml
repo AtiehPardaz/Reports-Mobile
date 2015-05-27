@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="10dp"
-                android:text="گزارش موجودی کالا و انبار"
+                android:text="@string/Gozarehkalaanbar"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/marker_color" />
 
@@ -47,7 +47,7 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:background="@color/blue_actionbar2color"
-                android:text="ریالی انبار"
+                android:text="@string/rialianbar"
                 android:textSize="14sp" />
 
             <View
@@ -59,12 +59,12 @@
                 android:background="#88a6bd" />
 
 <Button
-                android:id="@+id/tabbtn_mojodi_kala"
-                android:layout_width="90dp"
-                android:layout_height="wrap_content"
-                android:background="@color/blue_actionbar2color"
-                android:text="موجودی کالا"
-                android:textSize="14sp" />
+    android:id="@+id/tabbtn_mojodi_kala"
+    android:layout_width="90dp"
+    android:layout_height="wrap_content"
+    android:background="@color/blue_actionbar2color"
+    android:text="@string/GozarehMojodiKala"
+    android:textSize="14sp" />
 
         </LinearLayout>
 

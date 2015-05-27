@@ -27,7 +27,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="تاریخ پرداخت ابتدا"
+            android:hint="@string/pardakhtebteda"
             android:textSize="14sp" >
 
             <requestFocus />
@@ -55,7 +55,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="تاریخ پرداخت انتها"
+            android:hint="@string/pardakhtenteha"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -81,7 +81,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="تاریخ سررسید ابتدا"
+            android:hint="@string/sarresidebteda"
             android:textSize="14sp" >
 
             <requestFocus />
@@ -109,7 +109,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="تاریخ سررسید انتها"
+            android:hint="@string/sarresidenteha"
             android:textSize="14sp" >
 
             <requestFocus />
@@ -138,7 +138,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="شخص گیرنده"
+            android:hint="@string/shakhsgirande"
             android:textSize="14sp" />
 
     </LinearLayout>

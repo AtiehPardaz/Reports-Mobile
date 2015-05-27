@@ -39,7 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:hint="نام کاربری"
+                        android:hint="@string/namkarbari"
                         android:textStyle="bold" >
 
                     </EditText>
@@ -57,9 +57,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right"
-                        android:hint="رمز عبور"
+                        android:hint="@string/ramz"
                         android:inputType="textPassword"
                         android:textStyle="bold" >
+
                     </EditText>
                 </LinearLayout>
 

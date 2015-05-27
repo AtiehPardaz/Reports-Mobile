@@ -1,5 +1,6 @@
 package com.Atieh.reportsmobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -72,7 +73,46 @@ public class FrgDaryaftiKhazane extends Fragment {
 		utils.setyekanfont(et_pardakhtenteha);
 		utils.setyekanfont(et_sarresidebteda);
 		utils.setyekanfont(et_sarresidenteha);
-		utils.setyekanfont(et_sarresidenteha);
+		utils.setyekanfont(et_shakhs);
+
+		// ====================callOnClick
+		et_pardakhtebteda.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				pardakhtebteda.callOnClick();
+			}
+		});
+		et_pardakhtenteha.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				pardakhtenteha.callOnClick();
+			}
+		});
+		et_sarresidebteda.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				sarresidebteda.callOnClick();
+			}
+		});
+
+		et_sarresidenteha.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				sarresidenteha.callOnClick();
+			}
+		});
+
+		et_shakhs.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				shakhs.callOnClick();
+			}
+		});
 
 		pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@Override
@@ -194,12 +234,16 @@ public class FrgDaryaftiKhazane extends Fragment {
 						Intent report = new Intent();
 
 						String ReportsUrl;
-						ReportsUrl = "Document/GetDocument.aspx?" + "firstUsanceDate="
-								+ et_sarresidebteda.getText() + "&lastUsanceDate="
-								+ et_sarresidenteha.getText()+ "&firstDocumentDate="
-								+ et_pardakhtebteda.getText()+ "&lastDocumentDate="
-								+ et_pardakhtenteha.getText()+ "&RecieptManIds="
-								+RecieptManIds.toString();
+						ReportsUrl = "Document/GetDocument.aspx?"
+								+ "firstUsanceDate="
+								+ et_sarresidebteda.getText()
+								+ "&lastUsanceDate="
+								+ et_sarresidenteha.getText()
+								+ "&firstDocumentDate="
+								+ et_pardakhtebteda.getText()
+								+ "&lastDocumentDate="
+								+ et_pardakhtenteha.getText()
+								+ "&RecieptManIds=" + RecieptManIds.toString();
 						report.putExtra("gozaresh", ReportsUrl);
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);

@@ -67,7 +67,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="انبارها"
+                android:hint="@string/anbarha"
                 android:textSize="14sp" />
 
             <TextView
@@ -104,7 +104,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="کالاها"
+                android:hint="@string/kalaha"
                 android:textSize="14sp" />
 
             <TextView
@@ -134,7 +134,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/marker_color"
                 android:gravity="right|center"
-                android:text="عدم نمایش کالاهای موجودی صفر"
+                android:text="@string/mojodisefr"
                 android:textColor="@color/first_row_text_color"
                 android:textSize="13sp" />
 
@@ -147,7 +147,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/marker_color"
                 android:gravity="right|center"
-                android:text="نمایش بصورت تجمیعی            "
+                android:text="@string/tajmie"
                 android:textColor="@color/first_row_text_color"
                 android:textSize="13sp" />
 

@@ -2,6 +2,7 @@ package com.Atieh.reportsmobile;
 
 import java.util.ArrayList;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -79,6 +80,22 @@ public class SelectDomainActivity extends Activity {
 
 		selyear.setOnClickListener(null);
 
+		et_domain.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				seldomain.callOnClick();
+			}
+		});
+		et_salmali.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selyear.callOnClick();
+			}
+		});
 		try {
 
 			for (int i = 0; i < MainActivity.authenticate.getResult()

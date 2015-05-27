@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="لطفا یکی از گزینه های زیر را انتخاب نمایید"
+        android:text="@string/entekhab"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/blue_hard"
         android:textColorLink="@color/blue_actionbar2color"
@@ -26,7 +26,7 @@
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:gravity="center|right"
-        android:hint="جستجو"
+        android:hint="@string/jostojo"
         android:paddingRight="5dp"
         android:textSize="14sp" />
 

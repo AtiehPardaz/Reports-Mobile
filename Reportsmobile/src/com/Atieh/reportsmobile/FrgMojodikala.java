@@ -1,5 +1,6 @@
 package com.Atieh.reportsmobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -62,7 +63,29 @@ public class FrgMojodikala extends Fragment {
 		utils.setyekanfont(et_anbar);
 		utils.setyekanfont(chk_mojodisefr);
 		utils.setyekanfont(chktajmiiy);
-		
+		// ====================callOnClick
+		et_date.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				date.callOnClick();
+			}
+		});
+		et_anbar.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selanbar.callOnClick();
+			}
+		});
+		et_kala.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selKala.callOnClick();
+			}
+		});
+
 		date.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {

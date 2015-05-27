@@ -1,5 +1,6 @@
 package com.Atieh.reportsmobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -89,6 +90,59 @@ public class FrgKalaForosh extends Fragment {
 		utils.setyekanfont(et_foroshande);
 		utils.setyekanfont(et_kala);
 		utils.setyekanfont(et_khadamat);
+		// ================= callOnClick
+		et_fromdate.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				datefromcustomer.callOnClick();
+			}
+		});
+		et_todate.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				todateustomer.callOnClick();
+			}
+		});
+
+		et_bazar.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selbazar.callOnClick();
+			}
+		});
+		et_customer.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selcustomer.callOnClick();
+			}
+		});
+
+		et_foroshande.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selForoshande.callOnClick();
+			}
+		});
+
+		et_kala.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selKala.callOnClick();
+			}
+		});
+		et_khadamat.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selKhadamat.callOnClick();
+			}
+		});
 
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
@@ -282,12 +336,12 @@ public class FrgKalaForosh extends Fragment {
 						Intent report = new Intent();
 
 						String ReportsUrl;
-						ReportsUrl = "SaleInvoice/SaleInvoice.aspx?" + "saleStaffIds="
-								+ sellerId.toString() + "&customerPersonIds="
-								+ customerId.toString() + "&marketerPersonIds="
-								+ marketerId.toString() + "&FromDate="
-								+ et_fromdate.getText() + "&ToDate="
-								+ et_todate.getText();
+						ReportsUrl = "SaleInvoice/SaleInvoice.aspx?"
+								+ "saleStaffIds=" + sellerId.toString()
+								+ "&customerPersonIds=" + customerId.toString()
+								+ "&marketerPersonIds=" + marketerId.toString()
+								+ "&FromDate=" + et_fromdate.getText()
+								+ "&ToDate=" + et_todate.getText();
 						report.putExtra("gozaresh", ReportsUrl);
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
@@ -348,7 +402,7 @@ public class FrgKalaForosh extends Fragment {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_fromdate.setText(DatepickerActivity.myYear+ "/"
+			et_fromdate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
 					+ DatepickerActivity.myDay);
 
@@ -375,7 +429,7 @@ public class FrgKalaForosh extends Fragment {
 			productId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_kala.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 7) {
-			servicesId= ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			servicesId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_khadamat
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

@@ -1,5 +1,6 @@
 package com.Atieh.reportsmobile;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -64,12 +65,54 @@ public class frg_customer_forosh extends Fragment {
 		selbazar = (ImageButton) view.findViewById(R.id.imgbtn_bazaryab_forosh);
 		selForoshande = (ImageButton) view
 				.findViewById(R.id.imgbtn_foroshande_forosh);
-
+		// ===========init font
 		utils.setkodakfont(et_bazar);
 		utils.setyekanfont(et_customer);
 		utils.prepareTextView(et_fromdate);
 		utils.prepareTextView(et_todate);
 		utils.prepareTextView(et_foroshande);
+
+		et_fromdate.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				datefromcustomer.callOnClick();
+			}
+		});
+		et_todate.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				todateustomer.callOnClick();
+			}
+		});
+		et_bazar.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selbazar.callOnClick();
+			}
+		});
+		et_customer.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selcustomer.callOnClick();
+			}
+		});
+		et_foroshande.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selForoshande.callOnClick();
+			}
+		});
+
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -198,16 +241,16 @@ public class frg_customer_forosh extends Fragment {
 					if (checkdate(intfromdate, inttodate) == 0) {
 
 						String ReportsUrl;
-						ReportsUrl ="Report.aspx?"+"saleStaffIds=" + sellerId.toString()
-								+ "&customerPersonIds=" + customerId.toString()
-								+ "&marketerPersonIds=" + marketerId.toString()
-								+ "&FromDate=" + et_fromdate.getText()
-								+ "&ToDate=" + et_todate.getText();
+						ReportsUrl = "Report.aspx?" + "saleStaffIds="
+								+ sellerId.toString() + "&customerPersonIds="
+								+ customerId.toString() + "&marketerPersonIds="
+								+ marketerId.toString() + "&FromDate="
+								+ et_fromdate.getText() + "&ToDate="
+								+ et_todate.getText();
 
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
 
-						
 						report.putExtra("sellerId", sellerId);
 
 						report.setClass(getActivity(),
@@ -248,10 +291,11 @@ public class frg_customer_forosh extends Fragment {
 		int flgcheck = 0;
 		if (todate - fromdate > 0) {
 			flgcheck = 0;
-//			Toast.makeText(getActivity(), todate - fromdate+"f"+fromdate+"t"+todate, 1).show();
+			// Toast.makeText(getActivity(), todate -
+			// fromdate+"f"+fromdate+"t"+todate, 1).show();
 			// "halate dorost hamine
 		} else if (todate - fromdate < 0) {
-			
+
 			flgcheck = 1;
 			// "tarikhe dovom kochaktarast"
 
@@ -292,7 +336,7 @@ public class frg_customer_forosh extends Fragment {
 			marketerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_bazar.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 5) {
-			
+
 			sellerId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 
 			et_foroshande

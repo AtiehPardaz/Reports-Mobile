@@ -30,7 +30,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="سال"
+                android:text="@string/DatePickerYear"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -78,7 +78,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="ماه"
+                android:text="@string/DatePickerMonth"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -132,7 +132,7 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="روز"
+                android:text="@string/DatePickerDay"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 

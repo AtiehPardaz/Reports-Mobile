@@ -29,13 +29,11 @@ public class FrgGardeshHesabdari extends Fragment {
 	TextView et_fromdate, et_todate;
 	EditText selecttafsil;
 	Spinner spinertafsil;
-	
+
 	int flgbackforResume = 0;
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray;
-
-	
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -50,7 +48,7 @@ public class FrgGardeshHesabdari extends Fragment {
 		View view = inflater.inflate(R.layout.frg_hesabdari_gardesh, container,
 				false);
 		// hideSoftKeyboard(getActivity());
-		
+
 		selecttafsil = (EditText) view
 				.findViewById(R.id.et_shakhsgardesh_hesabdarii);
 		datefromcustomer = (ImageButton) view
@@ -66,63 +64,66 @@ public class FrgGardeshHesabdari extends Fragment {
 				.findViewById(R.id.et_fromdate_gardesh_hesabdari);
 		et_todate = (TextView) view
 				.findViewById(R.id.et_todate_gardesh_hesabdari);
-		//=============init font
-				utils.setyekanfont(et_fromdate);
-				utils.setyekanfont(et_todate);
- 
-		ArrayAdapter<String> arraytafsiltitle = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item) ;
+		// =============init font
+		utils.setyekanfont(et_fromdate);
+		utils.setyekanfont(et_todate);
 
-//		ArrayAdapter<CharSequence> arraytafsiltitle = ArrayAdapter.createFromResource(
-//				getActivity(), R.array.tafsiltitle,
-//				android.R.layout.simple_spinner_item);
-		
-		arraytafsiltitle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		ArrayAdapter<String> arraytafsiltitle = new ArrayAdapter<String>(
+				getActivity(), android.R.layout.simple_spinner_dropdown_item);
+
+		// ArrayAdapter<CharSequence> arraytafsiltitle =
+		// ArrayAdapter.createFromResource(
+		// getActivity(), R.array.tafsiltitle,
+		// android.R.layout.simple_spinner_item);
+
+		arraytafsiltitle
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		arraytafsiltitle.add("hint");
 		arraytafsiltitle.add("1");
 		arraytafsiltitle.add("2");
 		arraytafsiltitle.add("3");
 		arraytafsiltitle.add("4");
-		
+
 		spinertafsil.setAdapter(arraytafsiltitle);
-		
+
 		spinertafsil.setSelection(-1);
 		spinertafsil
-		.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-			public void onItemSelected(AdapterView<?> parent,
-					View view, int pos, long id) {
+				.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+					public void onItemSelected(AdapterView<?> parent,
+							View view, int pos, long id) {
 
-				String text = spinertafsil.getSelectedItem().toString();
-				switch (text) {
-				case "شخص":
-					selecttafsil.setText("شخص");
-					break;
-				case "ارز":
-					selecttafsil.setText("ارز");
-					break;
-				case "مرکز هزینه":
-					selecttafsil.setText("مرکز هزینه");
-					break;
-				case "مرکز پروژه":
-					selecttafsil.setText("مرکز پروژه");
-					break;
+						String text = spinertafsil.getSelectedItem().toString();
+						switch (text) {
+						case "شخص":
+							selecttafsil.setText("شخص");
+							break;
+						case "ارز":
+							selecttafsil.setText("ارز");
+							break;
+						case "مرکز هزینه":
+							selecttafsil.setText("مرکز هزینه");
+							break;
+						case "مرکز پروژه":
+							selecttafsil.setText("مرکز پروژه");
+							break;
 
-				default:
-					selecttafsil.setText("شخص");
-				}
+						default:
+							selecttafsil.setText("شخص");
+						}
 
-			}
+					}
 
-			public void onNothingSelected(AdapterView<?> parent) {
+					public void onNothingSelected(AdapterView<?> parent) {
+					}
+				});
+		opennspiner.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+
+				spinertafsil.performClick();
 			}
 		});
-opennspiner.setOnClickListener(new OnClickListener() {
-	
-	@Override
-	public void onClick(View arg0) {
-		
-		spinertafsil.performClick();
-	}
-});
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -229,16 +230,16 @@ opennspiner.setOnClickListener(new OnClickListener() {
 			intfromdate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
 
-			et_fromdate.setText(DatepickerActivity.myDay + "/"
+			et_fromdate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 
 		} else if (flgbackforResume == 2) {
 			inttodate = Integer.parseInt(DatepickerActivity.myDay
 					+ DatepickerActivity.myMonth + DatepickerActivity.myYear);
-			et_todate.setText(DatepickerActivity.myDay + "/"
+			et_todate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
-					+ DatepickerActivity.myYear);
+					+ DatepickerActivity.myDay);
 		}
 
 		// Toast.makeText(getActivity(), "1", 1).show();
