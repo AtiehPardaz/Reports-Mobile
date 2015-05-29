@@ -1,13 +1,11 @@
 package com.Atieh.reportsmobile;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import pageradapter.Utilities;
 
-import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -18,7 +16,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class DatepickerActivity extends Activity {
 	public Utils utils = Utils.getInstance();

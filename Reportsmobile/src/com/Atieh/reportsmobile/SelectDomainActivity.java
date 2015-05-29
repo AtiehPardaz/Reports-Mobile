@@ -16,7 +16,6 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 import authenticationPack.Domain;
 
 public class SelectDomainActivity extends Activity {

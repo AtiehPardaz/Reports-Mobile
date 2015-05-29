@@ -6,15 +6,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import dataBase.database;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -43,8 +40,6 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	public static String txtid;
 	public static String txttitle;
 	LinearLayout side_index;
-	database db;
-	Cursor c;
 	Boolean sidepicker = true;
 	Boolean searchable = true;
 	ListAlphebeticaladapter mArrayadapter;// برای مقداردهی لیست ما
@@ -116,59 +111,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 			et_search.setVisibility(View.VISIBLE);
 			et_search.setVisibility(View.VISIBLE);
 		}
-		// arraytitle=(String[])
-		// SelectDomainActivity.domaintitleArray.toArray(new String
-		// [SelectDomainActivity.domaintitleArray.size()]);
-		// arrayID=(String[]) SelectDomainActivity.domainidArray.toArray(new
-		// String [SelectDomainActivity.domaintitleArray.size()]);
-		// for(int i = 0 ; i < SelectDomainActivity.domaintitleArray.size() ;
-		// i++ ){
-		//
-		// arraytitle[i]=SelectDomainActivity.domaintitleArray.get(i);
-		//
-		// arrayID[i] =SelectDomainActivity.domainidArray.get(i);
-		// }
 
-		// ==================================== from db
-		// db = new database(this);
-		// db.database();
-		// db.open();
-		// // گرفتن اطلاعات از دیتابیس xml
-		// if (frg_customer_forosh.sel == 1) {
-		// c = db.GetCustomers();
-		// } else if (frg_customer_forosh.sel == 2) {
-		// c = db.Getbazar();
-		// }
-		//
-		// arrayID = new String[c.getCount()];
-		// arraytitle = new String[c.getCount()];
-		//
-		// int i = 0;
-		//
-		// if (c.moveToFirst()) {
-		//
-		// do {
-		//
-		// try {
-		//
-		// arrayID[i] = c.getString(0); // 0 id
-		// arraytitle[i] = c.getString(1); // 1 title
-		//
-		// i++;
-		//
-		// } catch (Exception e) {
-		//
-		// e.printStackTrace();
-		// }
-		//
-		// } while (c.moveToNext());
-		// }
-		//
-		// db.close();
-		// ===================================================
-		// گرفتن اطلاعات از فایل xml
-		// String[] customer = getResources().getStringArray(
-		// R.array.customer_array);
 		et_search.addTextChangedListener(new TextWatcher() {
 
 			@Override

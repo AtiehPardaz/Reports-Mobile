@@ -16,7 +16,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class FrgRialiAnbar extends Fragment {
 	public Utils utils = Utils.getInstance();
