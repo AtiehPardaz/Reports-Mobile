@@ -2168,17 +2168,17 @@ containing a value of this type.
         public static final int main=0x7f0d0000;
     }
     public static final class string {
-        public static final int Amalkardmoshtarian=0x7f0a0025;
-        public static final int DatePickerDay=0x7f0a0023;
-        public static final int DatePickerMonth=0x7f0a0022;
-        public static final int DatePickerYear=0x7f0a0021;
-        public static final int GozarehMojodiKala=0x7f0a002c;
-        public static final int Gozarehdotahtafsili=0x7f0a002a;
+        public static final int Amalkardmoshtarian=0x7f0a0027;
+        public static final int DatePickerDay=0x7f0a0025;
+        public static final int DatePickerMonth=0x7f0a0024;
+        public static final int DatePickerYear=0x7f0a0023;
+        public static final int GozarehMojodiKala=0x7f0a002e;
+        public static final int Gozarehdotahtafsili=0x7f0a002c;
         /** ====================  
          */
-        public static final int GozarehhHesabdari=0x7f0a0028;
-        public static final int Gozarehhtafsili=0x7f0a0029;
-        public static final int Gozarehkalaanbar=0x7f0a002b;
+        public static final int GozarehhHesabdari=0x7f0a002a;
+        public static final int Gozarehhtafsili=0x7f0a002b;
+        public static final int Gozarehkalaanbar=0x7f0a002d;
         public static final int HttpStatusMessageBadGateway=0x7f0a001e;
         public static final int HttpStatusMessageBadRequest=0x7f0a0016;
         public static final int HttpStatusMessageForbidden=0x7f0a0018;
@@ -2192,7 +2192,7 @@ containing a value of this type.
         public static final int HttpStatusMessageUnauthorized=0x7f0a0017;
         public static final int LoginErrorMessageGeneric=0x7f0a0015;
         public static final int LoginErrorTitle=0x7f0a0014;
-        public static final int VaziatMoshtarian=0x7f0a0024;
+        public static final int VaziatMoshtarian=0x7f0a0026;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -2250,45 +2250,47 @@ containing a value of this type.
          */
         public static final int abc_toolbar_collapse_description=0x7f0a0004;
         public static final int action_settings=0x7f0a0012;
-        public static final int anbarha=0x7f0a0040;
+        public static final int anbarha=0x7f0a0042;
         public static final int app_name=0x7f0a0010;
-        public static final int asnaddaryafti=0x7f0a002f;
-        public static final int asnadpardakhti=0x7f0a0031;
-        public static final int bazaryab=0x7f0a003c;
-        public static final int date=0x7f0a0044;
-        public static final int domain=0x7f0a0037;
+        public static final int asnaddaryafti=0x7f0a0031;
+        public static final int asnadpardakhti=0x7f0a0033;
+        public static final int bazaryab=0x7f0a003e;
+        public static final int date=0x7f0a0046;
+        public static final int domain=0x7f0a0039;
         /** ====================  
          */
-        public static final int entekhab=0x7f0a0033;
-        public static final int foroshande=0x7f0a003d;
-        public static final int fromdate=0x7f0a0039;
-        public static final int gozarehforosh=0x7f0a0027;
+        public static final int entekhab=0x7f0a0035;
+        public static final int foroshande=0x7f0a003f;
+        public static final int fromdate=0x7f0a003b;
+        public static final int gozarehforosh=0x7f0a0029;
         /** ====================  
          */
-        public static final int gozareshKhazane=0x7f0a002e;
+        public static final int gozareshKhazane=0x7f0a0030;
         public static final int hello_world=0x7f0a0011;
-        public static final int jostojo=0x7f0a0034;
-        public static final int kala=0x7f0a003e;
-        public static final int kalaha=0x7f0a0041;
-        public static final int kalavakhadamat=0x7f0a0026;
-        public static final int khadamat=0x7f0a003f;
-        public static final int mojodisefr=0x7f0a0042;
-        public static final int moshtari=0x7f0a003b;
-        public static final int namkarbari=0x7f0a0035;
+        public static final int jostojo=0x7f0a0036;
+        public static final int kala=0x7f0a0040;
+        public static final int kalaha=0x7f0a0043;
+        public static final int kalavakhadamat=0x7f0a0028;
+        public static final int khadamat=0x7f0a0041;
+        public static final int mojodisefr=0x7f0a0044;
+        public static final int moshtari=0x7f0a003d;
+        public static final int namkarbari=0x7f0a0037;
         public static final int ok=0x7f0a0013;
-        public static final int pardakhtebteda=0x7f0a0045;
-        public static final int pardakhtenteha=0x7f0a0046;
-        public static final int ramz=0x7f0a0036;
-        public static final int rialianbar=0x7f0a002d;
-        public static final int salmali=0x7f0a0038;
-        public static final int sarresidebteda=0x7f0a0047;
-        public static final int sarresidenteha=0x7f0a0048;
-        public static final int shakhsgirande=0x7f0a004a;
-        public static final int shakhspardakhtkonande=0x7f0a0049;
-        public static final int tajmie=0x7f0a0043;
-        public static final int todate=0x7f0a003a;
-        public static final int vaziatasnaddaryafti=0x7f0a0030;
-        public static final int vaziatasnadpardakhti=0x7f0a0032;
+        public static final int pardakhtebteda=0x7f0a0047;
+        public static final int pardakhtenteha=0x7f0a0048;
+        public static final int pleaseWait=0x7f0a0022;
+        public static final int ramz=0x7f0a0038;
+        public static final int reportIsLoading=0x7f0a0021;
+        public static final int rialianbar=0x7f0a002f;
+        public static final int salmali=0x7f0a003a;
+        public static final int sarresidebteda=0x7f0a0049;
+        public static final int sarresidenteha=0x7f0a004a;
+        public static final int shakhsgirande=0x7f0a004c;
+        public static final int shakhspardakhtkonande=0x7f0a004b;
+        public static final int tajmie=0x7f0a0045;
+        public static final int todate=0x7f0a003c;
+        public static final int vaziatasnaddaryafti=0x7f0a0032;
+        public static final int vaziatasnadpardakhti=0x7f0a0034;
     }
     public static final class style {
         /** 

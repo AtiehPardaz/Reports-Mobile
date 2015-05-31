@@ -19,6 +19,9 @@
     <string name="HttpStatusMessageServiceUnavailable">503 سرویس درخواستی شما موجود نیست</string>
     <string name="HttpStatusMessageGatewayTimeout">504 پاسخ مناسبی از  سرور  دریافت نشد</string>
 
+	<string name="reportIsLoading">گزارش در حال بارگزاری می باشد</string>
+	<string name="pleaseWait">لطفا منتظر باشید</string>
+    
     <string-array name="tafsiltitle">
         <item>عنوان تفصیل</item>
         <item>ارز</item>
@@ -93,17 +96,5 @@
           <string name="sarresidenteha">تاریخ سررسید انتها</string>
             <string name="shakhspardakhtkonande">شخص پرداخت کننده</string>
             <string name="shakhsgirande">شخص گیرنده</string>
-            
-         
-         
-        
-        
-       
- 
-        
-       
-       
-    
-    
 
 </resources>
