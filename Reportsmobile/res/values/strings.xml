@@ -21,6 +21,8 @@
 
 	<string name="reportIsLoading">گزارش در حال بارگزاری می باشد</string>
 	<string name="pleaseWait">لطفا منتظر باشید</string>
+	<string name="pleaseEnterUsername">لطفا نام کاربری را وارد نمایید</string>
+	<string name="pleaseEnterPassword">لطفا رمز عبور را وارد نمایید</string>
     
     <string-array name="tafsiltitle">
         <item>عنوان تفصیل</item>

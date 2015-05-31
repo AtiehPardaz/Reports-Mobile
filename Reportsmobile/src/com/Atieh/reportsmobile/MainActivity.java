@@ -62,12 +62,12 @@ public class MainActivity extends Activity {
 		boolean cancel = false;
 		View focusview = null;
 		if (TextUtils.isEmpty(mUser)) {
-			et_username.setError("لطفا نام کاربری را وارد نمایید");
+			et_username.setError(getString(R.string.pleaseEnterUsername));
 			focusview = et_username;
 			cancel = true;
 		}
 		if (TextUtils.isEmpty(mPass)) {
-			et_password.setError("لطفا رمز عبور را وارد نمایید");
+			et_password.setError(getString(R.string.pleaseEnterPassword));
 			focusview = et_password;
 			cancel = true;
 		}

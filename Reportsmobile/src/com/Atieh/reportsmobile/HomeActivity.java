@@ -6,6 +6,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
+import webservices.NetworkUtils;
 import webservices.ServiceGenerator;
 import GetAllCostCentersPack.GetAllCostCenters;
 import GetAllCostCentersPack.GetAllCostCentersInterface;
@@ -30,6 +31,7 @@ import GetAllWarehousesPack.GetAllWarehousesInterface;
 import GetDetailLevelNumberPack.GetDetailLevelNumber;
 import GetDetailLevelNumberPack.GetDetailLevelNumberInterface;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -65,6 +67,7 @@ public class HomeActivity extends Activity {
 	int contofpermission = 0;
 	private boolean _doubleBackToExitPressedOnce = false;
 	public static int[] mypermission = new int[5];
+	NetworkUtils netutil = new NetworkUtils(this);
 
 	public static ArrayList<String> sellertitleArray;
 	public static ArrayList<String> sellerpersoncodeArray;
@@ -124,7 +127,21 @@ public class HomeActivity extends Activity {
 		initview();
 		token = MainActivity.authenticate.getResult().getToken();
 
-		getSellers();
+//		if(netutil.isNetworkAvailable())
+//		{
+			getSellers();
+//		}
+//		else
+//		{
+//			 String message =
+//			 "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
+//			 AlertDialog.Builder builder =
+//			 new
+//			 AlertDialog.Builder(HomeActivity.this).setTitle("title").setMessage(message);
+//			 builder.setPositiveButton(R.string.ok, null);
+//			 builder.show();
+//			
+//		}
 
 		forosh.setImageResource(R.drawable.backmenutransparent);
 		khazane.setImageResource(R.drawable.backmenutransparent);
@@ -220,9 +237,10 @@ public class HomeActivity extends Activity {
 					}
 
 					@Override
-					public void failure(RetrofitError error) {
-						// TODO Auto-generated method stub
-							
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);							
 					}
 					});		
 	}
@@ -256,9 +274,10 @@ public class HomeActivity extends Activity {
 					}
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
-						
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
 					}					
 				});
 	}
@@ -275,10 +294,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token, new Callback<GetAllPerson>(){
 
 					@Override
-					public void failure(RetrofitError error) {
-						// TODO Auto-generated method stub
-							
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllPerson thePerson, Response response) {
@@ -313,9 +333,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token,new Callback<GetAllMarketers>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub		
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllMarketers theMarketer, Response arg1) {
@@ -332,9 +354,7 @@ public class HomeActivity extends Activity {
 						}
 							
 						getProducts();
-							
 					}
-						
 				});
 	}
 	
@@ -351,9 +371,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token,new Callback<GetAllProduct>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub	
-						}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllProduct theProduct, Response arg1) {
@@ -386,9 +408,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token,new Callback<GetAllService>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub		
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllService theService, Response arg1) {
@@ -404,10 +428,8 @@ public class HomeActivity extends Activity {
 						}
 							
 						getWarehouses();
-					}
-						
+					}	
 				});
-
 	}
 	
 	public void getWarehouses()
@@ -422,10 +444,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token,new Callback<GetAllWarehouses>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
-							
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllWarehouses theWarehouse, Response arg1) {
@@ -458,9 +481,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token, new Callback<GetAllCurrencies>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub						
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllCurrencies theCurrency, Response arg1) {
@@ -492,10 +517,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token, new Callback<GetAllProjects>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
-							
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllProjects theProject, Response arg1) {
@@ -510,7 +536,6 @@ public class HomeActivity extends Activity {
 							
 						getCostCenters();
 					}
-						
 				});
 	}
 	
@@ -526,9 +551,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token, new Callback<GetAllCostCenters>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub							
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetAllCostCenters theCostCenter,
@@ -560,9 +587,11 @@ public class HomeActivity extends Activity {
 				SelectDomainActivity.returnedYearID, token, new Callback<GetDetailLevelNumber>(){
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
-					}
+					public void failure(RetrofitError retrofitError) {
+						String title = "title";
+						String body = netutil.handleRetrofitError(retrofitError);
+						showDialog(title, body);													
+					}					
 
 					@Override
 					public void success(GetDetailLevelNumber theLevelNumber,
@@ -585,7 +614,7 @@ public class HomeActivity extends Activity {
 		}
 
 		this._doubleBackToExitPressedOnce = true;
-		Toast.makeText(this, "برای خروج کلید بازگشت را دوباره فشار دهید",
+		Toast.makeText(this, "برای خروج کلید بازگشت را دوباره فشار دهید ",
 				Toast.LENGTH_SHORT).show();
 		new Handler().postDelayed(new Runnable() {
 			@Override
@@ -661,5 +690,13 @@ public class HomeActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "بدون دسترسی", Toast.LENGTH_LONG).show();
 		}
 	}// End onResume
+
+	public void showDialog(String title, String message)
+	{
+		AlertDialog.Builder builder = new AlertDialog.Builder(
+				HomeActivity.this).setTitle(title).setMessage(message);
+		builder.setPositiveButton(R.string.ok, null);
+		builder.show();		
+	}
 
 }
