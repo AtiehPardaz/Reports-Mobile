@@ -23,6 +23,8 @@
 	<string name="pleaseWait">لطفا منتظر باشید</string>
 	<string name="pleaseEnterUsername">لطفا نام کاربری را وارد نمایید</string>
 	<string name="pleaseEnterPassword">لطفا رمز عبور را وارد نمایید</string>
+	<string name="pleaseSelectDomain">لطفا دامنه را انتخاب نمایید </string>
+	<string name="pleaseselectDomainFirst">لطفا ابتدا  دامنه  و سپس سال مالی را  انتخاب نمایید</string>
     
     <string-array name="tafsiltitle">
         <item>عنوان تفصیل</item>
