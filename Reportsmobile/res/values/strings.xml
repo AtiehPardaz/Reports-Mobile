@@ -5,7 +5,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="ok">تایید</string>
-    <string name="LoginErrorTitle">خطا</string>
+    <string name="cancel">لغو</string>
+    <string name="errorTitle">خطا</string>
+    <string name="warningTitle">توجه</string>
     <string name="LoginErrorMessageGeneric">Generic Message</string>
     <string name="HttpStatusMessageBadRequest">400   آدرس در خواستی به سرور معتبر نمی باشد</string>
     <string name="HttpStatusMessageUnauthorized">401 دسترسی غیر مجاز،  آدرس در خواست شده نیاز به ارائه نام کاربری و کلمه عبور میباشد</string>
@@ -24,7 +26,10 @@
 	<string name="pleaseEnterUsername">لطفا نام کاربری را وارد نمایید</string>
 	<string name="pleaseEnterPassword">لطفا رمز عبور را وارد نمایید</string>
 	<string name="pleaseSelectDomain">لطفا دامنه را انتخاب نمایید </string>
+	<string name="pleaseEnterDomainFirst">ابتدا دامنه را وارد نمایید</string>
 	<string name="pleaseselectDomainFirst">لطفا ابتدا  دامنه  و سپس سال مالی را  انتخاب نمایید</string>
+	<string name="dataRxErrorMsg">خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.</string>
+	<string name="wouldYouLikeToExit">آیا می خواهید از برنامه خارج شوید؟</string>
     
     <string-array name="tafsiltitle">
         <item>عنوان تفصیل</item>

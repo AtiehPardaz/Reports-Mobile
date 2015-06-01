@@ -220,7 +220,7 @@ public class SelectDomainActivity extends Activity {
 				public void onClick(View v) {
 
 					if (flgforresume == 0) {
-						showdialog("ابتدا دامنه را وارد نمایید");
+						showdialog(getString(R.string.pleaseEnterDomainFirst));
 					}
 					flgforresume = 2;
 					Intent intent = new Intent();
@@ -242,7 +242,7 @@ public class SelectDomainActivity extends Activity {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
-		alertDialogBuilder.setTitle("خطا");
+		alertDialogBuilder.setTitle(getString(R.string.errorTitle));
 		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
 				new DialogInterface.OnClickListener() {
 
@@ -256,10 +256,9 @@ public class SelectDomainActivity extends Activity {
 
 	public void showDialogForExit() {
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-		String message = "آیا می خواهید از برنامه خارج شوید؟";
-		alertDialogBuilder.setMessage(message);
+		alertDialogBuilder.setMessage(getString(R.string.wouldYouLikeToExit));
 		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
-		alertDialogBuilder.setTitle("توجه");
+		alertDialogBuilder.setTitle(getString(R.string.warningTitle));
 		alertDialogBuilder.setCancelable(false);
 		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
 				new DialogInterface.OnClickListener() {
@@ -274,7 +273,7 @@ public class SelectDomainActivity extends Activity {
 						startActivity(intent);
 					}
 				});
-		alertDialogBuilder.setNegativeButton("لغو", 
+		alertDialogBuilder.setNegativeButton(getString(R.string.cancel), 
 				new DialogInterface.OnClickListener() {
 
 					@Override

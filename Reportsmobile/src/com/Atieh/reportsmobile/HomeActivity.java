@@ -32,9 +32,9 @@ import GetDetailLevelNumberPack.GetDetailLevelNumber;
 import GetDetailLevelNumberPack.GetDetailLevelNumberInterface;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -65,7 +65,6 @@ public class HomeActivity extends Activity {
 	LinearLayout linearmenu;
 	boolean flgclickmenu;
 	int contofpermission = 0;
-	private boolean _doubleBackToExitPressedOnce = false;
 	public static int[] mypermission = new int[5];
 	NetworkUtils netutil = new NetworkUtils(this);
 
@@ -238,7 +237,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);							
 					}
@@ -275,7 +274,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -295,7 +294,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -334,7 +333,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -372,7 +371,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -409,7 +408,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -445,7 +444,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -482,7 +481,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -518,7 +517,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -552,7 +551,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -588,7 +587,7 @@ public class HomeActivity extends Activity {
 
 					@Override
 					public void failure(RetrofitError retrofitError) {
-						String title = "title";
+						String title = getString(R.string.errorTitle);
 						String body = netutil.handleRetrofitError(retrofitError);
 						showDialog(title, body);													
 					}					
@@ -602,27 +601,8 @@ public class HomeActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-		if (_doubleBackToExitPressedOnce) {
-			super.onBackPressed();
-
-			Intent intent = new Intent(getApplicationContext(),
-					MainActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			intent.putExtra("EXIT", true);
-			startActivity(intent);
-			return;
-		}
-
-		this._doubleBackToExitPressedOnce = true;
-		Toast.makeText(this, "برای خروج کلید بازگشت را دوباره فشار دهید ",
-				Toast.LENGTH_SHORT).show();
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-
-				_doubleBackToExitPressedOnce = false;
-			}
-		}, 2000);
+		super.onBackPressed();			
+		showDialogForExit();
 	}
 
 	@Override
@@ -697,6 +677,38 @@ public class HomeActivity extends Activity {
 				HomeActivity.this).setTitle(title).setMessage(message);
 		builder.setPositiveButton(R.string.ok, null);
 		builder.show();		
+	}
+
+	public void showDialogForExit() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(getString(R.string.wouldYouLikeToExit));
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle(getString(R.string.warningTitle));
+		alertDialogBuilder.setCancelable(false);
+		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						
+						Intent intent = new Intent(getApplicationContext(),
+								MainActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.putExtra("EXIT", true);
+						startActivity(intent);
+					}
+				});
+		alertDialogBuilder.setNegativeButton(getString(R.string.cancel), 
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+			
+				});
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
 	}
 
 }

@@ -292,7 +292,6 @@ public class DatepickerActivity extends Activity {
 	@Override
 	public void onBackPressed() {
 
-		// Log.i(TAG, "onBackPressed--");
 		if (_doubleBackToExitPressedOnce) {
 			super.onBackPressed();
 

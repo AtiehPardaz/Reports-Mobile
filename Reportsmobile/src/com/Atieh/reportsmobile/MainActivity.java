@@ -183,7 +183,7 @@ public class MainActivity extends Activity {
 					}
 				} else {
 					// TODO
-					body = "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
+					body = getString(R.string.dataRxErrorMsg);
 					showAlert = true;
 				}
 
@@ -195,7 +195,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void failure(RetrofitError retrofitError) {
 
-				String title = getString(R.string.LoginErrorTitle);
+				String title = getString(R.string.errorTitle);
 				loadinglayer.setVisibility(View.INVISIBLE);
 				String body = netutil.handleRetrofitError(retrofitError);
 				showDialog(title, body);
