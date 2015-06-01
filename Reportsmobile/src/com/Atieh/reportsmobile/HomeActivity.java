@@ -31,6 +31,7 @@ import GetDetailLevelNumberPack.GetDetailLevelNumber;
 import GetDetailLevelNumberPack.GetDetailLevelNumberInterface;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -51,8 +52,9 @@ public class HomeActivity extends Activity {
 	GetAllCurrencies currencies;
 	GetAllProjects projects;
 	GetAllCostCenters costcenters;
-	 public static GetDetailLevelNumber level;
+	public static GetDetailLevelNumber level;
 
+	String levels = "";
 	ImageButton menu;
 	ImageButton forosh;
 	ImageButton hesabdari;
@@ -134,7 +136,7 @@ public class HomeActivity extends Activity {
 		khazane.setEnabled(false);
 		hesabdari.setEnabled(false);
 		kala.setEnabled(false);
-		
+
 		forosh.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -179,7 +181,7 @@ public class HomeActivity extends Activity {
 						SelectDomainActivity.class));
 			}
 		});
-		
+
 		logout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
@@ -192,96 +194,99 @@ public class HomeActivity extends Activity {
 		});
 	}
 
-	public void getSellers()
-	{
+	public void getSellers() {
 		// 1==================== GetAllSeller
 		seler = new GetAllSeller();
 		GetAllSellerInterface sellers = ServiceGenerator.createService(
 				GetAllSellerInterface.class, MainActivity.baseURL);
-		sellers.getAllSellers(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token, new Callback<GetAllSeller>(){
+		sellers.getAllSellers(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllSeller>() {
 
 					@Override
-					public void success(GetAllSeller theSeller, Response response) {
+					public void success(GetAllSeller theSeller,
+							Response response) {
 
 						seler = theSeller;
 						selleridArray = new ArrayList<>();
 						sellertitleArray = new ArrayList<>();
 						sellerpersoncodeArray = new ArrayList<>();
 						for (int i = 0; i < seler.getResult().size(); i++) {
-							sellertitleArray.add(seler.getResult().get(i).getTitle());
+							sellertitleArray.add(seler.getResult().get(i)
+									.getTitle());
 							selleridArray.add((seler.getResult().get(i).getId()));
 							sellerpersoncodeArray.add((seler.getResult().get(i)
-										.getPersonCode()));
+									.getPersonCode()));
 						}
-						
+
 						getCustomers();
 					}
 
 					@Override
 					public void failure(RetrofitError error) {
 						// TODO Auto-generated method stub
-							
+
 					}
-					});		
+				});
 	}
-	
-	public void getCustomers()
-	{
+
+	public void getCustomers() {
 		// 2===========================GetAllCustomer
 		moshtari = new GetAllCustomer();
 		GetAllCustomerInterface customer = ServiceGenerator.createService(
 				GetAllCustomerInterface.class, MainActivity.baseURL);
 
-		customer.getAllCustomer(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token, new Callback<GetAllCustomer>(){
+		customer.getAllCustomer(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllCustomer>() {
 
 					@Override
-					public void success(GetAllCustomer theCustomer, Response response) {
-						
+					public void success(GetAllCustomer theCustomer,
+							Response response) {
+
 						moshtari = theCustomer;
 						moshtariidArray = new ArrayList<>();
 						mostarititleArray = new ArrayList<>();
 						mostaripersoncodeArray = new ArrayList<>();
 						for (int i = 0; i < moshtari.getResult().size(); i++) {
-							mostarititleArray.add(moshtari.getResult().get(i).getTitle());
-							moshtariidArray.add((moshtari.getResult().get(i).getId()));
-							mostaripersoncodeArray.add((moshtari.getResult().get(i)
-									.getPersonCode()));
+							mostarititleArray.add(moshtari.getResult().get(i)
+									.getTitle());
+							moshtariidArray.add((moshtari.getResult().get(i)
+									.getId()));
+							mostaripersoncodeArray.add((moshtari.getResult()
+									.get(i).getPersonCode()));
 						}
-						
+
 						getPersons();
 					}
 
 					@Override
 					public void failure(RetrofitError arg0) {
 						// TODO Auto-generated method stub
-						
-					}					
+
+					}
 				});
 	}
-	
-	public void getPersons()
-	{
+
+	public void getPersons() {
 		// 3========================GetAllPersons
 		shakhs = new GetAllPerson();
 		GetAllPersonsInterface person = ServiceGenerator.createService(
 				GetAllPersonsInterface.class, MainActivity.baseURL);
 
-		person.getAllPersons(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token, new Callback<GetAllPerson>(){
+		person.getAllPersons(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllPerson>() {
 
 					@Override
 					public void failure(RetrofitError error) {
 						// TODO Auto-generated method stub
-							
+
 					}
 
 					@Override
-					public void success(GetAllPerson thePerson, Response response) {
+					public void success(GetAllPerson thePerson,
+							Response response) {
 
 						shakhs = thePerson;
 						shakhsidArray = new ArrayList<>();
@@ -289,71 +294,74 @@ public class HomeActivity extends Activity {
 						shakhspersoncodeArray = new ArrayList<>();
 
 						for (int i = 0; i < shakhs.getResult().size(); i++) {
-							shakhstitleArray.add(shakhs.getResult().get(i).getTitle());
-							shakhsidArray.add((shakhs.getResult().get(i).getId()));
-							shakhspersoncodeArray.add((shakhs.getResult().get(i)
-									.getPersonCode()));
+							shakhstitleArray.add(shakhs.getResult().get(i)
+									.getTitle());
+							shakhsidArray.add((shakhs.getResult().get(i)
+									.getId()));
+							shakhspersoncodeArray.add((shakhs.getResult()
+									.get(i).getPersonCode()));
 						}
 
 						getMarketers();
 					}
-						
+
 				});
 	}
-	
-	public void getMarketers()
-	{
+
+	public void getMarketers() {
 		// 4========================GetAllMarketers
 		bazaryab = new GetAllMarketers();
 		GetAllMarketersInterface marketer = ServiceGenerator.createService(
 				GetAllMarketersInterface.class, MainActivity.baseURL);
 
-		marketer.getAllMarketers(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token,new Callback<GetAllMarketers>(){
+		marketer.getAllMarketers(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllMarketers>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub		
+						// TODO Auto-generated method stub
 					}
 
 					@Override
-					public void success(GetAllMarketers theMarketer, Response arg1) {
+					public void success(GetAllMarketers theMarketer,
+							Response arg1) {
 						bazaryab = theMarketer;
 						bazaryabidArray = new ArrayList<>();
 						bazaryabtitleArray = new ArrayList<>();
 						bazaryabpersoncodeArray = new ArrayList<>();
 
 						for (int i = 0; i < bazaryab.getResult().size(); i++) {
-							bazaryabtitleArray.add(bazaryab.getResult().get(i).getTitle());
-							bazaryabidArray.add((bazaryab.getResult().get(i).getId()));
-							bazaryabpersoncodeArray.add((bazaryab.getResult().get(i)
-									.getPersonCode()));
+							bazaryabtitleArray.add(bazaryab.getResult().get(i)
+									.getTitle());
+							bazaryabidArray.add((bazaryab.getResult().get(i)
+									.getId()));
+							bazaryabpersoncodeArray.add((bazaryab.getResult()
+									.get(i).getPersonCode()));
 						}
-							
+
 						getProducts();
-							
+
 					}
-						
+
 				});
 	}
-	
-	public void getProducts()
-	{
+
+	public void getProducts() {
 		// 5==========================GetAllProduct
 
 		product = new GetAllProduct();
 		GetAllProductInterface mahsolat = ServiceGenerator.createService(
 				GetAllProductInterface.class, MainActivity.baseURL);
 
-		mahsolat.getAllProduct(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token,new Callback<GetAllProduct>(){
+		mahsolat.getAllProduct(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllProduct>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub	
-						}
+						// TODO Auto-generated method stub
+					}
 
 					@Override
 					public void success(GetAllProduct theProduct, Response arg1) {
@@ -363,31 +371,33 @@ public class HomeActivity extends Activity {
 						productcodeArray = new ArrayList<>();
 
 						for (int i = 0; i < product.getResult().size(); i++) {
-							producttitleArray.add(product.getResult().get(i).getTitle());
-							productidArray.add((product.getResult().get(i).getId()));
-							productcodeArray.add((product.getResult().get(i).getCode()));
+							producttitleArray.add(product.getResult().get(i)
+									.getTitle());
+							productidArray.add((product.getResult().get(i)
+									.getId()));
+							productcodeArray.add((product.getResult().get(i)
+									.getCode()));
 						}
-							
+
 						getServices();
 					}
-						
+
 				});
 	}
-	
-	public void getServices()
-	{
+
+	public void getServices() {
 		// 6==========================GetAllService
 		services = new GetAllService();
 		GetAllServiceInterface khadamat = ServiceGenerator.createService(
 				GetAllServiceInterface.class, MainActivity.baseURL);
 
-		khadamat.getAllService(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token,new Callback<GetAllService>(){
+		khadamat.getAllService(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllService>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub		
+						// TODO Auto-generated method stub
 					}
 
 					@Override
@@ -398,103 +408,107 @@ public class HomeActivity extends Activity {
 						servicescodeArray = new ArrayList<>();
 
 						for (int i = 0; i < services.getResult().size(); i++) {
-							servicestitleArray.add(services.getResult().get(i).getTitle());
-							servicesidArray.add((services.getResult().get(i).getId()));
-							servicescodeArray.add((services.getResult().get(i).getCode()));
+							servicestitleArray.add(services.getResult().get(i)
+									.getTitle());
+							servicesidArray.add((services.getResult().get(i)
+									.getId()));
+							servicescodeArray.add((services.getResult().get(i)
+									.getCode()));
 						}
-							
+
 						getWarehouses();
 					}
-						
+
 				});
 
 	}
-	
-	public void getWarehouses()
-	{
+
+	public void getWarehouses() {
 		// 7==========================GetAllWarehouses
 		warehouse = new GetAllWarehouses();
 		GetAllWarehousesInterface anbarha = ServiceGenerator.createService(
 				GetAllWarehousesInterface.class, MainActivity.baseURL);
 
-		anbarha.getAllWarehouses(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token,new Callback<GetAllWarehouses>(){
+		anbarha.getAllWarehouses(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllWarehouses>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
 						// TODO Auto-generated method stub
-							
+
 					}
 
 					@Override
-					public void success(GetAllWarehouses theWarehouse, Response arg1) {
+					public void success(GetAllWarehouses theWarehouse,
+							Response arg1) {
 						warehouse = theWarehouse;
 						warehouseidArray = new ArrayList<>();
 						warehousetitleArray = new ArrayList<>();
 
 						for (int i = 0; i < warehouse.getResult().size(); i++) {
-							warehousetitleArray
-									.add(warehouse.getResult().get(i).getTitle());
-							warehouseidArray.add((warehouse.getResult().get(i).getId()));
+							warehousetitleArray.add(warehouse.getResult()
+									.get(i).getTitle());
+							warehouseidArray.add((warehouse.getResult().get(i)
+									.getId()));
 
 						}
-							
+
 						getCurrencies();
 					}
-						
+
 				});
 	}
-			
-	public void getCurrencies()
-	{
+
+	public void getCurrencies() {
 		// 8=========================GetAllCurrencies
 		currencies = new GetAllCurrencies();
 		GetAllCurrenciesInterface pol = ServiceGenerator.createService(
 				GetAllCurrenciesInterface.class, MainActivity.baseURL);
 
-		pol.getAllCurrencies(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token, new Callback<GetAllCurrencies>(){
+		pol.getAllCurrencies(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllCurrencies>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub						
+						// TODO Auto-generated method stub
 					}
 
 					@Override
-					public void success(GetAllCurrencies theCurrency, Response arg1) {
+					public void success(GetAllCurrencies theCurrency,
+							Response arg1) {
 						currencies = theCurrency;
 						currenciesidArray = new ArrayList<>();
 						currenciestitleArray = new ArrayList<>();
 
 						for (int i = 0; i < currencies.getResult().size(); i++) {
-							currenciestitleArray.add(currencies.getResult().get(i)
-									.getTitle());
-							currenciesidArray.add((currencies.getResult().get(i).getId()));
+							currenciestitleArray.add(currencies.getResult()
+									.get(i).getTitle());
+							currenciesidArray.add((currencies.getResult()
+									.get(i).getId()));
 						}
-							
+
 						getProjects();
 					}
-						
+
 				});
 	}
-	
-	public void getProjects()
-	{
+
+	public void getProjects() {
 		// 9==========================GetAllProjects
 		projects = new GetAllProjects();
 		GetAllProjectsInterface prj = ServiceGenerator.createService(
 				GetAllProjectsInterface.class, MainActivity.baseURL);
 
-		prj.getAllProjects(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token, new Callback<GetAllProjects>(){
+		prj.getAllProjects(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllProjects>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
 						// TODO Auto-generated method stub
-							
+
 					}
 
 					@Override
@@ -504,30 +518,31 @@ public class HomeActivity extends Activity {
 						projectstitleArray = new ArrayList<>();
 
 						for (int i = 0; i < projects.getResult().size(); i++) {
-							projectstitleArray.add(projects.getResult().get(i).getTitle());
-							projectsidArray.add((projects.getResult().get(i).getId()));
+							projectstitleArray.add(projects.getResult().get(i)
+									.getTitle());
+							projectsidArray.add((projects.getResult().get(i)
+									.getId()));
 						}
-							
+
 						getCostCenters();
 					}
-						
+
 				});
 	}
-	
-	public void getCostCenters()
-	{
+
+	public void getCostCenters() {
 		// 10 ==========================GetAllCostCenters
 		costcenters = new GetAllCostCenters();
 		GetAllCostCentersInterface hazine = ServiceGenerator.createService(
 				GetAllCostCentersInterface.class, MainActivity.baseURL);
 
-		hazine.getAllCostCenters(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token, new Callback<GetAllCostCenters>(){
+		hazine.getAllCostCenters(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetAllCostCenters>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub							
+						// TODO Auto-generated method stub
 					}
 
 					@Override
@@ -538,26 +553,26 @@ public class HomeActivity extends Activity {
 						costcenterstitleArray = new ArrayList<>();
 
 						for (int i = 0; i < costcenters.getResult().size(); i++) {
-							costcenterstitleArray.add(costcenters.getResult().get(i)
-									.getTitle());
-							costcentersidArray
-									.add((costcenters.getResult().get(i).getId()));
+							costcenterstitleArray.add(costcenters.getResult()
+									.get(i).getTitle());
+							costcentersidArray.add((costcenters.getResult()
+									.get(i).getId()));
 						}
-							
+
 						getLevelNumbers();
-					}});
+					}
+				});
 	}
-	
-	public void getLevelNumbers()
-	{		
-//		11 ==========================GetDetailLevelNumber
-		level=new GetDetailLevelNumber();
+
+	public void getLevelNumbers() {
+		// 11 ==========================GetDetailLevelNumber
+		level = new GetDetailLevelNumber();
 		GetDetailLevelNumberInterface sath1 = ServiceGenerator.createService(
 				GetDetailLevelNumberInterface.class, MainActivity.baseURL);
 
-		sath1.getDetailLevelNumber(
-				SelectDomainActivity.returnedDomainID,
-				SelectDomainActivity.returnedYearID, token, new Callback<GetDetailLevelNumber>(){
+		sath1.getDetailLevelNumber(SelectDomainActivity.returnedDomainID,
+				SelectDomainActivity.returnedYearID, token,
+				new Callback<GetDetailLevelNumber>() {
 
 					@Override
 					public void failure(RetrofitError arg0) {
@@ -568,7 +583,11 @@ public class HomeActivity extends Activity {
 					public void success(GetDetailLevelNumber theLevelNumber,
 							Response arg1) {
 						level = theLevelNumber;
-					}});
+						levels = level.getResult().getLevel();
+						Toast.makeText(getApplicationContext(), levels, 1)
+								.show();
+					}
+				});
 	}
 
 	@Override
@@ -611,7 +630,7 @@ public class HomeActivity extends Activity {
 				if (MainActivity.authenticate.getResult().getDomains().get(i)
 						.getId()
 						.equals(SelectDomainActivity.finalreturneddomainid)) {
-					
+
 					contofpermission++;
 					for (int k = 1; k <= 4; k++) {
 						if (k == MainActivity.authenticate.getResult()
@@ -658,7 +677,8 @@ public class HomeActivity extends Activity {
 				}
 			}
 		} else if (contofpermission == 0) {
-			Toast.makeText(getApplicationContext(), "بدون دسترسی", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), "بدون دسترسی",
+					Toast.LENGTH_LONG).show();
 		}
 	}// End onResume
 

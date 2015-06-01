@@ -70,7 +70,7 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 				selpardakhtkonande.callOnClick();
 			}
 		});
-		
+
 		selpardakhtkonande.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -111,7 +111,8 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 					String ReportsUrl;
 					ReportsUrl = "Document/GetDocumentStatus.aspx?"
 							+ "CheckNumber=" + et_shomarecheck.getText()
-							+ "&AccountNumber=" + et_shomarehesab.getText();
+							+ "&AccountNumber=" + et_shomarehesab.getText()
+							+ "&RecieptManIds=" + PersonNameId.toString();
 					report.putExtra("gozaresh", ReportsUrl);
 					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);

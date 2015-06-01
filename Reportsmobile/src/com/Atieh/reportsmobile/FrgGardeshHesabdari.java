@@ -1,5 +1,10 @@
 package com.Atieh.reportsmobile;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import adapters.NothingSelectedSpinnerAdapter;
+import android.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -18,18 +23,18 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FrgGardeshHesabdari extends Fragment {
 	public Utils utils = Utils.getInstance();
-	ImageButton datefromcustomer;
-	ImageButton todateustomer;
-	ImageButton selcustomer, selbazar, selForoshande;
-	ImageButton btnshow;
-	ImageButton opennspiner;
-	TextView et_fromdate, et_todate;
-	EditText selecttafsil;
-	Spinner spinertafsil;
 
+	ImageButton todateustomer, datefromcustomer, selsathtafsil, opennspiner,
+			openseltafsil, btnshow;
+
+	TextView et_fromdate, et_todate, selecttafsil, et_sathtafsil;
+	Spinner spinertafsil;
+	List<String> stats;
+	int[] tafsillevel;
 	int flgbackforResume = 0;
 	int intfromdate, inttodate;
 	public static int sel = 0;
@@ -48,8 +53,9 @@ public class FrgGardeshHesabdari extends Fragment {
 		View view = inflater.inflate(R.layout.frg_hesabdari_gardesh, container,
 				false);
 		// hideSoftKeyboard(getActivity());
-
-		selecttafsil = (EditText) view
+		et_sathtafsil = (TextView) view
+				.findViewById(R.id.et_sathtafsil_hesabdari);
+		selecttafsil = (TextView) view
 				.findViewById(R.id.et_shakhsgardesh_hesabdarii);
 		datefromcustomer = (ImageButton) view
 				.findViewById(R.id.imgbtn_fromdate_gardesh_hesabdari);
@@ -57,9 +63,13 @@ public class FrgGardeshHesabdari extends Fragment {
 				.findViewById(R.id.imgbtn_todategardesh_hesabdari);
 		btnshow = (ImageButton) view
 				.findViewById(R.id.imgbtn_namayesh_gardesh_hesabdari);
+		selsathtafsil = (ImageButton) view
+				.findViewById(R.id.imgbtn_sathtafsil_hesabdari);
 		spinertafsil = (Spinner) view.findViewById(R.id.spinner1);
 		opennspiner = (ImageButton) view
 				.findViewById(R.id.imgbtn_selectshakhsgardesh_hesabdari);
+		openseltafsil = (ImageButton) view
+				.findViewById(R.id.imgbtn_shakhsgardesh_hesabdari);
 		et_fromdate = (TextView) view
 				.findViewById(R.id.et_fromdate_gardesh_hesabdari);
 		et_todate = (TextView) view
@@ -76,46 +86,76 @@ public class FrgGardeshHesabdari extends Fragment {
 		// getActivity(), R.array.tafsiltitle,
 		// android.R.layout.simple_spinner_item);
 
-		arraytafsiltitle
+		/**
+		 * arraytafsiltitle .setDropDownViewResource(android.R.layout.
+		 * simple_spinner_dropdown_item); arraytafsiltitle.add("hint");
+		 * arraytafsiltitle.add("1"); arraytafsiltitle.add("2");
+		 * arraytafsiltitle.add("3"); arraytafsiltitle.add("4");
+		 * 
+		 * spinertafsil.setAdapter(arraytafsiltitle);
+		 * 
+		 * spinertafsil.setSelection(-1);
+		 */
+		stats = new ArrayList<String>();
+		stats.add("شخص");
+		stats.add("ارز");
+		stats.add("مرکز هزینه");
+		stats.add("پروژه");
+		ArrayAdapter<String> statsAdapter = new ArrayAdapter<String>(
+				getActivity(), android.R.layout.simple_spinner_item, stats);
+
+		statsAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		arraytafsiltitle.add("hint");
-		arraytafsiltitle.add("1");
-		arraytafsiltitle.add("2");
-		arraytafsiltitle.add("3");
-		arraytafsiltitle.add("4");
 
-		spinertafsil.setAdapter(arraytafsiltitle);
+		spinertafsil.setAdapter(new NothingSelectedSpinnerAdapter(statsAdapter,
+				R.layout.activity_stats_nothing_selected, getActivity()));
 
-		spinertafsil.setSelection(-1);
 		spinertafsil
 				.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 					public void onItemSelected(AdapterView<?> parent,
 							View view, int pos, long id) {
+						/**
+						 * TextView textView = (TextView) spinertafsil
+						 * .getSelectedView(); String result =
+						 * textView.getText().toString();
+						 */
+						switch (pos) {
 
-						String text = spinertafsil.getSelectedItem().toString();
-						switch (text) {
-						case "شخص":
-							selecttafsil.setText("شخص");
+						case 1:
+							selecttafsil.setHint("شخص");
 							break;
-						case "ارز":
-							selecttafsil.setText("ارز");
+						case 2:
+							selecttafsil.setHint("ارز");
 							break;
-						case "مرکز هزینه":
-							selecttafsil.setText("مرکز هزینه");
+						case 3:
+							selecttafsil.setHint("مرکز هزینه");
 							break;
-						case "مرکز پروژه":
-							selecttafsil.setText("مرکز پروژه");
+						case 4:
+							selecttafsil.setHint("پروژه");
 							break;
 
 						default:
-							selecttafsil.setText("شخص");
+							selecttafsil.setHint("عنوان");
 						}
 
 					}
 
-					public void onNothingSelected(AdapterView<?> parent) {
+					@Override
+					public void onNothingSelected(AdapterView<?> arg0) {
+						// TODO Auto-generated method stub
+
 					}
+
 				});
+
+		int sath = Integer.parseInt(HomeActivity.level.getResult().getLevel());
+		tafsillevel = new int[sath+1];
+		for (int i = 1; i <= sath; i++) {
+			tafsillevel[i] = i;
+//			Toast.makeText(getActivity(), tafsillevel[i]+"", 1).show();
+		}
+		
+
 		opennspiner.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -148,6 +188,12 @@ public class FrgGardeshHesabdari extends Fragment {
 			}
 		});
 
+		selsathtafsil.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+			}
+		});
 		btnshow.setOnClickListener(new OnClickListener() {
 
 			@Override

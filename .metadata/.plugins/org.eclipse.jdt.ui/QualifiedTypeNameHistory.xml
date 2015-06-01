@@ -13,9 +13,15 @@
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.frg_customer_forosh"/>
 <fullyQualifiedTypeName name="java.util.TreeMap"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="java.text.BreakIterator"/>
 <fullyQualifiedTypeName name="android.media.ExifInterface"/>
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.ListViewAlphebeticalActivity"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="adapters.NothingSelectedSpinnerAdapter"/>
+<fullyQualifiedTypeName name="android.R.string"/>
+<fullyQualifiedTypeName name="com.Atieh.reportsmobile.HomeActivity"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 </qualifiedTypeNameHistroy>

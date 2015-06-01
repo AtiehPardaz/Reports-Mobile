@@ -54,21 +54,22 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 
 		et_pardakhtkonande = (TextView) view
 				.findViewById(R.id.et_daryaftkonande_vaziatpardakhtikhazane);
-		et_shomarehesab = (EditText) view.findViewById(R.id.et_shomarehesab_vaziatpardakhtikhazane);
+		et_shomarehesab = (EditText) view
+				.findViewById(R.id.et_shomarehesab_vaziatpardakhtikhazane);
 		et_shomarecheck = (EditText) view
 				.findViewById(R.id.et_shomarecehck_vaziatpardakhtikhazane);
-		//=============init font
-				utils.setyekanfont(et_pardakhtkonande);
-				utils.setyekanfont(et_shomarehesab);
-				utils.setyekanfont(et_shomarecheck);
-				// ================callOnClick
-				et_pardakhtkonande.setOnClickListener(new OnClickListener() {
-					@SuppressLint("NewApi")
-					@Override
-					public void onClick(View arg0) {
-						selpardakhtkonande.callOnClick();
-					}
-				});
+		// =============init font
+		utils.setyekanfont(et_pardakhtkonande);
+		utils.setyekanfont(et_shomarehesab);
+		utils.setyekanfont(et_shomarecheck);
+		// ================callOnClick
+		et_pardakhtkonande.setOnClickListener(new OnClickListener() {
+			@SuppressLint("NewApi")
+			@Override
+			public void onClick(View arg0) {
+				selpardakhtkonande.callOnClick();
+			}
+		});
 		selpardakhtkonande.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -77,7 +78,6 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 								.size()]);
 				St_idArray = (String[]) HomeActivity.shakhsidArray
 						.toArray(new String[HomeActivity.shakhsidArray.size()]);
-				
 
 				Intent intent = new Intent();
 				intent.setClass(getActivity(),
@@ -105,14 +105,16 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 					showMessage("لطفا شماره چک را وارد نمایید");
 				} else if (et_shomarehesab.getText().toString().matches("")) {
 					showMessage("لطفا شماره حساب را وارد نمایید");
-				}else{
-					Intent report = new Intent();String ReportsUrl;
+				} else {
+					Intent report = new Intent();
+					String ReportsUrl;
 					ReportsUrl = "Document/PayDocumentStatus.aspx?"
 							+ "CheckNumber=" + et_shomarecheck.getText()
-							+ "&AccountNumber=" + et_shomarehesab.getText();
+							+ "&AccountNumber=" + et_shomarehesab.getText()
+							+ "&RecieptManIds=" + PersonNameId.toString();
+					;
 					report.putExtra("gozaresh", ReportsUrl);
-					report.setClass(getActivity(),
-							ShowreportsActivity.class);
+					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);
 				}
 			}
@@ -138,15 +140,13 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 		alertDialog.show();
 	}
 
-	 
-
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 
 		if (flgbackforResume == 1) {
-
+			PersonNameId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_pardakhtkonande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

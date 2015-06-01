@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -207,6 +208,7 @@ public class MainActivity extends Activity {
 		});		
 	}
 		
+	
 	public void showDialog(String title, String message)
 	{
 		AlertDialog.Builder builder = new AlertDialog.Builder(
