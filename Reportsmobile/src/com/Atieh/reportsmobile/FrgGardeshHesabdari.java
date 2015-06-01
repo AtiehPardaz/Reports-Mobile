@@ -28,17 +28,19 @@ import android.widget.Toast;
 public class FrgGardeshHesabdari extends Fragment {
 	public Utils utils = Utils.getInstance();
 
-	ImageButton todateustomer, datefromcustomer, selsathtafsil, opennspiner,
-			openseltafsil, btnshow;
+	ImageButton todateustomer, datefromcustomer, selsathtafsil,
+			OpenspnrOnvanTafsil, openseltafsil, btnshow;
 
 	TextView et_fromdate, et_todate, selecttafsil, et_sathtafsil;
-	Spinner spinertafsil;
-	List<String> stats;
-	int[] tafsillevel;
+	Spinner spinertafsil, spnr_sathtafsil;
+	List<String> stats, sathtafsil;
+	String[] tafsillevel;
 	int flgbackforResume = 0;
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray;
+	int flg_selecttafsil = 0, type = 0;
+	String pId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -53,10 +55,10 @@ public class FrgGardeshHesabdari extends Fragment {
 		View view = inflater.inflate(R.layout.frg_hesabdari_gardesh, container,
 				false);
 		// hideSoftKeyboard(getActivity());
-		et_sathtafsil = (TextView) view
-				.findViewById(R.id.et_sathtafsil_hesabdari);
+		spnr_sathtafsil = (Spinner) view
+				.findViewById(R.id.spnr_sathtafsil_hesabdari);
 		selecttafsil = (TextView) view
-				.findViewById(R.id.et_shakhsgardesh_hesabdarii);
+				.findViewById(R.id.et_sathtafsil_hesabdari);
 		datefromcustomer = (ImageButton) view
 				.findViewById(R.id.imgbtn_fromdate_gardesh_hesabdari);
 		todateustomer = (ImageButton) view
@@ -66,10 +68,10 @@ public class FrgGardeshHesabdari extends Fragment {
 		selsathtafsil = (ImageButton) view
 				.findViewById(R.id.imgbtn_sathtafsil_hesabdari);
 		spinertafsil = (Spinner) view.findViewById(R.id.spinner1);
-		opennspiner = (ImageButton) view
-				.findViewById(R.id.imgbtn_selectshakhsgardesh_hesabdari);
+		OpenspnrOnvanTafsil = (ImageButton) view
+				.findViewById(R.id.imgbtn_onvantafsil_hesabdari);
 		openseltafsil = (ImageButton) view
-				.findViewById(R.id.imgbtn_shakhsgardesh_hesabdari);
+				.findViewById(R.id.imgbtn_tafsil_hesabdari);
 		et_fromdate = (TextView) view
 				.findViewById(R.id.et_fromdate_gardesh_hesabdari);
 		et_todate = (TextView) view
@@ -77,6 +79,8 @@ public class FrgGardeshHesabdari extends Fragment {
 		// =============init font
 		utils.setyekanfont(et_fromdate);
 		utils.setyekanfont(et_todate);
+		utils.setyekanfont(selecttafsil);
+		// utils.setyekanfont(et_sathtafsil);
 
 		ArrayAdapter<String> arraytafsiltitle = new ArrayAdapter<String>(
 				getActivity(), android.R.layout.simple_spinner_dropdown_item);
@@ -101,6 +105,7 @@ public class FrgGardeshHesabdari extends Fragment {
 		stats.add("ارز");
 		stats.add("مرکز هزینه");
 		stats.add("پروژه");
+
 		ArrayAdapter<String> statsAdapter = new ArrayAdapter<String>(
 				getActivity(), android.R.layout.simple_spinner_item, stats);
 
@@ -123,15 +128,28 @@ public class FrgGardeshHesabdari extends Fragment {
 
 						case 1:
 							selecttafsil.setHint("شخص");
+							selecttafsil.setText("");
+							flg_selecttafsil = 1;
+							type = 0;
+
 							break;
 						case 2:
 							selecttafsil.setHint("ارز");
+							selecttafsil.setText("");
+							flg_selecttafsil = 2;
+							type = 3;
 							break;
 						case 3:
 							selecttafsil.setHint("مرکز هزینه");
+							selecttafsil.setText("");
+							flg_selecttafsil = 3;
+							type = 2;
 							break;
 						case 4:
 							selecttafsil.setHint("پروژه");
+							selecttafsil.setText("");
+							flg_selecttafsil = 4;
+							type = 1;
 							break;
 
 						default:
@@ -147,16 +165,43 @@ public class FrgGardeshHesabdari extends Fragment {
 					}
 
 				});
-
+		// =======================================
 		int sath = Integer.parseInt(HomeActivity.level.getResult().getLevel());
-		tafsillevel = new int[sath+1];
+		sathtafsil = new ArrayList<String>();
+		// tafsillevel = new String[sath + 1];
 		for (int i = 1; i <= sath; i++) {
-			tafsillevel[i] = i;
-//			Toast.makeText(getActivity(), tafsillevel[i]+"", 1).show();
+			// tafsillevel[i] = "سطح"+i;
+			sathtafsil.add(String.valueOf(i));
+			// Toast.makeText(getActivity(), tafsillevel[i] + "", 1).show();
 		}
-		
+		ArrayAdapter<String> statsAdaptersath = new ArrayAdapter<String>(
+				getActivity(), android.R.layout.simple_spinner_item, sathtafsil);
 
-		opennspiner.setOnClickListener(new OnClickListener() {
+		statsAdaptersath
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+		spnr_sathtafsil.setAdapter(new NothingSelectedSpinnerAdapter(
+				statsAdaptersath,
+				R.layout.activity_status_nothing_selected_sath, getActivity()));
+
+		spnr_sathtafsil
+				.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+					@Override
+					public void onItemSelected(AdapterView<?> arg0, View arg1,
+							int arg2, long arg3) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void onNothingSelected(AdapterView<?> arg0) {
+						// TODO Auto-generated method stub
+					}
+
+				});
+
+		OpenspnrOnvanTafsil.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
@@ -164,6 +209,7 @@ public class FrgGardeshHesabdari extends Fragment {
 				spinertafsil.performClick();
 			}
 		});
+
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -194,29 +240,121 @@ public class FrgGardeshHesabdari extends Fragment {
 
 			}
 		});
+		openseltafsil.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+
+				if (flg_selecttafsil == 0) {
+					showDialog("توجه",
+							"لطفا ابتدا عنوان تفصیل را انتخاب نمایید");
+
+				} else if (flg_selecttafsil == 1) {// for shakhs
+					flgbackforResume = 3;
+					St_titleArray = (String[]) HomeActivity.shakhstitleArray
+							.toArray(new String[HomeActivity.shakhstitleArray
+									.size()]);
+					St_idArray = (String[]) HomeActivity.shakhsidArray
+							.toArray(new String[HomeActivity.shakhsidArray
+									.size()]);
+
+					Intent intent = new Intent();
+					intent.setClass(getActivity(),
+							ListViewAlphebeticalActivity.class);
+					intent.putExtra("arrayttitlefromjson", St_titleArray);
+					intent.putExtra("arrayidfromjson", St_idArray);
+					intent.putExtra("side", true);
+					intent.putExtra("search", true);
+					startActivity(intent);
+				} else if (flg_selecttafsil == 2) {// for arz
+					flgbackforResume = 4;
+					St_titleArray = (String[]) HomeActivity.currenciestitleArray
+							.toArray(new String[HomeActivity.currenciestitleArray
+									.size()]);
+					St_idArray = (String[]) HomeActivity.currenciesidArray
+							.toArray(new String[HomeActivity.currenciesidArray
+									.size()]);
+
+					Intent intent = new Intent();
+					intent.setClass(getActivity(),
+							ListViewAlphebeticalActivity.class);
+					intent.putExtra("arrayttitlefromjson", St_titleArray);
+					intent.putExtra("arrayidfromjson", St_idArray);
+					intent.putExtra("side", true);
+					intent.putExtra("search", true);
+					startActivity(intent);
+				} else if (flg_selecttafsil == 3) {// for costcenter
+					flgbackforResume = 5;
+					St_titleArray = (String[]) HomeActivity.costcenterstitleArray
+							.toArray(new String[HomeActivity.costcenterstitleArray
+									.size()]);
+					St_idArray = (String[]) HomeActivity.costcentersidArray
+							.toArray(new String[HomeActivity.costcentersidArray
+									.size()]);
+
+					Intent intent = new Intent();
+					intent.setClass(getActivity(),
+							ListViewAlphebeticalActivity.class);
+					intent.putExtra("arrayttitlefromjson", St_titleArray);
+					intent.putExtra("arrayidfromjson", St_idArray);
+					intent.putExtra("side", true);
+					intent.putExtra("search", true);
+					startActivity(intent);
+				} else if (flg_selecttafsil == 4) {// for project
+					flgbackforResume = 6;
+					St_titleArray = (String[]) HomeActivity.projectstitleArray
+							.toArray(new String[HomeActivity.projectstitleArray
+									.size()]);
+					St_idArray = (String[]) HomeActivity.projectsidArray
+							.toArray(new String[HomeActivity.projectsidArray
+									.size()]);
+
+					Intent intent = new Intent();
+					intent.setClass(getActivity(),
+							ListViewAlphebeticalActivity.class);
+					intent.putExtra("arrayttitlefromjson", St_titleArray);
+					intent.putExtra("arrayidfromjson", St_idArray);
+					intent.putExtra("side", true);
+					intent.putExtra("search", true);
+					startActivity(intent);
+				}
+			}
+
+		});
 		btnshow.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				final InputMethodManager imm = (InputMethodManager) getActivity()
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
+
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
 				if (et_fromdate.getText().equals("")) {
 					showMessage("لطفا تاریخ ابتدا را وارد نمایید");
 				} else if (et_todate.getText().equals("")) {
 					showMessage("لطفا تاریخ انتها را وارد نمایید");
+				} else if (selecttafsil.getText().equals("")) {
+					showMessage("لطفا تفصیل را وارد نمایید");
 				}
-				// else if (et_customer.getText().equals("")) {
-				// showMessage("لطفا مشتری  را وارد نمایید");
-				// } else if (et_bazar.getText().equals("")) {
-				// showMessage("لطفا  بازاریاب  را وارد نمایید");
-				// } else if (et_foroshande.getText().equals("")) {
+
+				
+				// else if (et_foroshande.getText().equals("")) {
 				// showMessage("لطفا  فروشنده را وارد نمایید");
 				// }
 				else {
 					if (checkdate(intfromdate, inttodate) == 0) {
+						String ReportsUrl;
+						ReportsUrl = "Accounting/AccountingTafsil.aspx?"
+								+ "PersonIds=" + pId.toString() + "&startDate="
+								+ et_fromdate.getText() + "&endDate="
+								+ et_todate.getText() + "&Type=" + type
+								+ "&Level="
+								+ spnr_sathtafsil.getSelectedItem().toString();
+
 						Intent report = new Intent();
-						report.putExtra("gozaresh", "gardeshhesabdari");
+						report.putExtra("gozaresh", ReportsUrl);
+
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
@@ -286,6 +424,22 @@ public class FrgGardeshHesabdari extends Fragment {
 			et_todate.setText(DatepickerActivity.myYear + "/"
 					+ DatepickerActivity.myMonth + "/"
 					+ DatepickerActivity.myDay);
+		} else if (flgbackforResume == 3) {
+			pId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			selecttafsil
+					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
+		} else if (flgbackforResume == 4) {
+			pId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			selecttafsil
+					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
+		} else if (flgbackforResume == 5) {
+			pId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			selecttafsil
+					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
+		} else if (flgbackforResume == 6) {
+			pId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			selecttafsil
+					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}
 
 		// Toast.makeText(getActivity(), "1", 1).show();
@@ -296,5 +450,12 @@ public class FrgGardeshHesabdari extends Fragment {
 				.getSystemService(Activity.INPUT_METHOD_SERVICE);
 		inputMethodManager.hideSoftInputFromWindow(activity.getCurrentFocus()
 				.getWindowToken(), 0);
+	}
+
+	public void showDialog(String title, String message) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+				.setTitle(title).setMessage(message);
+		builder.setPositiveButton(R.string.ok, null);
+		builder.show();
 	}
 }

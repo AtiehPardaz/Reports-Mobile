@@ -20,7 +20,7 @@ public class HesabdariActivity extends FragmentActivity {
 	ImageButton menu;
 	ImageButton underlinetarkibi;
 	ImageButton underlinefgardesh;
-	 
+
 	ImageButton forosh;
 	ImageButton hesabdari;
 	ImageButton khazane;
@@ -39,11 +39,11 @@ public class HesabdariActivity extends FragmentActivity {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_hesabdari);
 		underlinetarkibi = (ImageButton) findViewById(R.id.imgbtn_underline_tarkibi_hesabdari);
 		underlinefgardesh = (ImageButton) findViewById(R.id.imgbtn_underline_gardesh_hesabdari);
-		 linearmenu = (LinearLayout) findViewById(R.id.linearmenu_hesabdari);
-		 lmenu = (LinearLayout) findViewById(R.id.submenu_hesabdari);
+		linearmenu = (LinearLayout) findViewById(R.id.linearmenu_hesabdari);
+		lmenu = (LinearLayout) findViewById(R.id.submenu_hesabdari);
 		forosh = (ImageButton) findViewById(R.id.imgbtn_forosh_hesabdari);
 		hesabdari = (ImageButton) findViewById(R.id.imgbtn_hesabdari_hesabdari);
-		
+
 		khazane = (ImageButton) findViewById(R.id.imgbtn_khazane_hesabdari);
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_hesabdari);
 		domain = (ImageButton) findViewById(R.id.imgbtn_domain_hesabdari);
@@ -51,12 +51,13 @@ public class HesabdariActivity extends FragmentActivity {
 		pagehesabdari = (ViewPager) findViewById(R.id.pagerhesabdari);
 		gardesh = (Button) findViewById(R.id.tabbtn_gardesh_hesabdari);
 		tarkibi = (Button) findViewById(R.id.tabbtn_tarkibi_hesabdari);
-		 
+
 		title = (TextView) findViewById(R.id.title_hesabdari);
 
 	}
-public void permissiontoreport() {
-		
+
+	public void permissiontoreport() {
+
 		forosh.setVisibility(View.GONE);
 		khazane.setVisibility(View.GONE);
 		hesabdari.setVisibility(View.GONE);
@@ -93,25 +94,24 @@ public void permissiontoreport() {
 		permissiontoreport();
 		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
 				R.anim.bounce);
-		
+
 		hesabdari.setVisibility(View.GONE);
 		final pageradapterhesabdari pageadapter = new pageradapterhesabdari(
 				getSupportFragmentManager());
 		pagehesabdari.setAdapter(pageadapter);
 		pagehesabdari.setCurrentItem(1);
 		underlinetarkibi.setVisibility(View.INVISIBLE);
-		
+
 		title.setTypeface(MainActivity.titr);
 		utils.setyekanfont(gardesh);
 		utils.setyekanfont(tarkibi);
 
-		
 		linearmenu.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				showmenu(v);
-				
+
 			}
 		});
 		pagehesabdari.setOnPageChangeListener(new OnPageChangeListener() {
@@ -127,12 +127,12 @@ public void permissiontoreport() {
 				if (pagehesabdari.getCurrentItem() == 1) {
 					underlinefgardesh.setVisibility(View.VISIBLE);
 					underlinetarkibi.setVisibility(View.INVISIBLE);
-					
+
 				} else if (pagehesabdari.getCurrentItem() == 0) {
 					underlinetarkibi.setVisibility(View.VISIBLE);
 					underlinefgardesh.setVisibility(View.INVISIBLE);
-					 
-				} 
+
+				}
 
 			}
 
@@ -159,7 +159,7 @@ public void permissiontoreport() {
 
 			}
 		});
-		
+
 		forosh.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -178,7 +178,7 @@ public void permissiontoreport() {
 						KhazaneActivity.class));
 			}
 		});
-		
+
 		kala.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -197,7 +197,6 @@ public void permissiontoreport() {
 						SelectDomainActivity.class));
 			}
 		});
-		
 
 		menu.setOnClickListener(new OnClickListener() {
 
@@ -205,12 +204,12 @@ public void permissiontoreport() {
 			public void onClick(View v) {
 				lmenu.startAnimation(animbounce);
 				showmenu(v);
-//				Toast.makeText(getApplicationContext(), "", 1).show();
+				// Toast.makeText(getApplicationContext(), "", 1).show();
 
 			}
 		});
-	logout.setOnClickListener(new OnClickListener() {
-			
+		logout.setOnClickListener(new OnClickListener() {
+
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = new Intent(getApplicationContext(),
@@ -218,18 +217,20 @@ public void permissiontoreport() {
 				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				intent.putExtra("EXIT", true);
 				startActivity(intent);
-				
+
 			}
 		});
 	}
+
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
-		super.onBackPressed();
-		 
-		Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		startActivity(intent);
+//		super.onBackPressed();
+		
+		// Intent intent = new Intent(getApplicationContext(),
+		// HomeActivity.class);
+		// intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		// startActivity(intent);
 	}
 
 }

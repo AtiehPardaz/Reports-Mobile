@@ -65,6 +65,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:hint="شماره حساب    "
+                android:inputType="number"
                 android:textSize="16sp" />
 
             <TextView
@@ -104,6 +105,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:hint="شماره چک        "
+                android:inputType="number"
                 android:textSize="16sp" />
 
             <TextView

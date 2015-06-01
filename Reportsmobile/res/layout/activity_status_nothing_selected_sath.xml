@@ -6,6 +6,6 @@
     android:layout_height="wrap_content"
     android:ellipsize="marquee"
     android:singleLine="true"
-    android:text="عنوان تفصیل"
+    android:text="تفصیل"
     android:textColor="#808080"
     android:textSize="14sp" />

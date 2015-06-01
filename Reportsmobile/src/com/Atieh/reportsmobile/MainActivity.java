@@ -2,8 +2,6 @@ package com.Atieh.reportsmobile;
 
 import java.util.List;
 
-import org.apache.http.HttpStatus;
-
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -12,11 +10,15 @@ import webservices.ServiceGenerator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Handler;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -28,6 +30,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 import authenticationPack.Authentication;
 import authenticationPack.AuthenticationInterface;
 import authenticationPack.Domain;
@@ -41,7 +44,7 @@ public class MainActivity extends Activity {
 	public static List domainss;
 	static Domain dmn;
 	public static String[] msg;
-
+	private boolean _doubleBackToExitPressedOnce = false;
 	public static int msg2;
 	EditText et_username, et_password;
 	int i = 0;
@@ -67,32 +70,28 @@ public class MainActivity extends Activity {
 		boolean cancel = false;
 		View focusview = null;
 		if (TextUtils.isEmpty(mUser)) {
-			et_username.setError("لطفا نام کاربری را وارد نمایید");
+			et_username.setError(getString(R.string.pleaseEnterUsername));
 			focusview = et_username;
 			cancel = true;
 		}
 		if (TextUtils.isEmpty(mPass)) {
-			et_password.setError("لطفا رمز عبور را وارد نمایید");
+			et_password.setError(getString(R.string.pleaseEnterPassword));
 			focusview = et_password;
 			cancel = true;
 		}
 		if (cancel) {
 			focusview.requestFocus();
 		} else {
-//			 if(netutil.isNetworkAvailable())
-			// {
-			autenticateUser();
-			// }
-			// else
-			// {
-			// String message =
-			// "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
-			// AlertDialog.Builder builder =
-			// new
-			// AlertDialog.Builder(MainActivity.this).setTitle("title").setMessage(message);
-			// builder.setPositiveButton(R.string.ok, null);
-			// builder.show();
-			// }
+			if (netutil.isNetworkAvailable()) {
+				autenticateUser();
+			} else {
+				String message = "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
+				AlertDialog.Builder builder = new AlertDialog.Builder(
+						MainActivity.this).setTitle("title")
+						.setMessage(message);
+				builder.setPositiveButton(R.string.ok, null);
+				builder.show();
+			}
 		}
 
 	}
@@ -103,9 +102,8 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		initview();
-//		utils.setyekanfont(et_password);
-//		utils.setyekanfont(et_username);
-
+		// utils.setyekanfont(et_password);
+		// utils.setyekanfont(et_username);
 
 		loadinglayer.setVisibility(View.INVISIBLE);
 		titr = Typeface.createFromAsset(MainActivity.this.getAssets(),
@@ -122,7 +120,7 @@ public class MainActivity extends Activity {
 				attemplogin();
 			}
 		});
-		
+
 		et_password.setGravity(Gravity.RIGHT);
 		et_password.addTextChangedListener(new TextWatcher() {
 
@@ -171,7 +169,7 @@ public class MainActivity extends Activity {
 				String title = "";
 				String body = "";
 				boolean showAlert = false;
-				
+
 				authenticate = auth;
 				loadinglayer.setVisibility(View.INVISIBLE);
 				if (authenticate.getResult().getStatus() != null) {
@@ -180,40 +178,75 @@ public class MainActivity extends Activity {
 						showAlert = false;
 						startActivity(new Intent(MainActivity.this,
 								SelectDomainActivity.class));
-					}
-					else {
+					} else {
 						body = authenticate.getResult().getStatus()
 								.getMessageDetails();
 						showAlert = true;
 					}
 				} else {
 					// TODO
-					body = "خطا در دریافت اطلاعات از سرور. لطفا مجددا تلاش نمایید.";
+					body = getString(R.string.dataRxErrorMsg);
 					showAlert = true;
 				}
 
 				if (showAlert == true) {
-					showDialog(title,body);
+					showDialog(title, body);
 				}
 			}
 
 			@Override
 			public void failure(RetrofitError retrofitError) {
 
-				String title = getString(R.string.LoginErrorTitle);
+				String title = getString(R.string.errorTitle);
 				loadinglayer.setVisibility(View.INVISIBLE);
 				String body = netutil.handleRetrofitError(retrofitError);
 				showDialog(title, body);
 			}
-		});		
+		});
 	}
+
+	@Override
+	public void onBackPressed() {
+
+		showDialogForExit();
 		
-	
-	public void showDialog(String title, String message)
-	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(
-				MainActivity.this).setTitle(title).setMessage(message);
+	}
+
+	public void showDialogForExit() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(getString(R.string.wouldYouLikeToExit));
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle(getString(R.string.warningTitle));
+		alertDialogBuilder.setCancelable(false);
+		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						
+						Intent intent = new Intent(getApplicationContext(),
+								MainActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.putExtra("EXIT", true);
+						startActivity(intent);
+					}
+				});
+		alertDialogBuilder.setNegativeButton(getString(R.string.cancel), 
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+			
+				});
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+	}
+	public void showDialog(String title, String message) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
+				.setTitle(title).setMessage(message);
 		builder.setPositiveButton(R.string.ok, null);
-		builder.show();		
+		builder.show();
 	}
 }

@@ -6,6 +6,7 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
+import webservices.NetworkUtils;
 import webservices.ServiceGenerator;
 import GetAllCostCentersPack.GetAllCostCenters;
 import GetAllCostCentersPack.GetAllCostCentersInterface;
@@ -30,6 +31,8 @@ import GetAllWarehousesPack.GetAllWarehousesInterface;
 import GetDetailLevelNumberPack.GetDetailLevelNumber;
 import GetDetailLevelNumberPack.GetDetailLevelNumberInterface;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -53,6 +56,7 @@ public class HomeActivity extends Activity {
 	GetAllProjects projects;
 	GetAllCostCenters costcenters;
 	public static GetDetailLevelNumber level;
+	private boolean _doubleBackToExitPressedOnce = false;
 
 	String levels = "";
 	ImageButton menu;
@@ -63,10 +67,11 @@ public class HomeActivity extends Activity {
 	ImageButton domain;
 	ImageButton logout;
 	LinearLayout linearmenu;
+	LinearLayout linear_loadinghome;
 	boolean flgclickmenu;
 	int contofpermission = 0;
-	private boolean _doubleBackToExitPressedOnce = false;
 	public static int[] mypermission = new int[5];
+	NetworkUtils netutil = new NetworkUtils(this);
 
 	public static ArrayList<String> sellertitleArray;
 	public static ArrayList<String> sellerpersoncodeArray;
@@ -115,6 +120,7 @@ public class HomeActivity extends Activity {
 		kala = (ImageButton) findViewById(R.id.imgbtn_kala_home);
 		domain = (ImageButton) findViewById(R.id.imgbtn_domain_home);
 		logout = (ImageButton) findViewById(R.id.imgbtn_logout_home);
+		linear_loadinghome = (LinearLayout) findViewById(R.id.linear_loadinghome);
 	}
 
 	// =================================oncreate==============
@@ -126,7 +132,21 @@ public class HomeActivity extends Activity {
 		initview();
 		token = MainActivity.authenticate.getResult().getToken();
 
+		// if(netutil.isNetworkAvailable())
+		// {
 		getSellers();
+		// }
+		// else
+		// {
+		// String message =
+		// "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
+		// AlertDialog.Builder builder =
+		// new
+		// AlertDialog.Builder(HomeActivity.this).setTitle("title").setMessage(message);
+		// builder.setPositiveButton(R.string.ok, null);
+		// builder.show();
+		//
+		// }
 
 		forosh.setImageResource(R.drawable.backmenutransparent);
 		khazane.setImageResource(R.drawable.backmenutransparent);
@@ -196,6 +216,7 @@ public class HomeActivity extends Activity {
 
 	public void getSellers() {
 		// 1==================== GetAllSeller
+		linear_loadinghome.setVisibility(View.VISIBLE);
 		seler = new GetAllSeller();
 		GetAllSellerInterface sellers = ServiceGenerator.createService(
 				GetAllSellerInterface.class, MainActivity.baseURL);
@@ -223,8 +244,11 @@ public class HomeActivity extends Activity {
 					}
 
 					@Override
-					public void failure(RetrofitError error) {
-						// TODO Auto-generated method stub
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 
 					}
 				});
@@ -261,10 +285,13 @@ public class HomeActivity extends Activity {
 					}
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
-
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
+
 				});
 	}
 
@@ -279,9 +306,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllPerson>() {
 
 					@Override
-					public void failure(RetrofitError error) {
-						// TODO Auto-generated method stub
-
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -319,8 +348,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllMarketers>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -342,7 +374,7 @@ public class HomeActivity extends Activity {
 
 						getProducts();
 
-					}
+					}//
 
 				});
 	}
@@ -359,8 +391,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllProduct>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -396,8 +431,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllService>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -417,10 +455,9 @@ public class HomeActivity extends Activity {
 						}
 
 						getWarehouses();
+
 					}
-
 				});
-
 	}
 
 	public void getWarehouses() {
@@ -434,9 +471,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllWarehouses>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
-
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -471,8 +510,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllCurrencies>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -506,9 +548,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllProjects>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
-
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -541,8 +585,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetAllCostCenters>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -575,8 +622,11 @@ public class HomeActivity extends Activity {
 				new Callback<GetDetailLevelNumber>() {
 
 					@Override
-					public void failure(RetrofitError arg0) {
-						// TODO Auto-generated method stub
+					public void failure(RetrofitError retrofitError) {
+						String title = getString(R.string.errorTitle);
+						String body = netutil
+								.handleRetrofitError(retrofitError);
+						showDialog(title, body);
 					}
 
 					@Override
@@ -584,37 +634,23 @@ public class HomeActivity extends Activity {
 							Response arg1) {
 						level = theLevelNumber;
 						levels = level.getResult().getLevel();
-						Toast.makeText(getApplicationContext(), levels, 1)
-								.show();
+						linear_loadinghome.setVisibility(View.INVISIBLE);
+//						Toast.makeText(getApplicationContext(), levels, 1)
+//								.show();
 					}
 				});
 	}
 
 	@Override
 	public void onBackPressed() {
+		 
 		if (_doubleBackToExitPressedOnce) {
-			super.onBackPressed();
-
-			Intent intent = new Intent(getApplicationContext(),
-					MainActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			intent.putExtra("EXIT", true);
-			startActivity(intent);
-			return;
-		}
-
-		this._doubleBackToExitPressedOnce = true;
-		Toast.makeText(this, "برای خروج کلید بازگشت را دوباره فشار دهید",
-				Toast.LENGTH_SHORT).show();
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-
-				_doubleBackToExitPressedOnce = false;
-			}
-		}, 2000);
-	}
-
+ 	        return;
+	    }
+	    this._doubleBackToExitPressedOnce = true;
+ 	}
+	
+	
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -681,5 +717,14 @@ public class HomeActivity extends Activity {
 					Toast.LENGTH_LONG).show();
 		}
 	}// End onResume
+
+	public void showDialog(String title, String message) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this)
+				.setTitle(title).setMessage(message);
+		builder.setPositiveButton(R.string.ok, null);
+		builder.show();
+	}
+
+	
 
 }

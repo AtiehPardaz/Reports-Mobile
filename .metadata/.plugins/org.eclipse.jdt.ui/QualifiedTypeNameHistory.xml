@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="android.graphics.Color"/>
 <fullyQualifiedTypeName name="GetDetailLevelNumberPack.GetDetailLevelNumber"/>
 <fullyQualifiedTypeName name="GetDetailLevelNumberPack.GetDetailLevelNumberInterface"/>
-<fullyQualifiedTypeName name="android.widget.Spinner"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView"/>
@@ -15,13 +14,22 @@
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="java.text.BreakIterator"/>
 <fullyQualifiedTypeName name="android.media.ExifInterface"/>
-<fullyQualifiedTypeName name="com.Atieh.reportsmobile.ListViewAlphebeticalActivity"/>
 <fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="adapters.NothingSelectedSpinnerAdapter"/>
 <fullyQualifiedTypeName name="android.R.string"/>
-<fullyQualifiedTypeName name="com.Atieh.reportsmobile.HomeActivity"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="android.os.AsyncTask"/>
+<fullyQualifiedTypeName name="GetAllSellersPack.GetAllSeller"/>
+<fullyQualifiedTypeName name="android.widget.LinearLayout"/>
+<fullyQualifiedTypeName name="android.view.View"/>
+<fullyQualifiedTypeName name="com.Atieh.reportsmobile.HomeActivity"/>
+<fullyQualifiedTypeName name="android.os.Handler"/>
+<fullyQualifiedTypeName name="com.Atieh.reportsmobile.SelectDomainActivity"/>
+<fullyQualifiedTypeName name="android.widget.Spinner"/>
+<fullyQualifiedTypeName name="com.Atieh.reportsmobile.ListViewAlphebeticalActivity"/>
+<fullyQualifiedTypeName name="com.Atieh.reportsmobile.FrgGardeshHesabdari"/>
+<fullyQualifiedTypeName name="java.lang.Boolean"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>

@@ -2,12 +2,16 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="authenticate" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="flg_SelectedSath"/>
+			<item value="spnr_sathtafsil"/>
+			<item value="Extra"/>
+			<item value="showmenu"/>
 			<item value="authenticate"/>
 			<item value="mostari"/>
 		</list>

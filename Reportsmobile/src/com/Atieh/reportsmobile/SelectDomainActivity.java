@@ -32,6 +32,7 @@ public class SelectDomainActivity extends Activity {
 	public static String returnedYearTitle;
 
 	int c;
+	private boolean _doubleBackToExitPressedOnce = false;
 
 	public static String finalreturneddomainid;
 	public static String finalreturneyearid;
@@ -49,7 +50,6 @@ public class SelectDomainActivity extends Activity {
 	public static ArrayList<String> yeartitleArray;
 	public static ArrayList<String> yearidArray;
 	public static ArrayList<String> domainidArray;
-	private boolean _doubleBackToExitPressedOnce = false;
 	AlertDialog alertDialog;
 
 	public void initview() {
@@ -58,7 +58,6 @@ public class SelectDomainActivity extends Activity {
 		selyear = (ImageButton) findViewById(R.id.imgbtn_selectyearmali);
 		et_salmali = (TextView) findViewById(R.id.et_salemali);
 		et_domain = (TextView) findViewById(R.id.et_domain);
-
 	}
 
 	@Override
@@ -79,7 +78,6 @@ public class SelectDomainActivity extends Activity {
 		domainidArray = new ArrayList<>();
 
 		selyear.setOnClickListener(null);
-
 		et_domain.setOnClickListener(new OnClickListener() {
 
 			@SuppressLint("NewApi")
@@ -135,7 +133,6 @@ public class SelectDomainActivity extends Activity {
 							HomeActivity.class);
 					startActivity(domainintnent);
 				}
-
 			}
 		});
 
@@ -159,7 +156,6 @@ public class SelectDomainActivity extends Activity {
 
 					yearidArray.clear();
 					yeartitleArray.clear();
-
 				}
 
 				flgforresume = 1;
@@ -168,12 +164,9 @@ public class SelectDomainActivity extends Activity {
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", domaintitle);
 				intent.putExtra("arrayidfromjson", domainid);
-
 				startActivity(intent);
-
 			}
 		});
-
 	}
 
 	@Override
@@ -230,7 +223,7 @@ public class SelectDomainActivity extends Activity {
 				public void onClick(View v) {
 
 					if (flgforresume == 0) {
-						showdialog("ابتدا دامنه را وارد نمایید");
+						showdialog(getString(R.string.pleaseEnterDomainFirst));
 					}
 					flgforresume = 2;
 					Intent intent = new Intent();
@@ -249,12 +242,11 @@ public class SelectDomainActivity extends Activity {
 	}
 
 	public void showdialog(String message) {
-		this._doubleBackToExitPressedOnce = true;
 		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 		alertDialogBuilder.setMessage(message);
 		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
-		alertDialogBuilder.setTitle("خطا");
-		alertDialogBuilder.setPositiveButton("تایید",
+		alertDialogBuilder.setTitle(getString(R.string.errorTitle));
+		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
 				new DialogInterface.OnClickListener() {
 
 					@Override
@@ -265,30 +257,69 @@ public class SelectDomainActivity extends Activity {
 		alertDialog.show();
 	}
 
+	public void showDialogForExit() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(getString(R.string.wouldYouLikeToExit));
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle(getString(R.string.warningTitle));
+		alertDialogBuilder.setCancelable(false);
+		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						
+						Intent intent = new Intent(getApplicationContext(),
+								MainActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.putExtra("EXIT", true);
+						startActivity(intent);
+					}
+				});
+		alertDialogBuilder.setNegativeButton(getString(R.string.cancel), 
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+			
+				});
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+	}
+
 	@Override
 	public void onBackPressed() {
+//		super.onBackPressed();
 
-		// Log.i(TAG, "onBackPressed--");
-		if (_doubleBackToExitPressedOnce) {
-			super.onBackPressed();
+		 if (_doubleBackToExitPressedOnce) {
+//		        super.onBackPressed();
+		        showDialogForExit();
+		        return;
+		    }
 
-			Intent intent = new Intent(getApplicationContext(),
-					MainActivity.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			intent.putExtra("EXIT", true);
-			startActivity(intent);
+		    this._doubleBackToExitPressedOnce = true;
+		    
+		    showDialog("توجه", "برای ورود به صفحه بعد سال مالی و دامنه را وارد کنید");
+//		    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
 
-			return;
-		}
+		    new Handler().postDelayed(new Runnable() {
 
-		showdialog("برای ورود به صفحه بعد سال مالی و دامنه را وارد کنید\nو یا برای خروج کلید بازگشت را دوبار فشار دهید ");
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-
-				_doubleBackToExitPressedOnce = false;
-			}
-		}, 2000);
+		        @Override
+		        public void run() {
+		            _doubleBackToExitPressedOnce=false;                       
+		        }
+		    }, 2000);
+		
+		
+		
+	}
+	public void showDialog(String title, String message) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(SelectDomainActivity.this)
+				.setTitle(title).setMessage(message);
+		builder.setPositiveButton(R.string.ok, null);
+		builder.show();
 	}
 
 	public void attemplogin() {
@@ -299,13 +330,13 @@ public class SelectDomainActivity extends Activity {
 		boolean cancel = false;
 		View focusview = null;
 		if (TextUtils.isEmpty(mdomain)) {
-			et_domain.setError("لطفا دامنه را انتخال نمایید ");
+			et_domain.setError(getString(R.string.pleaseSelectDomain));
 			focusview = et_domain;
 			cancel = true;
 		}
 		if (TextUtils.isEmpty(myear)) {
 			et_salmali
-					.setError("لطفا ابتدا  دامنه  و سپس سال مالی را  انتخاب نمایید");
+					.setError(getString(R.string.pleaseselectDomainFirst));
 			focusview = et_salmali;
 			cancel = true;
 		}

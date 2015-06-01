@@ -3,8 +3,6 @@ package com.Atieh.reportsmobile;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.Atieh.reportsmobile.R.integer;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import dataBase.database;
 
 public class ListAlphebeticaladapter extends BaseAdapter {
 	public Utils utils = Utils.getInstance();
@@ -22,7 +19,6 @@ public class ListAlphebeticaladapter extends BaseAdapter {
 	String[] titles;
 	String[] rownum;
 	public ArrayList<ListTO> objects;
-	database db;
 	TextView id;
 
 	List<List<String[]>> list1;
