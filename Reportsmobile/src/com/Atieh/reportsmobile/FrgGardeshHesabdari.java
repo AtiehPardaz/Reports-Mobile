@@ -338,11 +338,9 @@ public class FrgGardeshHesabdari extends Fragment {
 					showMessage("لطفا تفصیل را وارد نمایید");
 				}
 
-				
-				// else if (et_foroshande.getText().equals("")) {
-				// showMessage("لطفا  فروشنده را وارد نمایید");
-				// }
-				else {
+				else if (spnr_sathtafsil.getSelectedItemId() == -1) {
+					showMessage("لطفا  فروشنده را وارد نمایید");
+				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						String ReportsUrl;
 						ReportsUrl = "Accounting/AccountingTafsil.aspx?"

@@ -149,25 +149,25 @@ public class ListViewAlphebeticalActivity extends Activity implements
 						alphebetList.setSelection(Integer
 								.parseInt((rownumber[i])));
 
-						// Toast.makeText(getApplicationContext(),
-						// "rownum= "+i,
-						// 1).show();
-						// NewArraytitle = new String[arraytitle[i].length()];
-						// NewArrayId = new String[arraytitle[i].length()];
-						// NewArrayrownumber = new String[arraytitle[i]
-						// .length()];
-						//
-						// NewArraytitle[i] = arraytitle[i];
-						// NewArrayId[i] = arrayID[i];
-						// NewArrayrownumber[i] = rownumber[i];
-						//
-						// // alphebetList.findViewsWithText(null, text, flags)
-						//
-						// mArrayadapter = new ListAlphebeticaladapter(
-						// ListViewAlphebeticalActivity.this,
-						// NewArrayId, NewArraytitle,
-						// NewArrayrownumber, getApplicationContext());
-						// alphebetList.setAdapter(mArrayadapter);
+//						 Toast.makeText(getApplicationContext(),
+//						 "rownum= "+i,
+//						 1).show();
+//						 NewArraytitle = new String[arraytitle[i].length()];
+//						 NewArrayId = new String[arraytitle[i].length()];
+//						 NewArrayrownumber = new String[arraytitle[i]
+//						 .length()];
+//						
+//						 NewArraytitle[i] = arraytitle[i];
+//						 NewArrayId[i] = arrayID[i];
+//						 NewArrayrownumber[i] = rownumber[i];
+//						
+//						 // alphebetList.findViewsWithText(null, text, flags)
+//						
+//						 mArrayadapter = new ListAlphebeticaladapter(
+//						 ListViewAlphebeticalActivity.this,
+//						 NewArrayId, NewArraytitle,
+//						 NewArrayrownumber, getApplicationContext());
+//						 alphebetList.setAdapter(mArrayadapter);
 
 					}
 

@@ -9,45 +9,38 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginBottom="5dp"
-        android:background="@color/white_color"
+        android:background="@color/marker_color"
         android:gravity="right" >
 
         <ImageButton
-            android:id="@+id/imgbtn_underline_tarkibi_hesabdari"
+            android:id="@+id/imgbtn_fromdate_tarkibi_hesabdari"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
-        <EditText
-            android:id="@+id/et_fromdatetarkibi_hesabdari"
+        <TextView
+            android:id="@+id/et_fromdate_tarkibi_hesabdari"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="از تاریخ: "
+            android:gravity="center"
+            android:hint="@string/fromdate"
             android:textSize="14sp" >
 
             <requestFocus />
-        </EditText>
-
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:background="@color/white_color"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
+        android:background="@color/marker_color"
         android:gravity="right" >
 
         <ImageButton
@@ -58,164 +51,13 @@
             android:layout_marginLeft="5dp"
             android:background="@drawable/ic_action_date" />
 
-        <EditText
-            android:id="@+id/et_todate_forosh"
+        <TextView
+            android:id="@+id/et_todate_tarkibi_hesabdari"
             android:layout_width="180dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
-            android:hint="تا تاریخ: "
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_todatetarkibi_hesabdari"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:background="@color/white_color"
-        android:gravity="right" >
-
-        <ImageButton
-            android:id="@+id/imgbtn_sathshakhstarkibi_hesabdari"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/down" />
-
-        <EditText
-            android:id="@+id/et_sathshakhstarkibi_hesabdari"
-            android:layout_width="90dp"
-            android:layout_height="35dp"
-            android:ems="10"
-            android:hint="سطح 1"
-            android:textSize="14sp" />
-
-        <ImageButton
-            android:id="@+id/imgbtn_shakhstarkibi_hesabdari"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="@drawable/down" />
-
-        <EditText
-            android:id="@+id/et_shakhstarkibi_hesabdari"
-            android:layout_width="90dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:hint="شخص:  "
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv__customer_forosh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:background="@color/white_color"
-        android:gravity="right" >
-
-        <ImageButton
-            android:id="@+id/imgbtn_sathprojecttarkibi_hesabdari"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="@drawable/down" />
-
-        <EditText
-            android:id="@+id/et__sathprojecttarkibi_hesabdari"
-            android:layout_width="90dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:hint="سطح 2"
-            android:textSize="14sp" />
-
-        <ImageButton
-            android:id="@+id/imgbtn_projecttarkibi_hesabdari"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="@drawable/down" />
-
-        <EditText
-            android:id="@+id/et__projecttarkibi_hesabdari"
-            android:layout_width="90dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:hint="پروژه:   "
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv__projecttarkibi_hesabdari"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:background="@color/white_color"
-        android:gravity="right" >
-
-        <ImageButton
-            android:id="@+id/imgbtn_sathhazinetarkibi_hesabdari"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="@drawable/down" />
-
-        <EditText
-            android:id="@+id/et_sathhazinetarkibi_hesabdari"
-            android:layout_width="90dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:textSize="14sp" />
-
-        <ImageButton
-            android:id="@+id/imgbtn_hazinetarkibi_hesabdari"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="@drawable/down" />
-
-        <EditText
-            android:id="@+id/et_hazinetarkibi_hesabdari"
-            android:layout_width="90dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:hint="هزینه:    "
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_hazinetarkibi_hesabdari"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:gravity="right"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#ffffff"
+            android:gravity="center"
+            android:hint="@string/todate"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -223,48 +65,173 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@color/white_color"
+        android:background="@color/marker_color"
         android:gravity="right" >
 
- <ImageButton
-            android:id="@+id/imgbtn_satharztarkibi_hesabdari"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="center"
-            android:background="@drawable/down" />
-
-        <EditText
-            android:id="@+id/et_satharztarkibi_hesabdari"
-            android:layout_width="90dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:textSize="14sp" />
         <ImageButton
-            android:id="@+id/imgbtn_arztarkibi_hesabdari"
+            android:id="@+id/imgbtn_sathtafsiltarkibi_hesabdari"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
             android:background="@drawable/down" />
 
-        <EditText
-            android:id="@+id/et_arztarkibi_hesabdari"
-            android:layout_width="90dp"
+        <Spinner
+            android:id="@+id/spnr_sathtafsiltarkibi_hesabdari"
+            android:layout_width="150dp"
             android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:hint="ارز:       "
-            android:textSize="14sp" />
+            android:layout_gravity="center|right"
+            android:background="@color/marker_color"
+            android:backgroundTint="@color/bg_action_gray"
+            android:gravity="center|right"
+            android:textColor="#FF0000"
+            android:textSize="12sp" />
 
         <TextView
-            android:id="@+id/tv_arztarkibi_hesabdari"
+            android:id="@+id/tv_sathtafsiltarkibi_hesabdari"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
+            android:hint="سطح"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:visibility="visible" />
+
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@color/marker_color" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_tafsiltarkibi_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down" />
+
+        <TextView
+            android:id="@+id/et_sathtafsiltarkibi_hesabdari"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/imgbtn_onvantafsil_tarkibi_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/spnrOnvan2ta"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@color/marker_color"
+            android:backgroundTint="@color/bg_action_gray"
+            android:gravity="center"
+            android:textColor="#FF0000"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@color/marker_color"
+        android:gravity="right" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_sathtafsil2tarkibi_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down" />
+
+        <Spinner
+            android:id="@+id/spnr_sathtafsil2tarkibi_hesabdari"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center|right"
+            android:background="@color/marker_color"
+            android:backgroundTint="@color/bg_action_gray"
+            android:gravity="center|right"
+            android:textColor="#FF0000"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_sathtafsiltarkibi2_hesabdari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:gravity="right"
+            android:hint="سطح"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@color/marker_color" >
+
+        <ImageButton
+            android:id="@+id/imgbtn_tafsil2_tarkibi_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down" />
+
+        <TextView
+            android:id="@+id/et_sathtafsil2tarkibi_hesabdari"
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="center"
+            android:textSize="14sp" />
+
+        <ImageButton
+            android:id="@+id/imgbtn_onvantafsil2_tarkibi_hesabdari"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/down"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/spnrOnvan2tae2"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:background="@color/marker_color"
+            android:backgroundTint="@color/bg_action_gray"
+            android:gravity="center"
+            android:textColor="#FF0000"
+            android:textSize="12sp" />
+
+    </LinearLayout>
     <ImageButton
         android:id="@+id/imgbtn_namayesh_tarkibi_hesabdari"
         android:layout_width="wrap_content"
