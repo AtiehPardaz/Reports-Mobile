@@ -22,7 +22,7 @@ public class frg_customer_forosh extends Fragment {
 	ImageButton todateustomer;
 	ImageButton selcustomer, selbazar, selForoshande;
 	ImageButton btnshow;
-
+	String resume_day, resume_month, resume_year;
 	TextView et_fromdate, et_todate, et_customer, et_bazar, et_foroshande;
 
 	int flgbackforResume = 0;
@@ -115,9 +115,17 @@ public class frg_customer_forosh extends Fragment {
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_fromdate.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
+
 				flgbackforResume = 1;
+
 				// do something
 
 				// final InputMethodManager imm = (InputMethodManager)
@@ -129,8 +137,15 @@ public class frg_customer_forosh extends Fragment {
 		todateustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_todate.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 2;
 
 			}

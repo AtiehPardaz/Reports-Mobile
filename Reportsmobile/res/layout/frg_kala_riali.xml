@@ -27,7 +27,7 @@
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:hint="@string/date"
+            android:hint="@string/todate"
             android:textSize="14sp" >
 
             <requestFocus />

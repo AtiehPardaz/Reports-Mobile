@@ -16,7 +16,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class FrgMojodikala extends Fragment {
 	public Utils utils = Utils.getInstance();
@@ -89,8 +88,14 @@ public class FrgMojodikala extends Fragment {
 		date.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_date.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 1;
 				// do something
 
@@ -178,11 +183,7 @@ public class FrgMojodikala extends Fragment {
 								+ "&warehouseIds=" + warehouseId.toString()
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText() + "&filterZeroItem=TRUE";
-
-						Toast.makeText(
-								getActivity(),
-								"احتمال وجود جدول با مقادیر صفر و نمایش پیغام خطا ی داده نامعتبر وجود دارد",
-								1).show();
+ 
 
 					} else if (chktajmiiy.isChecked() == false
 							&& chk_mojodisefr.isChecked() == false) {

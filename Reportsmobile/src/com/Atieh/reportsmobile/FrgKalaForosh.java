@@ -147,8 +147,14 @@ public class FrgKalaForosh extends Fragment {
 		datefromcustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_fromdate.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 1;
 				// do something
 
@@ -161,8 +167,14 @@ public class FrgKalaForosh extends Fragment {
 		todateustomer.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_todate.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 2;
 
 			}

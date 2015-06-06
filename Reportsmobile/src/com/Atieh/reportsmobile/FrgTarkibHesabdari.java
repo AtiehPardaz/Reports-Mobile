@@ -334,8 +334,14 @@ public class FrgTarkibHesabdari extends Fragment {
 		img_datefrom.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_fromdate.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 1;
 				// do something
 
@@ -348,8 +354,14 @@ public class FrgTarkibHesabdari extends Fragment {
 		img_todate.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_todate.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 2;
 
 			}
@@ -547,11 +559,11 @@ public class FrgTarkibHesabdari extends Fragment {
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						String ReportsUrl;
-						ReportsUrl = "Accounting/AccountingTafsil.aspx?"
-								+ "PersonIds=" + pId.toString() + "&startDate="
+						ReportsUrl = "Accounting/AccountingTwoTafsil.aspx?"
+								+ "FirstDetailIds=" + pId.toString() + "&startDate="
 								+ et_fromdate.getText() + "&endDate="
-								+ et_todate.getText() + "&Type=" + type
-								+ "&Level="
+								+ et_todate.getText() + "&FirstType=" + type
+								+ "&FirstDetailLevel="
 								+ spnr_sathtafsil.getSelectedItem().toString();
 
 						Intent report = new Intent();

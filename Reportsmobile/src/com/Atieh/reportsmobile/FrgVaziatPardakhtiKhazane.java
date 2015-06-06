@@ -101,11 +101,7 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
 				if (et_pardakhtkonande.getText().equals("")) {
 					showMessage("لطفا نام دریافت کننده را وارد نمایید");
-				} else if (et_shomarecheck.getText().toString().matches("")) {
-					showMessage("لطفا شماره چک را وارد نمایید");
-				} else if (et_shomarehesab.getText().toString().matches("")) {
-					showMessage("لطفا شماره حساب را وارد نمایید");
-				} else {
+				}  else {
 					Intent report = new Intent();
 					String ReportsUrl;
 					ReportsUrl = "Document/PayDocumentStatus.aspx?"

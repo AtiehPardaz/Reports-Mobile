@@ -91,7 +91,7 @@
                     android:layout_height="40dp"
                     android:layout_marginTop="35dp"
                     android:background="@color/blue_green"
-                    android:src="@drawable/newsabt" />
+                    android:src="@drawable/newedame" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

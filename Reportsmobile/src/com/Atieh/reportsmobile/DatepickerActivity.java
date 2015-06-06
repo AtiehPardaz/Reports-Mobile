@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DatepickerActivity extends Activity {
 	public Utils utils = Utils.getInstance();
@@ -32,6 +33,8 @@ public class DatepickerActivity extends Activity {
 	public static String myYear = "", myMonth, myDay;
 	AlertDialog alertDialog;
 	private boolean _doubleBackToExitPressedOnce = false;
+	String resume_day, resume_month, resume_year;
+	public static int flg_resamedate = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,16 +58,28 @@ public class DatepickerActivity extends Activity {
 
 		util = new Utilities();
 		date2 = new Date();
-		txt_name_year.setText(Integer.toString(util.getYear(date2)));
-		txt_name_month.setText(util.getMonthStr(date2));
-		int a = util.getDay(date2);
+		flg_resamedate = getIntent().getExtras().getInt("flg_resamedate");
 
-		if (a < 10) {
-			txt_name_day.setText("0" + a);
+		if (getIntent().getExtras().getInt("flg_resamedate") == 0) {
+			txt_name_year.setText(Integer.toString(util.getYear(date2)));
+			txt_name_month.setText(util.getMonthStr(date2));
+			int a = util.getDay(date2);
+			Toast.makeText(getApplicationContext(),
+					myYear + myMonth + myDay + "==" + flg_resamedate + "", 1)
+					.show();
+			if (a < 10) {
+				txt_name_day.setText("0" + a);
+			} else {
+				txt_name_day.setText(Integer.toString(util.getDay(date2)));
+			}
 		} else {
-			txt_name_day.setText(Integer.toString(util.getDay(date2)));
+			txt_name_month.setText(myMonth);
+			txt_name_year.setText(myYear);
+			txt_name_day.setText(myDay);
 		}
+
 		this.setFinishOnTouchOutside(false);
+
 		top_image_year.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -173,6 +188,16 @@ public class DatepickerActivity extends Activity {
 		});
 
 	}
+
+	// @Override
+	// protected void onResume() {
+	// super.onResume();
+	//
+	// Toast.makeText(getApplicationContext(),
+	// getIntent().getExtras().getBoolean("flg_resamedate") + "2", 1)
+	// .show();
+	//
+	// }
 
 	private void init_Cal() {
 		weekDayNames.add("01");
