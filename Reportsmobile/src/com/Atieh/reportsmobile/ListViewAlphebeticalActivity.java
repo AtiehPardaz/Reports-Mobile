@@ -52,9 +52,9 @@ public class ListViewAlphebeticalActivity extends Activity implements
 	EditText et_search;
 	TextView titlelistview;
 	String[] rownumber;
-	String NewArraytitle[];
-	String NewArrayId[];
-	String NewArrayrownumber[];
+	ArrayList<String> NewArraytitle;
+	ArrayList<String> NewArrayId;
+	ArrayList<String> NewArrayrownumber;
 
 	private boolean _doubleBackToExitPressedOnce = false;
 
@@ -73,7 +73,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		selall = (ImageButton) findViewById(R.id.imgbtn_SelAll);
 		titlelistview = (TextView) findViewById(R.id.et_titlelistviewalphebetic);
 		et_search = (EditText) findViewById(R.id.et_searchlist);
-		
+
 		utils.setkodakfont(et_search);
 		utils.setkodakfont(titlelistview);
 		// arraytitle va arrayID bayad meghdardehi shavand
@@ -81,7 +81,8 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		// arrayID =new String[SelectDomainActivity.domaintitleArray.size()];;
 		arraytitle = getIntent().getExtras().getStringArray(
 				"arrayttitlefromjson");
-
+		Arrays.sort(arraytitle);
+		
 		arrayID = getIntent().getExtras().getStringArray("arrayidfromjson");
 
 		sidepicker = getIntent().getExtras().getBoolean("side");
@@ -131,7 +132,9 @@ public class ListViewAlphebeticalActivity extends Activity implements
 			public void onTextChanged(CharSequence arg0, int arg1, int arg2,
 					int arg3) {
 				// TODO Auto-generated method stub
-
+				ArrayList<String> NewArrayId = new ArrayList<String>();
+				ArrayList<String> NewArraytitle = new ArrayList<String>();
+				ArrayList<String> NewArrayrownumber = new ArrayList<String>();
 				// if (et_search.getText().equals(null)) {
 				// mArrayadapter = new ListAlphebeticaladapter(
 				// ListViewAlphebeticalActivity.this, arrayID,
@@ -140,38 +143,46 @@ public class ListViewAlphebeticalActivity extends Activity implements
 				//
 				// } else {
 				for (int i = 0; i < arraytitle.length; i++) {
-
-					if (arraytitle[i].contains((et_search.getText().toString()))) {
+					// if (arg0.length() <= et_search.getText().length()) {
+					if (arraytitle[i].contains((arg0.toString()))) {
+						
+						NewArrayId.add(arrayID[i]);
+						NewArraytitle.add(arraytitle[i]);
+						NewArrayrownumber.add(rownumber[i]);
+						
 						// if
 						// (arraytitle[i].equals((et_search.getText().toString())))
 						// {
 
-						alphebetList.setSelection(Integer
-								.parseInt((rownumber[i])));
+						/*
+						 * alphebetList.setSelection(Integer
+						 * .parseInt((rownumber[i])));
+						 */
 
-//						 Toast.makeText(getApplicationContext(),
-//						 "rownum= "+i,
-//						 1).show();
-//						 NewArraytitle = new String[arraytitle[i].length()];
-//						 NewArrayId = new String[arraytitle[i].length()];
-//						 NewArrayrownumber = new String[arraytitle[i]
-//						 .length()];
-//						
-//						 NewArraytitle[i] = arraytitle[i];
-//						 NewArrayId[i] = arrayID[i];
-//						 NewArrayrownumber[i] = rownumber[i];
-//						
-//						 // alphebetList.findViewsWithText(null, text, flags)
-//						
-//						 mArrayadapter = new ListAlphebeticaladapter(
-//						 ListViewAlphebeticalActivity.this,
-//						 NewArrayId, NewArraytitle,
-//						 NewArrayrownumber, getApplicationContext());
-//						 alphebetList.setAdapter(mArrayadapter);
+						// Toast.makeText(getApplicationContext(),
+						// "rownum= "+i,
+						// 1).show();
 
+						//
+						// // alphebetList.findViewsWithText(null, text,
+						// flags)
+						//
+
+						// }
 					}
-
 				}
+				
+				String[] arrid = NewArrayId.toArray(new String[NewArrayId.size()]);
+				String[] arrtitle = NewArraytitle.toArray(new String[NewArraytitle.size()]);
+				String[] arrrow = NewArrayrownumber.toArray(new String[NewArrayrownumber.size()]);
+				
+				  
+				mArrayadapter = new ListAlphebeticaladapter(
+						ListViewAlphebeticalActivity.this, arrid,
+						arrtitle, arrrow,
+						getApplicationContext());
+				alphebetList.setAdapter(mArrayadapter);
+
 				// }
 			}
 
@@ -198,7 +209,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		getIndexList(arraytitle);
 
 		displayIndex();
-
+		
 		mArrayadapter = new ListAlphebeticaladapter(
 				ListViewAlphebeticalActivity.this, arrayID, arraytitle,
 				rownumber, getApplicationContext());
