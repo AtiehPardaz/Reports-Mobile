@@ -64,18 +64,18 @@ public class DatepickerActivity extends Activity {
 			txt_name_year.setText(Integer.toString(util.getYear(date2)));
 			txt_name_month.setText(util.getMonthStr(date2));
 			int a = util.getDay(date2);
-			Toast.makeText(getApplicationContext(),
-					myYear + myMonth + myDay + "==" + flg_resamedate + "", 1)
-					.show();
+//			Toast.makeText(getApplicationContext(),
+//					myYear + myMonth + myDay + "==" + flg_resamedate + "", 1)
+//					.show();
 			if (a < 10) {
 				txt_name_day.setText("0" + a);
 			} else {
 				txt_name_day.setText(Integer.toString(util.getDay(date2)));
 			}
 		} else {
-			txt_name_month.setText(myMonth);
-			txt_name_year.setText(myYear);
-			txt_name_day.setText(myDay);
+			txt_name_month.setText(getIntent().getExtras().getString("newmonth"));
+			txt_name_year.setText(getIntent().getExtras().getString("newyear"));
+			txt_name_day.setText(getIntent().getExtras().getString("newday"));
 		}
 
 		this.setFinishOnTouchOutside(false);

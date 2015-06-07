@@ -338,6 +338,16 @@ aa=(EditText) view.findViewById(R.id.editText1ss);
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_fromdate.getText().subSequence(0, 4);
+					CharSequence charmonth=et_fromdate.getText().subSequence(5, 7);
+					CharSequence charday=et_fromdate.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
 				}
 				report.setClass(getActivity(), DatepickerActivity.class);
 				startActivity(report);
@@ -353,11 +363,22 @@ aa=(EditText) view.findViewById(R.id.editText1ss);
 		img_todate.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				
 				Intent report = new Intent();
 				if (et_todate.getText().equals("")) {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_todate.getText().subSequence(0, 4);
+					CharSequence charmonth=et_todate.getText().subSequence(5, 7);
+					CharSequence charday=et_todate.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
 				}
 				report.setClass(getActivity(), DatepickerActivity.class);
 				startActivity(report);

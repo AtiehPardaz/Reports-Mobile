@@ -32,8 +32,7 @@ public class FrgKalaForosh extends Fragment {
 	public static int sel = 0;
 
 	String[] St_titleArray, St_idArray, St_personcodeArray;
-	public static String customerId, marketerId, sellerId, productId,
-			servicesId;
+	public static String customerId, marketerId, sellerId, productServicesId;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -152,6 +151,16 @@ public class FrgKalaForosh extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_fromdate.getText().subSequence(0, 4);
+					CharSequence charmonth=et_fromdate.getText().subSequence(5, 7);
+					CharSequence charday=et_fromdate.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
 				}
 				report.setClass(getActivity(), DatepickerActivity.class);
 				startActivity(report);
@@ -172,6 +181,16 @@ public class FrgKalaForosh extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_todate.getText().subSequence(0, 4);
+					CharSequence charmonth=et_todate.getText().subSequence(5, 7);
+					CharSequence charday=et_todate.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
 				}
 				report.setClass(getActivity(), DatepickerActivity.class);
 				startActivity(report);
@@ -267,7 +286,7 @@ public class FrgKalaForosh extends Fragment {
 				// sel = 4;
 				et_kala.setBackgroundColor(Color.WHITE);
 				et_khadamat.setText("");
-				et_khadamat.setBackgroundColor(Color.CYAN);
+				et_khadamat.setBackgroundColor(Color.DKGRAY);
 				St_titleArray = (String[]) HomeActivity.producttitleArray
 						.toArray(new String[HomeActivity.producttitleArray
 								.size()]);
@@ -296,7 +315,7 @@ public class FrgKalaForosh extends Fragment {
 				// sel = 4;
 				et_khadamat.setBackgroundColor(Color.WHITE);
 				et_kala.setText("");
-				et_kala.setBackgroundColor(Color.CYAN);
+				et_kala.setBackgroundColor(Color.DKGRAY);
 				St_titleArray = (String[]) HomeActivity.servicestitleArray
 						.toArray(new String[HomeActivity.servicestitleArray
 								.size()]);
@@ -353,7 +372,8 @@ public class FrgKalaForosh extends Fragment {
 								+ "&customerPersonIds=" + customerId.toString()
 								+ "&marketerPersonIds=" + marketerId.toString()
 								+ "&FromDate=" + et_fromdate.getText()
-								+ "&ToDate=" + et_todate.getText();
+								+ "&ToDate=" + et_todate.getText()
+								+ "&ServiceIds=" + productServicesId.toString();
 						report.putExtra("gozaresh", ReportsUrl);
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
@@ -438,10 +458,10 @@ public class FrgKalaForosh extends Fragment {
 			et_foroshande
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 6) {
-			productId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			productServicesId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_kala.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		} else if (flgbackforResume == 7) {
-			servicesId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			productServicesId = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_khadamat
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

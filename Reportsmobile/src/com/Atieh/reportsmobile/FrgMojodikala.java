@@ -93,6 +93,16 @@ public class FrgMojodikala extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_date.getText().subSequence(0, 4);
+					CharSequence charmonth=et_date.getText().subSequence(5, 7);
+					CharSequence charday=et_date.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
 				}
 				report.setClass(getActivity(), DatepickerActivity.class);
 				startActivity(report);

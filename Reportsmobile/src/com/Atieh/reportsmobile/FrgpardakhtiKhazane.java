@@ -118,8 +118,24 @@ public class FrgpardakhtiKhazane extends Fragment {
 		pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_pardakhtebteda.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_pardakhtebteda.getText().subSequence(0, 4);
+					CharSequence charmonth=et_pardakhtebteda.getText().subSequence(5, 7);
+					CharSequence charday=et_pardakhtebteda.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 1;
 				// do something
 
@@ -132,8 +148,24 @@ public class FrgpardakhtiKhazane extends Fragment {
 		pardakhtenteha.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_pardakhtenteha.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_pardakhtenteha.getText().subSequence(0, 4);
+					CharSequence charmonth=et_pardakhtenteha.getText().subSequence(5, 7);
+					CharSequence charday=et_pardakhtenteha.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 2;
 
 			}
@@ -142,8 +174,24 @@ public class FrgpardakhtiKhazane extends Fragment {
 			@Override
 			public void onClick(View v) {
 				sel = 1;
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_sarresidebteda.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_sarresidebteda.getText().subSequence(0, 4);
+					CharSequence charmonth=et_sarresidebteda.getText().subSequence(5, 7);
+					CharSequence charday=et_sarresidebteda.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 3;
 
 			}
@@ -152,8 +200,24 @@ public class FrgpardakhtiKhazane extends Fragment {
 			@Override
 			public void onClick(View v) {
 				sel = 2;
-				startActivity(new Intent(getActivity(),
-						DatepickerActivity.class));
+				Intent report = new Intent();
+				if (et_sarresidenteha.getText().equals("")) {
+					report.putExtra("flg_resamedate", 0);
+				} else {
+					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_sarresidenteha.getText().subSequence(0, 4);
+					CharSequence charmonth=et_sarresidenteha.getText().subSequence(5, 7);
+					CharSequence charday=et_sarresidenteha.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
+				}
+				report.setClass(getActivity(), DatepickerActivity.class);
+				startActivity(report);
 				flgbackforResume = 4;
 
 			}

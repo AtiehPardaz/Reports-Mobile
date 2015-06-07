@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class frg_customer_forosh extends Fragment {
 	public Utils utils = Utils.getInstance();
@@ -120,6 +121,16 @@ public class frg_customer_forosh extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_fromdate.getText().subSequence(0, 4);
+					CharSequence charmonth=et_fromdate.getText().subSequence(5, 7);
+					CharSequence charday=et_fromdate.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
+
 				}
 				report.setClass(getActivity(), DatepickerActivity.class);
 				startActivity(report);
@@ -142,6 +153,15 @@ public class frg_customer_forosh extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
+					CharSequence charyear=et_todate.getText().subSequence(0, 4);
+					CharSequence charmonth=et_todate.getText().subSequence(5, 7);
+					CharSequence charday=et_todate.getText().subSequence(8, 10);
+					String newday=charday.toString();
+					String newmonth=charmonth.toString();
+					String newyear=charyear.toString();
+					report.putExtra("newday", newday);
+					report.putExtra("newmonth", newmonth);
+					report.putExtra("newyear", newyear);
 
 				}
 				report.setClass(getActivity(), DatepickerActivity.class);
