@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="img_tafsil" key="selection"/>
+		<item value="Toast" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Toast"/>
 			<item value="img_tafsil"/>
 			<item value="imgbtn_tafsiltarkibi_hesabdari"/>
 			<item value="et_sathtafsil"/>
@@ -15,7 +16,6 @@
 			<item value="gardesh"/>
 			<item value="flg_SelectedSath"/>
 			<item value="spnr_sathtafsil"/>
-			<item value="Extra"/>
 		</list>
 		<list key="replacehistory">
 			<item value="tarkibi"/>

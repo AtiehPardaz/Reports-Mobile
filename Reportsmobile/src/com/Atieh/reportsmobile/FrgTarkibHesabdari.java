@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -30,7 +31,8 @@ public class FrgTarkibHesabdari extends Fragment {
 			img2_selsathtafsil, img_OnvanTafsil, img2_OnvanTafsil, img_tafsil,
 			img2_tafsil, btnshow;
 
-	TextView et_fromdate, et_todate, selecttafsil, et_sathtafsil,selecttafsil2;
+	TextView et_fromdate, et_todate, selecttafsil, et_sathtafsil,
+			selecttafsil2;
 	Spinner spnr_onvantafsil, spnr_sathtafsil, spnr2_sathtafsil,
 			spnr2_onvantafsil;
 	List<String> stats, stats2, sathtafsil, sath2tafsil;
@@ -39,10 +41,10 @@ public class FrgTarkibHesabdari extends Fragment {
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray;
-	int flg_selecttafsil = 0,flg_selecttafsil2=0, type = 0;
-	String pId,pId2;
+	int flg_selecttafsil = 0, flg_selecttafsil2 = 0, type = 0,type2=0;
+	String pId, pId2;
 	int sath;
-
+EditText aa;
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -54,7 +56,7 @@ public class FrgTarkibHesabdari extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedinstancState) {
 		View view = inflater.inflate(R.layout.frg_tarkibi, container, false);
-
+aa=(EditText) view.findViewById(R.id.editText1ss);
 		et_fromdate = (TextView) view
 				.findViewById(R.id.et_fromdate_tarkibi_hesabdari);
 		et_todate = (TextView) view
@@ -213,57 +215,54 @@ public class FrgTarkibHesabdari extends Fragment {
 
 				});
 		spnr2_onvantafsil
-		.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-			public void onItemSelected(AdapterView<?> parent,
-					View view, int pos, long id) {
-				
-				  TextView textView = (TextView) spnr2_onvantafsil
-				  .getSelectedView(); String result =
-				  textView.getText().toString();
-				 
-				
-				switch (result) {
+				.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+					public void onItemSelected(AdapterView<?> parent,
+							View view, int pos, long id) {
 
-				case "شخص":
-					selecttafsil2.setHint("شخص");
-					selecttafsil2.setText("");
-					flg_selecttafsil2 = 1;
-					 
-					break;
-				case "ارز":
-					selecttafsil2.setHint("ارز");
-					selecttafsil2.setText("");
-					flg_selecttafsil2 = 2;
-					 
-					break;
-				case "مرکز هزینه":
-					selecttafsil2.setHint("مرکز هزینه");
-					selecttafsil2.setText("");
-					flg_selecttafsil2 = 3;
-					 
-					break;
-				case "پروژه":
-					selecttafsil2.setHint("پروژه");
-					selecttafsil2.setText("");
-					flg_selecttafsil2 = 4;
-					 
-					 
-					break;
+						TextView textView = (TextView) spnr2_onvantafsil
+								.getSelectedView();
+						String result = textView.getText().toString();
 
-				default:
-					selecttafsil2.setHint("عنوان");
-				}
-				
+						switch (result) {
 
-			}
+						case "شخص":
+							selecttafsil2.setHint("شخص");
+							selecttafsil2.setText("");
+							flg_selecttafsil2 = 1;
+							type2 = 0;
+							break;
+						case "ارز":
+							selecttafsil2.setHint("ارز");
+							selecttafsil2.setText("");
+							flg_selecttafsil2 = 2;
+							type2 = 3;
+							break;
+						case "مرکز هزینه":
+							selecttafsil2.setHint("مرکز هزینه");
+							selecttafsil2.setText("");
+							flg_selecttafsil2 = 3;
+							type2 = 2;
+							break;
+						case "پروژه":
+							selecttafsil2.setHint("پروژه");
+							selecttafsil2.setText("");
+							flg_selecttafsil2 = 4;
+							type2 = 1;
+							break;
 
-			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-				// TODO Auto-generated method stub
+						default:
+							selecttafsil2.setHint("عنوان");
+						}
 
-			}
+					}
 
-		});
+					@Override
+					public void onNothingSelected(AdapterView<?> arg0) {
+						// TODO Auto-generated method stub
+
+					}
+
+				});
 		// =======================================for sathtfsil1
 		sath = Integer.parseInt(HomeActivity.level.getResult().getLevel());
 		sathtafsil = new ArrayList<String>();
@@ -295,9 +294,9 @@ public class FrgTarkibHesabdari extends Fragment {
 						// TODO Auto-generated method stub
 						sath2tafsil.clear();
 						for (int i = 1; i <= sath; i++) {
-							 if(i!=spnr_sathtafsil.getSelectedItemPosition()){
-							sath2tafsil.add(String.valueOf(i));
-							 }
+							if (i != spnr_sathtafsil.getSelectedItemPosition()) {
+								sath2tafsil.add(String.valueOf(i));
+							}
 						}
 						ArrayAdapter<String> statsAdaptersath2 = new ArrayAdapter<String>(
 								getActivity(),
@@ -455,7 +454,7 @@ public class FrgTarkibHesabdari extends Fragment {
 			}
 
 		});
-		
+
 		img2_tafsil.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -555,16 +554,29 @@ public class FrgTarkibHesabdari extends Fragment {
 				}
 
 				else if (spnr_sathtafsil.getSelectedItemId() == -1) {
-					showMessage("لطفا  فروشنده را وارد نمایید");
+					showMessage("لطفا  سطح تفصیل اول  را وارد نمایید");
 				} else {
 					if (checkdate(intfromdate, inttodate) == 0) {
 						String ReportsUrl;
 						ReportsUrl = "Accounting/AccountingTwoTafsil.aspx?"
-								+ "FirstDetailIds=" + pId.toString() + "&startDate="
-								+ et_fromdate.getText() + "&endDate="
-								+ et_todate.getText() + "&FirstType=" + type
-								+ "&FirstDetailLevel="
-								+ spnr_sathtafsil.getSelectedItem().toString();
+//								+ "FirstDetailIds=" + pId.toString()
+//								+ "&FromDate=" + et_fromdate.getText()
+//								+ "&ToDate=" + et_todate.getText()
+//								+ "&FirstType=" + type + "&FirstDetailLevel="
+//								+ spnr_sathtafsil.getSelectedItem().toString()
+//								+"SecondDetailIds=" + pId2.toString()
+//								+ "&SecondType=" + type2 + "&SecondDetailLevel="
+//								+ Integer.parseInt(spnr2_sathtafsil.getSelectedItem().toString())
+//								;
+						+ "FirstDetailIds=" + pId.toString()
+						+ "&FromDate=" + et_fromdate.getText()
+						+ "&ToDate=" + et_todate.getText()
+						+ "&FirstType=" + type + "&FirstDetailLevel="
+						+ spnr_sathtafsil.getSelectedItem().toString()
+						+"&SecondDetailIds=" +pId2.toString()
+						+ "&SecondType=" + type2 +
+						spnr2_sathtafsil.getSelectedItem().toString()
+						;
 
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
@@ -646,7 +658,7 @@ public class FrgTarkibHesabdari extends Fragment {
 			pId2 = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			selecttafsil2
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
-		} 
+		}
 
 		// Toast.makeText(getActivity(), "1", 1).show();
 	}

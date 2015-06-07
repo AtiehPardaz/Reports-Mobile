@@ -1796,7 +1796,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09002e;
         public static final int action_mode_bar_stub=0x7f09002d;
         public static final int action_mode_close_button=0x7f090020;
-        public static final int action_settings=0x7f090139;
+        public static final int action_settings=0x7f09013a;
         public static final int activity_chooser_view_content=0x7f090021;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
@@ -1814,6 +1814,7 @@ containing a value of this type.
         public static final int down_image_month=0x7f09004a;
         public static final int down_image_year=0x7f090045;
         public static final int dropdown=0x7f09001a;
+        public static final int editText1ss=0x7f090135;
         public static final int edit_query=0x7f090033;
         public static final int end=0x7f09001c;
         public static final int et__bazarya_forokhte_forosh=0x7f0900d6;
@@ -2035,7 +2036,7 @@ containing a value of this type.
         public static final int showHome=0x7f090011;
         public static final int showTitle=0x7f090012;
         public static final int side_index=0x7f0900a8;
-        public static final int side_list_item=0x7f090138;
+        public static final int side_list_item=0x7f090139;
         public static final int spinner1=0x7f0900e8;
         public static final int split_action_bar=0x7f090004;
         public static final int spnrOnvan2ta=0x7f09012c;
@@ -2070,13 +2071,13 @@ containing a value of this type.
         public static final int tv__bazarya_forosh=0x7f0900c9;
         public static final int tv__customer_forosh=0x7f0900c6;
         public static final int tv__foroshande_forosh=0x7f0900cc;
-        public static final int tv_id_alohebetic=0x7f090136;
-        public static final int tv_rownumber_alphebetical=0x7f090137;
+        public static final int tv_id_alohebetic=0x7f090137;
+        public static final int tv_rownumber_alphebetical=0x7f090138;
         public static final int tv_sathtafsilgardesh_hesabdari=0x7f0900e4;
         public static final int tv_sathtafsiltarkibi2_hesabdari=0x7f09012f;
         public static final int tv_sathtafsiltarkibi_hesabdari=0x7f090128;
         public static final int tv_shakhsgardesh_hesabdari=0x7f0900ee;
-        public static final int tv_title_alphebetic=0x7f090135;
+        public static final int tv_title_alphebetic=0x7f090136;
         public static final int tv_todate_forosh=0x7f0900d2;
         public static final int txt_name_day=0x7f09004e;
         public static final int txt_name_month=0x7f090049;

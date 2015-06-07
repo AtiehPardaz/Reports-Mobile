@@ -239,4 +239,11 @@
         android:background="@color/blue_green"
         android:src="@drawable/newnamayesh" />
 
+    <EditText
+        android:id="@+id/editText1ss"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:visibility="gone" />
+
 </LinearLayout>
