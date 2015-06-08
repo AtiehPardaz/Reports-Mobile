@@ -1,6 +1,7 @@
 package com.Atieh.reportsmobile;
 
 import pageradapter.pageradapterkala;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KalaActivity extends FragmentActivity {
 	public Utils utils = Utils.getInstance();
@@ -33,6 +35,7 @@ public class KalaActivity extends FragmentActivity {
 	Button mojodi;
 	Button riali;
 	public static Animation animbounce;
+	Boolean flgGotobackground = false;
 
 	TextView title;
 
@@ -103,7 +106,7 @@ public void permissiontoreport() {
 		underlineroali.setVisibility(View.INVISIBLE);
 		underlinemojodi.setVisibility(View.VISIBLE);
 
-		
+		flgGotobackground = false;
 		utils.setyekanfont(mojodi);
 		utils.setyekanfont(riali);
 		
@@ -229,6 +232,44 @@ public void permissiontoreport() {
 		});
 	}
 
+	public static class MyApplication extends Application {
+
+		public boolean isActivityVisible() {
+			return activityVisible;
+		}
+
+		public static void activityResumed() {
+			activityVisible = true;
+		}
+
+		public static void activityPaused() {
+			activityVisible = false;
+		}
+
+		private static boolean activityVisible;
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MyApplication.activityResumed();
+		if (flgGotobackground) {
+			Toast.makeText(getApplicationContext(),
+					"برای ادامه کار لطفا دوباره وارد شوید", 1).show();
+			Intent gotologin = new Intent(KalaActivity.this,
+					MainActivity.class);
+			gotologin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(gotologin);
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		flgGotobackground = true;
+	}
+	
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub

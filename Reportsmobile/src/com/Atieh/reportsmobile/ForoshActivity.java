@@ -1,6 +1,7 @@
 package com.Atieh.reportsmobile;
 
 import pageradapter.mypageadapter;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ForoshActivity extends FragmentActivity {
 	public Utils utils = Utils.getInstance();
@@ -35,6 +37,7 @@ public class ForoshActivity extends FragmentActivity {
 	Button faktor;
 	Button kala;
 	public static Animation animbounce;
+	public static Boolean flgGotobackground = false;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_forosh);
@@ -58,11 +61,11 @@ public class ForoshActivity extends FragmentActivity {
 
 		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
 				R.anim.bounce);
-		
+
 	}
 
 	public void permissiontoreport() {
-		
+
 		forosh.setVisibility(View.GONE);
 		khazane.setVisibility(View.GONE);
 		hesabdari.setVisibility(View.GONE);
@@ -82,7 +85,7 @@ public class ForoshActivity extends FragmentActivity {
 	}
 
 	public void showmenu(View v) {
-		
+
 		if (linearmenu.getVisibility() == View.GONE) {
 			linearmenu.setVisibility(View.VISIBLE);
 
@@ -97,11 +100,11 @@ public class ForoshActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forosh);
 		initview();
-		
-	utils.setyekanfont(customer);
-	utils.setyekanfont(faktor);
-	utils.setyekanfont(kala);
-		
+		flgGotobackground = false;
+		utils.setyekanfont(customer);
+		utils.setyekanfont(faktor);
+		utils.setyekanfont(kala);
+
 		permissiontoreport();
 		forosh.setVisibility(View.GONE);
 		final mypageadapter pageadapter = new mypageadapter(
@@ -239,19 +242,48 @@ public class ForoshActivity extends FragmentActivity {
 		});
 	}// End onCreate
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		if (flgGotobackground) {
+			Toast.makeText(getApplicationContext(),
+					"برای ادامه کار لطفا دوباره وارد شوید", 1).show();
+			Intent gotologin = new Intent(ForoshActivity.this,
+					MainActivity.class);
+			gotologin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(gotologin);
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		flgGotobackground = true;
+	}
 	
+	 
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+
+		// flgGotobackground = true;
+	}
+
 	@Override
 	public void onBackPressed() {
-		 
- 	}
-//	@Override
-//	public void onBackPressed() {
-		 
-//		super.onBackPressed();
 
-//		Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-		// intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//		startActivity(intent);
-//	}
+	}
+	// @Override
+	// public void onBackPressed() {
+
+	// super.onBackPressed();
+
+	// Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+	// intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+	// startActivity(intent);
+	// }
 
 }

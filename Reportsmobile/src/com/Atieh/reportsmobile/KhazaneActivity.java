@@ -1,6 +1,9 @@
 package com.Atieh.reportsmobile;
 
+import com.Atieh.reportsmobile.KalaActivity.MyApplication;
+
 import pageradapter.pageradapterkhazane;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -14,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class KhazaneActivity extends FragmentActivity {
 	public Utils utils = Utils.getInstance();
@@ -36,6 +40,7 @@ public class KhazaneActivity extends FragmentActivity {
 	Button pardakhti;
 	Button vaziatpardakhti;
 	TextView title;
+	Boolean flgGotobackground = false;
 	public static Animation animbounce;
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_khazane);
@@ -116,7 +121,7 @@ public class KhazaneActivity extends FragmentActivity {
 		underlinepardakhti.setVisibility(View.INVISIBLE);
 		underlinevaziatpardakhti.setVisibility(View.INVISIBLE);
 
-		
+		flgGotobackground = false;
 		utils.setyekanfont(daryafti);
 		utils.setyekanfont(vaziatdaryafti);
 		utils.setyekanfont(pardakhti);
@@ -275,6 +280,44 @@ public class KhazaneActivity extends FragmentActivity {
 			}
 		});
 	}
+	public static class MyApplication extends Application {
+
+		public boolean isActivityVisible() {
+			return activityVisible;
+		}
+
+		public static void activityResumed() {
+			activityVisible = true;
+		}
+
+		public static void activityPaused() {
+			activityVisible = false;
+		}
+
+		private static boolean activityVisible;
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MyApplication.activityResumed();
+		if (flgGotobackground) {
+			Toast.makeText(getApplicationContext(),
+					"برای ادامه کار لطفا دوباره وارد شوید", 1).show();
+			Intent gotologin = new Intent(KhazaneActivity.this,
+					MainActivity.class);
+			gotologin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(gotologin);
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		flgGotobackground = true;
+	}
+	
 
 	@Override
 	public void onBackPressed() {

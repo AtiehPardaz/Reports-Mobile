@@ -1,6 +1,7 @@
 package com.Atieh.reportsmobile;
 
 import pageradapter.pageradapterhesabdari;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HesabdariActivity extends FragmentActivity {
 	public Utils utils = Utils.getInstance();
@@ -34,6 +36,7 @@ public class HesabdariActivity extends FragmentActivity {
 	Button tarkibi;
 	TextView title;
 	public static Animation animbounce;
+	Boolean flgGotobackground = false;
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_hesabdari);
@@ -94,7 +97,7 @@ public class HesabdariActivity extends FragmentActivity {
 		permissiontoreport();
 		animbounce = AnimationUtils.loadAnimation(getApplicationContext(),
 				R.anim.bounce);
-
+		flgGotobackground = false;
 		hesabdari.setVisibility(View.GONE);
 		final pageradapterhesabdari pageadapter = new pageradapterhesabdari(
 				getSupportFragmentManager());
@@ -221,7 +224,44 @@ public class HesabdariActivity extends FragmentActivity {
 			}
 		});
 	}
+	public static class MyApplication extends Application {
 
+		public boolean isActivityVisible() {
+			return activityVisible;
+		}
+
+		public static void activityResumed() {
+			activityVisible = true;
+		}
+
+		public static void activityPaused() {
+			activityVisible = false;
+		}
+
+		private static boolean activityVisible;
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		MyApplication.activityResumed();
+		if (flgGotobackground) {
+			Toast.makeText(getApplicationContext(),
+					"برای ادامه کار لطفا دوباره وارد شوید", 1).show();
+			Intent gotologin = new Intent(HesabdariActivity.this,
+					MainActivity.class);
+			gotologin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(gotologin);
+		}
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		flgGotobackground = true;
+	}
+	
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub

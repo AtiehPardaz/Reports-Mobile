@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/com/Atieh/reportsmobile/DatepickerActivity.java=UTF-8
+encoding//src/com/Atieh/reportsmobile/ForoshActivity.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/FrgDaryaftiKhazane.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/FrgGardeshHesabdari.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/FrgKalaForosh.java=UTF-8
@@ -10,7 +11,10 @@ encoding//src/com/Atieh/reportsmobile/FrgVaziatDaryaftiKhazane.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/FrgVaziatPardakhtiKhazane.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/FrgfaktorForosh.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/FrgpardakhtiKhazane.java=UTF-8
+encoding//src/com/Atieh/reportsmobile/HesabdariActivity.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/HomeActivity.java=UTF-8
+encoding//src/com/Atieh/reportsmobile/KalaActivity.java=UTF-8
+encoding//src/com/Atieh/reportsmobile/KhazaneActivity.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/ListViewAlphebeticalActivity.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/MainActivity.java=UTF-8
 encoding//src/com/Atieh/reportsmobile/SelectDomainActivity.java=UTF-8

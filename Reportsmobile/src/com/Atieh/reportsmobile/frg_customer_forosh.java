@@ -374,6 +374,8 @@ public class frg_customer_forosh extends Fragment {
 
 		// Toast.makeText(getActivity(), "1", 1).show();
 	}
+	
+	 
 
 	public static void hideSoftKeyboard(Activity activity) {
 		InputMethodManager inputMethodManager = (InputMethodManager) activity
