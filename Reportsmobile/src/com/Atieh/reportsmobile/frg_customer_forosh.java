@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class frg_customer_forosh extends Fragment {
 	public Utils utils = Utils.getInstance();
@@ -25,7 +24,7 @@ public class frg_customer_forosh extends Fragment {
 	ImageButton btnshow;
 	String resume_day, resume_month, resume_year;
 	TextView et_fromdate, et_todate, et_customer, et_bazar, et_foroshande;
-
+	checkdate chkdate;
 	int flgbackforResume = 0;
 	int intfromdate, inttodate;
 	public static int sel = 0;
@@ -71,7 +70,17 @@ public class frg_customer_forosh extends Fragment {
 		utils.prepareTextView(et_fromdate);
 		utils.prepareTextView(et_todate);
 		utils.prepareTextView(et_foroshande);
+		chkdate = new checkdate();
+		// baraye inke et_fromdate va et_todate pishfarz roye tarikhe sal mali
+		// iy ke az webservices migirim gharar begirad
+		et_fromdate.setText(SelectDomainActivity.Startdate_charyear + "/"
+				+ SelectDomainActivity.Startdate_charmonth + "/"
+				+ SelectDomainActivity.Startdate_charday);
+		et_todate.setText(SelectDomainActivity.Enddate_charyear + "/"
+				+ SelectDomainActivity.Enddate_charmonth + "/"
+				+ SelectDomainActivity.Enddate_charday);
 
+		
 		et_fromdate.setOnClickListener(new OnClickListener() {
 
 			@SuppressLint("NewApi")
@@ -121,12 +130,15 @@ public class frg_customer_forosh extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_fromdate.getText().subSequence(0, 4);
-					CharSequence charmonth=et_fromdate.getText().subSequence(5, 7);
-					CharSequence charday=et_fromdate.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_fromdate.getText().subSequence(
+							0, 4);
+					CharSequence charmonth = et_fromdate.getText().subSequence(
+							5, 7);
+					CharSequence charday = et_fromdate.getText().subSequence(8,
+							10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -153,12 +165,15 @@ public class frg_customer_forosh extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_todate.getText().subSequence(0, 4);
-					CharSequence charmonth=et_todate.getText().subSequence(5, 7);
-					CharSequence charday=et_todate.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_todate.getText().subSequence(0,
+							4);
+					CharSequence charmonth = et_todate.getText().subSequence(5,
+							7);
+					CharSequence charday = et_todate.getText().subSequence(8,
+							10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -272,7 +287,7 @@ public class frg_customer_forosh extends Fragment {
 				} else if (et_foroshande.getText().equals("")) {
 					showMessage("لطفا  فروشنده را وارد نمایید");
 				} else {
-					if (checkdate(intfromdate, inttodate) == 0) {
+					if (chkdate.checkdate(et_fromdate, et_todate) == 0) {
 
 						String ReportsUrl;
 						ReportsUrl = "Report.aspx?" + "saleStaffIds="
@@ -291,9 +306,9 @@ public class frg_customer_forosh extends Fragment {
 								ShowreportsActivity.class);
 
 						startActivity(report);
-					} else if (checkdate(intfromdate, inttodate) == 1) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
-					} else if (checkdate(intfromdate, inttodate) == 2) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 2) {
 						showMessage("تاریخ ابتدا و انتها برابر است");
 					}
 
@@ -319,26 +334,6 @@ public class frg_customer_forosh extends Fragment {
 				});
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
-	}
-
-	public int checkdate(int fromdate, int todate) {
-		int flgcheck = 0;
-		if (todate - fromdate > 0) {
-			flgcheck = 0;
-			// Toast.makeText(getActivity(), todate -
-			// fromdate+"f"+fromdate+"t"+todate, 1).show();
-			// "halate dorost hamine
-		} else if (todate - fromdate < 0) {
-
-			flgcheck = 1;
-			// "tarikhe dovom kochaktarast"
-
-		} else if (todate - fromdate == 0) {
-			flgcheck = 2;
-			// "tarikhe aval va dovom barabar"
-
-		}
-		return flgcheck;
 	}
 
 	@Override

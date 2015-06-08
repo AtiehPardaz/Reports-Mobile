@@ -41,7 +41,7 @@ public class FrgGardeshHesabdari extends Fragment {
 	String[] St_titleArray, St_idArray;
 	int flg_selecttafsil = 0, type = 0;
 	String pId;
-
+	checkdate chkdate;
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -80,6 +80,15 @@ public class FrgGardeshHesabdari extends Fragment {
 		utils.setyekanfont(et_fromdate);
 		utils.setyekanfont(et_todate);
 		utils.setyekanfont(selecttafsil);
+		 chkdate=new checkdate();
+		// baraye inke et_fromdate va et_todate pishfarz roye tarikhe sal mali
+			// iy ke az webservices migirim gharar begirad
+			et_fromdate.setText(SelectDomainActivity.Startdate_charyear + "/"
+					+ SelectDomainActivity.Startdate_charmonth + "/"
+					+ SelectDomainActivity.Startdate_charday);
+			et_todate.setText(SelectDomainActivity.Enddate_charyear + "/"
+					+ SelectDomainActivity.Enddate_charmonth + "/"
+					+ SelectDomainActivity.Enddate_charday);
 		// utils.setyekanfont(et_sathtafsil);
 
 		ArrayAdapter<String> arraytafsiltitle = new ArrayAdapter<String>(
@@ -373,7 +382,7 @@ public class FrgGardeshHesabdari extends Fragment {
 				else if (spnr_sathtafsil.getSelectedItemId() == -1) {
 					showMessage("لطفا  فروشنده را وارد نمایید");
 				} else {
-					if (checkdate(intfromdate, inttodate) == 0) {
+					if (chkdate.checkdate(et_fromdate, et_todate) == 0) {
 						String ReportsUrl;
 						ReportsUrl = "Accounting/AccountingTafsil.aspx?"
 								+ "PersonIds=" + pId.toString() + "&startDate="
@@ -388,9 +397,9 @@ public class FrgGardeshHesabdari extends Fragment {
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
-					} else if (checkdate(intfromdate, inttodate) == 1) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
-					} else if (checkdate(intfromdate, inttodate) == 2) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 2) {
 						showMessage("تاریخ ابتدا و انتها برابر است");
 					}
 

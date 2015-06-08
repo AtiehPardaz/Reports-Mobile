@@ -41,10 +41,12 @@ public class FrgTarkibHesabdari extends Fragment {
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray;
-	int flg_selecttafsil = 0, flg_selecttafsil2 = 0, type = 0,type2=0;
+	int flg_selecttafsil = 0, flg_selecttafsil2 = 0, type = 0, type2 = 0;
 	String pId, pId2;
 	int sath;
-EditText aa;
+	EditText aa;
+	checkdate chkdate;
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -56,7 +58,7 @@ EditText aa;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedinstancState) {
 		View view = inflater.inflate(R.layout.frg_tarkibi, container, false);
-aa=(EditText) view.findViewById(R.id.editText1ss);
+		aa = (EditText) view.findViewById(R.id.editText1ss);
 		et_fromdate = (TextView) view
 				.findViewById(R.id.et_fromdate_tarkibi_hesabdari);
 		et_todate = (TextView) view
@@ -99,7 +101,15 @@ aa=(EditText) view.findViewById(R.id.editText1ss);
 		utils.setyekanfont(et_todate);
 		// utils.setyekanfont(selecttafsil);
 		// utils.setyekanfont(et_sathtafsil);
-
+		 chkdate=new checkdate();
+		// baraye inke et_fromdate va et_todate pishfarz roye tarikhe sal mali
+			// iy ke az webservices migirim gharar begirad
+			et_fromdate.setText(SelectDomainActivity.Startdate_charyear + "/"
+					+ SelectDomainActivity.Startdate_charmonth + "/"
+					+ SelectDomainActivity.Startdate_charday);
+			et_todate.setText(SelectDomainActivity.Enddate_charyear + "/"
+					+ SelectDomainActivity.Enddate_charmonth + "/"
+					+ SelectDomainActivity.Enddate_charday);
 		ArrayAdapter<String> arraytafsiltitle = new ArrayAdapter<String>(
 				getActivity(), android.R.layout.simple_spinner_dropdown_item);
 
@@ -338,12 +348,15 @@ aa=(EditText) view.findViewById(R.id.editText1ss);
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_fromdate.getText().subSequence(0, 4);
-					CharSequence charmonth=et_fromdate.getText().subSequence(5, 7);
-					CharSequence charday=et_fromdate.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_fromdate.getText().subSequence(
+							0, 4);
+					CharSequence charmonth = et_fromdate.getText().subSequence(
+							5, 7);
+					CharSequence charday = et_fromdate.getText().subSequence(8,
+							10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -363,18 +376,21 @@ aa=(EditText) view.findViewById(R.id.editText1ss);
 		img_todate.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
+
 				Intent report = new Intent();
 				if (et_todate.getText().equals("")) {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_todate.getText().subSequence(0, 4);
-					CharSequence charmonth=et_todate.getText().subSequence(5, 7);
-					CharSequence charday=et_todate.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_todate.getText().subSequence(0,
+							4);
+					CharSequence charmonth = et_todate.getText().subSequence(5,
+							7);
+					CharSequence charday = et_todate.getText().subSequence(8,
+							10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -577,27 +593,29 @@ aa=(EditText) view.findViewById(R.id.editText1ss);
 				else if (spnr_sathtafsil.getSelectedItemId() == -1) {
 					showMessage("لطفا  سطح تفصیل اول  را وارد نمایید");
 				} else {
-					if (checkdate(intfromdate, inttodate) == 0) {
+					if (chkdate.checkdate(et_fromdate, et_todate) == 0) {
 						String ReportsUrl;
 						ReportsUrl = "Accounting/AccountingTwoTafsil.aspx?"
-//								+ "FirstDetailIds=" + pId.toString()
-//								+ "&FromDate=" + et_fromdate.getText()
-//								+ "&ToDate=" + et_todate.getText()
-//								+ "&FirstType=" + type + "&FirstDetailLevel="
-//								+ spnr_sathtafsil.getSelectedItem().toString()
-//								+"SecondDetailIds=" + pId2.toString()
-//								+ "&SecondType=" + type2 + "&SecondDetailLevel="
-//								+ Integer.parseInt(spnr2_sathtafsil.getSelectedItem().toString())
-//								;
-						+ "FirstDetailIds=" + pId.toString()
-						+ "&FromDate=" + et_fromdate.getText()
-						+ "&ToDate=" + et_todate.getText()
-						+ "&FirstType=" + type + "&FirstDetailLevel="
-						+ spnr_sathtafsil.getSelectedItem().toString()
-						+"&SecondDetailIds=" +pId2.toString()
-						+ "&SecondType=" + type2 +
-						spnr2_sathtafsil.getSelectedItem().toString()
-						;
+								// + "FirstDetailIds=" + pId.toString()
+								// + "&FromDate=" + et_fromdate.getText()
+								// + "&ToDate=" + et_todate.getText()
+								// + "&FirstType=" + type + "&FirstDetailLevel="
+								// +
+								// spnr_sathtafsil.getSelectedItem().toString()
+								// +"SecondDetailIds=" + pId2.toString()
+								// + "&SecondType=" + type2 +
+								// "&SecondDetailLevel="
+								// +
+								// Integer.parseInt(spnr2_sathtafsil.getSelectedItem().toString())
+								// ;
+								+ "FirstDetailIds=" + pId.toString()
+								+ "&FromDate=" + et_fromdate.getText()
+								+ "&ToDate=" + et_todate.getText()
+								+ "&FirstType=" + type + "&FirstDetailLevel="
+								+ spnr_sathtafsil.getSelectedItem().toString()
+								+ "&SecondDetailIds=" + pId2.toString()
+								+ "&SecondType=" + type2
+								+ spnr2_sathtafsil.getSelectedItem().toString();
 
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
@@ -605,9 +623,9 @@ aa=(EditText) view.findViewById(R.id.editText1ss);
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
-					} else if (checkdate(intfromdate, inttodate) == 1) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
-					} else if (checkdate(intfromdate, inttodate) == 2) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 2) {
 						showMessage("تاریخ ابتدا و انتها برابر است");
 					}
 

@@ -27,7 +27,7 @@ public class FrgMojodikala extends Fragment {
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
 	public static String warehouseId, productId;
-
+	checkdate chkdate;
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -62,6 +62,8 @@ public class FrgMojodikala extends Fragment {
 		utils.setyekanfont(et_anbar);
 		utils.setyekanfont(chk_mojodisefr);
 		utils.setyekanfont(chktajmiiy);
+		 chkdate=new checkdate();
+		 
 		// ====================callOnClick
 		et_date.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")

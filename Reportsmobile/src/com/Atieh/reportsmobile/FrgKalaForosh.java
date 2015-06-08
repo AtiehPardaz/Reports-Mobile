@@ -30,7 +30,7 @@ public class FrgKalaForosh extends Fragment {
 	int flgbackforResume = 0;
 	int intfromdate, inttodate;
 	public static int sel = 0;
-
+	checkdate chkdate;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
 	public static String customerId, marketerId, sellerId, productServicesId;
 
@@ -89,6 +89,15 @@ public class FrgKalaForosh extends Fragment {
 		utils.setyekanfont(et_foroshande);
 		utils.setyekanfont(et_kala);
 		utils.setyekanfont(et_khadamat);
+		 chkdate=new checkdate();
+		// baraye inke et_fromdate va et_todate pishfarz roye tarikhe sal mali
+			// iy ke az webservices migirim gharar begirad
+			et_fromdate.setText(SelectDomainActivity.Startdate_charyear + "/"
+					+ SelectDomainActivity.Startdate_charmonth + "/"
+					+ SelectDomainActivity.Startdate_charday);
+			et_todate.setText(SelectDomainActivity.Enddate_charyear + "/"
+					+ SelectDomainActivity.Enddate_charmonth + "/"
+					+ SelectDomainActivity.Enddate_charday);
 		// ================= callOnClick
 		et_fromdate.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")
@@ -363,7 +372,7 @@ public class FrgKalaForosh extends Fragment {
 						&& et_kala.getText().equals("")) {
 					showMessage("لطفا  خدمات را وارد نمایید");
 				} else {
-					if (checkdate(intfromdate, inttodate) == 0) {
+					if (chkdate.checkdate(et_fromdate, et_todate) == 0) {
 						Intent report = new Intent();
 
 						String ReportsUrl;
@@ -378,9 +387,9 @@ public class FrgKalaForosh extends Fragment {
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
-					} else if (checkdate(intfromdate, inttodate) == 1) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
-					} else if (checkdate(intfromdate, inttodate) == 2) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 2) {
 						showMessage("تاریخ ابتدا و انتها برابر است");
 					}
 

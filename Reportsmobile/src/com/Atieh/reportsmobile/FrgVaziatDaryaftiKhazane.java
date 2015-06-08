@@ -32,7 +32,7 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 	String[] St_titleArray, St_idArray, St_personcodeArray;
 
 	String CheckNumber, AccountNumberId, PersonNameId;
-
+	checkdate chkdate;
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -62,6 +62,8 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 		utils.setyekanfont(et_pardakhtkonande);
 		utils.setyekanfont(et_shomarehesab);
 		utils.setyekanfont(et_shomarecheck);
+		 chkdate=new checkdate();
+		 
 		// ================callOnClick
 		et_pardakhtkonande.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")

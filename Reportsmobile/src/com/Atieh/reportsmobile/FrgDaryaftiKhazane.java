@@ -31,6 +31,7 @@ public class FrgDaryaftiKhazane extends Fragment {
 	String[] St_titleArray, St_tidArray, St_personcodeArray;
 
 	public static String RecieptManIds;
+	checkdate chkdate;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -75,6 +76,8 @@ public class FrgDaryaftiKhazane extends Fragment {
 		utils.setyekanfont(et_sarresidenteha);
 		utils.setyekanfont(et_shakhs);
 
+		chkdate = new checkdate();
+		
 		// ====================callOnClick
 		et_pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")
@@ -122,12 +125,15 @@ public class FrgDaryaftiKhazane extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_pardakhtebteda.getText().subSequence(0, 4);
-					CharSequence charmonth=et_pardakhtebteda.getText().subSequence(5, 7);
-					CharSequence charday=et_pardakhtebteda.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_pardakhtebteda.getText()
+							.subSequence(0, 4);
+					CharSequence charmonth = et_pardakhtebteda.getText()
+							.subSequence(5, 7);
+					CharSequence charday = et_pardakhtebteda.getText()
+							.subSequence(8, 10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -152,12 +158,15 @@ public class FrgDaryaftiKhazane extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_pardakhtenteha.getText().subSequence(0, 4);
-					CharSequence charmonth=et_pardakhtenteha.getText().subSequence(5, 7);
-					CharSequence charday=et_pardakhtenteha.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_pardakhtenteha.getText()
+							.subSequence(0, 4);
+					CharSequence charmonth = et_pardakhtenteha.getText()
+							.subSequence(5, 7);
+					CharSequence charday = et_pardakhtenteha.getText()
+							.subSequence(8, 10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -178,12 +187,15 @@ public class FrgDaryaftiKhazane extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_sarresidebteda.getText().subSequence(0, 4);
-					CharSequence charmonth=et_sarresidebteda.getText().subSequence(5, 7);
-					CharSequence charday=et_sarresidebteda.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_sarresidebteda.getText()
+							.subSequence(0, 4);
+					CharSequence charmonth = et_sarresidebteda.getText()
+							.subSequence(5, 7);
+					CharSequence charday = et_sarresidebteda.getText()
+							.subSequence(8, 10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -204,12 +216,15 @@ public class FrgDaryaftiKhazane extends Fragment {
 					report.putExtra("flg_resamedate", 0);
 				} else {
 					report.putExtra("flg_resamedate", 1);
-					CharSequence charyear=et_sarresidenteha.getText().subSequence(0, 4);
-					CharSequence charmonth=et_sarresidenteha.getText().subSequence(5, 7);
-					CharSequence charday=et_sarresidenteha.getText().subSequence(8, 10);
-					String newday=charday.toString();
-					String newmonth=charmonth.toString();
-					String newyear=charyear.toString();
+					CharSequence charyear = et_sarresidenteha.getText()
+							.subSequence(0, 4);
+					CharSequence charmonth = et_sarresidenteha.getText()
+							.subSequence(5, 7);
+					CharSequence charday = et_sarresidenteha.getText()
+							.subSequence(8, 10);
+					String newday = charday.toString();
+					String newmonth = charmonth.toString();
+					String newyear = charyear.toString();
 					report.putExtra("newday", newday);
 					report.putExtra("newmonth", newmonth);
 					report.putExtra("newyear", newyear);
@@ -272,24 +287,22 @@ public class FrgDaryaftiKhazane extends Fragment {
 
 					if (flgpardakht == false && flgsarresid == false) {
 
-						if (checkdate(intfromdatepardakht, inttodatepardakht) == 0) {
+						if (chkdate.checkdate(et_pardakhtebteda, et_pardakhtenteha) == 0) {
 							flgpardakht = true;
-						} else if (checkdate(intfromdatepardakht,
-								inttodatepardakht) == 1) {
+						} else if (chkdate.checkdate(et_pardakhtebteda, et_pardakhtenteha) == 1) {
 							showMessage("تاریخ پرداخت انتها کوچکتر از تاریخ پرداخت ابتدا می باشد");
-						} else if (checkdate(intfromdatepardakht,
-								inttodatepardakht) == 2) {
+						} else if (chkdate.checkdate(et_pardakhtebteda, et_pardakhtenteha) == 2) {
 							showMessage("تاریخ پرداخت ابتدا و  پرداخت انتها برابر است");
 						}
 					}
 					// ========================
 
-					if (checkdate(intfromdatesarresid, inttodatesarresid) == 0) {
+					if (chkdate.checkdate(et_sarresidebteda, et_sarresidenteha) == 0) {
 						flgsarresid = true;
 
-					} else if (checkdate(intfromdatesarresid, inttodatesarresid) == 1) {
+					} else if (chkdate.checkdate(et_sarresidebteda, et_sarresidenteha) == 1) {
 						showMessage("تاریخ سررسید انتها کوچکتر از تاریخ سررسید ابتدا می باشد");
-					} else if (checkdate(intfromdatesarresid, inttodatesarresid) == 2) {
+					} else if (chkdate.checkdate(et_sarresidebteda, et_sarresidenteha) == 2) {
 						showMessage("تاریخ سررسید ابتدا و سررسید انتها برابر است");
 					}
 					// =====================

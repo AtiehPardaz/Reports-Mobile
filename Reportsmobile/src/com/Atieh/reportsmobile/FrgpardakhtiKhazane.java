@@ -23,7 +23,7 @@ public class FrgpardakhtiKhazane extends Fragment {
 
 	TextView et_pardakhtebteda, et_pardakhtenteha, et_sarresidebteda,
 			et_sarresidenteha, et_shakhs;
-
+	checkdate chkdate;
 	int flgbackforResume = 0;
 	int intfromdatepardakht, inttodatepardakht, intfromdatesarresid,
 			inttodatesarresid;
@@ -72,7 +72,8 @@ public class FrgpardakhtiKhazane extends Fragment {
 		utils.setyekanfont(et_sarresidebteda);
 		utils.setyekanfont(et_sarresidenteha);
 		utils.setyekanfont(et_shakhs);
-		
+		 chkdate=new checkdate();
+		 
 		// ====================callOnClick
 		et_pardakhtebteda.setOnClickListener(new OnClickListener() {
 					@SuppressLint("NewApi")
@@ -273,24 +274,22 @@ public class FrgpardakhtiKhazane extends Fragment {
 
 					if (flgpardakht == false && flgsarresid == false) {
 
-						if (checkdate(intfromdatepardakht, inttodatepardakht) == 0) {
+						if (chkdate.checkdate(et_pardakhtebteda, et_pardakhtenteha) == 0) {
 							flgpardakht = true;
-						} else if (checkdate(intfromdatepardakht,
-								inttodatepardakht) == 1) {
+						} else if (chkdate.checkdate(et_pardakhtebteda, et_pardakhtenteha) == 1) {
 							showMessage("تاریخ پرداخت انتها کوچکتر از تاریخ پرداخت ابتدا می باشد");
-						} else if (checkdate(intfromdatepardakht,
-								inttodatepardakht) == 2) {
+						} else if (chkdate.checkdate(et_pardakhtebteda, et_pardakhtenteha) == 2) {
 							showMessage("تاریخ پرداخت ابتدا و  پرداخت انتها برابر است");
 						}
 					}
 					// ========================
 
-					if (checkdate(intfromdatesarresid, inttodatesarresid) == 0) {
+					if (chkdate.checkdate(et_sarresidebteda, et_sarresidenteha) == 0) {
 						flgsarresid = true;
 
-					} else if (checkdate(intfromdatesarresid, inttodatesarresid) == 1) {
+					} else if (chkdate.checkdate(et_sarresidebteda, et_sarresidenteha) == 1) {
 						showMessage("تاریخ سررسید انتها کوچکتر از تاریخ سررسید ابتدا می باشد");
-					} else if (checkdate(intfromdatesarresid, inttodatesarresid) == 2) {
+					} else if (chkdate.checkdate(et_sarresidebteda, et_sarresidenteha) == 2) {
 						showMessage("تاریخ سررسید ابتدا و سررسید انتها برابر است");
 					}
 					// =====================

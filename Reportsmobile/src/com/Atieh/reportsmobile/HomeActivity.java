@@ -156,6 +156,8 @@ public class HomeActivity extends Activity {
 		khazane.setEnabled(false);
 		hesabdari.setEnabled(false);
 		kala.setEnabled(false);
+//		Toast.makeText(getApplicationContext(), SelectDomainActivity.StartDateArray.get(0)+"", 1).show();
+		Toast.makeText(getApplicationContext(), SelectDomainActivity.StartDate+" and "+SelectDomainActivity.EndDate, 1).show();
 
 		forosh.setOnClickListener(new OnClickListener() {
 

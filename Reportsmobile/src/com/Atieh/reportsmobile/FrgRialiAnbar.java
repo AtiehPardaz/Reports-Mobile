@@ -27,7 +27,7 @@ public class FrgRialiAnbar extends Fragment {
 	public static int sel = 0;
 	String[] St_titleArray, St_idArray, St_personcodeArray;
 	public static String warehouseId, productId;
-
+	checkdate chkdate;
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -59,6 +59,7 @@ public class FrgRialiAnbar extends Fragment {
 				utils.setyekanfont(et_kala);
 				utils.setyekanfont(et_anbar);
 				utils.setyekanfont(chktajmiiy);
+				 chkdate=new checkdate();
 				 
 				// ====================callOnClick
 				et_date.setOnClickListener(new OnClickListener() {

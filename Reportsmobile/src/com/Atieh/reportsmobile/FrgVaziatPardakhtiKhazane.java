@@ -32,6 +32,7 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 	String[] St_titleArray, St_idArray, St_personcodeArray;
 
 	String CheckNumber, AccountNumberId, PersonNameId;
+	checkdate chkdate;
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 		utils.setyekanfont(et_pardakhtkonande);
 		utils.setyekanfont(et_shomarehesab);
 		utils.setyekanfont(et_shomarecheck);
+		chkdate = new checkdate();
 		// ================callOnClick
 		et_pardakhtkonande.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")
@@ -101,7 +103,7 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 				imm.hideSoftInputFromWindow(arg0.getWindowToken(), 0);
 				if (et_pardakhtkonande.getText().equals("")) {
 					showMessage("لطفا نام دریافت کننده را وارد نمایید");
-				}  else {
+				} else {
 					Intent report = new Intent();
 					String ReportsUrl;
 					ReportsUrl = "Document/PayDocumentStatus.aspx?"

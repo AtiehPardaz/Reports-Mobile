@@ -22,7 +22,7 @@ public class FrgfaktorForosh extends Fragment {
 	ImageButton todateustomer;
 	ImageButton selcustomer, selbazar, selForoshande;
 	ImageButton btnshow;
-
+	checkdate chkdate;
 	TextView et_fromdate, et_todate, et_customer, et_bazar, et_foroshande;
 
 	int flgbackforResume = 0;
@@ -75,6 +75,15 @@ public class FrgfaktorForosh extends Fragment {
 		utils.setyekanfont(et_fromdate);
 		utils.setyekanfont(et_todate);
 		utils.setyekanfont(et_foroshande);
+		 chkdate=new checkdate();
+		// baraye inke et_fromdate va et_todate pishfarz roye tarikhe sal mali
+			// iy ke az webservices migirim gharar begirad
+			et_fromdate.setText(SelectDomainActivity.Startdate_charyear + "/"
+					+ SelectDomainActivity.Startdate_charmonth + "/"
+					+ SelectDomainActivity.Startdate_charday);
+			et_todate.setText(SelectDomainActivity.Enddate_charyear + "/"
+					+ SelectDomainActivity.Enddate_charmonth + "/"
+					+ SelectDomainActivity.Enddate_charday);
 //================= callOnClick
 		et_fromdate.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")
@@ -273,7 +282,7 @@ public class FrgfaktorForosh extends Fragment {
 				} else if (et_foroshande.getText().equals("")) {
 					showMessage("لطفا  فروشنده را وارد نمایید");
 				} else {
-					if (checkdate(intfromdate, inttodate) == 0) {
+					if (chkdate.checkdate(et_fromdate, et_todate) == 0) {
 						String ReportsUrl;
 						ReportsUrl = "CustomerByInvoice.aspx?"
 								+ "saleStaffIds=" + sellerId.toString()
@@ -288,9 +297,9 @@ public class FrgfaktorForosh extends Fragment {
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);
-					} else if (checkdate(intfromdate, inttodate) == 1) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 1) {
 						showMessage("تاریخ انتها کوچکتر از تاریخ ابتدا می باشد");
-					} else if (checkdate(intfromdate, inttodate) == 2) {
+					} else if (chkdate.checkdate(et_fromdate, et_todate) == 2) {
 						showMessage("تاریخ ابتدا و انتها برابر است");
 					}
 

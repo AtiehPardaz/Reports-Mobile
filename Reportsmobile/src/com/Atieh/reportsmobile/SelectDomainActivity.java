@@ -24,7 +24,10 @@ public class SelectDomainActivity extends Activity {
 	String mdomain;
 	String myear;
 	ImageButton sabt;
-	public static String domain, years;
+	public static String domain, years, StartDate, EndDate;
+	public static CharSequence Startdate_charyear, Startdate_charmonth,Enddate_charyear,
+	Enddate_charmonth, Enddate_charday,
+			Startdate_charday;
 	public static String returnedDomainID;
 	public static String returnedYearID;
 
@@ -46,10 +49,14 @@ public class SelectDomainActivity extends Activity {
 	int flgforresume = 0;
 	Domain dmn;
 	String[] msg = null;
-	public static ArrayList<String> domaintitleArray;
-	public static ArrayList<String> yeartitleArray;
-	public static ArrayList<String> yearidArray;
 	public static ArrayList<String> domainidArray;
+	public static ArrayList<String> domaintitleArray;
+	// ==============================
+	public static ArrayList<String> yeartitleArray;
+	public static ArrayList<String> StartDateArray;
+	public static ArrayList<String> EndDateArray;
+	public static ArrayList<String> yearidArray;
+
 	AlertDialog alertDialog;
 
 	public void initview() {
@@ -74,6 +81,8 @@ public class SelectDomainActivity extends Activity {
 
 		domaintitleArray = new ArrayList<>();
 		yeartitleArray = new ArrayList<>();
+		StartDateArray = new ArrayList<>();
+		EndDateArray = new ArrayList<>();
 		yearidArray = new ArrayList<>();
 		domainidArray = new ArrayList<>();
 
@@ -192,6 +201,12 @@ public class SelectDomainActivity extends Activity {
 						yeartitleArray.add(MainActivity.authenticate
 								.getResult().getDomains().get(i)
 								.getFinancialYears().get(j).getTitle());
+						StartDateArray.add(MainActivity.authenticate
+								.getResult().getDomains().get(i)
+								.getFinancialYears().get(j).getStartDate());
+						EndDateArray.add(MainActivity.authenticate.getResult()
+								.getDomains().get(i).getFinancialYears().get(j)
+								.getEndDate());
 						yearidArray.add(MainActivity.authenticate.getResult()
 								.getDomains().get(i).getFinancialYears().get(j)
 								.getId());
@@ -199,7 +214,6 @@ public class SelectDomainActivity extends Activity {
 				}
 
 			}
-
 			yeartitle = (String[]) yeartitleArray
 					.toArray(new String[yeartitleArray.size()]);
 			yearid = (String[]) yearidArray.toArray(new String[yearidArray
@@ -212,6 +226,34 @@ public class SelectDomainActivity extends Activity {
 			returnedYearID = ListViewAlphebeticalActivity.txtid;
 			et_salmali.setText(returnedYearTitle);
 			finalreturneyearid = returnedYearID;
+			// =======================in for baraye daryafte "Startdate salmali"
+			// and "Enddate salmali"
+			for (int i = 0; i < MainActivity.authenticate.getResult()
+					.getDomains().size(); i++) {
+				for (int j = 0; j < MainActivity.authenticate.getResult()
+						.getDomains().get(i).getFinancialYears().size(); j++) {
+					if (MainActivity.authenticate.getResult().getDomains()
+							.get(i).getFinancialYears().get(j).getId()
+							.equals(returnedYearID)) {
+						StartDate = MainActivity.authenticate.getResult()
+								.getDomains().get(i).getFinancialYears().get(j)
+								.getStartDate();
+						EndDate = MainActivity.authenticate.getResult()
+								.getDomains().get(i).getFinancialYears().get(j)
+								.getEndDate();
+					}
+
+				}
+			}
+
+			Startdate_charyear = StartDate.subSequence(0, 4);
+			Startdate_charmonth = StartDate.subSequence(5, 7);
+			Startdate_charday = StartDate.subSequence(8, 10);
+
+			Enddate_charyear = EndDate.subSequence(0, 4);
+			Enddate_charmonth = EndDate.subSequence(5, 7);
+			Enddate_charday = EndDate.subSequence(8, 10);
+
 			attemplogin();
 		}
 
@@ -268,7 +310,7 @@ public class SelectDomainActivity extends Activity {
 
 					@Override
 					public void onClick(DialogInterface arg0, int arg1) {
-						
+
 						Intent intent = new Intent(getApplicationContext(),
 								MainActivity.class);
 						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -276,14 +318,14 @@ public class SelectDomainActivity extends Activity {
 						startActivity(intent);
 					}
 				});
-		alertDialogBuilder.setNegativeButton(getString(R.string.cancel), 
+		alertDialogBuilder.setNegativeButton(getString(R.string.cancel),
 				new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						dialog.cancel();
 					}
-			
+
 				});
 		AlertDialog alertDialog = alertDialogBuilder.create();
 		alertDialog.show();
@@ -291,33 +333,34 @@ public class SelectDomainActivity extends Activity {
 
 	@Override
 	public void onBackPressed() {
-//		super.onBackPressed();
+		// super.onBackPressed();
 
-		 if (_doubleBackToExitPressedOnce) {
-//		        super.onBackPressed();
-		        showDialogForExit();
-		        return;
-		    }
+		if (_doubleBackToExitPressedOnce) {
+			// super.onBackPressed();
+			showDialogForExit();
+			return;
+		}
 
-		    this._doubleBackToExitPressedOnce = true;
-		    
-		    showDialog("توجه", "برای ورود به صفحه بعد سال مالی و دامنه را وارد کنید");
-//		    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+		this._doubleBackToExitPressedOnce = true;
 
-		    new Handler().postDelayed(new Runnable() {
+		showDialog("توجه",
+				"برای ورود به صفحه بعد سال مالی و دامنه را وارد کنید");
+		// Toast.makeText(this, "Please click BACK again to exit",
+		// Toast.LENGTH_SHORT).show();
 
-		        @Override
-		        public void run() {
-		            _doubleBackToExitPressedOnce=false;                       
-		        }
-		    }, 2000);
-		
-		
-		
+		new Handler().postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				_doubleBackToExitPressedOnce = false;
+			}
+		}, 2000);
+
 	}
+
 	public void showDialog(String title, String message) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(SelectDomainActivity.this)
-				.setTitle(title).setMessage(message);
+		AlertDialog.Builder builder = new AlertDialog.Builder(
+				SelectDomainActivity.this).setTitle(title).setMessage(message);
 		builder.setPositiveButton(R.string.ok, null);
 		builder.show();
 	}
@@ -335,8 +378,7 @@ public class SelectDomainActivity extends Activity {
 			cancel = true;
 		}
 		if (TextUtils.isEmpty(myear)) {
-			et_salmali
-					.setError(getString(R.string.pleaseselectDomainFirst));
+			et_salmali.setError(getString(R.string.pleaseselectDomainFirst));
 			focusview = et_salmali;
 			cancel = true;
 		}

@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="GetDetailLevelNumberPack.GetDetailLevelNumber"/>
 <fullyQualifiedTypeName name="GetDetailLevelNumberPack.GetDetailLevelNumberInterface"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
-<fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView"/>
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.MainActivity"/>
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.FrgTarkibHesabdari"/>
@@ -31,6 +30,8 @@
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.ListViewAlphebeticalActivity"/>
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.FrgGardeshHesabdari"/>
 <fullyQualifiedTypeName name="java.lang.Boolean"/>
-<fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="com.Atieh.reportsmobile.DatepickerActivity"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="java.lang.CharSequence"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>
