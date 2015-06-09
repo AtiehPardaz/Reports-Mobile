@@ -293,7 +293,7 @@ public class FrgfaktorForosh extends Fragment {
 
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
-
+						report.putExtra("activityname", "foroshactivity");
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);

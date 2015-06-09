@@ -384,6 +384,7 @@ public class FrgKalaForosh extends Fragment {
 								+ "&ToDate=" + et_todate.getText()
 								+ "&ServiceIds=" + productServicesId.toString();
 						report.putExtra("gozaresh", ReportsUrl);
+						report.putExtra("activityname", "foroshactivity");
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);

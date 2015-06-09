@@ -112,6 +112,7 @@ public class FrgVaziatDaryaftiKhazane extends Fragment {
 							+ "&AccountNumber=" + et_shomarehesab.getText()
 							+ "&RecieptManIds=" + PersonNameId.toString();
 					report.putExtra("gozaresh", ReportsUrl);
+					report.putExtra("activityname", "khazaneactivity");
 					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);
 				}

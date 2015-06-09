@@ -309,6 +309,7 @@ public class FrgpardakhtiKhazane extends Fragment {
 								+ et_pardakhtenteha.getText()
 								+ "&RecieptManIds=" + RecieptManIds.toString();
 						report.putExtra("gozaresh", ReportsUrl);
+						report.putExtra("activityname", "khazaneactivity");
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);

@@ -85,9 +85,10 @@ public class MainActivity extends Activity {
 			if (netutil.isNetworkAvailable()) {
 				autenticateUser();
 			} else {
+				
 				String message = "لطفا از روشن بودن دیتای موبایل و یا وایرلس خود و اتصال به اینترنت اطمینان حاصل نمایید.";
 				AlertDialog.Builder builder = new AlertDialog.Builder(
-						MainActivity.this).setTitle("title")
+						MainActivity.this).setTitle("توجه")
 						.setMessage(message);
 				builder.setPositiveButton(R.string.ok, null);
 				builder.show();

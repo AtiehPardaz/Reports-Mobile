@@ -220,6 +220,7 @@ public class FrgMojodikala extends Fragment {
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText() + "&filterZeroItem=FALSE";
 					}
+					report.putExtra("activityname", "kalaactivity");
 					report.putExtra("gozaresh", ReportsUrl);
 					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);

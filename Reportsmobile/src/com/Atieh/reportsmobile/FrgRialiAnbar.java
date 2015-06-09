@@ -200,6 +200,7 @@ public class FrgRialiAnbar extends Fragment {
 					}
 
 					report.putExtra("gozaresh", ReportsUrl);
+					report.putExtra("activityname", "kalaactivity");
 					report.setClass(getActivity(), ShowreportsActivity.class);
 					startActivity(report);
 				}

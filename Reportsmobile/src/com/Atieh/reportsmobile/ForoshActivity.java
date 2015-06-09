@@ -242,6 +242,7 @@ public class ForoshActivity extends FragmentActivity {
 		});
 	}// End onCreate
 
+	
 	@Override
 	protected void onResume() {
 		super.onResume();

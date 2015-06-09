@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class frg_customer_forosh extends Fragment {
 	public Utils utils = Utils.getInstance();
@@ -29,7 +30,7 @@ public class frg_customer_forosh extends Fragment {
 	int intfromdate, inttodate;
 	public static int sel = 0;
 	String[] St_sellertitleArray, St_sellertidArray, St_sellerpersoncodeArray;
-
+	public static Boolean flgGotobackground = false;
 	public static String customerId, marketerId, sellerId;
 
 	@Override
@@ -71,6 +72,7 @@ public class frg_customer_forosh extends Fragment {
 		utils.prepareTextView(et_todate);
 		utils.prepareTextView(et_foroshande);
 		chkdate = new checkdate();
+		
 		// baraye inke et_fromdate va et_todate pishfarz roye tarikhe sal mali
 		// iy ke az webservices migirim gharar begirad
 		et_fromdate.setText(SelectDomainActivity.Startdate_charyear + "/"
@@ -296,11 +298,13 @@ public class frg_customer_forosh extends Fragment {
 								+ marketerId.toString() + "&FromDate="
 								+ et_fromdate.getText() + "&ToDate="
 								+ et_todate.getText();
-
-						Intent report = new Intent();
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//										SelectDomainActivity.finalreturneyearid.toString();
+ 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
 
 						report.putExtra("sellerId", sellerId);
+						report.putExtra("activityname", "foroshactivity");
 
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);

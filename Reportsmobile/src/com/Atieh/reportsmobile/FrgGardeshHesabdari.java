@@ -393,7 +393,7 @@ public class FrgGardeshHesabdari extends Fragment {
 
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
-
+						report.putExtra("activityname", "hesabdariactivity");
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
 						startActivity(report);

@@ -330,13 +330,13 @@ public class DatepickerActivity extends Activity {
 		}
 
 		showdialog("لطفا تاریخ را انتخاب نمایید");
-		new Handler().postDelayed(new Runnable() {
-			@Override
-			public void run() {
-
-				_doubleBackToExitPressedOnce = false;
-			}
-		}, 2000);
+//		new Handler().postDelayed(new Runnable() {
+//			@Override
+//			public void run() {
+//
+//				_doubleBackToExitPressedOnce = false;
+//			}
+//		}, 2000);
 	}
 
 	public void showdialog(String message) {

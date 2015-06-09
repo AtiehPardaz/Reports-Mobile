@@ -592,7 +592,14 @@ public class FrgTarkibHesabdari extends Fragment {
 
 				else if (spnr_sathtafsil.getSelectedItemId() == -1) {
 					showMessage("لطفا  سطح تفصیل اول  را وارد نمایید");
-				} else {
+				} else if (spnr2_sathtafsil.getSelectedItemId() == -1) {
+					showMessage("لطفا  سطح تفصیل دوم را وارد نمایید");
+				}
+				else if (spnr2_onvantafsil.getSelectedItemId() == -1) {
+					showMessage("لطفا  عنوان تفصیل دوم را وارد نمایید");
+				}else if (selecttafsil2.getText().equals("")) {
+					showMessage("لطفا تفصیل دوم را وارد نمایید");
+				}else {
 					if (chkdate.checkdate(et_fromdate, et_todate) == 0) {
 						String ReportsUrl;
 						ReportsUrl = "Accounting/AccountingTwoTafsil.aspx?"
@@ -619,6 +626,7 @@ public class FrgTarkibHesabdari extends Fragment {
 
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
+						report.putExtra("activityname", "hesabdariactivity");
 
 						report.setClass(getActivity(),
 								ShowreportsActivity.class);
