@@ -123,6 +123,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:gravity="center"
+            android:hint="@string/onvanetafsil"
             android:textSize="14sp" />
 
         <ImageButton
@@ -209,6 +210,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:gravity="center"
+            android:hint="@string/onvanetafsil"
             android:textSize="14sp" />
 
         <ImageButton
@@ -232,12 +234,12 @@
             android:textSize="12sp" />
 
     </LinearLayout>
-    <ImageButton
+    <ImageButton
         android:id="@+id/imgbtn_namayesh_tarkibi_hesabdari"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/blue_green"
-        android:src="@drawable/newnamayesh" />
+        android:src="@drawable/btnshow_click" />
 
     <EditText
         android:id="@+id/editText1ss"

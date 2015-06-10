@@ -111,6 +111,9 @@ public class FrgVaziatPardakhtiKhazane extends Fragment {
 							+ "&AccountNumber=" + et_shomarehesab.getText()
 							+ "&RecieptManIds=" + PersonNameId.toString();
 					;
+
+//					+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//					SelectDomainActivity.finalreturneyearid.toString();
 					report.putExtra("gozaresh", ReportsUrl);
 					report.putExtra("activityname", "khazaneactivity");
 					report.setClass(getActivity(), ShowreportsActivity.class);

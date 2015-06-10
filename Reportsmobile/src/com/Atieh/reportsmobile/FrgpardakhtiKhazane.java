@@ -308,6 +308,10 @@ public class FrgpardakhtiKhazane extends Fragment {
 								+ "&lastDocumentDate="
 								+ et_pardakhtenteha.getText()
 								+ "&RecieptManIds=" + RecieptManIds.toString();
+
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
+						
 						report.putExtra("gozaresh", ReportsUrl);
 						report.putExtra("activityname", "khazaneactivity");
 						report.setClass(getActivity(),

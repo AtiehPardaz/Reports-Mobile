@@ -30,7 +30,7 @@ public class FrgDaryaftiKhazane extends Fragment {
 	public static int sel = 0;
 	String[] St_titleArray, St_tidArray, St_personcodeArray;
 
-	public static String RecieptManIds;
+	public static String PayerManIds;
 	checkdate chkdate;
 
 	@Override
@@ -320,7 +320,9 @@ public class FrgDaryaftiKhazane extends Fragment {
 								+ et_pardakhtebteda.getText()
 								+ "&lastDocumentDate="
 								+ et_pardakhtenteha.getText()
-								+ "&RecieptManIds=" + RecieptManIds.toString();
+								+ "&PayerManIds=" + PayerManIds.toString();
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 						report.putExtra("gozaresh", ReportsUrl);
 						report.putExtra("activityname", "khazaneactivity");
 						report.setClass(getActivity(),
@@ -405,7 +407,7 @@ public class FrgDaryaftiKhazane extends Fragment {
 					+ DatepickerActivity.myMonth + "/"
 					+ DatepickerActivity.myDay);
 		} else if (flgbackforResume == 5) {
-			RecieptManIds = ListViewAlphebeticalActivity.selidfromalphebeticlist;
+			PayerManIds = ListViewAlphebeticalActivity.selidfromalphebeticlist;
 			et_shakhs
 					.setText(ListViewAlphebeticalActivity.selvaluefromalphebeticlist);
 		}

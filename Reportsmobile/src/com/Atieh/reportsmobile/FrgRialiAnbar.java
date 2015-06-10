@@ -191,12 +191,18 @@ public class FrgRialiAnbar extends Fragment {
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText();
 
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
+
 					} else {
 						ReportsUrl = "WareHouse/WareHouseRials.aspx?"
 								+ "productIds=" + productId.toString()
 								+ "&warehouseIds=" + warehouseId.toString()
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText();
+
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 					}
 
 					report.putExtra("gozaresh", ReportsUrl);

@@ -133,6 +133,21 @@ public class MainActivity extends Activity {
 				} else {
 					et_password.setGravity(Gravity.LEFT);
 				}
+				et_password.setError(null);
+				et_username.setError(null);
+				mUser = et_username.getText().toString();
+				mPass = et_password.getText().toString();
+				boolean cancel = false;
+				View focusview = null;
+				if (TextUtils.isEmpty(mUser)) {
+					et_username.setError(getString(R.string.pleaseEnterUsername));
+					focusview = et_username;
+					cancel = true;
+				}
+				
+				if (cancel) {
+					focusview.requestFocus();
+				} 
 			}
 
 			@Override
@@ -144,6 +159,41 @@ public class MainActivity extends Activity {
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
+			}
+		});
+		et_username.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+				// TODO Auto-generated method stub
+				et_password.setError(null);
+				et_username.setError(null);
+				mUser = et_username.getText().toString();
+				mPass = et_password.getText().toString();
+				boolean cancel = false;
+				View focusview = null;
+				if (TextUtils.isEmpty(mUser)) {
+					et_username.setError(getString(R.string.pleaseEnterUsername));
+					focusview = et_username;
+					cancel = true;
+				}
+				
+				if (cancel) {
+					focusview.requestFocus();
+				} 
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence arg0, int arg1, int arg2,
+					int arg3) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable arg0) {
+				// TODO Auto-generated method stub
+				
 			}
 		});
 

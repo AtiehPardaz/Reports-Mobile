@@ -391,6 +391,8 @@ public class FrgGardeshHesabdari extends Fragment {
 								+ "&Level="
 								+ spnr_sathtafsil.getSelectedItem().toString();
 
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
 						report.putExtra("activityname", "hesabdariactivity");

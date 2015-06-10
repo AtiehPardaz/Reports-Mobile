@@ -291,6 +291,8 @@ public class FrgfaktorForosh extends Fragment {
 								+ "&FromDate=" + et_fromdate.getText()
 								+ "&ToDate=" + et_todate.getText();
 
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
 						report.putExtra("activityname", "foroshactivity");

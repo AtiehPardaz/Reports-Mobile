@@ -375,7 +375,8 @@ public class FrgKalaForosh extends Fragment {
 					if (chkdate.checkdate(et_fromdate, et_todate) == 0) {
 						Intent report = new Intent();
 
-						String ReportsUrl;
+						String ReportsUrl="";
+						if(et_khadamat.getText().equals("")){
 						ReportsUrl = "SaleInvoice/SaleInvoice.aspx?"
 								+ "saleStaffIds=" + sellerId.toString()
 								+ "&customerPersonIds=" + customerId.toString()
@@ -383,6 +384,17 @@ public class FrgKalaForosh extends Fragment {
 								+ "&FromDate=" + et_fromdate.getText()
 								+ "&ToDate=" + et_todate.getText()
 								+ "&ServiceIds=" + productServicesId.toString();
+						}else if(et_kala.getText().equals("")){
+							ReportsUrl = "SaleInvoice/SaleService.aspx?"
+									+ "saleStaffIds=" + sellerId.toString()
+									+ "&customerPersonIds=" + customerId.toString()
+									+ "&marketerPersonIds=" + marketerId.toString()
+									+ "&FromDate=" + et_fromdate.getText()
+									+ "&ToDate=" + et_todate.getText()
+									+ "&ServiceIds=" + productServicesId.toString();
+							}
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 						report.putExtra("gozaresh", ReportsUrl);
 						report.putExtra("activityname", "foroshactivity");
 						report.setClass(getActivity(),

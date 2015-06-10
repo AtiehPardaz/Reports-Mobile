@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -84,32 +85,19 @@ public class ShowreportsActivity extends Activity {
 
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
-		super.onStop();
+ 		super.onStop();
 		flgGotobackground = true;
 	}
 
 	@Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
-		super.onBackPressed();
-		String location = getIntent().getExtras().getString("activityname");
-		Intent gotobacklocation = new Intent();
-		if (location.matches("foroshactivity")) {
-			gotobacklocation.setClass(ShowreportsActivity.this,
-					ForoshActivity.class);
-		}else if (location.matches("khazaneactivity")) {
-			gotobacklocation.setClass(ShowreportsActivity.this,
-					KhazaneActivity.class);
-		}else if (location.matches("hesabdariactivity")) {
-			gotobacklocation.setClass(ShowreportsActivity.this,
-					HesabdariActivity.class);
-		}else if (location.matches("kalaactivity")) {
-			gotobacklocation.setClass(ShowreportsActivity.this,
-					KalaActivity.class);
-		}
-		gotobacklocation.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		startActivity(gotobacklocation);
+ 		super.onBackPressed();
+		ForoshActivity.flgGotobackground = false;
+		KhazaneActivity.flgGotobackground = false;
+		KalaActivity.flgGotobackground = false;
+		HesabdariActivity.flgGotobackground = false;
 
+		finish();
 	}
+
 }

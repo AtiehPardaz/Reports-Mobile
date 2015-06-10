@@ -18,11 +18,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/blue_hard"
         android:textColorLink="@color/blue_actionbar2color"
-        android:textSize="20sp" />
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/et_searchlist"
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:gravity="center|right"

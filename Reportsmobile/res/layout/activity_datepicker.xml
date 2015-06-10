@@ -7,6 +7,13 @@
     android:gravity="center"
     android:orientation="vertical" >
 
+    <TextView
+        android:id="@+id/txt_datepickertilte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <LinearLayout
         android:id="@+id/rel_cal"
         android:layout_width="350dp"

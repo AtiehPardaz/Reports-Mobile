@@ -156,8 +156,11 @@ public class HomeActivity extends Activity {
 		khazane.setEnabled(false);
 		hesabdari.setEnabled(false);
 		kala.setEnabled(false);
-//		Toast.makeText(getApplicationContext(), SelectDomainActivity.StartDateArray.get(0)+"", 1).show();
-//		Toast.makeText(getApplicationContext(), SelectDomainActivity.StartDate+" and "+SelectDomainActivity.EndDate, 1).show();
+		// Toast.makeText(getApplicationContext(),
+		// SelectDomainActivity.StartDateArray.get(0)+"", 1).show();
+		// Toast.makeText(getApplicationContext(),
+		// SelectDomainActivity.StartDate+" and "+SelectDomainActivity.EndDate,
+		// 1).show();
 
 		forosh.setOnClickListener(new OnClickListener() {
 
@@ -207,13 +210,39 @@ public class HomeActivity extends Activity {
 		logout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(getApplicationContext(),
-						MainActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				intent.putExtra("EXIT", true);
-				startActivity(intent);
+				showDialogForExit();
 			}
 		});
+	}// ======End onCreate
+
+	public void showDialogForExit() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(getString(R.string.wouldYouLikeToExit));
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle(getString(R.string.warningTitle));
+		alertDialogBuilder.setCancelable(false);
+		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+						Intent intent = new Intent(getApplicationContext(),
+								MainActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.putExtra("EXIT", true);
+						startActivity(intent);
+					}
+				});
+		alertDialogBuilder.setNegativeButton(getString(R.string.cancel),
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				});
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
 	}
 
 	public void getSellers() {
@@ -637,22 +666,21 @@ public class HomeActivity extends Activity {
 						level = theLevelNumber;
 						levels = level.getResult().getLevel();
 						linear_loadinghome.setVisibility(View.INVISIBLE);
-//						Toast.makeText(getApplicationContext(), levels, 1)
-//								.show();
+						// Toast.makeText(getApplicationContext(), levels, 1)
+						// .show();
 					}
 				});
 	}
 
 	@Override
 	public void onBackPressed() {
-		 
+
 		if (_doubleBackToExitPressedOnce) {
- 	        return;
-	    }
-	    this._doubleBackToExitPressedOnce = true;
- 	}
-	
-	
+			return;
+		}
+		this._doubleBackToExitPressedOnce = true;
+	}
+
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
@@ -726,7 +754,5 @@ public class HomeActivity extends Activity {
 		builder.setPositiveButton(R.string.ok, null);
 		builder.show();
 	}
-
-	
 
 }

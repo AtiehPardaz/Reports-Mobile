@@ -195,7 +195,9 @@ public class FrgMojodikala extends Fragment {
 								+ "&warehouseIds=" + warehouseId.toString()
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText() + "&filterZeroItem=TRUE";
- 
+
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 
 					} else if (chktajmiiy.isChecked() == false
 							&& chk_mojodisefr.isChecked() == false) {
@@ -204,6 +206,9 @@ public class FrgMojodikala extends Fragment {
 								+ "&warehouseIds=" + warehouseId.toString()
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText();
+
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 					} else if (chktajmiiy.isChecked() == false
 							&& chk_mojodisefr.isChecked() == true) {
 						ReportsUrl = "WareHouse/WareHouse.aspx?"
@@ -211,6 +216,9 @@ public class FrgMojodikala extends Fragment {
 								+ "&warehouseIds=" + warehouseId.toString()
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText() + "&filterZeroItem=TRUE";
+
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 					} else if (chktajmiiy.isChecked() == true
 							&& chk_mojodisefr.isChecked() == false) {
 						// else {
@@ -219,6 +227,9 @@ public class FrgMojodikala extends Fragment {
 								+ "&warehouseIds=" + warehouseId.toString()
 								+ "&FromDate=" + et_date.getText() + "&ToDate="
 								+ et_date.getText() + "&filterZeroItem=FALSE";
+
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 					}
 					report.putExtra("activityname", "kalaactivity");
 					report.putExtra("gozaresh", ReportsUrl);

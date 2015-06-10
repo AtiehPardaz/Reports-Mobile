@@ -1,7 +1,9 @@
 package com.Atieh.reportsmobile;
 
 import pageradapter.mypageadapter;
+import android.app.AlertDialog;
 import android.app.Application;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -38,6 +40,7 @@ public class ForoshActivity extends FragmentActivity {
 	Button kala;
 	public static Animation animbounce;
 	public static Boolean flgGotobackground = false;
+ 
 
 	public void initview() {
 		menu = (ImageButton) findViewById(R.id.imgbtn_menu_forosh);
@@ -232,17 +235,50 @@ public class ForoshActivity extends FragmentActivity {
 
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(getApplicationContext(),
-						MainActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				intent.putExtra("EXIT", true);
-				startActivity(intent);
+				// Intent intent = new Intent(getApplicationContext(),
+				// MainActivity.class);
+				// intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+				// intent.putExtra("EXIT", true);
+				// startActivity(intent);
+
+				showDialogForExit();
 
 			}
 		});
 	}// End onCreate
 
-	
+	public void showDialogForExit() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+		alertDialogBuilder.setMessage(getString(R.string.wouldYouLikeToExit));
+		alertDialogBuilder.setIcon(R.drawable.ic_launcher);
+		alertDialogBuilder.setTitle(getString(R.string.warningTitle));
+		alertDialogBuilder.setCancelable(false);
+		alertDialogBuilder.setPositiveButton(getString(R.string.ok),
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface arg0, int arg1) {
+
+						Intent intent = new Intent(getApplicationContext(),
+								MainActivity.class);
+						intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.putExtra("EXIT", true);
+						startActivity(intent);
+					}
+				});
+		alertDialogBuilder.setNegativeButton(getString(R.string.cancel),
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+
+				});
+		AlertDialog alertDialog = alertDialogBuilder.create();
+		alertDialog.show();
+	}
+
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -252,7 +288,7 @@ public class ForoshActivity extends FragmentActivity {
 					"برای ادامه کار لطفا دوباره وارد شوید", 1).show();
 			Intent gotologin = new Intent(ForoshActivity.this,
 					MainActivity.class);
-			gotologin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			// gotologin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(gotologin);
 		}
 	}
@@ -263,28 +299,10 @@ public class ForoshActivity extends FragmentActivity {
 		super.onStop();
 		flgGotobackground = true;
 	}
-	
-	 
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-
-		// flgGotobackground = true;
-	}
 
 	@Override
 	public void onBackPressed() {
 
 	}
-	// @Override
-	// public void onBackPressed() {
-
-	// super.onBackPressed();
-
-	// Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-	// intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-	// startActivity(intent);
-	// }
 
 }

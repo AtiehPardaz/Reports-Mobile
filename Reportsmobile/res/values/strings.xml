@@ -92,6 +92,7 @@
         <string name="foroshande">فروشنده</string>
          <string name="kala">کالا</string>
           <string name="khadamat">خدمات</string>
+          
            <string name="anbarha">انبارها</string>
            <string name="kalaha">کالاها</string>
          <string name="mojodisefr">عدم نمایش کالاهای موجودی صفر</string>
@@ -105,5 +106,11 @@
           <string name="sarresidenteha">تاریخ سررسید انتها</string>
             <string name="shakhspardakhtkonande">شخص پرداخت کننده</string>
             <string name="shakhsgirande">شخص گیرنده</string>
+            
+             <string name="onvanetafsil">عنوان</string>
+             
+             <string name="datepicker_startdate">تاریخ شروع</string>
+              <string name="datepicker_enddate">تاریخ پایان</string>
+              
 
 </resources>

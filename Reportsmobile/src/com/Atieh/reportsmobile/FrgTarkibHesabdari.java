@@ -497,10 +497,14 @@ public class FrgTarkibHesabdari extends Fragment {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-
-				if (flg_selecttafsil2 == 0) {
+				if (flg_selecttafsil == 0) {
 					showDialog("توجه",
-							"لطفا ابتدا عنوان تفصیل را انتخاب نمایید");
+							"لطفا ابتدا عنوان تفصیل اول  را انتخاب نمایید");
+
+				} 
+				else if (flg_selecttafsil2 == 0) {
+					showDialog("توجه",
+							"لطفا  عنوان تفصیل دوم  را انتخاب نمایید");
 
 				} else if (flg_selecttafsil2 == 1) {// for shakhs
 					flgbackforResume = 4;
@@ -621,8 +625,10 @@ public class FrgTarkibHesabdari extends Fragment {
 								+ "&FirstType=" + type + "&FirstDetailLevel="
 								+ spnr_sathtafsil.getSelectedItem().toString()
 								+ "&SecondDetailIds=" + pId2.toString()
-								+ "&SecondType=" + type2
+								+ "&SecondType=" + type2+"&SecondDetailLevel="
 								+ spnr2_sathtafsil.getSelectedItem().toString();
+//						+"&Token="+ HomeActivity.token.toString()+"&FinancialYearId="+
+//						SelectDomainActivity.finalreturneyearid.toString();
 
 						Intent report = new Intent();
 						report.putExtra("gozaresh", ReportsUrl);
