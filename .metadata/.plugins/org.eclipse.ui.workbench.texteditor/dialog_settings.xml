@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="toke" key="selection"/>
+		<item value="AlertDialog" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="AlertDialog"/>
 			<item value="toke"/>
 			<item value="returnedYearID"/>
 			<item value="btnshow.setOnCli"/>
@@ -15,7 +16,6 @@
 			<item value="toas"/>
 			<item value="new checkdate();"/>
 			<item value="prepareTextView"/>
-			<item value="7"/>
 		</list>
 		<list key="replacehistory">
 			<item value="tarkibi"/>

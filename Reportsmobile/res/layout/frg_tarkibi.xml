@@ -64,7 +64,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="2dp"
         android:background="@color/marker_color"
         android:gravity="right" >
 
@@ -78,8 +78,8 @@
 
         <Spinner
             android:id="@+id/spnr_sathtafsiltarkibi_hesabdari"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
             android:layout_gravity="center|right"
             android:background="@color/marker_color"
             android:backgroundTint="@color/bg_action_gray"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
-            android:hint="سطح"
+            android:hint="سطح یک"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="14sp"
@@ -117,7 +117,7 @@
 
         <TextView
             android:id="@+id/et_sathtafsiltarkibi_hesabdari"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
@@ -137,7 +137,7 @@
 
         <Spinner
             android:id="@+id/spnrOnvan2ta"
-            android:layout_width="120dp"
+            android:layout_width="90dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:background="@color/marker_color"
@@ -151,7 +151,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="20dp"
         android:background="@color/marker_color"
         android:gravity="right" >
 
@@ -165,8 +166,8 @@
 
         <Spinner
             android:id="@+id/spnr_sathtafsil2tarkibi_hesabdari"
-            android:layout_width="150dp"
-            android:layout_height="35dp"
+            android:layout_width="163dp"
+            android:layout_height="40dp"
             android:layout_gravity="center|right"
             android:background="@color/marker_color"
             android:backgroundTint="@color/bg_action_gray"
@@ -180,7 +181,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|center"
             android:gravity="right"
-            android:hint="سطح"
+            android:hint="سطح دو"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#ffffff"
             android:textSize="14sp"
@@ -204,7 +205,7 @@
 
         <TextView
             android:id="@+id/et_sathtafsil2tarkibi_hesabdari"
-            android:layout_width="90dp"
+            android:layout_width="80dp"
             android:layout_height="40dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
@@ -224,7 +225,7 @@
 
         <Spinner
             android:id="@+id/spnrOnvan2tae2"
-            android:layout_width="120dp"
+            android:layout_width="90dp"
             android:layout_height="35dp"
             android:layout_gravity="center"
             android:background="@color/marker_color"
@@ -234,10 +235,12 @@
             android:textSize="12sp" />
 
     </LinearLayout>
-    <ImageButton
+
+    <ImageButton
         android:id="@+id/imgbtn_namayesh_tarkibi_hesabdari"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:background="@color/blue_green"
         android:src="@drawable/btnshow_click" />
 

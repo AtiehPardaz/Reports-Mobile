@@ -73,7 +73,7 @@ public class ListViewAlphebeticalActivity extends Activity implements
 		selall = (ImageButton) findViewById(R.id.imgbtn_SelAll);
 		titlelistview = (TextView) findViewById(R.id.et_titlelistviewalphebetic);
 		et_search = (EditText) findViewById(R.id.et_searchlist);
-
+		tv_title=(TextView) findViewById(R.id.et_titlelistviewalphebetic);
 		utils.setkodakfont(et_search);
 		utils.setkodakfont(titlelistview);
 		// arraytitle va arrayID bayad meghdardehi shavand
@@ -87,7 +87,9 @@ public class ListViewAlphebeticalActivity extends Activity implements
 
 		sidepicker = getIntent().getExtras().getBoolean("side");
 		searchable = getIntent().getExtras().getBoolean("search");
-
+		String title=getIntent().getExtras().getString("alphebetic_title");
+		Toast.makeText(getApplicationContext(), title, 1).show();
+		tv_title.setText(title);
 		// Toast.makeText(getApplicationContext(), arraytitle.length + "", 1)
 		// .show();
 

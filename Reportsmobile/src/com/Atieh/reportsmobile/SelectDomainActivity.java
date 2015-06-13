@@ -172,6 +172,8 @@ public class SelectDomainActivity extends Activity {
 				intent.setClass(SelectDomainActivity.this,
 						ListViewAlphebeticalActivity.class);
 				intent.putExtra("arrayttitlefromjson", domaintitle);
+				intent.putExtra("alphebetic_title", "انتخاب دامنه");
+			
 				intent.putExtra("arrayidfromjson", domainid);
 				startActivity(intent);
 			}
@@ -273,6 +275,7 @@ public class SelectDomainActivity extends Activity {
 							ListViewAlphebeticalActivity.class);
 					intent.putExtra("arrayttitlefromjson", yeartitle);
 					intent.putExtra("arrayidfromjson", yearid);
+					intent.putExtra("alphebetic_title", "انتخاب سال مالی");
 					startActivity(intent);
 
 				}

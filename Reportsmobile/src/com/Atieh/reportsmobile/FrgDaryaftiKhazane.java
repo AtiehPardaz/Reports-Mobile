@@ -78,6 +78,20 @@ public class FrgDaryaftiKhazane extends Fragment {
 
 		chkdate = new checkdate();
 		
+		
+		et_pardakhtebteda.setText(SelectDomainActivity.Startdate_charyear + "/"
+				+ SelectDomainActivity.Startdate_charmonth + "/"
+				+ SelectDomainActivity.Startdate_charday);
+		et_pardakhtenteha.setText(SelectDomainActivity.Enddate_charyear + "/"
+				+ SelectDomainActivity.Enddate_charmonth + "/"
+				+ SelectDomainActivity.Enddate_charday);
+//		=============
+		et_sarresidebteda.setText(SelectDomainActivity.Startdate_charyear + "/"
+				+ SelectDomainActivity.Startdate_charmonth + "/"
+				+ SelectDomainActivity.Startdate_charday);
+		et_sarresidenteha.setText(SelectDomainActivity.Enddate_charyear + "/"
+				+ SelectDomainActivity.Enddate_charmonth + "/"
+				+ SelectDomainActivity.Enddate_charday);
 		// ====================callOnClick
 		et_pardakhtebteda.setOnClickListener(new OnClickListener() {
 			@SuppressLint("NewApi")
